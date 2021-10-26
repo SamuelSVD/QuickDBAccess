@@ -48,6 +48,8 @@ namespace QuickDBAccess.Forms
                 cs.SizeType = SizeType.AutoSize;
                 Button b = new Button();
                 b.Text = tv.buttonActions[i].name;
+                b.MinimumSize = b.Size;
+                b.AutoSize = true;
                 AddButtonEvent(b, tv.buttonActions[i]);
                 tableLayoutPanel2.Controls.Add(b, i, 0);
             }
