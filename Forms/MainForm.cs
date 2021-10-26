@@ -35,5 +35,14 @@ namespace QuickDBAccess.Forms
             tp.Controls.Add(tvf.getControl());
             tabControl1.TabPages.Add(tp);
         }
+
+        private void exitToolStripMenuItem_Click(object sender, System.EventArgs e) {
+            Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, System.EventArgs e) {
+            AboutForm af = new AboutForm();
+            af.ShowDialog();
+        }
     }
 }
