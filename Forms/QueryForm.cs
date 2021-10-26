@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace QuickDBAccess.Forms
@@ -18,6 +19,10 @@ namespace QuickDBAccess.Forms
             this.connection = connection;
             this.dgv = dgv;
             CreateForm();
+            if (Program.DEBUG) itemsTableLayoutPanel.CellPaint += itemsTableLayoutPanel_CellPaint;
+        }
+        void itemsTableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e) {
+            e.Graphics.DrawRectangle(new Pen(Color.Blue), e.CellBounds);
         }
         private void CreateForm()
         {

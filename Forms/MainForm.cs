@@ -8,7 +8,6 @@ namespace QuickDBAccess.Forms
 {
     public partial class MainForm : Form
     {
-        
         QuickAccess qa;
         public MainForm()
         {
@@ -18,6 +17,8 @@ namespace QuickDBAccess.Forms
         public void LoadConfig()
         {
             qa = XMLUtils.LoadFromFile<QuickAccess>(ProgramData.CONFIG);
+            //qa.TableViews[0].buttonActions[0].parameters.Add(new QueryParameter());
+            //XMLUtils.SaveToFile(qa, ProgramData.CONFIG);
             if (qa != null)
             {
                 foreach (TableView tv in qa.TableViews)

@@ -8,11 +8,12 @@ namespace QuickDBAccess {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        public static bool DEBUG = false;
         [STAThread]
         static void Main(string[] args) {
             CreateCommandlineParameters(args);
-            string[] ar = { "-c", "somelocation", "-d"};
-            args = ar;
+            //string[] ar = { "-c", "somelocation", "-d"};
+            //args = ar;
             ArgUtils.Handle(args);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -30,6 +31,11 @@ namespace QuickDBAccess {
                     false,
                     "-d",
                     saveDemo));
+            ArgUtils.AddHandle(
+                new ArgUtils.ArgHandler(
+                    false,
+                    "-debug",
+                    debug));
         }
         private static void debugParameter(object sender, EventArgs e) {
             ArgUtils.ArgHandlerParams p = (ArgUtils.ArgHandlerParams)e;
@@ -40,6 +46,9 @@ namespace QuickDBAccess {
         private static void saveDemo(object sender, EventArgs e) {
             MessageBox.Show("Demo!");
             Environment.Exit(0);
+        }
+        private static void debug(object sender, EventArgs e) {
+            Program.DEBUG = true;
         }
     }
 }

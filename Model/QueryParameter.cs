@@ -7,11 +7,11 @@ namespace QuickDBAccess.Model
     public class QueryParameter
     {
         [XmlAttribute]
-        public string type;
+        public string type = "";
         [XmlAttribute]
-        public string name;
+        public string name = "";
         [XmlAttribute]
-        public string autoSourceColumnName;
+        public string autoSourceColumnName = "";
         [XmlIgnore]
         public Control c;
         public SqlDbType getSqlDbType()

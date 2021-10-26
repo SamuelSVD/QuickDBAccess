@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace QuickDBAccess.Forms
@@ -30,28 +31,31 @@ namespace QuickDBAccess.Forms
             this.connection = connection;
             if (tv.buttonActions.Count > 2)
             {
-                tableLayoutPanel.ColumnCount = tv.buttonActions.Count;
+                tableLayoutPanel2.ColumnCount = tv.buttonActions.Count;
             }
             for (int i = 0; i < tv.buttonActions.Count; i++)
             {
                 ColumnStyle cs;
-                if (tableLayoutPanel.ColumnStyles.Count > i)
+                if (tableLayoutPanel2.ColumnStyles.Count > i)
                 {
-                    cs = tableLayoutPanel.ColumnStyles[i];
+                    cs = tableLayoutPanel2.ColumnStyles[i];
                 }
                 else
                 {
                     cs = new ColumnStyle();
-                    tableLayoutPanel.ColumnStyles.Add(cs);
+                    tableLayoutPanel2.ColumnStyles.Add(cs);
                 }
                 cs.SizeType = SizeType.AutoSize;
                 Button b = new Button();
                 b.Text = tv.buttonActions[i].name;
                 AddButtonEvent(b, tv.buttonActions[i]);
-                tableLayoutPanel.Controls.Add(b, i, 0);
+                tableLayoutPanel2.Controls.Add(b, i, 0);
             }
-            tableLayoutPanel.SetColumnSpan(gridView, tableLayoutPanel.ColumnCount);
             DataLoad();
+            if (Program.DEBUG) tableLayoutPanel.CellPaint += tableLayoutPanel_CellPaint;
+        }
+        void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e) {
+            e.Graphics.DrawRectangle(new Pen(Color.Blue), e.CellBounds);
         }
         private void AddButtonEvent(Button b, Query q)
         {

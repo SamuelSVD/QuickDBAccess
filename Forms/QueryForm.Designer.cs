@@ -36,20 +36,21 @@ namespace QuickDBAccess.Forms
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(511, 106);
+            this.okButton.Location = new System.Drawing.Point(81, 220);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 0;
-            this.okButton.Text = "button1";
+            this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(605, 106);
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.Location = new System.Drawing.Point(162, 220);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 1;
-            this.cancelButton.Text = "button2";
+            this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // itemsTableLayoutPanel
@@ -57,7 +58,7 @@ namespace QuickDBAccess.Forms
             this.itemsTableLayoutPanel.ColumnCount = 2;
             this.itemsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.itemsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.itemsTableLayoutPanel.Location = new System.Drawing.Point(44, 59);
+            this.itemsTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.itemsTableLayoutPanel.Name = "itemsTableLayoutPanel";
             this.itemsTableLayoutPanel.RowCount = 2;
             this.itemsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -67,8 +68,10 @@ namespace QuickDBAccess.Forms
             // 
             // QueryForm
             // 
+            this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.itemsTableLayoutPanel);
             this.Controls.Add(this.cancelButton);
