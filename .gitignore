@@ -1,0 +1,15 @@
+__history/
+__recovery/
+_archive/
+bin/
+obj/
+Win32/
+*.local
+TrayDir/obj
+TrayDir/bin
+.vs
+*.suo
+Installer/binaries
+TrayDir/lib/VisualStudioTabControl/obj/
+*.pfx
+*.exe
