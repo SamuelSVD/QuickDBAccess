@@ -15,6 +15,7 @@ namespace QuickDBAccess.Forms
         public QueryForm(Query query, SQLConnection connection, DataGridView dgv)
         {
             InitializeComponent();
+            this.Text = query.name;
             this.query = query;
             this.connection = connection;
             this.dgv = dgv;
@@ -35,7 +36,10 @@ namespace QuickDBAccess.Forms
         {
             int i = query.parameters.IndexOf(param);
             Label l = new Label();
+            l.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             l.Text = param.name;
+            l.MinimumSize = l.Size;
+            l.AutoSize = true;
             itemsTableLayoutPanel.Controls.Add(l, 0, i);
             switch (param.getSqlDbType())
             {
