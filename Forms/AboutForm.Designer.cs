@@ -72,7 +72,7 @@ namespace QuickDBAccess.Forms
             this.versionLabel.TabIndex = 2;
             this.versionLabel.Text = "V2.1.0 | 2021-03-21";
             // 
-            // About
+            // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -84,7 +84,7 @@ namespace QuickDBAccess.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "About";
+            this.Name = "AboutForm";
             this.Padding = new System.Windows.Forms.Padding(25, 26, 25, 26);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "About";
