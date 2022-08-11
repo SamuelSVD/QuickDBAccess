@@ -27,6 +27,7 @@ namespace QuickDBAccess.Forms
         public TableViewForm(Model.TableView tv, Model.SQLConnection connection)
         {
             InitializeComponent();
+			gridView.CellDoubleClick += dataGridView_CellDoubleClick;
             tableView = tv;
             this.connection = connection;
             if (tv.buttonActions.Count > 2)
