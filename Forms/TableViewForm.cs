@@ -33,10 +33,15 @@ namespace QuickDBAccess.Forms
             {
                 tableLayoutPanel2.ColumnCount = tv.buttonActions.Count;
             }
-            for (int i = 0; i < tv.buttonActions.Count; i++)
+			ColumnStyle cs;
+			Button b;
+			int cnt = 0;
+			for (int i = 0; i < tv.buttonActions.Count; i++)
             {
-                ColumnStyle cs;
-                if (tableLayoutPanel2.ColumnStyles.Count > i)
+				if (tableLayoutPanel2.ColumnCount <= i) {
+					tableLayoutPanel2.ColumnCount++;
+				}
+				if (tableLayoutPanel2.ColumnStyles.Count > i)
                 {
                     cs = tableLayoutPanel2.ColumnStyles[i];
                 }
@@ -46,14 +51,31 @@ namespace QuickDBAccess.Forms
                     tableLayoutPanel2.ColumnStyles.Add(cs);
                 }
                 cs.SizeType = SizeType.AutoSize;
-                Button b = new Button();
+                b = new Button();
                 b.Text = tv.buttonActions[i].name;
                 b.MinimumSize = b.Size;
                 b.AutoSize = true;
                 AddButtonEvent(b, tv.buttonActions[i]);
                 tableLayoutPanel2.Controls.Add(b, i, 0);
+				cnt++;
             }
-            DataLoad();
+			tableLayoutPanel2.ColumnCount++;
+			b = new Button();
+			b.Text = "";
+			b.Width = b.Height;
+			b.MinimumSize = b.Size;
+			b.AutoSize = true;
+			b.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+			b.Click += RefreshData;
+			b.BackgroundImageLayout = ImageLayout.Stretch;
+			b.BackgroundImage = Properties.Resources.refresh;
+			tableLayoutPanel2.Controls.Add(b, cnt, 0);
+
+			cs = new ColumnStyle();
+			cs.SizeType = SizeType.AutoSize;
+			tableLayoutPanel2.ColumnStyles.Add(cs);
+
+			DataLoad();
             if (Program.DEBUG) tableLayoutPanel.CellPaint += tableLayoutPanel_CellPaint;
         }
         void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e) {
@@ -68,6 +90,9 @@ namespace QuickDBAccess.Forms
                 DataLoad();
             });
         }
+		public void RefreshData(object sender, EventArgs args) {
+			DataLoad();
+		}
         public void DataLoad()
         {
             string connString = connection.ConnectionString();
