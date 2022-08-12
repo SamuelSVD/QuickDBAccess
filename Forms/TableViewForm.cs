@@ -49,7 +49,9 @@ namespace QuickDBAccess.Forms {
 				tableLayoutPanel2.Controls.Add(b, i, 0);
 				cnt++;
 			}
-			tableLayoutPanel2.ColumnCount++;
+			if (tableLayoutPanel2.ColumnCount <= tv.buttonActions.Count) {
+				tableLayoutPanel2.ColumnCount++;
+			}
 			b = new Button();
 			b.Text = "";
 			b.Width = b.Height;
