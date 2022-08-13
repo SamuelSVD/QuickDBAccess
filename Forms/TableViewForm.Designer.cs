@@ -47,13 +47,12 @@ namespace QuickDBAccess.Forms
 			this.ContentTableLayoutPanel.Controls.Add(this.ChildrenTabControl, 0, 2);
 			this.ContentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ContentTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-			this.ContentTableLayoutPanel.MinimumSize = new System.Drawing.Size(350, 249);
 			this.ContentTableLayoutPanel.Name = "ContentTableLayoutPanel";
 			this.ContentTableLayoutPanel.RowCount = 3;
 			this.ContentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.ContentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-			this.ContentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-			this.ContentTableLayoutPanel.Size = new System.Drawing.Size(350, 249);
+			this.ContentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.ContentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.ContentTableLayoutPanel.Size = new System.Drawing.Size(193, 84);
 			this.ContentTableLayoutPanel.TabIndex = 0;
 			// 
 			// ButtonsTableLayoutPanel
@@ -81,23 +80,25 @@ namespace QuickDBAccess.Forms
 			this.ContentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ContentDataGridView.Location = new System.Drawing.Point(3, 9);
 			this.ContentDataGridView.Name = "ContentDataGridView";
-			this.ContentDataGridView.Size = new System.Drawing.Size(397, 139);
+			this.ContentDataGridView.Size = new System.Drawing.Size(397, 33);
 			this.ContentDataGridView.TabIndex = 1;
+			this.ContentDataGridView.CellStateChanged += new System.Windows.Forms.DataGridViewCellStateChangedEventHandler(this.ContentDataGridView_CellStateChanged);
+			this.ContentDataGridView.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.ContentDataGridView_RowStateChanged);
 			// 
 			// ChildrenTabControl
 			// 
 			this.ChildrenTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.ChildrenTabControl.Location = new System.Drawing.Point(3, 154);
+			this.ChildrenTabControl.Location = new System.Drawing.Point(3, 48);
 			this.ChildrenTabControl.Name = "ChildrenTabControl";
 			this.ChildrenTabControl.SelectedIndex = 0;
-			this.ChildrenTabControl.Size = new System.Drawing.Size(397, 92);
+			this.ChildrenTabControl.Size = new System.Drawing.Size(397, 33);
 			this.ChildrenTabControl.TabIndex = 2;
 			// 
 			// TableViewForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(350, 249);
+			this.ClientSize = new System.Drawing.Size(193, 84);
 			this.Controls.Add(this.ContentTableLayoutPanel);
 			this.Name = "TableViewForm";
 			this.Text = "TableViewForm";

@@ -75,6 +75,7 @@ namespace QuickDBAccess.Forms {
 				ContentTableLayoutPanel.Controls.Remove(ChildrenTabControl);
 				ContentTableLayoutPanel.RowStyles[1].SizeType = SizeType.AutoSize;
 			}
+			_initialized = true;
 		}
 		private void BuildChildrenViews() {
 			ContentTableLayoutPanel.Controls.Add(ChildrenTabControl, 0, 2);
@@ -157,6 +158,32 @@ namespace QuickDBAccess.Forms {
 				QueryForm f = new QueryForm(this.tableView.OnDoubleClickQuery, connection, ContentDataGridView);
 				f.ShowDialog();
 				DataLoad();
+			}
+		}
+		int _selectedRow = -1;
+		private bool _initialized;
+
+		private void ContentDataGridView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e) {
+			if (e.StateChanged != DataGridViewElementStates.Selected) return;
+			foreach(TableViewForm tvf in ChildrenTabs) {
+				tvf.RefreshData(sender, e);
+			}
+			if (ContentDataGridView.SelectedCells.Count > 0) {
+				_selectedRow = ContentDataGridView.SelectedCells[0].RowIndex;
+			} else {
+				_selectedRow = -1;
+			}
+		}
+
+		private void ContentDataGridView_CellStateChanged(object sender, DataGridViewCellStateChangedEventArgs e) {
+			if (e.StateChanged != DataGridViewElementStates.Selected || !_initialized) return;
+			if (ContentDataGridView.SelectedCells.Count > 0) {
+				if (ContentDataGridView.SelectedCells[0].RowIndex != _selectedRow) {
+					_selectedRow = ContentDataGridView.SelectedCells[0].RowIndex;
+					foreach (TableViewForm tvf in ChildrenTabs) {
+						tvf.RefreshData(sender, e);
+					}
+				}
 			}
 		}
 	}
