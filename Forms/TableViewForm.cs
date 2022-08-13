@@ -148,7 +148,9 @@ namespace QuickDBAccess.Forms {
 					da.Dispose();
 				}
 				catch (Exception ex) {
-					MessageBox.Show(ex.Message);
+					if (ex.Message != "Operation cannot be performed in this event handler.") {
+						MessageBox.Show(ex.Message);
+					}
 				}
 			}
 		}
@@ -161,11 +163,14 @@ namespace QuickDBAccess.Forms {
 			}
 		}
 		int _selectedRow = -1;
-		private bool _initialized;
+		private bool _initialized = false;
 
 		private void ContentDataGridView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e) {
-			if (e.StateChanged != DataGridViewElementStates.Selected) return;
-			foreach(TableViewForm tvf in ChildrenTabs) {
+			if (e.StateChanged != DataGridViewElementStates.Selected || !_initialized) return;
+			if (ContentDataGridView.SelectedCells.Count > 0) {
+				if (_selectedRow == ContentDataGridView.SelectedCells[0].RowIndex) return;
+			}
+			foreach (TableViewForm tvf in ChildrenTabs) {
 				tvf.RefreshData(sender, e);
 			}
 			if (ContentDataGridView.SelectedCells.Count > 0) {
