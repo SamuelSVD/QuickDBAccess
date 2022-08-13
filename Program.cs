@@ -12,8 +12,6 @@ namespace QuickDBAccess {
 		[STAThread]
 		static void Main(string[] args) {
 			CreateCommandlineParameters(args);
-			//string[] ar = { "-c", "somelocation", "-d"};
-			//args = ar;
 			if (ArgUtils.Handle(args)) {
 				Application.EnableVisualStyles();
 				Application.SetCompatibleTextRenderingDefault(false);

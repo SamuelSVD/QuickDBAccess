@@ -15,7 +15,7 @@ namespace QuickDBAccess.Utils {
 			public ArgHandler(EventHandler eventHandler) : this(true, eventHandler) { }
 			public ArgHandler(bool required, EventHandler eventHandler) : this(required, null, 1, eventHandler) { }
 			public ArgHandler(bool required, string flag, EventHandler eventHandler) : this(required, flag, 0, eventHandler) { }
-			public ArgHandler(bool required, string flag, int paramCount, EventHandler eventHandler) : this(required, flag, "", 0, eventHandler) { }
+			public ArgHandler(bool required, string flag, int paramCount, EventHandler eventHandler) : this(required, flag, "", paramCount, eventHandler) { }
 			public ArgHandler(bool required, string flag, string description, int paramCount, EventHandler eventHandler) {
 				this.required = required;
 				this.flag = flag;
