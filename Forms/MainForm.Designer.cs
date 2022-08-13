@@ -30,7 +30,7 @@ namespace QuickDBAccess.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.TableViewTabControl = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,12 +41,12 @@ namespace QuickDBAccess.Forms
             // 
             // tabControl1
             // 
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 24);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 426);
-            this.tabControl1.TabIndex = 0;
+            this.TableViewTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TableViewTabControl.Location = new System.Drawing.Point(0, 24);
+            this.TableViewTabControl.Name = "tabControl1";
+            this.TableViewTabControl.SelectedIndex = 0;
+            this.TableViewTabControl.Size = new System.Drawing.Size(800, 426);
+            this.TableViewTabControl.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -92,7 +92,7 @@ namespace QuickDBAccess.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.TableViewTabControl);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -107,7 +107,7 @@ namespace QuickDBAccess.Forms
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl TableViewTabControl;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;

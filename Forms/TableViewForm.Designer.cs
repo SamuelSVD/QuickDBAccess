@@ -29,70 +29,82 @@ namespace QuickDBAccess.Forms
         /// </summary>
         private void InitializeComponent()
         {
-			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.dataGridView = new System.Windows.Forms.DataGridView();
-			this.tableLayoutPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+			this.ContentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+			this.ButtonsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+			this.ContentDataGridView = new System.Windows.Forms.DataGridView();
+			this.ChildrenTabControl = new System.Windows.Forms.TabControl();
+			this.ContentTableLayoutPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ContentDataGridView)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// tableLayoutPanel
+			// ContentTableLayoutPanel
 			// 
-			this.tableLayoutPanel.AutoSize = true;
-			this.tableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.tableLayoutPanel.ColumnCount = 1;
-			this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 0, 0);
-			this.tableLayoutPanel.Controls.Add(this.dataGridView, 0, 1);
-			this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel.Name = "tableLayoutPanel";
-			this.tableLayoutPanel.RowCount = 2;
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel.Size = new System.Drawing.Size(120, 39);
-			this.tableLayoutPanel.TabIndex = 0;
+			this.ContentTableLayoutPanel.AutoSize = true;
+			this.ContentTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.ContentTableLayoutPanel.ColumnCount = 1;
+			this.ContentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.ContentTableLayoutPanel.Controls.Add(this.ButtonsTableLayoutPanel, 0, 0);
+			this.ContentTableLayoutPanel.Controls.Add(this.ContentDataGridView, 0, 1);
+			this.ContentTableLayoutPanel.Controls.Add(this.ChildrenTabControl, 0, 2);
+			this.ContentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ContentTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+			this.ContentTableLayoutPanel.Name = "ContentTableLayoutPanel";
+			this.ContentTableLayoutPanel.RowCount = 3;
+			this.ContentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.ContentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+			this.ContentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+			this.ContentTableLayoutPanel.Size = new System.Drawing.Size(325, 211);
+			this.ContentTableLayoutPanel.TabIndex = 0;
 			// 
-			// tableLayoutPanel2
+			// ButtonsTableLayoutPanel
 			// 
-			this.tableLayoutPanel2.AutoSize = true;
-			this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.tableLayoutPanel2.ColumnCount = 1;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 1;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(114, 1);
-			this.tableLayoutPanel2.TabIndex = 0;
+			this.ButtonsTableLayoutPanel.AutoSize = true;
+			this.ButtonsTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.ButtonsTableLayoutPanel.ColumnCount = 1;
+			this.ButtonsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.ButtonsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.ButtonsTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ButtonsTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
+			this.ButtonsTableLayoutPanel.Name = "ButtonsTableLayoutPanel";
+			this.ButtonsTableLayoutPanel.RowCount = 1;
+			this.ButtonsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.ButtonsTableLayoutPanel.Size = new System.Drawing.Size(397, 1);
+			this.ButtonsTableLayoutPanel.TabIndex = 0;
 			// 
-			// dataGridView
+			// ContentDataGridView
 			// 
-			this.dataGridView.AllowUserToAddRows = false;
-			this.dataGridView.AllowUserToDeleteRows = false;
-			this.dataGridView.AllowUserToOrderColumns = true;
-			this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-			this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView.Location = new System.Drawing.Point(3, 9);
-			this.dataGridView.Name = "dataGridView";
-			this.dataGridView.Size = new System.Drawing.Size(114, 27);
-			this.dataGridView.TabIndex = 1;
+			this.ContentDataGridView.AllowUserToAddRows = false;
+			this.ContentDataGridView.AllowUserToDeleteRows = false;
+			this.ContentDataGridView.AllowUserToOrderColumns = true;
+			this.ContentDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.ContentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.ContentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ContentDataGridView.Location = new System.Drawing.Point(3, 9);
+			this.ContentDataGridView.Name = "ContentDataGridView";
+			this.ContentDataGridView.Size = new System.Drawing.Size(397, 117);
+			this.ContentDataGridView.TabIndex = 1;
+			// 
+			// ChildrenTabControl
+			// 
+			this.ChildrenTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ChildrenTabControl.Location = new System.Drawing.Point(3, 132);
+			this.ChildrenTabControl.Name = "ChildrenTabControl";
+			this.ChildrenTabControl.SelectedIndex = 0;
+			this.ChildrenTabControl.Size = new System.Drawing.Size(397, 76);
+			this.ChildrenTabControl.TabIndex = 2;
 			// 
 			// TableViewForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(120, 39);
-			this.Controls.Add(this.tableLayoutPanel);
+			this.ClientSize = new System.Drawing.Size(325, 211);
+			this.Controls.Add(this.ContentTableLayoutPanel);
 			this.Name = "TableViewForm";
 			this.Text = "TableViewForm";
-			this.tableLayoutPanel.ResumeLayout(false);
-			this.tableLayoutPanel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+			this.ContentTableLayoutPanel.ResumeLayout(false);
+			this.ContentTableLayoutPanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ContentDataGridView)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -100,8 +112,9 @@ namespace QuickDBAccess.Forms
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DataGridView dataGridView;
-    }
+        private System.Windows.Forms.TableLayoutPanel ContentTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel ButtonsTableLayoutPanel;
+        private System.Windows.Forms.DataGridView ContentDataGridView;
+		private System.Windows.Forms.TabControl ChildrenTabControl;
+	}
 }

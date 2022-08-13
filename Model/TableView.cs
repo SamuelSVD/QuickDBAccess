@@ -8,5 +8,6 @@ namespace QuickDBAccess.Model {
 		public Query ContentQuery = new Query();
 		public Query OnDoubleClickQuery;
 		public List<Query> buttonActions = new List<Query>();
+		public List<TableView> ChildTableViews = new List<TableView>();
 	}
 }

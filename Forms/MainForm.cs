@@ -11,8 +11,6 @@ namespace QuickDBAccess.Forms {
 		}
 		public void LoadConfig() {
 			qa = XMLUtils.LoadFromFile<QuickAccess>(ProgramData.CONFIG);
-			//qa.TableViews[0].buttonActions[0].parameters.Add(new QueryParameter());
-			//XMLUtils.SaveToFile(qa, ProgramData.CONFIG);
 			if (qa != null) {
 				foreach (TableView tv in qa.TableViews) {
 					AddTableView(tv);
@@ -24,7 +22,7 @@ namespace QuickDBAccess.Forms {
 			TabPage tp = new TabPage();
 			tp.Text = tv.name;
 			tp.Controls.Add(tvf.getControl());
-			tabControl1.TabPages.Add(tp);
+			TableViewTabControl.TabPages.Add(tp);
 		}
 
 		private void exitToolStripMenuItem_Click(object sender, System.EventArgs e) {
