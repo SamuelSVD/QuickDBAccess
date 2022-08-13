@@ -40,7 +40,6 @@ namespace QuickDBAccess.Forms
 			// ContentTableLayoutPanel
 			// 
 			this.ContentTableLayoutPanel.AutoSize = true;
-			this.ContentTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.ContentTableLayoutPanel.ColumnCount = 1;
 			this.ContentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.ContentTableLayoutPanel.Controls.Add(this.ButtonsTableLayoutPanel, 0, 0);
@@ -48,12 +47,13 @@ namespace QuickDBAccess.Forms
 			this.ContentTableLayoutPanel.Controls.Add(this.ChildrenTabControl, 0, 2);
 			this.ContentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ContentTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+			this.ContentTableLayoutPanel.MinimumSize = new System.Drawing.Size(350, 249);
 			this.ContentTableLayoutPanel.Name = "ContentTableLayoutPanel";
 			this.ContentTableLayoutPanel.RowCount = 3;
 			this.ContentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.ContentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
 			this.ContentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-			this.ContentTableLayoutPanel.Size = new System.Drawing.Size(325, 211);
+			this.ContentTableLayoutPanel.Size = new System.Drawing.Size(350, 249);
 			this.ContentTableLayoutPanel.TabIndex = 0;
 			// 
 			// ButtonsTableLayoutPanel
@@ -81,24 +81,23 @@ namespace QuickDBAccess.Forms
 			this.ContentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ContentDataGridView.Location = new System.Drawing.Point(3, 9);
 			this.ContentDataGridView.Name = "ContentDataGridView";
-			this.ContentDataGridView.Size = new System.Drawing.Size(397, 117);
+			this.ContentDataGridView.Size = new System.Drawing.Size(397, 139);
 			this.ContentDataGridView.TabIndex = 1;
 			// 
 			// ChildrenTabControl
 			// 
 			this.ChildrenTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.ChildrenTabControl.Location = new System.Drawing.Point(3, 132);
+			this.ChildrenTabControl.Location = new System.Drawing.Point(3, 154);
 			this.ChildrenTabControl.Name = "ChildrenTabControl";
 			this.ChildrenTabControl.SelectedIndex = 0;
-			this.ChildrenTabControl.Size = new System.Drawing.Size(397, 76);
+			this.ChildrenTabControl.Size = new System.Drawing.Size(397, 92);
 			this.ChildrenTabControl.TabIndex = 2;
 			// 
 			// TableViewForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(325, 211);
+			this.ClientSize = new System.Drawing.Size(350, 249);
 			this.Controls.Add(this.ContentTableLayoutPanel);
 			this.Name = "TableViewForm";
 			this.Text = "TableViewForm";

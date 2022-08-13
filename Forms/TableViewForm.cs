@@ -10,16 +10,19 @@ namespace QuickDBAccess.Forms {
 	public partial class TableViewForm : Form {
 		private DataTable datatable = new DataTable();
 		List<TableViewForm> ChildrenTabs = new List<TableViewForm>();
+		public TableViewForm ParentForm;
 		public Control getControl() {
 			return ContentTableLayoutPanel;
 		}
 		private Model.TableView tableView;
 		private Model.SQLConnection connection;
-		public TableViewForm(Model.TableView tv, Model.SQLConnection connection) {
+		public TableViewForm(Model.TableView tv, Model.SQLConnection connection) : this(tv, connection, null){ }
+		public TableViewForm(Model.TableView tv, Model.SQLConnection connection, TableViewForm parent) {
 			InitializeComponent();
 			ContentDataGridView.CellDoubleClick += dataGridView_CellDoubleClick;
 			tableView = tv;
 			this.connection = connection;
+			ParentForm = parent;
 			if (tv.buttonActions.Count > 2) {
 				ButtonsTableLayoutPanel.ColumnCount = tv.buttonActions.Count;
 			}
@@ -82,11 +85,12 @@ namespace QuickDBAccess.Forms {
 			}
 		}
 		private void AddChildTableView(TableView tv) {
-			TableViewForm tvf = new TableViewForm(tv, connection);
+			TableViewForm tvf = new TableViewForm(tv, connection, this);
 			TabPage tp = new TabPage();
 			tp.Text = tv.name;
 			tp.Controls.Add(tvf.getControl());
 			ChildrenTabControl.TabPages.Add(tp);
+			ChildrenTabs.Add(tvf);
 		}
 		void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e) {
 			e.Graphics.DrawRectangle(new Pen(Color.Blue), e.CellBounds);
@@ -101,13 +105,37 @@ namespace QuickDBAccess.Forms {
 		public void RefreshData(object sender, EventArgs args) {
 			DataLoad();
 		}
+		public object GetValue(string Name) {
+			foreach (QueryParameter qp in this.tableView.ContentQuery.parameters) {
+				if (qp.name == Name) {
+					return qp.getValue();
+				}
+			}
+			try {
+				var dataGridViewColumn = ContentDataGridView.Columns[Name];
+				int index = ContentDataGridView.Columns.IndexOf(dataGridViewColumn);
+				return ContentDataGridView.Rows[ContentDataGridView.SelectedCells[0].RowIndex].Cells[index].Value;
+			}
+			catch { }
+			return null;
+		}
 		public void DataLoad() {
 			string connString = connection.ConnectionString();
 			string query = tableView.ContentQuery.command;
-
 			using (var con = new SqlConnection(connString))
 			using (var cmd = new SqlCommand(query, con)) {
 				try {
+					for (int i = 0; i < this.tableView.ContentQuery.parentparameters.Count; i++) {
+						QueryParameter p = this.tableView.ContentQuery.parentparameters[i];
+						cmd.Parameters.Add("@" + p.name, p.getSqlDbType());
+						cmd.Parameters["@" + p.name].Value = ParentForm.GetValue(p.name);
+						if (cmd.Parameters["@" + p.name].Value == null) return;
+					}
+					for (int i = 0; i < this.tableView.ContentQuery.parameters.Count; i++) {
+						QueryParameter p = this.tableView.ContentQuery.parameters[i];
+						cmd.Parameters.Add("@" + p.name, p.getSqlDbType());
+						cmd.Parameters["@" + p.name].Value = p.getValue();
+					}
 					con.Open();
 					// create data adapter
 					SqlDataAdapter da = new SqlDataAdapter(cmd);

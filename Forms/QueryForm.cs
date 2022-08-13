@@ -61,6 +61,20 @@ namespace QuickDBAccess.Forms {
 			}
 			catch { }
 		}
+		public object GetValue(string Name) {
+			foreach(QueryParameter qp in this.query.parameters) {
+				if (qp.name == Name) {
+					return qp.getValue();
+				}
+			}
+			try {
+				var dataGridViewColumn = dgv.Columns[Name];
+				int index = dgv.Columns.IndexOf(dataGridViewColumn);
+				return dgv.Rows[dgv.SelectedCells[0].RowIndex].Cells[index].Value;
+			}
+			catch { }
+			return null;
+		}
 		private void okButton_Click(object sender, EventArgs e) {
 			string connString = connection.ConnectionString();
 			string query = this.query.command;

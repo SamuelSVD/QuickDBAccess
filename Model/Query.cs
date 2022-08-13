@@ -8,5 +8,6 @@ namespace QuickDBAccess.Model {
 		[XmlAttribute]
 		public string command = "";
 		public List<QueryParameter> parameters = new List<QueryParameter>();
+		public List<QueryParameter> parentparameters = new List<QueryParameter>();
 	}
 }

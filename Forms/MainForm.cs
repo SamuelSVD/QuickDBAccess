@@ -22,6 +22,7 @@ namespace QuickDBAccess.Forms {
 			TabPage tp = new TabPage();
 			tp.Text = tv.name;
 			tp.Controls.Add(tvf.getControl());
+			TableViewTabControl.MinimumSize = tvf.getControl().MinimumSize;
 			TableViewTabControl.TabPages.Add(tp);
 		}
 
