@@ -12,7 +12,11 @@ namespace QuickDBAccess.Forms {
 		List<TableViewForm> ChildrenTabs = new List<TableViewForm>();
 		public TableViewForm ParentForm;
 		public Control getControl() {
-			return ContentTableLayoutPanel;
+			if (tableView.ChildTableViews.Count == 0) {
+				return ContentTableLayoutPanel;
+			} else {
+				return ContentSplitContainer;
+			}
 		}
 		private Model.TableView tableView;
 		private Model.SQLConnection connection;
@@ -78,7 +82,6 @@ namespace QuickDBAccess.Forms {
 			_initialized = true;
 		}
 		private void BuildChildrenViews() {
-			ContentTableLayoutPanel.Controls.Add(ChildrenTabControl, 0, 2);
 			ContentTableLayoutPanel.AutoSize = true;
 			ContentTableLayoutPanel.Dock = DockStyle.Fill;
 			foreach (TableView child in tableView.ChildTableViews) {
