@@ -4,23 +4,23 @@ using Utils;
 
 namespace QuickDBAccess.Forms {
 	public partial class MainForm : Form {
-		QuickAccess qa;
 		public MainForm() {
 			InitializeComponent();
 			LoadConfig();
 		}
 		public void LoadConfig() {
-			qa = XMLUtils.LoadFromFile<QuickAccess>(ProgramData.CONFIG);
-			if (qa != null) {
-				foreach (TableView tv in qa.TableViews) {
+			ProgramData.LoadConfig();
+			if (ProgramData.Instance != null) {
+				foreach (TableView tv in ProgramData.Instance.TableViews) {
 					AddTableView(tv);
 				}
 			}
+			ProgramData.SaveConfig();
 		}
 		private void AddTableView(TableView tv) {
-			TableViewForm tvf = new TableViewForm(tv, qa.Connection);
+			TableViewForm tvf = new TableViewForm(tv);
 			TabPage tp = new TabPage();
-			tp.Text = tv.name;
+			tp.Text = tv.Name;
 			tp.Controls.Add(tvf.getControl());
 			TableViewTabControl.MinimumSize = tvf.getControl().MinimumSize;
 			TableViewTabControl.TabPages.Add(tp);

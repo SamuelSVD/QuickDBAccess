@@ -97,6 +97,8 @@
     <Compile Include="Forms\TableViewForm.Designer.cs">
       <DependentUpon>TableViewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\ButtonModel.cs" />
+    <Compile Include="Model\DataSource.cs" />
     <Compile Include="Model\QuickAccess.cs" />
     <Compile Include="Model\SQLConnection.cs" />
     <Compile Include="Model\Query.cs" />

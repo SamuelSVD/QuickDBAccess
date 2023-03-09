@@ -4,10 +4,10 @@ using System.Xml.Serialization;
 namespace QuickDBAccess.Model {
 	public class Query {
 		[XmlAttribute]
-		public string name = "";
+		public string Name { get; set; } = "";
 		[XmlAttribute]
-		public string command = "";
-		public List<QueryParameter> parameters = new List<QueryParameter>();
-		public List<QueryParameter> parentparameters = new List<QueryParameter>();
+		public string Command { get; set; } = "";
+		public List<QueryParameter> Parameters { get; set; } = new List<QueryParameter>();
+		public List<QueryParameter> ParentParameters { get; set; } = new List<QueryParameter>();
 	}
 }

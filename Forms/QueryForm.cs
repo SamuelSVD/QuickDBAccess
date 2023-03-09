@@ -7,14 +7,12 @@ using System.Windows.Forms;
 
 namespace QuickDBAccess.Forms {
 	public partial class QueryForm : Form {
-		private Query query;
-		private SQLConnection connection;
+		private DataSource dataSource;
 		private DataGridView dgv;
-		public QueryForm(Query query, SQLConnection connection, DataGridView dgv) {
+		public QueryForm(string text, DataSource ds, DataGridView dgv) {
 			InitializeComponent();
-			this.Text = query.name;
-			this.query = query;
-			this.connection = connection;
+			this.Text = text;
+			this.dataSource = ds;
 			this.dgv = dgv;
 			CreateForm();
 			if (Program.DEBUG) itemsTableLayoutPanel.CellPaint += itemsTableLayoutPanel_CellPaint;
@@ -23,12 +21,12 @@ namespace QuickDBAccess.Forms {
 			e.Graphics.DrawRectangle(new Pen(Color.Blue), e.CellBounds);
 		}
 		private void CreateForm() {
-			foreach (QueryParameter p in query.parameters) {
+			foreach (QueryParameter p in dataSource.Query.Parameters) {
 				AddParameter(p);
 			}
 		}
 		private void AddParameter(QueryParameter param) {
-			int i = query.parameters.IndexOf(param);
+			int i = dataSource.Query.Parameters.IndexOf(param);
 			Label l = new Label();
 			l.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
 			l.Text = param.name;
@@ -62,7 +60,7 @@ namespace QuickDBAccess.Forms {
 			catch { }
 		}
 		public object GetValue(string Name) {
-			foreach(QueryParameter qp in this.query.parameters) {
+			foreach(QueryParameter qp in this.dataSource.Query.Parameters) {
 				if (qp.name == Name) {
 					return qp.getValue();
 				}
@@ -76,13 +74,13 @@ namespace QuickDBAccess.Forms {
 			return null;
 		}
 		private void okButton_Click(object sender, EventArgs e) {
-			string connString = connection.ConnectionString();
-			string query = this.query.command;
+			string connString = ProgramData.Instance.ConnectionByName(dataSource.ConnectionName).ConnectionString();
+			string query = this.dataSource.Query.Command;
 
 			using (var con = new SqlConnection(connString))
 			using (var cmd = new SqlCommand(query, con)) {
-				for (int i = 0; i < this.query.parameters.Count; i++) {
-					QueryParameter p = this.query.parameters[i];
+				for (int i = 0; i < this.dataSource.Query.Parameters.Count; i++) {
+					QueryParameter p = this.dataSource.Query.Parameters[i];
 					cmd.Parameters.Add("@" + p.name, p.getSqlDbType());
 					cmd.Parameters["@" + p.name].Value = p.getValue();
 				}

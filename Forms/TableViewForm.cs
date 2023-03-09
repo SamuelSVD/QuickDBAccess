@@ -19,21 +19,19 @@ namespace QuickDBAccess.Forms {
 			}
 		}
 		private Model.TableView tableView;
-		private Model.SQLConnection connection;
-		public TableViewForm(Model.TableView tv, Model.SQLConnection connection) : this(tv, connection, null){ }
-		public TableViewForm(Model.TableView tv, Model.SQLConnection connection, TableViewForm parent) {
+		public TableViewForm(Model.TableView tv) : this(tv, null) { }
+		public TableViewForm(Model.TableView tv, TableViewForm parent) {
 			InitializeComponent();
 			ContentDataGridView.CellDoubleClick += dataGridView_CellDoubleClick;
 			tableView = tv;
-			this.connection = connection;
 			ParentForm = parent;
-			if (tv.buttonActions.Count > 2) {
-				ButtonsTableLayoutPanel.ColumnCount = tv.buttonActions.Count;
+			if (tv.Buttons.Count > 2) {
+				ButtonsTableLayoutPanel.ColumnCount = tv.Buttons.Count;
 			}
 			ColumnStyle cs;
 			Button b;
 			int cnt = 0;
-			for (int i = 0; i < tv.buttonActions.Count; i++) {
+			for (int i = 0; i < tv.Buttons.Count; i++) {
 				if (ButtonsTableLayoutPanel.ColumnCount <= i) {
 					ButtonsTableLayoutPanel.ColumnCount++;
 				}
@@ -45,14 +43,14 @@ namespace QuickDBAccess.Forms {
 				}
 				cs.SizeType = SizeType.AutoSize;
 				b = new Button();
-				b.Text = tv.buttonActions[i].name;
+				b.Text = tv.Buttons[i].Text;
 				b.MinimumSize = b.Size;
 				b.AutoSize = true;
-				AddButtonEvent(b, tv.buttonActions[i]);
+				AddButtonEvent(b, tv.Buttons[i]);
 				ButtonsTableLayoutPanel.Controls.Add(b, i, 0);
 				cnt++;
 			}
-			if (ButtonsTableLayoutPanel.ColumnCount <= tv.buttonActions.Count) {
+			if (ButtonsTableLayoutPanel.ColumnCount <= tv.Buttons.Count) {
 				ButtonsTableLayoutPanel.ColumnCount++;
 			}
 			b = new Button();
@@ -70,7 +68,7 @@ namespace QuickDBAccess.Forms {
 			cs.SizeType = SizeType.AutoSize;
 			ButtonsTableLayoutPanel.ColumnStyles.Add(cs);
 
-			DataLoad();
+			//DataLoad();
 			if (Program.DEBUG) ContentTableLayoutPanel.CellPaint += tableLayoutPanel_CellPaint;
 			if (tableView.ChildTableViews.Count > 0) {
 				BuildChildrenViews();
@@ -89,9 +87,9 @@ namespace QuickDBAccess.Forms {
 			}
 		}
 		private void AddChildTableView(TableView tv) {
-			TableViewForm tvf = new TableViewForm(tv, connection, this);
+			TableViewForm tvf = new TableViewForm(tv, this);
 			TabPage tp = new TabPage();
-			tp.Text = tv.name;
+			tp.Text = tv.Name;
 			tp.Controls.Add(tvf.getControl());
 			ChildrenTabControl.TabPages.Add(tp);
 			ChildrenTabs.Add(tvf);
@@ -99,9 +97,9 @@ namespace QuickDBAccess.Forms {
 		void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e) {
 			e.Graphics.DrawRectangle(new Pen(Color.Blue), e.CellBounds);
 		}
-		private void AddButtonEvent(Button b, Query q) {
+		private void AddButtonEvent(Button b, ButtonModel q) {
 			b.Click += new EventHandler(delegate (object o, EventArgs e) {
-				QueryForm f = new QueryForm(q, connection, ContentDataGridView);
+				QueryForm f = new QueryForm(b.Text, ProgramData.Instance.DataSourceByName(q.DataSourceName), ContentDataGridView);
 				f.ShowDialog();
 				DataLoad();
 			});
@@ -110,7 +108,7 @@ namespace QuickDBAccess.Forms {
 			DataLoad();
 		}
 		public object GetValue(string Name) {
-			foreach (QueryParameter qp in this.tableView.ContentQuery.parameters) {
+			foreach (QueryParameter qp in ProgramData.Instance.DataSourceByName(tableView.ContentDataSourceName).Query.Parameters) {
 				if (qp.name == Name) {
 					return qp.getValue();
 				}
@@ -124,45 +122,62 @@ namespace QuickDBAccess.Forms {
 			return null;
 		}
 		public void DataLoad() {
-			string connString = connection.ConnectionString();
-			string query = tableView.ContentQuery.command;
-			using (var con = new SqlConnection(connString))
-			using (var cmd = new SqlCommand(query, con)) {
-				try {
-					for (int i = 0; i < this.tableView.ContentQuery.parentparameters.Count; i++) {
-						QueryParameter p = this.tableView.ContentQuery.parentparameters[i];
-						cmd.Parameters.Add("@" + p.name, p.getSqlDbType());
-						cmd.Parameters["@" + p.name].Value = ParentForm.GetValue(p.name);
-						if (cmd.Parameters["@" + p.name].Value == null) return;
+			try {
+				DataSource ds = ProgramData.Instance.DataSourceByName(tableView.ContentDataSourceName);
+				string connString = ProgramData.Instance.ConnectionByName(ds.ConnectionName).ConnectionString();
+				string query = ds.Query.Command;
+
+				using (var con = new SqlConnection(connString))
+				using (var cmd = new SqlCommand(query, con)) {
+					try {
+						for (int i = 0; i < ds.Query.ParentParameters.Count; i++) {
+							QueryParameter p = ds.Query.ParentParameters[i];
+							cmd.Parameters.Add("@" + p.name, p.getSqlDbType());
+							cmd.Parameters["@" + p.name].Value = ParentForm.GetValue(p.name);
+							if (cmd.Parameters["@" + p.name].Value == null) return;
+						}
+						for (int i = 0; i < ds.Query.Parameters.Count; i++) {
+							QueryParameter p = ds.Query.Parameters[i];
+							cmd.Parameters.Add("@" + p.name, p.getSqlDbType());
+							cmd.Parameters["@" + p.name].Value = p.getValue();
+						}
+						con.Open();
+						// create data adapter
+						SqlDataAdapter da = new SqlDataAdapter(cmd);
+						// this will query your database and return the result to your datatable
+						datatable.Clear();
+						da.Fill(datatable);
+						ContentDataGridView.DataSource = datatable;
+						con.Close();
+						da.Dispose();
 					}
-					for (int i = 0; i < this.tableView.ContentQuery.parameters.Count; i++) {
-						QueryParameter p = this.tableView.ContentQuery.parameters[i];
-						cmd.Parameters.Add("@" + p.name, p.getSqlDbType());
-						cmd.Parameters["@" + p.name].Value = p.getValue();
-					}
-					con.Open();
-					// create data adapter
-					SqlDataAdapter da = new SqlDataAdapter(cmd);
-					// this will query your database and return the result to your datatable
-					datatable.Clear();
-					da.Fill(datatable);
-					ContentDataGridView.DataSource = datatable;
-					con.Close();
-					da.Dispose();
-				}
-				catch (Exception ex) {
-					if (ex.Message != "Operation cannot be performed in this event handler.") {
-						MessageBox.Show(ex.Message);
+					catch (Exception ex) {
+						if (ex.Message != "Operation cannot be performed in this event handler.") {
+							MessageBox.Show(ex.Message);
+						}
 					}
 				}
 			}
+			catch (Exception ex) {
+				if (ex.Message != "Operation cannot be performed in this event handler.") {
+					MessageBox.Show(ex.Message);
+				}
+			}
+
 		}
 
 		private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
-			if (this.tableView.OnDoubleClickQuery != null) {
-				QueryForm f = new QueryForm(this.tableView.OnDoubleClickQuery, connection, ContentDataGridView);
-				f.ShowDialog();
-				DataLoad();
+			try {
+				if (tableView.DoubleClickAction != null) {
+					QueryForm f = new QueryForm(tableView.DoubleClickAction.Text, ProgramData.Instance.DataSourceByName(tableView.DoubleClickAction.DataSourceName), ContentDataGridView);
+					f.ShowDialog();
+					DataLoad();
+				}
+			}
+			catch (Exception ex) {
+				if (ex.Message != "Operation cannot be performed in this event handler.") {
+					MessageBox.Show(ex.Message);
+				}
 			}
 		}
 		int _selectedRow = -1;
