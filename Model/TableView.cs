@@ -9,6 +9,7 @@ namespace QuickDBAccess.Model {
 		//public Query OnDoubleClickQuery { get; set; }
 		//public List<Query> buttonActions { get; set; } = new List<Query>();
 		public List<TableView> ChildTableViews { get; set; } = new List<TableView>();
+		[XmlAttribute]
 		public string ContentDataSourceName { get; set; } = "";
 		public ButtonModel DoubleClickAction { get; set; }
 		public List<ButtonModel> Buttons { get; set; } = new List<ButtonModel>();
