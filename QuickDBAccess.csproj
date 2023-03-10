@@ -98,6 +98,7 @@
       <DependentUpon>TableViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ButtonModel.cs" />
+    <Compile Include="Model\ColumnDetail.cs" />
     <Compile Include="Model\DataSource.cs" />
     <Compile Include="Model\QuickAccess.cs" />
     <Compile Include="Model\SQLConnection.cs" />

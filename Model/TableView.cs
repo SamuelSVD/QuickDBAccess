@@ -12,5 +12,6 @@ namespace QuickDBAccess.Model {
 		public string ContentDataSourceName { get; set; } = "";
 		public ButtonModel DoubleClickAction { get; set; }
 		public List<ButtonModel> Buttons { get; set; } = new List<ButtonModel>();
+		public List<ColumnDetail> ColumnDetails { get; set; } = new List<ColumnDetail>();
 	}
 }

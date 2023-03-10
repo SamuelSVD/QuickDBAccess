@@ -148,6 +148,12 @@ namespace QuickDBAccess.Forms {
 						datatable.Clear();
 						da.Fill(datatable);
 						ContentDataGridView.DataSource = datatable;
+						foreach(DataGridViewColumn col in ContentDataGridView.Columns) {
+							ColumnDetail detail = tableView.ColumnDetails.Find(t => t.Name == col.HeaderText);
+							if (detail != null) {
+								col.Visible = !detail.hidden;
+							}
+						}
 						con.Close();
 						da.Dispose();
 					}
