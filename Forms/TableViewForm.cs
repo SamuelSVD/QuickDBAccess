@@ -123,7 +123,13 @@ namespace QuickDBAccess.Forms {
 		}
 		public void DataLoad() {
 			try {
+				if (string.IsNullOrEmpty(tableView.ContentDataSourceName)) {
+					throw new Exception("Content DataSource not assigned.");
+				}
 				DataSource ds = ProgramData.Instance.DataSourceByName(tableView.ContentDataSourceName);
+				if (string.IsNullOrEmpty(ds.ConnectionName)) {
+					throw new Exception($"Connection name not assigned for data source {ds.Name}");
+				}
 				string connString = ProgramData.Instance.ConnectionByName(ds.ConnectionName).ConnectionString();
 				string query = ds.Query.Command;
 
