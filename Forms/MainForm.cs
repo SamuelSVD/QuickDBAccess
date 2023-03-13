@@ -50,5 +50,16 @@ namespace QuickDBAccess.Forms {
 				_formShown = true;
 			}
 		}
+
+		private void refreshAllToolStripMenuItem_Click(object sender, System.EventArgs e) {
+			foreach (TableView tv in ProgramData.Instance.TableViews) {
+				try {
+					tv.View.RefreshData(sender, e);
+				}
+				catch {
+
+				}
+			}
+		}
 	}
 }

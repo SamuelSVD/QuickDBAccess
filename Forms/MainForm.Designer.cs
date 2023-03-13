@@ -36,6 +36,7 @@ namespace QuickDBAccess.Forms
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -52,6 +53,7 @@ namespace QuickDBAccess.Forms
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.refreshAllToolStripMenuItem,
             this.toolStripMenuItem1,
             this.aboutToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -87,6 +89,13 @@ namespace QuickDBAccess.Forms
 			this.aboutToolStripMenuItem.Text = "About";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
+			// refreshAllToolStripMenuItem
+			// 
+			this.refreshAllToolStripMenuItem.Name = "refreshAllToolStripMenuItem";
+			this.refreshAllToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+			this.refreshAllToolStripMenuItem.Text = "Refresh All";
+			this.refreshAllToolStripMenuItem.Click += new System.EventHandler(this.refreshAllToolStripMenuItem_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,5 +123,6 @@ namespace QuickDBAccess.Forms
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-    }
+		private System.Windows.Forms.ToolStripMenuItem refreshAllToolStripMenuItem;
+	}
 }
