@@ -42,7 +42,6 @@ namespace QuickDBAccess.Forms {
 					break;
 				case SqlDbType.Bit:
 					CheckBox cb = new CheckBox();
-					cb.Text = param.name;
 					param.c = cb;
 					break;
 				case SqlDbType.Date:
@@ -99,7 +98,11 @@ namespace QuickDBAccess.Forms {
 				var dataGridViewColumn = dgv.Columns[param.autoSourceColumnName];
 				if (dataGridViewColumn != null) {
 					int index = dgv.Columns.IndexOf(dataGridViewColumn);
-					param.c.Text = dgv.Rows[dgv.SelectedCells[0].RowIndex].Cells[index].Value.ToString();
+					if (param.c.GetType() == typeof(CheckBox)) {
+						((CheckBox)param.c).Checked = Convert.ToBoolean(dgv.Rows[dgv.SelectedCells[0].RowIndex].Cells[index].Value);
+					} else {
+						param.c.Text = dgv.Rows[dgv.SelectedCells[0].RowIndex].Cells[index].Value.ToString();
+					}
 				}
 			}
 			catch { }
