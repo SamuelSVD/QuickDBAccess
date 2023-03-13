@@ -34,9 +34,9 @@ namespace QuickDBAccess.Forms
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.refreshAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -77,6 +77,13 @@ namespace QuickDBAccess.Forms
 			this.exitToolStripMenuItem.Text = "Exit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 
+			// refreshAllToolStripMenuItem
+			// 
+			this.refreshAllToolStripMenuItem.Name = "refreshAllToolStripMenuItem";
+			this.refreshAllToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+			this.refreshAllToolStripMenuItem.Text = "Refresh All";
+			this.refreshAllToolStripMenuItem.Click += new System.EventHandler(this.refreshAllToolStripMenuItem_Click);
+			// 
 			// toolStripMenuItem1
 			// 
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
@@ -89,13 +96,6 @@ namespace QuickDBAccess.Forms
 			this.aboutToolStripMenuItem.Text = "About";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
-			// refreshAllToolStripMenuItem
-			// 
-			this.refreshAllToolStripMenuItem.Name = "refreshAllToolStripMenuItem";
-			this.refreshAllToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-			this.refreshAllToolStripMenuItem.Text = "Refresh All";
-			this.refreshAllToolStripMenuItem.Click += new System.EventHandler(this.refreshAllToolStripMenuItem_Click);
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,6 +107,8 @@ namespace QuickDBAccess.Forms
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "MainForm";
 			this.Text = "Quick DB Access";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.Shown += new System.EventHandler(this.MainForm_Shown);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
