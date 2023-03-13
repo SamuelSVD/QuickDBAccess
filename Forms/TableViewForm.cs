@@ -224,5 +224,9 @@ namespace QuickDBAccess.Forms {
 				}
 			}
 		}
+
+		private void ContentDataGridView_ColumnAdded(object sender, DataGridViewColumnEventArgs e) {
+			e.Column.FillWeight = 10;
+		}
 	}
 }

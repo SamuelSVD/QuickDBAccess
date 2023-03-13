@@ -71,6 +71,7 @@ namespace QuickDBAccess.Forms
 			this.ContentDataGridView.Size = new System.Drawing.Size(215, 57);
 			this.ContentDataGridView.TabIndex = 1;
 			this.ContentDataGridView.CellStateChanged += new System.Windows.Forms.DataGridViewCellStateChangedEventHandler(this.ContentDataGridView_CellStateChanged);
+			this.ContentDataGridView.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.ContentDataGridView_ColumnAdded);
 			this.ContentDataGridView.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.ContentDataGridView_RowStateChanged);
 			// 
 			// ButtonsTableLayoutPanel
