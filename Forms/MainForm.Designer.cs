@@ -98,6 +98,7 @@ namespace QuickDBAccess.Forms
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "MainForm";
 			this.Text = "Quick DB Access";
+			this.Shown += new System.EventHandler(this.MainForm_Shown);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);

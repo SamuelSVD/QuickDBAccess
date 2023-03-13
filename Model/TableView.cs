@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using QuickDBAccess.Forms;
+using System.Collections.Generic;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace QuickDBAccess.Model {
@@ -14,5 +16,9 @@ namespace QuickDBAccess.Model {
 		public ButtonModel DoubleClickAction { get; set; }
 		public List<ButtonModel> Buttons { get; set; } = new List<ButtonModel>();
 		public List<ColumnDetail> ColumnDetails { get; set; } = new List<ColumnDetail>();
+		[XmlIgnore]
+		public TabPage TabPage { get; set; }
+		[XmlIgnore]
+		public TableViewForm View { get; set; }
 	}
 }

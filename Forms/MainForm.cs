@@ -22,6 +22,8 @@ namespace QuickDBAccess.Forms {
 			TabPage tp = new TabPage();
 			tp.Text = tv.Name;
 			tp.Controls.Add(tvf.getControl());
+			tv.TabPage = tp;
+			tv.View = tvf;
 			TableViewTabControl.MinimumSize = tvf.getControl().MinimumSize;
 			TableViewTabControl.TabPages.Add(tp);
 		}
@@ -33,6 +35,20 @@ namespace QuickDBAccess.Forms {
 		private void aboutToolStripMenuItem_Click(object sender, System.EventArgs e) {
 			AboutForm af = new AboutForm();
 			af.ShowDialog();
+		}
+
+		private bool _formShown = false;
+		private void MainForm_Shown(object sender, System.EventArgs e) {
+			if (!_formShown) {
+				foreach(TableView tv in ProgramData.Instance.TableViews) {
+					try {
+						tv.View.DataLoad();
+					} catch {
+
+					}
+				}
+				_formShown = true;
+			}
 		}
 	}
 }
