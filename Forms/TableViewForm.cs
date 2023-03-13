@@ -106,6 +106,9 @@ namespace QuickDBAccess.Forms {
 		}
 		public void RefreshData(object sender, EventArgs args) {
 			DataLoad();
+			foreach (TableViewForm tvf in ChildrenTabs) {
+				tvf.RefreshData(sender, args);
+			}
 		}
 		public object GetValue(string Name) {
 			foreach (QueryParameter qp in ProgramData.Instance.DataSourceByName(tableView.ContentDataSourceName).Query.Parameters) {
