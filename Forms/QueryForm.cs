@@ -34,15 +34,60 @@ namespace QuickDBAccess.Forms {
 			l.AutoSize = true;
 			itemsTableLayoutPanel.Controls.Add(l, 0, i);
 			switch (param.getSqlDbType()) {
+				case SqlDbType.BigInt:
+					NumericUpDown nud2 = new NumericUpDown();
+					nud2.Minimum = long.MinValue;
+					nud2.Maximum = long.MaxValue;
+					param.c = nud2;
+					break;
+				case SqlDbType.Bit:
+					CheckBox cb = new CheckBox();
+					cb.Text = param.name;
+					param.c = cb;
+					break;
+				case SqlDbType.Date:
+					DateTimePicker dtp = new DateTimePicker();
+					dtp.Format = DateTimePickerFormat.Short;
+					param.c = dtp;
+					break;
+				case SqlDbType.Time:
+					DateTimePicker dtp2 = new DateTimePicker();
+					dtp2.Format = DateTimePickerFormat.Time;
+					param.c = dtp2;
+					break;
+				case SqlDbType.DateTime:
+					DateTimePicker dtp3 = new DateTimePicker();
+					dtp3.Format = DateTimePickerFormat.Custom;
+					dtp3.CustomFormat = "dd-MMM-yyyy HH:mm:ss";
+					param.c = dtp3;
+					break;
+				case SqlDbType.Float:
+					TextBox tb = new TextBox();
+					tb.Text = "0.0";
+					param.c = tb;
+					break;
 				case SqlDbType.Int:
 					NumericUpDown nud = new NumericUpDown();
 					nud.Minimum = int.MinValue;
 					nud.Maximum = int.MaxValue;
 					param.c = nud;
 					break;
-				case SqlDbType.DateTime:
-					DateTimePicker dtp = new DateTimePicker();
-					param.c = dtp;
+				case SqlDbType.Real:
+					TextBox tb2 = new TextBox();
+					tb2.Text = "0.0";
+					param.c = tb2;
+					break;
+				case SqlDbType.SmallInt:
+					NumericUpDown nud3 = new NumericUpDown();
+					nud3.Minimum = short.MinValue;
+					nud3.Maximum = short.MaxValue;
+					param.c = nud3;
+					break;
+				case SqlDbType.TinyInt:
+					NumericUpDown nud4 = new NumericUpDown();
+					nud4.Minimum = byte.MinValue;
+					nud4.Maximum = byte.MaxValue;
+					param.c = nud4;
 					break;
 				default:
 					TextBox tbd = new TextBox();
