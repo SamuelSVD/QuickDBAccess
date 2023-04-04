@@ -11,13 +11,13 @@ namespace QuickDBAccess.Forms {
 		public void LoadConfig() {
 			ProgramData.LoadConfig();
 			if (ProgramData.Instance != null) {
-				foreach (TableView tv in ProgramData.Instance.TableViews) {
+				foreach (TableViewModel tv in ProgramData.Instance.TableViews) {
 					AddTableView(tv);
 				}
 			}
 			ProgramData.SaveConfig();
 		}
-		private void AddTableView(TableView tv) {
+		private void AddTableView(TableViewModel tv) {
 			TableViewForm tvf = new TableViewForm(tv);
 			TabPage tp = new TabPage();
 			tp.Text = tv.Name;
@@ -40,7 +40,7 @@ namespace QuickDBAccess.Forms {
 		private bool _formShown = false;
 		private void MainForm_Shown(object sender, System.EventArgs e) {
 			if (!_formShown) {
-				foreach(TableView tv in ProgramData.Instance.TableViews) {
+				foreach(TableViewModel tv in ProgramData.Instance.TableViews) {
 					try {
 						tv.View.DataLoad();
 					} catch {
@@ -52,7 +52,7 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void refreshAllToolStripMenuItem_Click(object sender, System.EventArgs e) {
-			foreach (TableView tv in ProgramData.Instance.TableViews) {
+			foreach (TableViewModel tv in ProgramData.Instance.TableViews) {
 				try {
 					tv.View.RefreshData(sender, e);
 				}

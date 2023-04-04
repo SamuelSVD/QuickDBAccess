@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<QuickAccess>
+    <Connections>
+        <SQLConnection Name="connection" server="(local)" database="Northwind" user="sa" password="P@ssw0rd" />
+    </Connections>
+    <DataSources>
+        <DataSource Name="Employees" ConnectionName="connection">
+            <Query Name="Employees" Command="SELECT * FROM Employees">
+                <Parameters />
+                <ParentParameters />
+            </Query>
+        </DataSource>
+        <DataSource Name="EmployeeTerritories" ConnectionName="connection">
+            <Query Name="EmployeeTerritories" Command="SELECT * FROM EmployeeTerritories WHERE EmployeeID = @EmployeeID">
+                <Parameters />
+                <ParentParameters>
+                    <QueryParameter type="int" name="EmployeeID" autoSourceColumnName="EmployeeID" />
+                </ParentParameters>
+            </Query>
+        </DataSource>
+        <DataSource Name="EmployeeOrders" ConnectionName="connection">
+            <Query Name="EmployeeOrders" Command="SELECT * FROM Orders WHERE EmployeeID = @EmployeeID">
+                <Parameters />
+                <ParentParameters>
+                    <QueryParameter type="int" name="EmployeeID" autoSourceColumnName="EmployeeID" />
+                </ParentParameters>
+            </Query>
+        </DataSource>
+        <DataSource Name="EditEmployee" ConnectionName="connection">
+            <Query Name="EditEmployee" Command="UPDATE Employees SET FirstName = @FirstName, BirthDate = @BirthDate WHERE EmployeeID = @EmployeeID">
+                <Parameters>
+                    <QueryParameter type="int" name="EmployeeID" autoSourceColumnName="EmployeeID" />
+                    <QueryParameter type="varchar" name="FirstName" autoSourceColumnName="FirstName" />
+                    <QueryParameter type="date" name="BirthDate" autoSourceColumnName="BirthDate" />
+                </Parameters>
+                <ParentParameters />
+            </Query>
+        </DataSource>
+        <DataSource Name="Products" ConnectionName="connection">
+            <Query Name="Products" Command="SELECT * FROM Products">
+                <Parameters />
+                <ParentParameters />
+            </Query>
+        </DataSource>
+        <DataSource Name="EditProduct" ConnectionName="connection">
+            <Query Name="EditProduct" Command="UPDATE Products SET Discontinued = @Discontinued WHERE ProductID = @ProductID">
+                <Parameters>
+                    <QueryParameter type="int" name="ProductID" autoSourceColumnName="ProductID" />
+                    <QueryParameter type="bit" name="Discontinued" autoSourceColumnName="Discontinued" />
+                </Parameters>
+                <ParentParameters />
+            </Query>
+        </DataSource>
+        <DataSource Name="" ConnectionName="">
+            <Query Name="" Command="">
+                <Parameters />
+                <ParentParameters />
+            </Query>
+        </DataSource>
+        <DataSource Name="" ConnectionName="">
+            <Query Name="" Command="">
+                <Parameters />
+                <ParentParameters />
+            </Query>
+        </DataSource>
+        <DataSource Name="" ConnectionName="">
+            <Query Name="" Command="">
+                <Parameters />
+                <ParentParameters />
+            </Query>
+        </DataSource>
+        <DataSource Name="" ConnectionName="">
+            <Query Name="" Command="">
+                <Parameters />
+                <ParentParameters />
+            </Query>
+        </DataSource>
+    </DataSources>
+    <TableViews>
+        <TableView Name="Employees" ContentDataSourceName="Employees">
+            <ChildTableViews>
+                <TableView Name="Territories" ContentDataSourceName="EmployeeTerritories">
+                    <ChildTableViews />
+                    <Buttons />
+                    <ColumnDetails />
+                </TableView>
+                <TableView Name="Orders" ContentDataSourceName="EmployeeOrders">
+                    <ChildTableViews />
+                    <Buttons />
+                    <ColumnDetails />
+                </TableView>
+            </ChildTableViews>
+            <Buttons>
+                <ButtonModel Text="Edit" DataSourceName="EditEmployee" />
+            </Buttons>
+            <ColumnDetails>
+                <ColumnDetail Name="ReportsTo" hidden="true" />
+            </ColumnDetails>
+        </TableView>
+        <TableView Name="Shippers" ContentDataSourceName="">
+            <ChildTableViews />
+            <Buttons />
+            <ColumnDetails />
+        </TableView>
+        <TableView Name="Products" ContentDataSourceName="Products">
+            <ChildTableViews />
+            <Buttons>
+                <ButtonModel Text="Edit" DataSourceName="EditProduct" />
+            </Buttons>
+            <ColumnDetails />
+        </TableView>
+    </TableViews>
+</QuickAccess>

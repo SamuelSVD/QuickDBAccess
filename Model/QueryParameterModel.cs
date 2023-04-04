@@ -6,7 +6,8 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace QuickDBAccess.Model {
-	public class QueryParameter {
+	[XmlType(TypeName = "QueryParameter")]
+	public class QueryParameterModel {
 		[XmlAttribute]
 		public string type { get; set; } = "";
 		[XmlAttribute]

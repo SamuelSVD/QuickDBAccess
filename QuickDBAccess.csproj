@@ -73,6 +73,12 @@
     <Compile Include="Forms\AboutForm.designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DataSourceEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DataSourceEditForm.Designer.cs">
+      <DependentUpon>DataSourceEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TableViewEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,13 +104,13 @@
       <DependentUpon>TableViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ButtonModel.cs" />
-    <Compile Include="Model\ColumnDetail.cs" />
-    <Compile Include="Model\DataSource.cs" />
-    <Compile Include="Model\QuickAccess.cs" />
-    <Compile Include="Model\SQLConnection.cs" />
-    <Compile Include="Model\Query.cs" />
-    <Compile Include="Model\QueryParameter.cs" />
-    <Compile Include="Model\TableView.cs" />
+    <Compile Include="Model\ColumnDetailModel.cs" />
+    <Compile Include="Model\DataSourceModel.cs" />
+    <Compile Include="Model\QuickAccessModel.cs" />
+    <Compile Include="Model\SQLConnectionModel.cs" />
+    <Compile Include="Model\QueryModel.cs" />
+    <Compile Include="Model\QueryParameterModel.cs" />
+    <Compile Include="Model\TableViewModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\QueryForm.resx">
       <DependentUpon>QueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DataSourceEditForm.resx">
+      <DependentUpon>DataSourceEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TableViewEditForm.resx">
       <DependentUpon>TableViewEditForm.cs</DependentUpon>
@@ -170,6 +179,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="database.ico" />
+    <Content Include="Resources\add.png" />
+    <Content Include="Resources\delete.png" />
+    <Content Include="Resources\edit.png" />
     <None Include="Resources\refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

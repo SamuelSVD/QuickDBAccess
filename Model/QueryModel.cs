@@ -2,12 +2,12 @@
 using System.Xml.Serialization;
 
 namespace QuickDBAccess.Model {
-	public class Query {
+	public class QueryModel {
 		[XmlAttribute]
 		public string Name { get; set; } = "";
 		[XmlAttribute]
 		public string Command { get; set; } = "";
-		public List<QueryParameter> Parameters { get; set; } = new List<QueryParameter>();
-		public List<QueryParameter> ParentParameters { get; set; } = new List<QueryParameter>();
+		public List<QueryParameterModel> Parameters { get; set; } = new List<QueryParameterModel>();
+		public List<QueryParameterModel> ParentParameters { get; set; } = new List<QueryParameterModel>();
 	}
 }

@@ -2,7 +2,8 @@
 using System.Xml.Serialization;
 
 namespace QuickDBAccess.Model {
-	public class SQLConnection {
+	[XmlType(TypeName="SQLConnection")]
+	public class SQLConnectionModel {
 		[XmlAttribute]
 		public string Name { get; set; } = "";
 		[XmlAttribute]

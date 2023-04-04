@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace QuickDBAccess.Model {
-	public class DataSource {
+	[XmlType(TypeName = "DataSource")]
+	public class DataSourceModel {
 		[XmlAttribute]
 		public string Name { get; set; } = "";
 		[XmlAttribute]
 		public string ConnectionName { get; set; } = "";
-		public Query Query { get; set; } = new Query();
+		public QueryModel Query { get; set; } = new QueryModel();
 	}
 }

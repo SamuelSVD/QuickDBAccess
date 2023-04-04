@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace QuickDBAccess.Forms {
 	public partial class QueryForm : Form {
-		private DataSource dataSource;
+		private DataSourceModel dataSource;
 		private DataGridView dgv;
-		public QueryForm(string text, DataSource ds, DataGridView dgv) {
+		public QueryForm(string text, DataSourceModel ds, DataGridView dgv) {
 			InitializeComponent();
 			this.Text = text;
 			this.dataSource = ds;
@@ -21,11 +21,11 @@ namespace QuickDBAccess.Forms {
 			e.Graphics.DrawRectangle(new Pen(Color.Blue), e.CellBounds);
 		}
 		private void CreateForm() {
-			foreach (QueryParameter p in dataSource.Query.Parameters) {
+			foreach (QueryParameterModel p in dataSource.Query.Parameters) {
 				AddParameter(p);
 			}
 		}
-		private void AddParameter(QueryParameter param) {
+		private void AddParameter(QueryParameterModel param) {
 			int i = dataSource.Query.Parameters.IndexOf(param);
 			Label l = new Label();
 			l.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
@@ -108,7 +108,7 @@ namespace QuickDBAccess.Forms {
 			catch { }
 		}
 		public object GetValue(string Name) {
-			foreach(QueryParameter qp in this.dataSource.Query.Parameters) {
+			foreach(QueryParameterModel qp in this.dataSource.Query.Parameters) {
 				if (qp.name == Name) {
 					return qp.getValue();
 				}
@@ -128,7 +128,7 @@ namespace QuickDBAccess.Forms {
 			using (var con = new SqlConnection(connString))
 			using (var cmd = new SqlCommand(query, con)) {
 				for (int i = 0; i < this.dataSource.Query.Parameters.Count; i++) {
-					QueryParameter p = this.dataSource.Query.Parameters[i];
+					QueryParameterModel p = this.dataSource.Query.Parameters[i];
 					cmd.Parameters.Add("@" + p.name, p.getSqlDbType());
 					cmd.Parameters["@" + p.name].Value = p.getValue();
 				}

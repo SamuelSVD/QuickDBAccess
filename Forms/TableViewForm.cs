@@ -18,9 +18,9 @@ namespace QuickDBAccess.Forms {
 				return ContentSplitContainer;
 			}
 		}
-		private Model.TableView tableView;
-		public TableViewForm(Model.TableView tv) : this(tv, null) { }
-		public TableViewForm(Model.TableView tv, TableViewForm parent) {
+		private Model.TableViewModel tableView;
+		public TableViewForm(Model.TableViewModel tv) : this(tv, null) { }
+		public TableViewForm(Model.TableViewModel tv, TableViewForm parent) {
 			InitializeComponent();
 			ContentDataGridView.CellDoubleClick += dataGridView_CellDoubleClick;
 			tableView = tv;
@@ -82,11 +82,11 @@ namespace QuickDBAccess.Forms {
 		private void BuildChildrenViews() {
 			ContentTableLayoutPanel.AutoSize = true;
 			ContentTableLayoutPanel.Dock = DockStyle.Fill;
-			foreach (TableView child in tableView.ChildTableViews) {
+			foreach (TableViewModel child in tableView.ChildTableViews) {
 				AddChildTableView(child);
 			}
 		}
-		private void AddChildTableView(TableView tv) {
+		private void AddChildTableView(TableViewModel tv) {
 			TableViewForm tvf = new TableViewForm(tv, this);
 			TabPage tp = new TabPage();
 			tp.Text = tv.Name;
@@ -111,7 +111,7 @@ namespace QuickDBAccess.Forms {
 			}
 		}
 		public object GetValue(string Name) {
-			foreach (QueryParameter qp in ProgramData.Instance.DataSourceByName(tableView.ContentDataSourceName).Query.Parameters) {
+			foreach (QueryParameterModel qp in ProgramData.Instance.DataSourceByName(tableView.ContentDataSourceName).Query.Parameters) {
 				if (qp.name == Name) {
 					return qp.getValue();
 				}
@@ -129,7 +129,7 @@ namespace QuickDBAccess.Forms {
 				if (string.IsNullOrEmpty(tableView.ContentDataSourceName)) {
 					throw new Exception("Content DataSource not assigned.");
 				}
-				DataSource ds = ProgramData.Instance.DataSourceByName(tableView.ContentDataSourceName);
+				DataSourceModel ds = ProgramData.Instance.DataSourceByName(tableView.ContentDataSourceName);
 				if (string.IsNullOrEmpty(ds.ConnectionName)) {
 					throw new Exception($"Connection name not assigned for data source {ds.Name}");
 				}
@@ -140,13 +140,13 @@ namespace QuickDBAccess.Forms {
 				using (var cmd = new SqlCommand(query, con)) {
 					try {
 						for (int i = 0; i < ds.Query.ParentParameters.Count; i++) {
-							QueryParameter p = ds.Query.ParentParameters[i];
+							QueryParameterModel p = ds.Query.ParentParameters[i];
 							cmd.Parameters.Add("@" + p.name, p.getSqlDbType());
 							cmd.Parameters["@" + p.name].Value = ParentForm.GetValue(p.name);
 							if (cmd.Parameters["@" + p.name].Value == null) return;
 						}
 						for (int i = 0; i < ds.Query.Parameters.Count; i++) {
-							QueryParameter p = ds.Query.Parameters[i];
+							QueryParameterModel p = ds.Query.Parameters[i];
 							cmd.Parameters.Add("@" + p.name, p.getSqlDbType());
 							cmd.Parameters["@" + p.name].Value = p.getValue();
 						}
@@ -158,7 +158,7 @@ namespace QuickDBAccess.Forms {
 						da.Fill(datatable);
 						ContentDataGridView.DataSource = datatable;
 						foreach(DataGridViewColumn col in ContentDataGridView.Columns) {
-							ColumnDetail detail = tableView.ColumnDetails.Find(t => t.Name == col.HeaderText);
+							ColumnDetailModel detail = tableView.ColumnDetails.Find(t => t.Name == col.HeaderText);
 							if (detail != null) {
 								col.Visible = !detail.hidden;
 							}

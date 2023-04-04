@@ -1,7 +1,8 @@
 ﻿using System.Xml.Serialization;
 
 namespace QuickDBAccess.Model {
-	public class ColumnDetail {
+	[XmlType(TypeName = "ColumnDetail")]
+	public class ColumnDetailModel {
 		[XmlAttribute]
 		public string Name { get; set; } = "";
 		[XmlAttribute]

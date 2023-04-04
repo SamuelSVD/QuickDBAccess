@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using QuickDBAccess.Model;
 using System.Windows.Forms;
 
 namespace QuickDBAccess.Forms {
 	public partial class TableViewEditForm : Form {
-		public TableViewEditForm() {
+		TableViewModel Model;
+
+		public TableViewEditForm(TableViewModel Model) {
+			this.Model = Model;
 			InitializeComponent();
+			InitializeModelView();
+		}
+		private void InitializeModelView() {
+			TableViewNameTextBox.Text = Model.Name;
+			DataSourceComboBox.Text = Model.ContentDataSourceName;
 		}
 	}
 }
