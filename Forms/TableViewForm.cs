@@ -133,7 +133,7 @@ namespace QuickDBAccess.Forms {
 				if (string.IsNullOrEmpty(ds.ConnectionName)) {
 					throw new Exception($"Connection name not assigned for data source {ds.Name}");
 				}
-				string connString = ProgramData.Instance.ConnectionByName(ds.ConnectionName).ConnectionString();
+				string connString = ProgramData.Instance.ConnectionByName(ds.ConnectionName).ConnectionString;
 				string query = ds.Query.Command;
 
 				using (var con = new SqlConnection(connString))

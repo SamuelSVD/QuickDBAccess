@@ -102,5 +102,10 @@ namespace QuickDBAccess.Forms {
 			}
 			Properties.Settings.Default.Save();
 		}
+
+		private void editToolStripMenuItem_Click(object sender, System.EventArgs e) {
+			QuickAccessEditForm editForm = new QuickAccessEditForm(ProgramData.Instance);
+			editForm.ShowDialog();
+		}
 	}
 }

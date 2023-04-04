@@ -14,8 +14,11 @@ namespace QuickDBAccess.Model {
 		public string user { get; set; } = "";
 		[XmlAttribute]
 		public string password { get; set; } = "";
-		public string ConnectionString() {
-			return String.Format("Server = {0}; Database = {1}; User Id = {2}; Password = {3}; ", server, database, user, password);
+		[XmlIgnore]
+		public string ConnectionString {
+			get {
+				return String.Format("Server = {0}; Database = {1}; User Id = {2}; Password = {3}; ", server, database, user, password);
+			}
 		}
 	}
 }

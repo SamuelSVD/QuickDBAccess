@@ -122,7 +122,7 @@ namespace QuickDBAccess.Forms {
 			return null;
 		}
 		private void okButton_Click(object sender, EventArgs e) {
-			string connString = ProgramData.Instance.ConnectionByName(dataSource.ConnectionName).ConnectionString();
+			string connString = ProgramData.Instance.ConnectionByName(dataSource.ConnectionName).ConnectionString;
 			string query = this.dataSource.Query.Command;
 
 			using (var con = new SqlConnection(connString))
