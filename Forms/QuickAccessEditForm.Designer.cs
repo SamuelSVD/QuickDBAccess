@@ -29,10 +29,14 @@
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.button3 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
-			this.DeleteParameterButton = new System.Windows.Forms.Button();
-			this.EditParameterButton = new System.Windows.Forms.Button();
-			this.AddParameterButton = new System.Windows.Forms.Button();
+			this.DeleteConnectionButton = new System.Windows.Forms.Button();
+			this.EditConnectionButton = new System.Windows.Forms.Button();
+			this.AddConnectionButton = new System.Windows.Forms.Button();
 			this.ConnectionsListView = new System.Windows.Forms.ListView();
+			this.ConnectionName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.ConnectionServer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.ConnectionDatabase = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.ConnectionUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.DataSourcesTabPage = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.button4 = new System.Windows.Forms.Button();
@@ -41,6 +45,9 @@
 			this.button7 = new System.Windows.Forms.Button();
 			this.button8 = new System.Windows.Forms.Button();
 			this.DataSourcesListView = new System.Windows.Forms.ListView();
+			this.DataSourcesName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.DataSourcesConnection = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.DataSourcesSQLCommand = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.TableViewTabPage = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.button9 = new System.Windows.Forms.Button();
@@ -49,17 +56,10 @@
 			this.button12 = new System.Windows.Forms.Button();
 			this.button13 = new System.Windows.Forms.Button();
 			this.TableViewsListView = new System.Windows.Forms.ListView();
-			this.CloseButton = new System.Windows.Forms.Button();
-			this.ConnectionName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.ConnectionServer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.ConnectionDatabase = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.ConnectionUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.DataSourcesName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.DataSourcesConnection = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.DataSourcesSQLCommand = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.TableViewsName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.TableViewsDataSource = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.TableViewsChildrenCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.CloseButton = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.ConnectionsTabPage.SuspendLayout();
@@ -105,7 +105,7 @@
 			this.ConnectionsTabPage.Location = new System.Drawing.Point(4, 22);
 			this.ConnectionsTabPage.Name = "ConnectionsTabPage";
 			this.ConnectionsTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.ConnectionsTabPage.Size = new System.Drawing.Size(573, 357);
+			this.ConnectionsTabPage.Size = new System.Drawing.Size(484, 338);
 			this.ConnectionsTabPage.TabIndex = 0;
 			this.ConnectionsTabPage.Text = "Connections";
 			this.ConnectionsTabPage.UseVisualStyleBackColor = true;
@@ -120,9 +120,9 @@
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.Controls.Add(this.button3, 0, 1);
 			this.tableLayoutPanel2.Controls.Add(this.button2, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.DeleteParameterButton, 4, 0);
-			this.tableLayoutPanel2.Controls.Add(this.EditParameterButton, 3, 0);
-			this.tableLayoutPanel2.Controls.Add(this.AddParameterButton, 2, 0);
+			this.tableLayoutPanel2.Controls.Add(this.DeleteConnectionButton, 4, 0);
+			this.tableLayoutPanel2.Controls.Add(this.EditConnectionButton, 3, 0);
+			this.tableLayoutPanel2.Controls.Add(this.AddConnectionButton, 2, 0);
 			this.tableLayoutPanel2.Controls.Add(this.ConnectionsListView, 1, 0);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
@@ -130,7 +130,7 @@
 			this.tableLayoutPanel2.RowCount = 2;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(567, 351);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(478, 332);
 			this.tableLayoutPanel2.TabIndex = 0;
 			// 
 			// button3
@@ -153,35 +153,37 @@
 			this.button2.TabIndex = 5;
 			this.button2.UseVisualStyleBackColor = true;
 			// 
-			// DeleteParameterButton
+			// DeleteConnectionButton
 			// 
-			this.DeleteParameterButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.delete;
-			this.DeleteParameterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.DeleteParameterButton.Location = new System.Drawing.Point(541, 3);
-			this.DeleteParameterButton.Name = "DeleteParameterButton";
-			this.DeleteParameterButton.Size = new System.Drawing.Size(23, 23);
-			this.DeleteParameterButton.TabIndex = 9;
-			this.DeleteParameterButton.UseVisualStyleBackColor = true;
+			this.DeleteConnectionButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.delete;
+			this.DeleteConnectionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.DeleteConnectionButton.Enabled = false;
+			this.DeleteConnectionButton.Location = new System.Drawing.Point(452, 3);
+			this.DeleteConnectionButton.Name = "DeleteConnectionButton";
+			this.DeleteConnectionButton.Size = new System.Drawing.Size(23, 23);
+			this.DeleteConnectionButton.TabIndex = 9;
+			this.DeleteConnectionButton.UseVisualStyleBackColor = true;
 			// 
-			// EditParameterButton
+			// EditConnectionButton
 			// 
-			this.EditParameterButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.edit;
-			this.EditParameterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.EditParameterButton.Location = new System.Drawing.Point(512, 3);
-			this.EditParameterButton.Name = "EditParameterButton";
-			this.EditParameterButton.Size = new System.Drawing.Size(23, 23);
-			this.EditParameterButton.TabIndex = 8;
-			this.EditParameterButton.UseVisualStyleBackColor = true;
+			this.EditConnectionButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.edit;
+			this.EditConnectionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.EditConnectionButton.Enabled = false;
+			this.EditConnectionButton.Location = new System.Drawing.Point(423, 3);
+			this.EditConnectionButton.Name = "EditConnectionButton";
+			this.EditConnectionButton.Size = new System.Drawing.Size(23, 23);
+			this.EditConnectionButton.TabIndex = 8;
+			this.EditConnectionButton.UseVisualStyleBackColor = true;
 			// 
-			// AddParameterButton
+			// AddConnectionButton
 			// 
-			this.AddParameterButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.add;
-			this.AddParameterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AddParameterButton.Location = new System.Drawing.Point(483, 3);
-			this.AddParameterButton.Name = "AddParameterButton";
-			this.AddParameterButton.Size = new System.Drawing.Size(23, 23);
-			this.AddParameterButton.TabIndex = 7;
-			this.AddParameterButton.UseVisualStyleBackColor = true;
+			this.AddConnectionButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.add;
+			this.AddConnectionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.AddConnectionButton.Location = new System.Drawing.Point(394, 3);
+			this.AddConnectionButton.Name = "AddConnectionButton";
+			this.AddConnectionButton.Size = new System.Drawing.Size(23, 23);
+			this.AddConnectionButton.TabIndex = 7;
+			this.AddConnectionButton.UseVisualStyleBackColor = true;
 			// 
 			// ConnectionsListView
 			// 
@@ -195,10 +197,28 @@
 			this.ConnectionsListView.Location = new System.Drawing.Point(32, 3);
 			this.ConnectionsListView.Name = "ConnectionsListView";
 			this.tableLayoutPanel2.SetRowSpan(this.ConnectionsListView, 2);
-			this.ConnectionsListView.Size = new System.Drawing.Size(445, 345);
+			this.ConnectionsListView.Size = new System.Drawing.Size(356, 326);
 			this.ConnectionsListView.TabIndex = 10;
 			this.ConnectionsListView.UseCompatibleStateImageBehavior = false;
 			this.ConnectionsListView.View = System.Windows.Forms.View.Details;
+			this.ConnectionsListView.SelectedIndexChanged += new System.EventHandler(this.ConnectionsListView_SelectedIndexChanged);
+			// 
+			// ConnectionName
+			// 
+			this.ConnectionName.Text = "Name";
+			this.ConnectionName.Width = 90;
+			// 
+			// ConnectionServer
+			// 
+			this.ConnectionServer.Text = "Server";
+			// 
+			// ConnectionDatabase
+			// 
+			this.ConnectionDatabase.Text = "Database";
+			// 
+			// ConnectionUser
+			// 
+			this.ConnectionUser.Text = "User";
 			// 
 			// DataSourcesTabPage
 			// 
@@ -206,7 +226,7 @@
 			this.DataSourcesTabPage.Location = new System.Drawing.Point(4, 22);
 			this.DataSourcesTabPage.Name = "DataSourcesTabPage";
 			this.DataSourcesTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.DataSourcesTabPage.Size = new System.Drawing.Size(573, 357);
+			this.DataSourcesTabPage.Size = new System.Drawing.Size(484, 338);
 			this.DataSourcesTabPage.TabIndex = 1;
 			this.DataSourcesTabPage.Text = "Data Sources";
 			this.DataSourcesTabPage.UseVisualStyleBackColor = true;
@@ -231,7 +251,7 @@
 			this.tableLayoutPanel3.RowCount = 2;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(567, 351);
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(478, 332);
 			this.tableLayoutPanel3.TabIndex = 1;
 			// 
 			// button4
@@ -258,7 +278,7 @@
 			// 
 			this.button6.BackgroundImage = global::QuickDBAccess.Properties.Resources.delete;
 			this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button6.Location = new System.Drawing.Point(541, 3);
+			this.button6.Location = new System.Drawing.Point(452, 3);
 			this.button6.Name = "button6";
 			this.button6.Size = new System.Drawing.Size(23, 23);
 			this.button6.TabIndex = 9;
@@ -268,7 +288,7 @@
 			// 
 			this.button7.BackgroundImage = global::QuickDBAccess.Properties.Resources.edit;
 			this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button7.Location = new System.Drawing.Point(512, 3);
+			this.button7.Location = new System.Drawing.Point(423, 3);
 			this.button7.Name = "button7";
 			this.button7.Size = new System.Drawing.Size(23, 23);
 			this.button7.TabIndex = 8;
@@ -278,7 +298,7 @@
 			// 
 			this.button8.BackgroundImage = global::QuickDBAccess.Properties.Resources.add;
 			this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button8.Location = new System.Drawing.Point(483, 3);
+			this.button8.Location = new System.Drawing.Point(394, 3);
 			this.button8.Name = "button8";
 			this.button8.Size = new System.Drawing.Size(23, 23);
 			this.button8.TabIndex = 7;
@@ -295,10 +315,25 @@
 			this.DataSourcesListView.Location = new System.Drawing.Point(32, 3);
 			this.DataSourcesListView.Name = "DataSourcesListView";
 			this.tableLayoutPanel3.SetRowSpan(this.DataSourcesListView, 2);
-			this.DataSourcesListView.Size = new System.Drawing.Size(445, 345);
+			this.DataSourcesListView.Size = new System.Drawing.Size(356, 326);
 			this.DataSourcesListView.TabIndex = 10;
 			this.DataSourcesListView.UseCompatibleStateImageBehavior = false;
 			this.DataSourcesListView.View = System.Windows.Forms.View.Details;
+			// 
+			// DataSourcesName
+			// 
+			this.DataSourcesName.Text = "Name";
+			this.DataSourcesName.Width = 106;
+			// 
+			// DataSourcesConnection
+			// 
+			this.DataSourcesConnection.Text = "Connection";
+			this.DataSourcesConnection.Width = 72;
+			// 
+			// DataSourcesSQLCommand
+			// 
+			this.DataSourcesSQLCommand.Text = "SQL Command";
+			this.DataSourcesSQLCommand.Width = 114;
 			// 
 			// TableViewTabPage
 			// 
@@ -400,48 +435,6 @@
 			this.TableViewsListView.UseCompatibleStateImageBehavior = false;
 			this.TableViewsListView.View = System.Windows.Forms.View.Details;
 			// 
-			// CloseButton
-			// 
-			this.CloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CloseButton.Location = new System.Drawing.Point(420, 373);
-			this.CloseButton.Name = "CloseButton";
-			this.CloseButton.Size = new System.Drawing.Size(75, 23);
-			this.CloseButton.TabIndex = 1;
-			this.CloseButton.Text = "Close";
-			this.CloseButton.UseVisualStyleBackColor = true;
-			// 
-			// ConnectionName
-			// 
-			this.ConnectionName.Text = "Name";
-			this.ConnectionName.Width = 90;
-			// 
-			// ConnectionServer
-			// 
-			this.ConnectionServer.Text = "Server";
-			// 
-			// ConnectionDatabase
-			// 
-			this.ConnectionDatabase.Text = "Database";
-			// 
-			// ConnectionUser
-			// 
-			this.ConnectionUser.Text = "User";
-			// 
-			// DataSourcesName
-			// 
-			this.DataSourcesName.Text = "Name";
-			this.DataSourcesName.Width = 106;
-			// 
-			// DataSourcesConnection
-			// 
-			this.DataSourcesConnection.Text = "Connection";
-			this.DataSourcesConnection.Width = 72;
-			// 
-			// DataSourcesSQLCommand
-			// 
-			this.DataSourcesSQLCommand.Text = "SQL Command";
-			this.DataSourcesSQLCommand.Width = 114;
-			// 
 			// TableViewsName
 			// 
 			this.TableViewsName.Text = "Name";
@@ -456,6 +449,16 @@
 			// 
 			this.TableViewsChildrenCount.Text = "Sub-tables";
 			this.TableViewsChildrenCount.Width = 92;
+			// 
+			// CloseButton
+			// 
+			this.CloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.CloseButton.Location = new System.Drawing.Point(420, 373);
+			this.CloseButton.Name = "CloseButton";
+			this.CloseButton.Size = new System.Drawing.Size(75, 23);
+			this.CloseButton.TabIndex = 1;
+			this.CloseButton.Text = "Close";
+			this.CloseButton.UseVisualStyleBackColor = true;
 			// 
 			// QuickAccessEditForm
 			// 
@@ -490,9 +493,9 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Button AddParameterButton;
-		private System.Windows.Forms.Button EditParameterButton;
-		private System.Windows.Forms.Button DeleteParameterButton;
+		private System.Windows.Forms.Button AddConnectionButton;
+		private System.Windows.Forms.Button EditConnectionButton;
+		private System.Windows.Forms.Button DeleteConnectionButton;
 		private System.Windows.Forms.ListView ConnectionsListView;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
 		private System.Windows.Forms.Button button4;

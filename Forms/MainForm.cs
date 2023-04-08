@@ -1,4 +1,5 @@
 ﻿using QuickDBAccess.Model;
+using System;
 using System.Windows.Forms;
 using Utils;
 
@@ -15,7 +16,7 @@ namespace QuickDBAccess.Forms {
 					AddTableView(tv);
 				}
 			}
-			ProgramData.SaveConfig();
+			//ProgramData.SaveConfig();
 		}
 		private void AddTableView(TableViewModel tv) {
 			TableViewForm tvf = new TableViewForm(tv);
@@ -40,12 +41,16 @@ namespace QuickDBAccess.Forms {
 		private bool _formShown = false;
 		private void MainForm_Shown(object sender, System.EventArgs e) {
 			if (!_formShown) {
-				foreach(TableViewModel tv in ProgramData.Instance.TableViews) {
-					try {
-						tv.View.DataLoad();
-					} catch {
+				if (ProgramData.Instance != null) {
+					foreach (TableViewModel tv in ProgramData.Instance.TableViews) {
+						try {
+							tv.View.DataLoad();
+						}
+						catch (Exception ex) {
 
+						}
 					}
+					editToolStripMenuItem.Enabled = true;
 				}
 				_formShown = true;
 			}
@@ -106,6 +111,25 @@ namespace QuickDBAccess.Forms {
 		private void editToolStripMenuItem_Click(object sender, System.EventArgs e) {
 			QuickAccessEditForm editForm = new QuickAccessEditForm(ProgramData.Instance);
 			editForm.ShowDialog();
+		}
+
+		private void newToolStripMenuItem_Click(object sender, EventArgs e) {
+			NewProjectForm newProjectForm = new NewProjectForm();
+			if (newProjectForm.ShowDialog() == DialogResult.OK) {
+			}
+			throw new NotImplementedException();
+		}
+
+		private void openToolStripMenuItem_Click(object sender, EventArgs e) {
+			throw new NotImplementedException();
+		}
+
+		private void saveToolStripMenuItem_Click(object sender, EventArgs e) {
+			throw new NotImplementedException();
+		}
+
+		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) {
+			throw new NotImplementedException();
 		}
 	}
 }

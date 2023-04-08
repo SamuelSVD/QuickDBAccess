@@ -5,10 +5,29 @@ using System.Windows.Forms;
 namespace QuickDBAccess.Forms {
 	public partial class QuickAccessEditForm : Form {
 		QuickAccessModel Model;
+		public SQLConnectionModel SelectedConnection {
+			get {
+				if (ConnectionsListView.SelectedIndices.Count <= 0) return null;
+				return Model.Connections[ConnectionsListView.SelectedIndices[0]];
+			}
+		}
+		public DataSourceModel SelectedDataSource {
+			get {
+				if (DataSourcesListView.SelectedIndices.Count <= 0) return null;
+				return Model.DataSources[DataSourcesListView.SelectedIndices[0]];
+			}
+		}
+		public TableViewModel SelectedTableView {
+			get {
+				if (TableViewsListView.SelectedIndices.Count <= 0) return null;
+				return Model.TableViews[TableViewsListView.SelectedIndices[0]];
+			}
+		}
 		public QuickAccessEditForm(QuickAccessModel Model) {
 			this.Model = Model;
 			InitializeComponent();
 			InitializeViewModel();
+			ConnectionsListView.MultiSelect = false;
 		}
 		private void InitializeViewModel() {
 			RefreshConnectionList();
@@ -41,5 +60,10 @@ namespace QuickDBAccess.Forms {
 				TableViewsListView.Items.Add(item);
 			}
 		}
-	}
+        private void ConnectionsListView_SelectedIndexChanged(object sender, EventArgs e) {
+			AddConnectionButton.Enabled = true;
+			EditConnectionButton.Enabled = SelectedConnection != null;
+			DeleteConnectionButton.Enabled = SelectedConnection != null;
+        }
+    }
 }
