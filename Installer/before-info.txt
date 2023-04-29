@@ -1,0 +1,4 @@
+Quick DB Access (QDBA) is an application meant to provide quick access as a front end to a database.
+It provides the ability to easily configure table views of queries from the database and provides the ability to add custom actions on button presses. 
+
+Please provide feedback on how to improve this app as this is an ongoing work

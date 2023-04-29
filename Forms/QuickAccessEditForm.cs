@@ -65,5 +65,17 @@ namespace QuickDBAccess.Forms {
 			EditConnectionButton.Enabled = SelectedConnection != null;
 			DeleteConnectionButton.Enabled = SelectedConnection != null;
         }
-    }
+
+		private void AddConnectionButton_Click(object sender, EventArgs e) {
+
+		}
+
+		private void EditConnectionButton_Click(object sender, EventArgs e) {
+
+		}
+
+		private void DeleteConnectionButton_Click(object sender, EventArgs e) {
+
+		}
+	}
 }

@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataSourceEditForm));
 			this.ParameterListView = new System.Windows.Forms.ListView();
 			this.ParentParametersLabel = new System.Windows.Forms.Label();
 			this.ParentParameterListView = new System.Windows.Forms.ListView();
@@ -38,6 +39,10 @@
 			this.QueryLabel = new System.Windows.Forms.Label();
 			this.ParametersLabel = new System.Windows.Forms.Label();
 			this.QueryRichTextBox = new System.Windows.Forms.RichTextBox();
+			this.button2 = new System.Windows.Forms.Button();
+			this.button3 = new System.Windows.Forms.Button();
+			this.button4 = new System.Windows.Forms.Button();
+			this.button5 = new System.Windows.Forms.Button();
 			this.TableViewDetailGroup = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.ConnectionComboBox = new System.Windows.Forms.ComboBox();
@@ -47,10 +52,6 @@
 			this.button8 = new System.Windows.Forms.Button();
 			this.button7 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
-			this.button4 = new System.Windows.Forms.Button();
-			this.button5 = new System.Windows.Forms.Button();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.QueryGroupBox.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -258,6 +259,50 @@
 			this.QueryRichTextBox.TabIndex = 3;
 			this.QueryRichTextBox.Text = "";
 			// 
+			// button2
+			// 
+			this.button2.BackgroundImage = global::QuickDBAccess.Properties.Resources.up;
+			this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.button2.Location = new System.Drawing.Point(3, 158);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(23, 23);
+			this.button2.TabIndex = 4;
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
+			// button3
+			// 
+			this.button3.BackgroundImage = global::QuickDBAccess.Properties.Resources.up;
+			this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.button3.Location = new System.Drawing.Point(3, 87);
+			this.button3.Name = "button3";
+			this.button3.Size = new System.Drawing.Size(23, 23);
+			this.button3.TabIndex = 4;
+			this.button3.UseVisualStyleBackColor = true;
+			this.button3.Click += new System.EventHandler(this.button2_Click);
+			// 
+			// button4
+			// 
+			this.button4.BackgroundImage = global::QuickDBAccess.Properties.Resources.down;
+			this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.button4.Location = new System.Drawing.Point(3, 116);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(23, 23);
+			this.button4.TabIndex = 4;
+			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.button2_Click);
+			// 
+			// button5
+			// 
+			this.button5.BackgroundImage = global::QuickDBAccess.Properties.Resources.down;
+			this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.button5.Location = new System.Drawing.Point(3, 187);
+			this.button5.Name = "button5";
+			this.button5.Size = new System.Drawing.Size(23, 23);
+			this.button5.TabIndex = 4;
+			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.button2_Click);
+			// 
 			// TableViewDetailGroup
 			// 
 			this.TableViewDetailGroup.AutoSize = true;
@@ -359,50 +404,6 @@
 			this.button1.Text = "Cancel";
 			this.button1.UseVisualStyleBackColor = true;
 			// 
-			// button2
-			// 
-			this.button2.BackgroundImage = global::QuickDBAccess.Properties.Resources.up;
-			this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button2.Location = new System.Drawing.Point(3, 158);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(23, 23);
-			this.button2.TabIndex = 4;
-			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
-			// 
-			// button3
-			// 
-			this.button3.BackgroundImage = global::QuickDBAccess.Properties.Resources.up;
-			this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button3.Location = new System.Drawing.Point(3, 87);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(23, 23);
-			this.button3.TabIndex = 4;
-			this.button3.UseVisualStyleBackColor = true;
-			this.button3.Click += new System.EventHandler(this.button2_Click);
-			// 
-			// button4
-			// 
-			this.button4.BackgroundImage = global::QuickDBAccess.Properties.Resources.down;
-			this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button4.Location = new System.Drawing.Point(3, 116);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(23, 23);
-			this.button4.TabIndex = 4;
-			this.button4.UseVisualStyleBackColor = true;
-			this.button4.Click += new System.EventHandler(this.button2_Click);
-			// 
-			// button5
-			// 
-			this.button5.BackgroundImage = global::QuickDBAccess.Properties.Resources.down;
-			this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button5.Location = new System.Drawing.Point(3, 187);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(23, 23);
-			this.button5.TabIndex = 4;
-			this.button5.UseVisualStyleBackColor = true;
-			this.button5.Click += new System.EventHandler(this.button2_Click);
-			// 
 			// DataSourceEditForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -411,6 +412,7 @@
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.tableLayoutPanel3);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "DataSourceEditForm";
 			this.Text = "Edit Data Source";
 			this.tableLayoutPanel3.ResumeLayout(false);

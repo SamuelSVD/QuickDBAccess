@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuickAccessEditForm));
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.ConnectionsTabPage = new System.Windows.Forms.TabPage();
@@ -163,6 +164,7 @@
 			this.DeleteConnectionButton.Size = new System.Drawing.Size(23, 23);
 			this.DeleteConnectionButton.TabIndex = 9;
 			this.DeleteConnectionButton.UseVisualStyleBackColor = true;
+			this.DeleteConnectionButton.Click += new System.EventHandler(this.DeleteConnectionButton_Click);
 			// 
 			// EditConnectionButton
 			// 
@@ -174,6 +176,7 @@
 			this.EditConnectionButton.Size = new System.Drawing.Size(23, 23);
 			this.EditConnectionButton.TabIndex = 8;
 			this.EditConnectionButton.UseVisualStyleBackColor = true;
+			this.EditConnectionButton.Click += new System.EventHandler(this.EditConnectionButton_Click);
 			// 
 			// AddConnectionButton
 			// 
@@ -184,6 +187,7 @@
 			this.AddConnectionButton.Size = new System.Drawing.Size(23, 23);
 			this.AddConnectionButton.TabIndex = 7;
 			this.AddConnectionButton.UseVisualStyleBackColor = true;
+			this.AddConnectionButton.Click += new System.EventHandler(this.AddConnectionButton_Click);
 			// 
 			// ConnectionsListView
 			// 
@@ -467,6 +471,7 @@
 			this.CancelButton = this.CloseButton;
 			this.ClientSize = new System.Drawing.Size(498, 399);
 			this.Controls.Add(this.tableLayoutPanel1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MinimumSize = new System.Drawing.Size(514, 438);
 			this.Name = "QuickAccessEditForm";
 			this.Text = "Edit QDBA Program";

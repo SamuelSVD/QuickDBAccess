@@ -29,6 +29,7 @@ namespace QuickDBAccess.Forms
         /// </summary>
         private void InitializeComponent()
         {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableViewForm));
 			this.ContentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.ContentDataGridView = new System.Windows.Forms.DataGridView();
 			this.ButtonsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -125,6 +126,7 @@ namespace QuickDBAccess.Forms
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(221, 159);
 			this.Controls.Add(this.ContentSplitContainer);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "TableViewForm";
 			this.Text = "TableViewForm";
 			this.ContentTableLayoutPanel.ResumeLayout(false);

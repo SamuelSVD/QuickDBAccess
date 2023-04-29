@@ -5,11 +5,8 @@ bin/
 obj/
 Win32/
 *.local
-TrayDir/obj
-TrayDir/bin
 .vs
 *.suo
-Installer/binaries
-TrayDir/lib/VisualStudioTabControl/obj/
+Installer/bin
 *.pfx
 *.exe

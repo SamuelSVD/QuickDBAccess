@@ -1,4 +1,5 @@
 ﻿using QuickDBAccess.Model;
+using QuickDBAccess.Properties;
 using System;
 using System.Windows.Forms;
 using Utils;
