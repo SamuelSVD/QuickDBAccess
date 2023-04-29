@@ -63,6 +63,15 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void MainForm_Load(object sender, System.EventArgs e) {
+			bool locationValid = false;
+			foreach(Screen screen in Screen.AllScreens) {
+				if (screen.WorkingArea.Contains(Properties.Settings.Default.Location)) {
+					locationValid = true;
+				}
+			}
+			if (!locationValid) {
+				return;
+			}
 			if (Properties.Settings.Default.Maximised) {
 				Location = Properties.Settings.Default.Location;
 				WindowState = FormWindowState.Maximized;
