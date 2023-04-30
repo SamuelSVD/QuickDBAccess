@@ -20,5 +20,21 @@ namespace QuickDBAccess.Model {
 				return String.Format("Server = {0}; Database = {1}; User Id = {2}; Password = {3}; ", server, database, user, password);
 			}
 		}
+		public SQLConnectionModel() {
+		}
+		public SQLConnectionModel(SQLConnectionModel model) {
+			this.Name = model.Name;
+			this.server = model.server;
+			this.database = model.database;
+			this.user = model.user;
+			this.password = model.password;
+		}
+		public void Apply(SQLConnectionModel model) {
+			this.Name = model.Name;
+			this.server = model.server;
+			this.database = model.database;
+			this.user = model.user;
+			this.password = model.password;
+		}
 	}
 }

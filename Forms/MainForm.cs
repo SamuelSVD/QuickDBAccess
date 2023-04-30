@@ -9,15 +9,31 @@ namespace QuickDBAccess.Forms {
 		public MainForm() {
 			InitializeComponent();
 			LoadConfig();
+			BuildTableViews();
 		}
 		public void LoadConfig() {
 			ProgramData.LoadConfig();
+		}
+		public void BuildTableViews() {
+			TableViewTabControl.TabPages.Clear();
 			if (ProgramData.Instance != null) {
 				foreach (TableViewModel tv in ProgramData.Instance.TableViews) {
 					AddTableView(tv);
 				}
 			}
-			//ProgramData.SaveConfig();
+		}
+		public void LoadTableViewsData() {
+			if (ProgramData.Instance != null) {
+				foreach (TableViewModel tv in ProgramData.Instance.TableViews) {
+					try {
+						tv.View.DataLoad();
+					}
+					catch (Exception ex) {
+
+					}
+				}
+				editToolStripMenuItem.Enabled = true;
+			}
 		}
 		private void AddTableView(TableViewModel tv) {
 			TableViewForm tvf = new TableViewForm(tv);
@@ -42,17 +58,7 @@ namespace QuickDBAccess.Forms {
 		private bool _formShown = false;
 		private void MainForm_Shown(object sender, System.EventArgs e) {
 			if (!_formShown) {
-				if (ProgramData.Instance != null) {
-					foreach (TableViewModel tv in ProgramData.Instance.TableViews) {
-						try {
-							tv.View.DataLoad();
-						}
-						catch (Exception ex) {
-
-						}
-					}
-					editToolStripMenuItem.Enabled = true;
-				}
+				LoadTableViewsData();
 				_formShown = true;
 			}
 		}
@@ -121,6 +127,11 @@ namespace QuickDBAccess.Forms {
 		private void editToolStripMenuItem_Click(object sender, System.EventArgs e) {
 			QuickAccessEditForm editForm = new QuickAccessEditForm(ProgramData.Instance);
 			editForm.ShowDialog();
+			if (editForm.Changed) {
+				Text += "*";
+				BuildTableViews();
+				LoadTableViewsData();
+			}
 		}
 
 		private void newToolStripMenuItem_Click(object sender, EventArgs e) {

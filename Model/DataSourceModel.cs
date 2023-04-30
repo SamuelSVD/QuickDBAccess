@@ -13,5 +13,17 @@ namespace QuickDBAccess.Model {
 		[XmlAttribute]
 		public string ConnectionName { get; set; } = "";
 		public QueryModel Query { get; set; } = new QueryModel();
+
+		public DataSourceModel() { }
+		public DataSourceModel(DataSourceModel model) {
+			Name = model.Name;
+			ConnectionName = model.ConnectionName;
+			Query.Command = model.Query.Command;
+		}
+		internal void Apply(DataSourceModel model) {
+			Name = model.Name;
+			ConnectionName = model.ConnectionName;
+			Query.Command = model.Query.Command;
+		}
 	}
 }
