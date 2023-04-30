@@ -52,6 +52,7 @@ namespace QuickDBAccess {
 			ArgUtils.ArgHandlerParams p = (ArgUtils.ArgHandlerParams)e;
 			if (p.parameters.Count == 1) {
 				ProgramData.CONFIG = p.parameters[0];
+				ProgramData.ShouldBeValidConfigLocation = true;
 			}
 		}
 		private static void saveDemo(object sender, EventArgs e) {

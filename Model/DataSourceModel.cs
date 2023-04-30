@@ -18,7 +18,7 @@ namespace QuickDBAccess.Model {
 		public DataSourceModel(DataSourceModel model) {
 			Name = model.Name;
 			ConnectionName = model.ConnectionName;
-			Query.Command = model.Query.Command;
+			Query = new QueryModel(model.Query);
 		}
 		internal void Apply(DataSourceModel model) {
 			Name = model.Name;

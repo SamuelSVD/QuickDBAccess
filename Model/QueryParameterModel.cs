@@ -16,6 +16,17 @@ namespace QuickDBAccess.Model {
 		public string autoSourceColumnName { get; set; } = "";
 		[XmlIgnore]
 		public Control c { get; set; }
+		public QueryParameterModel() { }
+		public QueryParameterModel(QueryParameterModel model) {
+			type = model.type;
+			name = model.name;
+			autoSourceColumnName = model.autoSourceColumnName;
+		}
+		public void Apply(QueryParameterModel model) {
+			type = model.type;
+			name = model.name;
+			autoSourceColumnName = model.autoSourceColumnName;
+		}
 		public SqlDbType getSqlDbType() {
 			type = type.ToLower();
 			SqlDbType val;

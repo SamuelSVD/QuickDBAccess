@@ -142,15 +142,17 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void openToolStripMenuItem_Click(object sender, EventArgs e) {
-			throw new NotImplementedException();
+			ProgramData.OpenConfig();
+			BuildTableViews();
+			LoadTableViewsData();
 		}
 
 		private void saveToolStripMenuItem_Click(object sender, EventArgs e) {
-			throw new NotImplementedException();
+			ProgramData.SaveConfig();
 		}
 
 		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) {
-			throw new NotImplementedException();
+			ProgramData.SaveConfigAs();
 		}
 	}
 }

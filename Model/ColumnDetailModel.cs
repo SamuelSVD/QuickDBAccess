@@ -7,5 +7,10 @@ namespace QuickDBAccess.Model {
 		public string Name { get; set; } = "";
 		[XmlAttribute]
 		public bool hidden { get; set; } = false;
+		public ColumnDetailModel() { }
+		public ColumnDetailModel(ColumnDetailModel model ) {
+			Name = model.Name;
+			hidden = model.hidden;
+		}
 	}
 }

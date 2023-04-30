@@ -2,10 +2,10 @@
 using System.Windows.Forms;
 
 namespace QuickDBAccess.Forms {
-	public partial class ConnectionEditForm : Form {
+	public partial class ButtonEditForm : Form {
 		SQLConnectionModel Model;
 
-		public ConnectionEditForm(SQLConnectionModel model) {
+		public ButtonEditForm(SQLConnectionModel model) {
 			Model = model;
 			InitializeComponent();
 			ConnectionNameTextBox.TextChanged += ConnectionNameTextBox_TextChanged;
@@ -56,6 +56,10 @@ namespace QuickDBAccess.Forms {
 		private void OkButton_Click(object sender, System.EventArgs e) {
 			DialogResult = DialogResult.OK;
 			Close();
+		}
+
+		private void DataSourceComboBox_SelectedIndexChanged(object sender, System.EventArgs e) {
+
 		}
 	}
 }

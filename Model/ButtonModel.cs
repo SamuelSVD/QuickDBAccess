@@ -11,5 +11,10 @@ namespace QuickDBAccess.Model {
 		public string Text { get; set; } = "";
 		[XmlAttribute]
 		public string DataSourceName { get; set; } = "";
+		public ButtonModel() { }
+		public ButtonModel(ButtonModel model) {
+			Text = model.Text;
+			DataSourceName = model.DataSourceName;
+		}
 	}
 }

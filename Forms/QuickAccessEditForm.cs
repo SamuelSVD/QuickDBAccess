@@ -51,6 +51,15 @@ namespace QuickDBAccess.Forms {
 				if (TableViewsListView.SelectedIndices.Count <= 0) return null;
 				return Model.TableViews[TableViewsListView.SelectedIndices[0]];
 			}
+			set {
+				if (TableViewsListView.SelectedIndices.Count <= 0) return;
+				Model.TableViews[TableViewsListView.SelectedIndices[0]].Apply(value);
+				ListViewItem item = TableViewsListView.SelectedItems[0];
+				item.SubItems[0].Text = value.Name;
+				item.SubItems[1].Text = value.ContentDataSourceName;
+				item.SubItems[2].Text = value.ChildTableViews.Count.ToString();
+				Changed = true;
+			}
 		}
 		public QuickAccessEditForm(QuickAccessModel Model) {
 			this.Model = Model;
@@ -122,6 +131,7 @@ namespace QuickDBAccess.Forms {
 			if (connectionEditForm.ShowNewDialog() == DialogResult.OK) {
 				ProgramData.Instance.Connections.Add(connectionModel);
 				AddConnection(connectionModel);
+				Changed = true;
 			}
 		}
 
@@ -135,8 +145,14 @@ namespace QuickDBAccess.Forms {
 
 		private void DeleteConnectionButton_Click(object sender, EventArgs e) {
 			try {
-				if (MessageBox.Show("Are you sure you want to delete this connection?", "Delete Connection", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK) {
-					throw new NotImplementedException();
+				if (MessageBox.Show("Delete this connection?", "Delete Connection", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK) {
+					if (Model.DataSources.Exists(t => t.ConnectionName == SelectedConnection.Name)) {
+						if (MessageBox.Show("There exist references to this connection. Are you sure you want to delete?", "Delete Connection", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK) {
+							return;
+						}
+					}
+					Model.Connections.Remove(SelectedConnection);
+					ConnectionsListView.Items.RemoveAt(ConnectionsListView.SelectedIndices[0]);
 				}
 			}
 			catch (Exception ex) {
@@ -145,22 +161,55 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void NewDataSourceButton_Click(object sender, EventArgs e) {
-			throw new NotImplementedException();
+			DataSourceModel dataSourceModel = new DataSourceModel();
+			DataSourceEditForm dataSourceEditForm = new DataSourceEditForm(dataSourceModel);
+			if (dataSourceEditForm.ShowNewDialog() == DialogResult.OK) {
+				ProgramData.Instance.DataSources.Add(dataSourceModel);
+				AddDataSource(dataSourceModel);
+				Changed = true;
+			}
 		}
 
 		private void EditDataSourceButton_Click(object sender, EventArgs e) {
-			throw new NotImplementedException();
+			DataSourceModel dataSourceModel = new DataSourceModel(SelectedDataSource);
+			DataSourceEditForm dataSourceEditForm = new DataSourceEditForm(dataSourceModel);
+			if (dataSourceEditForm.ShowNewDialog() == DialogResult.OK) {
+				SelectedDataSource = dataSourceModel;
+			}
 		}
 
 		private void DeleteDataSourceButton_Click(object sender, EventArgs e) {
-			throw new NotImplementedException();
+			try {
+				if (MessageBox.Show("Delete this data source?", "Delete Data Source", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK) {
+					if (Model.TableViews.Exists(t => t.UsesDataSource(SelectedDataSource))) {
+						if (MessageBox.Show("There exist references to this data source. Are you sure you want to delete?", "Delete Data Source", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK) {
+							return;
+						}
+					}
+					Model.DataSources.Remove(SelectedDataSource);
+					DataSourcesListView.Items.RemoveAt(DataSourcesListView.SelectedIndices[0]);
+				}
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.Message);
+			}
 		}
 		private void NewTableViewButton_Click(object sender, EventArgs e) {
-			throw new NotImplementedException();
+			TableViewModel dataSourceModel = new TableViewModel();
+			TableViewEditForm dataSourceEditForm = new TableViewEditForm(dataSourceModel);
+			if (dataSourceEditForm.ShowNewDialog() == DialogResult.OK) {
+				ProgramData.Instance.TableViews.Add(dataSourceModel);
+				AddTableView(dataSourceModel);
+				Changed = true;
+			}
 		}
 
 		private void EditTableViewButton_Click(object sender, EventArgs e) {
-			throw new NotImplementedException();
+			TableViewModel dataSourceModel = new TableViewModel(SelectedTableView);
+			TableViewEditForm dataSourceEditForm = new TableViewEditForm(dataSourceModel);
+			if (dataSourceEditForm.ShowNewDialog() == DialogResult.OK) {
+				SelectedTableView = dataSourceModel;
+			}
 		}
 
 		private void DeleteTableViewButton_Click(object sender, EventArgs e) {

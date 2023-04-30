@@ -492,6 +492,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MinimumSize = new System.Drawing.Size(514, 438);
 			this.Name = "QuickAccessEditForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Edit QDBA Program";
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tabControl1.ResumeLayout(false);
