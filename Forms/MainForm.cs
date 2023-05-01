@@ -128,20 +128,47 @@ namespace QuickDBAccess.Forms {
 			QuickAccessEditForm editForm = new QuickAccessEditForm(ProgramData.Instance);
 			editForm.ShowDialog();
 			if (editForm.Changed) {
-				Text += "*";
+				Text = "Quick DB Access*";
 				BuildTableViews();
 				LoadTableViewsData();
+				ProgramData.Changed = true;
 			}
 		}
 
 		private void newToolStripMenuItem_Click(object sender, EventArgs e) {
-			NewProjectForm newProjectForm = new NewProjectForm();
-			if (newProjectForm.ShowDialog() == DialogResult.OK) {
+			if (ProgramData.Changed) {
+				DialogResult result = MessageBox.Show("Unsaved changes. Would you like to save before starting a new project?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+				if (result == DialogResult.Yes) {
+					ProgramData.SaveConfig();
+					if (ProgramData.Changed) {
+						return;
+					}
+				} else if (result == DialogResult.No) {
+				} else {
+					return;
+				}
 			}
-			throw new NotImplementedException();
+			ProgramData.Instance = new QuickAccessModel();
+			ProgramData.Changed = false;
+			ProgramData.ValidConfigLocation = false;
+			ProgramData.ShouldBeValidConfigLocation = false;
+			BuildTableViews();
+			LoadTableViewsData();
 		}
 
 		private void openToolStripMenuItem_Click(object sender, EventArgs e) {
+			if (ProgramData.Changed) {
+				DialogResult result = MessageBox.Show("Unsaved changes. Would you like to save before opening a different project?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+				if (result == DialogResult.Yes) {
+					ProgramData.SaveConfig();
+					if (ProgramData.Changed) {
+						return;
+					}
+				} else if (result == DialogResult.No) {
+				} else {
+					return;
+				}
+			}
 			ProgramData.OpenConfig();
 			BuildTableViews();
 			LoadTableViewsData();
@@ -149,10 +176,16 @@ namespace QuickDBAccess.Forms {
 
 		private void saveToolStripMenuItem_Click(object sender, EventArgs e) {
 			ProgramData.SaveConfig();
+			if (!ProgramData.Changed) {
+				Text = "Quick DB Access";
+			}
 		}
 
 		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) {
 			ProgramData.SaveConfigAs();
+			if (!ProgramData.Changed) {
+				Text = "Quick DB Access";
+			}
 		}
 	}
 }

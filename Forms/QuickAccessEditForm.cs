@@ -129,7 +129,7 @@ namespace QuickDBAccess.Forms {
 			SQLConnectionModel connectionModel = new SQLConnectionModel();
 			ConnectionEditForm connectionEditForm = new ConnectionEditForm(connectionModel);
 			if (connectionEditForm.ShowNewDialog() == DialogResult.OK) {
-				ProgramData.Instance.Connections.Add(connectionModel);
+				Model.Connections.Add(connectionModel);
 				AddConnection(connectionModel);
 				Changed = true;
 			}
@@ -138,7 +138,7 @@ namespace QuickDBAccess.Forms {
 		private void EditConnectionButton_Click(object sender, EventArgs e) {
 			SQLConnectionModel connectionModel = new SQLConnectionModel(SelectedConnection);
 			ConnectionEditForm connectionEditForm = new ConnectionEditForm(connectionModel);
-			if (connectionEditForm.ShowNewDialog() == DialogResult.OK) {
+			if (connectionEditForm.ShowDialog() == DialogResult.OK) {
 				SelectedConnection = connectionModel;
 			}
 		}
@@ -164,7 +164,7 @@ namespace QuickDBAccess.Forms {
 			DataSourceModel dataSourceModel = new DataSourceModel();
 			DataSourceEditForm dataSourceEditForm = new DataSourceEditForm(dataSourceModel);
 			if (dataSourceEditForm.ShowNewDialog() == DialogResult.OK) {
-				ProgramData.Instance.DataSources.Add(dataSourceModel);
+				Model.DataSources.Add(dataSourceModel);
 				AddDataSource(dataSourceModel);
 				Changed = true;
 			}
@@ -173,7 +173,7 @@ namespace QuickDBAccess.Forms {
 		private void EditDataSourceButton_Click(object sender, EventArgs e) {
 			DataSourceModel dataSourceModel = new DataSourceModel(SelectedDataSource);
 			DataSourceEditForm dataSourceEditForm = new DataSourceEditForm(dataSourceModel);
-			if (dataSourceEditForm.ShowNewDialog() == DialogResult.OK) {
+			if (dataSourceEditForm.ShowDialog() == DialogResult.OK) {
 				SelectedDataSource = dataSourceModel;
 			}
 		}
@@ -198,7 +198,7 @@ namespace QuickDBAccess.Forms {
 			TableViewModel dataSourceModel = new TableViewModel();
 			TableViewEditForm dataSourceEditForm = new TableViewEditForm(dataSourceModel);
 			if (dataSourceEditForm.ShowNewDialog() == DialogResult.OK) {
-				ProgramData.Instance.TableViews.Add(dataSourceModel);
+				Model.TableViews.Add(dataSourceModel);
 				AddTableView(dataSourceModel);
 				Changed = true;
 			}
@@ -207,13 +207,21 @@ namespace QuickDBAccess.Forms {
 		private void EditTableViewButton_Click(object sender, EventArgs e) {
 			TableViewModel dataSourceModel = new TableViewModel(SelectedTableView);
 			TableViewEditForm dataSourceEditForm = new TableViewEditForm(dataSourceModel);
-			if (dataSourceEditForm.ShowNewDialog() == DialogResult.OK) {
+			if (dataSourceEditForm.ShowDialog() == DialogResult.OK) {
 				SelectedTableView = dataSourceModel;
 			}
 		}
 
 		private void DeleteTableViewButton_Click(object sender, EventArgs e) {
-			throw new NotImplementedException();
+			try {
+				if (MessageBox.Show("Delete this table view?", "Delete Table View", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK) {
+					Model.TableViews.Remove(SelectedTableView);
+					TableViewsListView.Items.RemoveAt(TableViewsListView.SelectedIndices[0]);
+				}
+			}
+			catch (Exception ex) {
+				MessageBox.Show(ex.Message);
+			}
 		}
 
 		private void ChangeEnableDisable(Button button, Bitmap enabledImage, Bitmap disabledImage) {

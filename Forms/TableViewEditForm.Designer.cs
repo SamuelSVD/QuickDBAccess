@@ -23,17 +23,20 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableViewEditForm));
 			this.DataSourceLabel = new System.Windows.Forms.Label();
 			this.DataSourceComboBox = new System.Windows.Forms.ComboBox();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.ParameterListView = new System.Windows.Forms.ListView();
+			this.ButtonListView = new System.Windows.Forms.ListView();
 			this.ParametersLabel = new System.Windows.Forms.Label();
 			this.ParentParametersLabel = new System.Windows.Forms.Label();
-			this.ParentParameterListView = new System.Windows.Forms.ListView();
+			this.TableViewListView = new System.Windows.Forms.ListView();
+			this.TableViewNameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.DataSourceColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.SubTablesColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.DeleteButtonButton = new System.Windows.Forms.Button();
 			this.EditButtonButton = new System.Windows.Forms.Button();
 			this.NewButtonButton = new System.Windows.Forms.Button();
@@ -48,13 +51,10 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.TableViewDetailGroup = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+			this.TableViewNameTextBox = new QuickDBAccess.ValidateTextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.CancelButton = new System.Windows.Forms.Button();
-			this.TableViewNameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.DataSourceColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.SubTablesColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.TableViewNameTextBox = new QuickDBAccess.ValidateTextBox();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.ParametersGroupBox.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
@@ -90,10 +90,10 @@
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.Controls.Add(this.ParameterListView, 1, 1);
+			this.tableLayoutPanel2.Controls.Add(this.ButtonListView, 1, 1);
 			this.tableLayoutPanel2.Controls.Add(this.ParametersLabel, 0, 0);
 			this.tableLayoutPanel2.Controls.Add(this.ParentParametersLabel, 0, 3);
-			this.tableLayoutPanel2.Controls.Add(this.ParentParameterListView, 1, 4);
+			this.tableLayoutPanel2.Controls.Add(this.TableViewListView, 1, 4);
 			this.tableLayoutPanel2.Controls.Add(this.DeleteButtonButton, 4, 1);
 			this.tableLayoutPanel2.Controls.Add(this.EditButtonButton, 3, 1);
 			this.tableLayoutPanel2.Controls.Add(this.NewButtonButton, 2, 1);
@@ -117,17 +117,17 @@
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(354, 142);
 			this.tableLayoutPanel2.TabIndex = 3;
 			// 
-			// ParameterListView
+			// ButtonListView
 			// 
-			this.ParameterListView.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.ParameterListView.HideSelection = false;
-			this.ParameterListView.Location = new System.Drawing.Point(32, 16);
-			this.ParameterListView.Name = "ParameterListView";
-			this.tableLayoutPanel2.SetRowSpan(this.ParameterListView, 2);
-			this.ParameterListView.Size = new System.Drawing.Size(232, 52);
-			this.ParameterListView.TabIndex = 0;
-			this.ParameterListView.UseCompatibleStateImageBehavior = false;
-			this.ParameterListView.SelectedIndexChanged += new System.EventHandler(this.ParameterListView_SelectedIndexChanged);
+			this.ButtonListView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ButtonListView.HideSelection = false;
+			this.ButtonListView.Location = new System.Drawing.Point(32, 16);
+			this.ButtonListView.Name = "ButtonListView";
+			this.tableLayoutPanel2.SetRowSpan(this.ButtonListView, 2);
+			this.ButtonListView.Size = new System.Drawing.Size(232, 52);
+			this.ButtonListView.TabIndex = 0;
+			this.ButtonListView.UseCompatibleStateImageBehavior = false;
+			this.ButtonListView.SelectedIndexChanged += new System.EventHandler(this.ButtonListView_SelectedIndexChanged);
 			// 
 			// ParametersLabel
 			// 
@@ -151,32 +151,46 @@
 			this.ParentParametersLabel.TabIndex = 2;
 			this.ParentParametersLabel.Text = "Table Views";
 			// 
-			// ParentParameterListView
+			// TableViewListView
 			// 
-			this.ParentParameterListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+			this.TableViewListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.TableViewNameColumn,
             this.DataSourceColumn,
             this.SubTablesColumn});
-			this.ParentParameterListView.Dock = System.Windows.Forms.DockStyle.Fill;
-			listViewGroup1.Header = "ListViewGroup";
-			listViewGroup1.Name = "listViewGroup1";
-			listViewGroup2.Header = "ListViewGroup";
-			listViewGroup2.Name = "listViewGroup2";
-			listViewGroup3.Header = "ListViewGroup";
-			listViewGroup3.Name = "listViewGroup3";
-			this.ParentParameterListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3});
-			this.ParentParameterListView.HideSelection = false;
-			this.ParentParameterListView.Location = new System.Drawing.Point(32, 87);
-			this.ParentParameterListView.Name = "ParentParameterListView";
-			this.tableLayoutPanel2.SetRowSpan(this.ParentParameterListView, 2);
-			this.ParentParameterListView.Size = new System.Drawing.Size(232, 52);
-			this.ParentParameterListView.TabIndex = 3;
-			this.ParentParameterListView.UseCompatibleStateImageBehavior = false;
-			this.ParentParameterListView.View = System.Windows.Forms.View.Details;
-			this.ParentParameterListView.SelectedIndexChanged += new System.EventHandler(this.ParentParameterListView_SelectedIndexChanged);
+			this.TableViewListView.Dock = System.Windows.Forms.DockStyle.Fill;
+			listViewGroup10.Header = "ListViewGroup";
+			listViewGroup10.Name = "listViewGroup1";
+			listViewGroup11.Header = "ListViewGroup";
+			listViewGroup11.Name = "listViewGroup2";
+			listViewGroup12.Header = "ListViewGroup";
+			listViewGroup12.Name = "listViewGroup3";
+			this.TableViewListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup10,
+            listViewGroup11,
+            listViewGroup12});
+			this.TableViewListView.HideSelection = false;
+			this.TableViewListView.Location = new System.Drawing.Point(32, 87);
+			this.TableViewListView.Name = "TableViewListView";
+			this.tableLayoutPanel2.SetRowSpan(this.TableViewListView, 2);
+			this.TableViewListView.Size = new System.Drawing.Size(232, 52);
+			this.TableViewListView.TabIndex = 3;
+			this.TableViewListView.UseCompatibleStateImageBehavior = false;
+			this.TableViewListView.View = System.Windows.Forms.View.Details;
+			this.TableViewListView.SelectedIndexChanged += new System.EventHandler(this.TableViewListView_SelectedIndexChanged);
+			// 
+			// TableViewNameColumn
+			// 
+			this.TableViewNameColumn.Text = "Name";
+			// 
+			// DataSourceColumn
+			// 
+			this.DataSourceColumn.Text = "Data Source";
+			this.DataSourceColumn.Width = 80;
+			// 
+			// SubTablesColumn
+			// 
+			this.SubTablesColumn.Text = "Sub-tables";
+			this.SubTablesColumn.Width = 73;
 			// 
 			// DeleteButtonButton
 			// 
@@ -188,6 +202,7 @@
 			this.DeleteButtonButton.Size = new System.Drawing.Size(23, 23);
 			this.DeleteButtonButton.TabIndex = 4;
 			this.DeleteButtonButton.UseVisualStyleBackColor = true;
+			this.DeleteButtonButton.EnabledChanged += new System.EventHandler(this.DeleteButtonButton_EnabledChanged);
 			this.DeleteButtonButton.Click += new System.EventHandler(this.DeleteButtonButton_Click);
 			// 
 			// EditButtonButton
@@ -201,6 +216,7 @@
 			this.EditButtonButton.Size = new System.Drawing.Size(23, 23);
 			this.EditButtonButton.TabIndex = 4;
 			this.EditButtonButton.UseVisualStyleBackColor = true;
+			this.EditButtonButton.EnabledChanged += new System.EventHandler(this.EditButtonButton_EnabledChanged);
 			this.EditButtonButton.Click += new System.EventHandler(this.EditButtonButton_Click);
 			// 
 			// NewButtonButton
@@ -236,6 +252,7 @@
 			this.EditTableViewButton.Size = new System.Drawing.Size(23, 23);
 			this.EditTableViewButton.TabIndex = 4;
 			this.EditTableViewButton.UseVisualStyleBackColor = true;
+			this.EditTableViewButton.EnabledChanged += new System.EventHandler(this.EditTableViewButton_EnabledChanged);
 			this.EditTableViewButton.Click += new System.EventHandler(this.EditTableViewButton_Click);
 			// 
 			// DeleteTableViewButton
@@ -248,6 +265,7 @@
 			this.DeleteTableViewButton.Size = new System.Drawing.Size(23, 23);
 			this.DeleteTableViewButton.TabIndex = 4;
 			this.DeleteTableViewButton.UseVisualStyleBackColor = true;
+			this.DeleteTableViewButton.EnabledChanged += new System.EventHandler(this.DeleteTableViewButton_EnabledChanged);
 			this.DeleteTableViewButton.Click += new System.EventHandler(this.DeleteTableViewButton_Click);
 			// 
 			// ButtonsUpButton
@@ -365,6 +383,16 @@
 			this.tableLayoutPanel4.Size = new System.Drawing.Size(354, 81);
 			this.tableLayoutPanel4.TabIndex = 0;
 			// 
+			// TableViewNameTextBox
+			// 
+			this.TableViewNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+			this.TableViewNameTextBox.Location = new System.Drawing.Point(3, 16);
+			this.TableViewNameTextBox.Name = "TableViewNameTextBox";
+			this.TableViewNameTextBox.Size = new System.Drawing.Size(348, 22);
+			this.TableViewNameTextBox.TabIndex = 7;
+			this.TableViewNameTextBox.TooltipText = "Field should not be empty";
+			this.TableViewNameTextBox.Valid = false;
+			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
@@ -395,30 +423,6 @@
 			this.CancelButton.TabIndex = 5;
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
-			// 
-			// TableViewNameColumn
-			// 
-			this.TableViewNameColumn.Text = "Name";
-			// 
-			// DataSourceColumn
-			// 
-			this.DataSourceColumn.Text = "Data Source";
-			this.DataSourceColumn.Width = 80;
-			// 
-			// SubTablesColumn
-			// 
-			this.SubTablesColumn.Text = "Sub-tables";
-			this.SubTablesColumn.Width = 73;
-			// 
-			// TableViewNameTextBox
-			// 
-			this.TableViewNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-			this.TableViewNameTextBox.Location = new System.Drawing.Point(3, 16);
-			this.TableViewNameTextBox.Name = "TableViewNameTextBox";
-			this.TableViewNameTextBox.Size = new System.Drawing.Size(348, 22);
-			this.TableViewNameTextBox.TabIndex = 7;
-			this.TableViewNameTextBox.TooltipText = "Field should not be empty";
-			this.TableViewNameTextBox.Valid = false;
 			// 
 			// TableViewEditForm
 			// 
@@ -464,8 +468,8 @@
 		private System.Windows.Forms.Button CancelButton;
 		private System.Windows.Forms.GroupBox TableViewDetailGroup;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-		private System.Windows.Forms.ListView ParameterListView;
-		private System.Windows.Forms.ListView ParentParameterListView;
+		private System.Windows.Forms.ListView ButtonListView;
+		private System.Windows.Forms.ListView TableViewListView;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.ComboBox DataSourceComboBox;
 		private System.Windows.Forms.Button ButtonsUpButton;

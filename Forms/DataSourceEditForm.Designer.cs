@@ -33,10 +33,10 @@
 			this.PPTypeColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.PPNameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.PPAutoSourceColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.AddParameterButton = new System.Windows.Forms.Button();
+			this.NewParameterButton = new System.Windows.Forms.Button();
 			this.EditParameterButton = new System.Windows.Forms.Button();
 			this.DeleteParameterButton = new System.Windows.Forms.Button();
-			this.AddParentParameterButton = new System.Windows.Forms.Button();
+			this.NewParentParameterButton = new System.Windows.Forms.Button();
 			this.EditParentParameterButton = new System.Windows.Forms.Button();
 			this.DeleteParentParameterButton = new System.Windows.Forms.Button();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -51,12 +51,12 @@
 			this.ParentParameterDownButton = new System.Windows.Forms.Button();
 			this.TableViewDetailGroup = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-			this.DataSourceNameTextBox = new QuickDBAccess.ValidateTextBox();
 			this.ConnectionComboBox = new System.Windows.Forms.ComboBox();
 			this.ConnectionLabel = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.CancelButton = new System.Windows.Forms.Button();
+			this.DataSourceNameTextBox = new QuickDBAccess.ValidateTextBox();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.QueryGroupBox.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -79,6 +79,7 @@
 			this.ParameterListView.TabIndex = 0;
 			this.ParameterListView.UseCompatibleStateImageBehavior = false;
 			this.ParameterListView.View = System.Windows.Forms.View.Details;
+			this.ParameterListView.SelectedIndexChanged += new System.EventHandler(this.ParameterListView_SelectedIndexChanged);
 			// 
 			// PTypeColumn
 			// 
@@ -119,6 +120,7 @@
 			this.ParentParameterListView.TabIndex = 3;
 			this.ParentParameterListView.UseCompatibleStateImageBehavior = false;
 			this.ParentParameterListView.View = System.Windows.Forms.View.Details;
+			this.ParentParameterListView.SelectedIndexChanged += new System.EventHandler(this.ParentParameterListView_SelectedIndexChanged);
 			// 
 			// PPTypeColumn
 			// 
@@ -134,16 +136,16 @@
 			this.PPAutoSourceColumn.Text = "Auto Source Column";
 			this.PPAutoSourceColumn.Width = 120;
 			// 
-			// AddParameterButton
+			// NewParameterButton
 			// 
-			this.AddParameterButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.add;
-			this.AddParameterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AddParameterButton.Location = new System.Drawing.Point(349, 87);
-			this.AddParameterButton.Name = "AddParameterButton";
-			this.AddParameterButton.Size = new System.Drawing.Size(23, 23);
-			this.AddParameterButton.TabIndex = 4;
-			this.AddParameterButton.UseVisualStyleBackColor = true;
-			this.AddParameterButton.Click += new System.EventHandler(this.AddParameterButton_Click);
+			this.NewParameterButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.add;
+			this.NewParameterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.NewParameterButton.Location = new System.Drawing.Point(349, 87);
+			this.NewParameterButton.Name = "NewParameterButton";
+			this.NewParameterButton.Size = new System.Drawing.Size(23, 23);
+			this.NewParameterButton.TabIndex = 4;
+			this.NewParameterButton.UseVisualStyleBackColor = true;
+			this.NewParameterButton.Click += new System.EventHandler(this.AddParameterButton_Click);
 			// 
 			// EditParameterButton
 			// 
@@ -155,6 +157,7 @@
 			this.EditParameterButton.Size = new System.Drawing.Size(23, 23);
 			this.EditParameterButton.TabIndex = 4;
 			this.EditParameterButton.UseVisualStyleBackColor = true;
+			this.EditParameterButton.EnabledChanged += new System.EventHandler(this.EditParameterButton_EnabledChanged);
 			this.EditParameterButton.Click += new System.EventHandler(this.EditParameterButton_Click);
 			// 
 			// DeleteParameterButton
@@ -167,18 +170,19 @@
 			this.DeleteParameterButton.Size = new System.Drawing.Size(23, 23);
 			this.DeleteParameterButton.TabIndex = 4;
 			this.DeleteParameterButton.UseVisualStyleBackColor = true;
+			this.DeleteParameterButton.EnabledChanged += new System.EventHandler(this.DeleteParameterButton_EnabledChanged);
 			this.DeleteParameterButton.Click += new System.EventHandler(this.DeleteParameterButton_Click);
 			// 
-			// AddParentParameterButton
+			// NewParentParameterButton
 			// 
-			this.AddParentParameterButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.add;
-			this.AddParentParameterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AddParentParameterButton.Location = new System.Drawing.Point(349, 158);
-			this.AddParentParameterButton.Name = "AddParentParameterButton";
-			this.AddParentParameterButton.Size = new System.Drawing.Size(23, 23);
-			this.AddParentParameterButton.TabIndex = 4;
-			this.AddParentParameterButton.UseVisualStyleBackColor = true;
-			this.AddParentParameterButton.Click += new System.EventHandler(this.AddParentParameterButton_Click);
+			this.NewParentParameterButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.add;
+			this.NewParentParameterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.NewParentParameterButton.Location = new System.Drawing.Point(349, 158);
+			this.NewParentParameterButton.Name = "NewParentParameterButton";
+			this.NewParentParameterButton.Size = new System.Drawing.Size(23, 23);
+			this.NewParentParameterButton.TabIndex = 4;
+			this.NewParentParameterButton.UseVisualStyleBackColor = true;
+			this.NewParentParameterButton.Click += new System.EventHandler(this.AddParentParameterButton_Click);
 			// 
 			// EditParentParameterButton
 			// 
@@ -190,6 +194,7 @@
 			this.EditParentParameterButton.Size = new System.Drawing.Size(23, 23);
 			this.EditParentParameterButton.TabIndex = 4;
 			this.EditParentParameterButton.UseVisualStyleBackColor = true;
+			this.EditParentParameterButton.EnabledChanged += new System.EventHandler(this.EditParentParameterButton_EnabledChanged);
 			this.EditParentParameterButton.Click += new System.EventHandler(this.EditParentParameterButton_Click);
 			// 
 			// DeleteParentParameterButton
@@ -202,6 +207,7 @@
 			this.DeleteParentParameterButton.Size = new System.Drawing.Size(23, 23);
 			this.DeleteParentParameterButton.TabIndex = 4;
 			this.DeleteParentParameterButton.UseVisualStyleBackColor = true;
+			this.DeleteParentParameterButton.EnabledChanged += new System.EventHandler(this.DeleteParentParameterButton_EnabledChanged);
 			this.DeleteParentParameterButton.Click += new System.EventHandler(this.DeleteParentParameterButton_Click);
 			// 
 			// tableLayoutPanel3
@@ -256,10 +262,10 @@
 			this.tableLayoutPanel1.Controls.Add(this.QueryRichTextBox, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.DeleteParameterButton, 4, 3);
 			this.tableLayoutPanel1.Controls.Add(this.EditParameterButton, 3, 3);
-			this.tableLayoutPanel1.Controls.Add(this.AddParameterButton, 2, 3);
+			this.tableLayoutPanel1.Controls.Add(this.NewParameterButton, 2, 3);
 			this.tableLayoutPanel1.Controls.Add(this.ParentParameterUpButton, 0, 6);
 			this.tableLayoutPanel1.Controls.Add(this.ParentParametersLabel, 0, 5);
-			this.tableLayoutPanel1.Controls.Add(this.AddParentParameterButton, 2, 6);
+			this.tableLayoutPanel1.Controls.Add(this.NewParentParameterButton, 2, 6);
 			this.tableLayoutPanel1.Controls.Add(this.EditParentParameterButton, 3, 6);
 			this.tableLayoutPanel1.Controls.Add(this.DeleteParentParameterButton, 4, 6);
 			this.tableLayoutPanel1.Controls.Add(this.ParameterUpButton, 0, 3);
@@ -390,16 +396,6 @@
 			this.tableLayoutPanel4.Size = new System.Drawing.Size(433, 81);
 			this.tableLayoutPanel4.TabIndex = 0;
 			// 
-			// DataSourceNameTextBox
-			// 
-			this.DataSourceNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-			this.DataSourceNameTextBox.Location = new System.Drawing.Point(3, 16);
-			this.DataSourceNameTextBox.Name = "DataSourceNameTextBox";
-			this.DataSourceNameTextBox.Size = new System.Drawing.Size(427, 22);
-			this.DataSourceNameTextBox.TabIndex = 7;
-			this.DataSourceNameTextBox.TooltipText = "Field should not be empty";
-			this.DataSourceNameTextBox.Valid = false;
-			// 
 			// ConnectionComboBox
 			// 
 			this.ConnectionComboBox.Dock = System.Windows.Forms.DockStyle.Top;
@@ -451,6 +447,16 @@
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
 			// 
+			// DataSourceNameTextBox
+			// 
+			this.DataSourceNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+			this.DataSourceNameTextBox.Location = new System.Drawing.Point(3, 16);
+			this.DataSourceNameTextBox.Name = "DataSourceNameTextBox";
+			this.DataSourceNameTextBox.Size = new System.Drawing.Size(427, 22);
+			this.DataSourceNameTextBox.TabIndex = 7;
+			this.DataSourceNameTextBox.TooltipText = "Field should not be empty";
+			this.DataSourceNameTextBox.Valid = false;
+			// 
 			// DataSourceEditForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -461,6 +467,7 @@
 			this.Controls.Add(this.tableLayoutPanel3);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "DataSourceEditForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Edit Data Source";
 			this.tableLayoutPanel3.ResumeLayout(false);
 			this.tableLayoutPanel3.PerformLayout();
@@ -479,11 +486,11 @@
 
 		#endregion
 		private System.Windows.Forms.Label ParentParametersLabel;
-		private System.Windows.Forms.Button AddParameterButton;
+		private System.Windows.Forms.Button NewParameterButton;
 		private System.Windows.Forms.Button EditParameterButton;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
 		private System.Windows.Forms.Button DeleteParameterButton;
-		private System.Windows.Forms.Button AddParentParameterButton;
+		private System.Windows.Forms.Button NewParentParameterButton;
 		private System.Windows.Forms.Button EditParentParameterButton;
 		private System.Windows.Forms.Button DeleteParentParameterButton;
 		private System.Windows.Forms.Button OkButton;

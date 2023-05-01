@@ -10,6 +10,7 @@ namespace QuickDBAccess {
 		public static string CONFIG = AssemblyDirectory + "\\config.xml";
 		public static bool ValidConfigLocation = false;
 		public static bool ShouldBeValidConfigLocation = false;
+		public static bool Changed = false;
 
 		public static string AssemblyDirectory {
             get {
