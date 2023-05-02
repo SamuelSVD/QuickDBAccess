@@ -109,6 +109,21 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
+			if (ProgramData.Changed) {
+				switch(MessageBox.Show("Unsaved changes. Would you like to save before exiting?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)) {
+					case DialogResult.Yes:
+						if (!ProgramData.SaveConfig()) {
+							e.Cancel = true;
+						}
+						UpdateFormText();
+						break;
+					case DialogResult.No:
+						break;
+					default:
+						e.Cancel = true;
+						break;
+				}
+			}
 			if (WindowState == FormWindowState.Maximized) {
 				Properties.Settings.Default.Location = RestoreBounds.Location;
 				Properties.Settings.Default.Size = RestoreBounds.Size;
@@ -150,15 +165,16 @@ namespace QuickDBAccess.Forms {
 
 		private void newToolStripMenuItem_Click(object sender, EventArgs e) {
 			if (ProgramData.Changed) {
-				DialogResult result = MessageBox.Show("Unsaved changes. Would you like to save before starting a new project?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-				if (result == DialogResult.Yes) {
-					ProgramData.SaveConfig();
-					if (ProgramData.Changed) {
+				switch (MessageBox.Show("Unsaved changes. Would you like to save before starting a new project?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)) {
+					case DialogResult.Yes:
+						if (!ProgramData.SaveConfig()) {
+							return;
+						}
+						break;
+					case DialogResult.No:
+						break;
+					default:
 						return;
-					}
-				} else if (result == DialogResult.No) {
-				} else {
-					return;
 				}
 			}
 			ProgramData.Instance = new QuickAccessModel();

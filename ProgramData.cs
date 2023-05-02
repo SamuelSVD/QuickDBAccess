@@ -32,22 +32,25 @@ namespace QuickDBAccess {
 				ValidConfigLocation = true;
 			}
 		}
-		public static void SaveConfig() {
+		public static bool SaveConfig() {
 			if (!ValidConfigLocation) {
-				SaveConfigAs();
+				return SaveConfigAs();
 			} else {
 				Instance.SaveToFile(CONFIG);
 				Changed = false;
+				return true;
 			}
 		}
-		public static void SaveConfigAs() {
+		public static bool SaveConfigAs() {
 			SaveFileDialog d = new SaveFileDialog();
 			d.InitialDirectory = AssemblyDirectory;
 			if (d.ShowDialog() == DialogResult.OK) {
 				Instance.SaveToFile(d.FileName);
 				ValidConfigLocation = true;
 				Changed = false;
+				return true;
 			}
+			return false;
 		}
 	}
 }
