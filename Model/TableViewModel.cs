@@ -22,25 +22,13 @@ namespace QuickDBAccess.Model {
 		public TableViewForm View { get; set; }
 		public TableViewModel() { }
 		public TableViewModel(TableViewModel model) {
-			Name = model.Name;
-			ContentDataSourceName = model.ContentDataSourceName;
-			foreach(TableViewModel child in model.ChildTableViews) {
-				ChildTableViews.Add(new TableViewModel(child));
-			}
-			if (model.DoubleClickAction != null) {
-				DoubleClickAction = new ButtonModel(model.DoubleClickAction);
-			}
-			foreach (ButtonModel button in model.Buttons) {
-				Buttons.Add(new ButtonModel(button));
-			}
-			foreach(ColumnDetailModel column in model.ColumnDetails) {
-				ColumnDetails.Add(new ColumnDetailModel(column));
-			}
+			Apply(model);
 		}
 
 		internal void Apply(TableViewModel model) {
 			Name = model.Name;
 			ContentDataSourceName = model.ContentDataSourceName;
+			ChildTableViews.Clear();
 			foreach (TableViewModel child in model.ChildTableViews) {
 				ChildTableViews.Add(new TableViewModel(child));
 			}
@@ -49,9 +37,11 @@ namespace QuickDBAccess.Model {
 			} else {
 				DoubleClickAction = null;
 			}
+			Buttons.Clear();
 			foreach (ButtonModel button in model.Buttons) {
 				Buttons.Add(new ButtonModel(button));
 			}
+			ColumnDetails.Clear();
 			foreach (ColumnDetailModel column in model.ColumnDetails) {
 				ColumnDetails.Add(new ColumnDetailModel(column));
 			}

@@ -129,13 +129,16 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void editToolStripMenuItem_Click(object sender, System.EventArgs e) {
-			QuickAccessEditForm editForm = new QuickAccessEditForm(ProgramData.Instance);
-			editForm.ShowDialog();
-			if (editForm.Changed) {
-				BuildTableViews();
-				LoadTableViewsData();
-				ProgramData.Changed = true;
-				UpdateFormText();
+			QuickAccessModel model = new QuickAccessModel(ProgramData.Instance);
+			QuickAccessEditForm editForm = new QuickAccessEditForm(model);
+			if (editForm.ShowDialog() == DialogResult.OK) {
+				if (editForm.Changed) {
+					ProgramData.Instance = model;
+					BuildTableViews();
+					LoadTableViewsData();
+					ProgramData.Changed = true;
+					UpdateFormText();
+				}
 			}
 		}
 

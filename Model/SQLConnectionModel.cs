@@ -23,11 +23,7 @@ namespace QuickDBAccess.Model {
 		public SQLConnectionModel() {
 		}
 		public SQLConnectionModel(SQLConnectionModel model) {
-			this.Name = model.Name;
-			this.server = model.server;
-			this.database = model.database;
-			this.user = model.user;
-			this.password = model.password;
+			Apply(model);
 		}
 		public void Apply(SQLConnectionModel model) {
 			this.Name = model.Name;

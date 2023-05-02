@@ -26,11 +26,6 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuickAccessEditForm));
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.ProjectPropertiesTabPage = new System.Windows.Forms.TabPage();
-			this.SettingsGroupBox = new System.Windows.Forms.GroupBox();
-			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-			this.ProjectNameTextBox = new QuickDBAccess.ValidateTextBox();
-			this.label1 = new System.Windows.Forms.Label();
 			this.ConnectionsTabPage = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.button3 = new System.Windows.Forms.Button();
@@ -65,27 +60,35 @@
 			this.TableViewsName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.TableViewsDataSource = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.TableViewsChildrenCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.CloseButton = new System.Windows.Forms.Button();
+			this.ProjectPropertiesTabPage = new System.Windows.Forms.TabPage();
+			this.SettingsGroupBox = new System.Windows.Forms.GroupBox();
+			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+			this.ProjectNameTextBox = new QuickDBAccess.ValidateTextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.OkButton = new System.Windows.Forms.Button();
+			this.CancelButton = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
-			this.ProjectPropertiesTabPage.SuspendLayout();
-			this.SettingsGroupBox.SuspendLayout();
-			this.tableLayoutPanel5.SuspendLayout();
 			this.ConnectionsTabPage.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.DataSourcesTabPage.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.TableViewTabPage.SuspendLayout();
 			this.tableLayoutPanel4.SuspendLayout();
+			this.ProjectPropertiesTabPage.SuspendLayout();
+			this.SettingsGroupBox.SuspendLayout();
+			this.tableLayoutPanel5.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel1
 			// 
-			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnCount = 3;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.CloseButton, 1, 1);
+			this.tableLayoutPanel1.Controls.Add(this.OkButton, 1, 1);
+			this.tableLayoutPanel1.Controls.Add(this.CancelButton, 2, 1);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -97,7 +100,7 @@
 			// 
 			// tabControl1
 			// 
-			this.tableLayoutPanel1.SetColumnSpan(this.tabControl1, 2);
+			this.tableLayoutPanel1.SetColumnSpan(this.tabControl1, 3);
 			this.tabControl1.Controls.Add(this.ConnectionsTabPage);
 			this.tabControl1.Controls.Add(this.DataSourcesTabPage);
 			this.tabControl1.Controls.Add(this.TableViewTabPage);
@@ -108,68 +111,6 @@
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.Size = new System.Drawing.Size(492, 364);
 			this.tabControl1.TabIndex = 0;
-			// 
-			// ProjectPropertiesTabPage
-			// 
-			this.ProjectPropertiesTabPage.Controls.Add(this.SettingsGroupBox);
-			this.ProjectPropertiesTabPage.Location = new System.Drawing.Point(4, 22);
-			this.ProjectPropertiesTabPage.Name = "ProjectPropertiesTabPage";
-			this.ProjectPropertiesTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.ProjectPropertiesTabPage.Size = new System.Drawing.Size(484, 338);
-			this.ProjectPropertiesTabPage.TabIndex = 3;
-			this.ProjectPropertiesTabPage.Text = "Properties";
-			this.ProjectPropertiesTabPage.UseVisualStyleBackColor = true;
-			// 
-			// SettingsGroupBox
-			// 
-			this.SettingsGroupBox.AutoSize = true;
-			this.SettingsGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.SettingsGroupBox.Controls.Add(this.tableLayoutPanel5);
-			this.SettingsGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
-			this.SettingsGroupBox.Location = new System.Drawing.Point(3, 3);
-			this.SettingsGroupBox.Name = "SettingsGroupBox";
-			this.SettingsGroupBox.Size = new System.Drawing.Size(478, 47);
-			this.SettingsGroupBox.TabIndex = 0;
-			this.SettingsGroupBox.TabStop = false;
-			this.SettingsGroupBox.Text = "Project Properties";
-			// 
-			// tableLayoutPanel5
-			// 
-			this.tableLayoutPanel5.AutoSize = true;
-			this.tableLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.tableLayoutPanel5.ColumnCount = 2;
-			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel5.Controls.Add(this.ProjectNameTextBox, 1, 0);
-			this.tableLayoutPanel5.Controls.Add(this.label1, 0, 0);
-			this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
-			this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 16);
-			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-			this.tableLayoutPanel5.RowCount = 1;
-			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel5.Size = new System.Drawing.Size(472, 28);
-			this.tableLayoutPanel5.TabIndex = 0;
-			// 
-			// ProjectNameTextBox
-			// 
-			this.ProjectNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-			this.ProjectNameTextBox.Location = new System.Drawing.Point(80, 3);
-			this.ProjectNameTextBox.Name = "ProjectNameTextBox";
-			this.ProjectNameTextBox.Size = new System.Drawing.Size(389, 22);
-			this.ProjectNameTextBox.TabIndex = 1;
-			this.ProjectNameTextBox.TooltipText = null;
-			this.ProjectNameTextBox.Valid = true;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-			this.label1.Location = new System.Drawing.Point(3, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(71, 28);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Project Name";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// ConnectionsTabPage
 			// 
@@ -543,21 +484,94 @@
 			this.TableViewsChildrenCount.Text = "Sub-tables";
 			this.TableViewsChildrenCount.Width = 92;
 			// 
-			// CloseButton
+			// ProjectPropertiesTabPage
 			// 
-			this.CloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CloseButton.Location = new System.Drawing.Point(420, 373);
-			this.CloseButton.Name = "CloseButton";
-			this.CloseButton.Size = new System.Drawing.Size(75, 23);
-			this.CloseButton.TabIndex = 1;
-			this.CloseButton.Text = "Close";
-			this.CloseButton.UseVisualStyleBackColor = true;
+			this.ProjectPropertiesTabPage.Controls.Add(this.SettingsGroupBox);
+			this.ProjectPropertiesTabPage.Location = new System.Drawing.Point(4, 22);
+			this.ProjectPropertiesTabPage.Name = "ProjectPropertiesTabPage";
+			this.ProjectPropertiesTabPage.Padding = new System.Windows.Forms.Padding(3);
+			this.ProjectPropertiesTabPage.Size = new System.Drawing.Size(484, 338);
+			this.ProjectPropertiesTabPage.TabIndex = 3;
+			this.ProjectPropertiesTabPage.Text = "Properties";
+			this.ProjectPropertiesTabPage.UseVisualStyleBackColor = true;
+			// 
+			// SettingsGroupBox
+			// 
+			this.SettingsGroupBox.AutoSize = true;
+			this.SettingsGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.SettingsGroupBox.Controls.Add(this.tableLayoutPanel5);
+			this.SettingsGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+			this.SettingsGroupBox.Location = new System.Drawing.Point(3, 3);
+			this.SettingsGroupBox.Name = "SettingsGroupBox";
+			this.SettingsGroupBox.Size = new System.Drawing.Size(478, 47);
+			this.SettingsGroupBox.TabIndex = 0;
+			this.SettingsGroupBox.TabStop = false;
+			this.SettingsGroupBox.Text = "Project Properties";
+			// 
+			// tableLayoutPanel5
+			// 
+			this.tableLayoutPanel5.AutoSize = true;
+			this.tableLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.tableLayoutPanel5.ColumnCount = 2;
+			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel5.Controls.Add(this.ProjectNameTextBox, 1, 0);
+			this.tableLayoutPanel5.Controls.Add(this.label1, 0, 0);
+			this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
+			this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 16);
+			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+			this.tableLayoutPanel5.RowCount = 1;
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel5.Size = new System.Drawing.Size(472, 28);
+			this.tableLayoutPanel5.TabIndex = 0;
+			// 
+			// ProjectNameTextBox
+			// 
+			this.ProjectNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+			this.ProjectNameTextBox.Location = new System.Drawing.Point(80, 3);
+			this.ProjectNameTextBox.Name = "ProjectNameTextBox";
+			this.ProjectNameTextBox.Size = new System.Drawing.Size(389, 22);
+			this.ProjectNameTextBox.TabIndex = 1;
+			this.ProjectNameTextBox.TooltipText = null;
+			this.ProjectNameTextBox.Valid = true;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+			this.label1.Location = new System.Drawing.Point(3, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(71, 28);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Project Name";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// OkButton
+			// 
+			this.OkButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.OkButton.Location = new System.Drawing.Point(339, 373);
+			this.OkButton.Name = "OkButton";
+			this.OkButton.Size = new System.Drawing.Size(75, 23);
+			this.OkButton.TabIndex = 1;
+			this.OkButton.Text = "OK";
+			this.OkButton.UseVisualStyleBackColor = true;
+			this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
+			// 
+			// CancelButton
+			// 
+			this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.CancelButton.Location = new System.Drawing.Point(420, 373);
+			this.CancelButton.Name = "CancelButton";
+			this.CancelButton.Size = new System.Drawing.Size(75, 23);
+			this.CancelButton.TabIndex = 2;
+			this.CancelButton.Text = "Cancel";
+			this.CancelButton.UseVisualStyleBackColor = true;
 			// 
 			// QuickAccessEditForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.CancelButton = this.CloseButton;
+			this.CancelButton = this.CancelButton;
 			this.ClientSize = new System.Drawing.Size(498, 399);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -567,18 +581,18 @@
 			this.Text = "Edit QDBA Program";
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tabControl1.ResumeLayout(false);
-			this.ProjectPropertiesTabPage.ResumeLayout(false);
-			this.ProjectPropertiesTabPage.PerformLayout();
-			this.SettingsGroupBox.ResumeLayout(false);
-			this.SettingsGroupBox.PerformLayout();
-			this.tableLayoutPanel5.ResumeLayout(false);
-			this.tableLayoutPanel5.PerformLayout();
 			this.ConnectionsTabPage.ResumeLayout(false);
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.DataSourcesTabPage.ResumeLayout(false);
 			this.tableLayoutPanel3.ResumeLayout(false);
 			this.TableViewTabPage.ResumeLayout(false);
 			this.tableLayoutPanel4.ResumeLayout(false);
+			this.ProjectPropertiesTabPage.ResumeLayout(false);
+			this.ProjectPropertiesTabPage.PerformLayout();
+			this.SettingsGroupBox.ResumeLayout(false);
+			this.SettingsGroupBox.PerformLayout();
+			this.tableLayoutPanel5.ResumeLayout(false);
+			this.tableLayoutPanel5.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -590,7 +604,7 @@
 		private System.Windows.Forms.TabPage ConnectionsTabPage;
 		private System.Windows.Forms.TabPage DataSourcesTabPage;
 		private System.Windows.Forms.TabPage TableViewTabPage;
-		private System.Windows.Forms.Button CloseButton;
+		private System.Windows.Forms.Button OkButton;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button3;
@@ -627,5 +641,6 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
 		private ValidateTextBox ProjectNameTextBox;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button CancelButton;
 	}
 }

@@ -16,14 +16,12 @@ namespace QuickDBAccess.Model {
 
 		public DataSourceModel() { }
 		public DataSourceModel(DataSourceModel model) {
-			Name = model.Name;
-			ConnectionName = model.ConnectionName;
-			Query = new QueryModel(model.Query);
+			Apply(model);
 		}
 		internal void Apply(DataSourceModel model) {
 			Name = model.Name;
 			ConnectionName = model.ConnectionName;
-			Query.Command = model.Query.Command;
+			Query = new QueryModel(model.Query);
 		}
 	}
 }

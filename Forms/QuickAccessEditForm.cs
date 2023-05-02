@@ -267,5 +267,10 @@ namespace QuickDBAccess.Forms {
 		private void DeleteTableViewButton_EnabledChanged(object sender, EventArgs e) {
 			ChangeEnableDisable(DeleteTableViewButton, Properties.Resources.delete, Properties.Resources.delete_disabled);
 		}
+
+		private void OkButton_Click(object sender, EventArgs e) {
+			DialogResult = DialogResult.OK;
+			Close();
+		}
 	}
 }
