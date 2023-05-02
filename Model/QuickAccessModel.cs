@@ -4,6 +4,8 @@ using System.Xml.Serialization;
 namespace QuickDBAccess.Model {
 	[XmlType(TypeName = "QuickAccess")]
 	public class QuickAccessModel {
+		[XmlAttribute]
+		public string ProjectName = string.Empty;
 		public List<SQLConnectionModel> Connections { get; set; } = new List<SQLConnectionModel>();
 		public List<DataSourceModel> DataSources { get; set; } = new List<DataSourceModel>();
 		public List<TableViewModel> TableViews { get; set; } = new List<TableViewModel>();

@@ -13,6 +13,9 @@ namespace QuickDBAccess.Forms {
 		}
 		public void LoadConfig() {
 			ProgramData.LoadConfig();
+			if (ProgramData.Instance == null) {
+				ProgramData.Instance = new QuickAccessModel();
+			}
 		}
 		public void BuildTableViews() {
 			TableViewTabControl.TabPages.Clear();
@@ -59,6 +62,7 @@ namespace QuickDBAccess.Forms {
 		private void MainForm_Shown(object sender, System.EventArgs e) {
 			if (!_formShown) {
 				LoadTableViewsData();
+				UpdateFormText();
 				_formShown = true;
 			}
 		}
@@ -128,11 +132,17 @@ namespace QuickDBAccess.Forms {
 			QuickAccessEditForm editForm = new QuickAccessEditForm(ProgramData.Instance);
 			editForm.ShowDialog();
 			if (editForm.Changed) {
-				Text = "Quick DB Access*";
 				BuildTableViews();
 				LoadTableViewsData();
 				ProgramData.Changed = true;
+				UpdateFormText();
 			}
+		}
+
+		private void UpdateFormText() {
+			Text = "Quick DB Access - ";
+			Text += string.IsNullOrEmpty(ProgramData.Instance.ProjectName) ? "Untitled Project" : ProgramData.Instance.ProjectName;
+			Text += ProgramData.Changed ? "*" : string.Empty;
 		}
 
 		private void newToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -154,6 +164,7 @@ namespace QuickDBAccess.Forms {
 			ProgramData.ShouldBeValidConfigLocation = false;
 			BuildTableViews();
 			LoadTableViewsData();
+			UpdateFormText();
 		}
 
 		private void openToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -172,20 +183,17 @@ namespace QuickDBAccess.Forms {
 			ProgramData.OpenConfig();
 			BuildTableViews();
 			LoadTableViewsData();
+			UpdateFormText();
 		}
 
 		private void saveToolStripMenuItem_Click(object sender, EventArgs e) {
 			ProgramData.SaveConfig();
-			if (!ProgramData.Changed) {
-				Text = "Quick DB Access";
-			}
+			UpdateFormText();
 		}
 
 		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) {
 			ProgramData.SaveConfigAs();
-			if (!ProgramData.Changed) {
-				Text = "Quick DB Access";
-			}
+			UpdateFormText();
 		}
 	}
 }

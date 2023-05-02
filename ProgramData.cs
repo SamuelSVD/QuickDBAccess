@@ -37,6 +37,7 @@ namespace QuickDBAccess {
 				SaveConfigAs();
 			} else {
 				Instance.SaveToFile(CONFIG);
+				Changed = false;
 			}
 		}
 		public static void SaveConfigAs() {
@@ -45,6 +46,7 @@ namespace QuickDBAccess {
 			if (d.ShowDialog() == DialogResult.OK) {
 				Instance.SaveToFile(d.FileName);
 				ValidConfigLocation = true;
+				Changed = false;
 			}
 		}
 	}

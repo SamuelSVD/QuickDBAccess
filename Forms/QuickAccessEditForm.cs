@@ -64,14 +64,26 @@ namespace QuickDBAccess.Forms {
 		public QuickAccessEditForm(QuickAccessModel Model) {
 			this.Model = Model;
 			InitializeComponent();
+			ProjectNameTextBox.TextChanged += ProjectNameTextBox_TextChanged;
 			InitializeViewModel();
 			ConnectionsListView.MultiSelect = false;
+			ProjectNameTextBox_TextChanged(null, null);
 		}
 		private void InitializeViewModel() {
 			RefreshConnectionList();
 			RefreshDataSourcesList();
 			RefreshTableViewsList();
+			ProjectNameTextBox.Text = Model.ProjectName;
 		}
+
+		private void ProjectNameTextBox_TextChanged(object sender, EventArgs e) {
+			if (Model.ProjectName != ProjectNameTextBox.Text) {
+				Changed = true;
+			}
+			Model.ProjectName = ProjectNameTextBox.Text;
+			ProjectNameTextBox.Valid = !string.IsNullOrEmpty(Model.ProjectName);
+		}
+
 		private void RefreshConnectionList() {
 			ConnectionsListView.Items.Clear();
 			foreach (var connection in Model.Connections) {
