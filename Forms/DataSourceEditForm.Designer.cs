@@ -51,12 +51,12 @@
 			this.ParentParameterDownButton = new System.Windows.Forms.Button();
 			this.TableViewDetailGroup = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+			this.DataSourceNameTextBox = new QuickDBAccess.ValidateTextBox();
 			this.ConnectionComboBox = new System.Windows.Forms.ComboBox();
 			this.ConnectionLabel = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.CancelButton = new System.Windows.Forms.Button();
-			this.DataSourceNameTextBox = new QuickDBAccess.ValidateTextBox();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.QueryGroupBox.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -67,15 +67,15 @@
 			// ParameterListView
 			// 
 			this.ParameterListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.PTypeColumn,
             this.PNameColumn,
+            this.PTypeColumn,
             this.PAutoSourceColumn});
 			this.ParameterListView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ParameterListView.HideSelection = false;
-			this.ParameterListView.Location = new System.Drawing.Point(32, 87);
+			this.ParameterListView.Location = new System.Drawing.Point(32, 136);
 			this.ParameterListView.Name = "ParameterListView";
 			this.tableLayoutPanel1.SetRowSpan(this.ParameterListView, 2);
-			this.ParameterListView.Size = new System.Drawing.Size(311, 52);
+			this.ParameterListView.Size = new System.Drawing.Size(316, 76);
 			this.ParameterListView.TabIndex = 0;
 			this.ParameterListView.UseCompatibleStateImageBehavior = false;
 			this.ParameterListView.View = System.Windows.Forms.View.Details;
@@ -99,7 +99,7 @@
 			// 
 			this.ParentParametersLabel.AutoSize = true;
 			this.tableLayoutPanel1.SetColumnSpan(this.ParentParametersLabel, 5);
-			this.ParentParametersLabel.Location = new System.Drawing.Point(3, 142);
+			this.ParentParametersLabel.Location = new System.Drawing.Point(3, 215);
 			this.ParentParametersLabel.Name = "ParentParametersLabel";
 			this.ParentParametersLabel.Size = new System.Drawing.Size(94, 13);
 			this.ParentParametersLabel.TabIndex = 2;
@@ -108,15 +108,15 @@
 			// ParentParameterListView
 			// 
 			this.ParentParameterListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.PPTypeColumn,
             this.PPNameColumn,
+            this.PPTypeColumn,
             this.PPAutoSourceColumn});
 			this.ParentParameterListView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ParentParameterListView.HideSelection = false;
-			this.ParentParameterListView.Location = new System.Drawing.Point(32, 158);
+			this.ParentParameterListView.Location = new System.Drawing.Point(32, 231);
 			this.ParentParameterListView.Name = "ParentParameterListView";
 			this.tableLayoutPanel1.SetRowSpan(this.ParentParameterListView, 2);
-			this.ParentParameterListView.Size = new System.Drawing.Size(311, 52);
+			this.ParentParameterListView.Size = new System.Drawing.Size(316, 77);
 			this.ParentParameterListView.TabIndex = 3;
 			this.ParentParameterListView.UseCompatibleStateImageBehavior = false;
 			this.ParentParameterListView.View = System.Windows.Forms.View.Details;
@@ -140,7 +140,7 @@
 			// 
 			this.NewParameterButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.add;
 			this.NewParameterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.NewParameterButton.Location = new System.Drawing.Point(349, 87);
+			this.NewParameterButton.Location = new System.Drawing.Point(354, 136);
 			this.NewParameterButton.Name = "NewParameterButton";
 			this.NewParameterButton.Size = new System.Drawing.Size(23, 23);
 			this.NewParameterButton.TabIndex = 4;
@@ -152,7 +152,7 @@
 			this.EditParameterButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.edit_disabled;
 			this.EditParameterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.EditParameterButton.Enabled = false;
-			this.EditParameterButton.Location = new System.Drawing.Point(378, 87);
+			this.EditParameterButton.Location = new System.Drawing.Point(383, 136);
 			this.EditParameterButton.Name = "EditParameterButton";
 			this.EditParameterButton.Size = new System.Drawing.Size(23, 23);
 			this.EditParameterButton.TabIndex = 4;
@@ -165,7 +165,7 @@
 			this.DeleteParameterButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.delete_disabled;
 			this.DeleteParameterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.DeleteParameterButton.Enabled = false;
-			this.DeleteParameterButton.Location = new System.Drawing.Point(407, 87);
+			this.DeleteParameterButton.Location = new System.Drawing.Point(412, 136);
 			this.DeleteParameterButton.Name = "DeleteParameterButton";
 			this.DeleteParameterButton.Size = new System.Drawing.Size(23, 23);
 			this.DeleteParameterButton.TabIndex = 4;
@@ -177,7 +177,7 @@
 			// 
 			this.NewParentParameterButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.add;
 			this.NewParentParameterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.NewParentParameterButton.Location = new System.Drawing.Point(349, 158);
+			this.NewParentParameterButton.Location = new System.Drawing.Point(354, 231);
 			this.NewParentParameterButton.Name = "NewParentParameterButton";
 			this.NewParentParameterButton.Size = new System.Drawing.Size(23, 23);
 			this.NewParentParameterButton.TabIndex = 4;
@@ -189,7 +189,7 @@
 			this.EditParentParameterButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.edit_disabled;
 			this.EditParentParameterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.EditParentParameterButton.Enabled = false;
-			this.EditParentParameterButton.Location = new System.Drawing.Point(378, 158);
+			this.EditParentParameterButton.Location = new System.Drawing.Point(383, 231);
 			this.EditParentParameterButton.Name = "EditParentParameterButton";
 			this.EditParentParameterButton.Size = new System.Drawing.Size(23, 23);
 			this.EditParentParameterButton.TabIndex = 4;
@@ -202,7 +202,7 @@
 			this.DeleteParentParameterButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.delete_disabled;
 			this.DeleteParentParameterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.DeleteParentParameterButton.Enabled = false;
-			this.DeleteParentParameterButton.Location = new System.Drawing.Point(407, 158);
+			this.DeleteParentParameterButton.Location = new System.Drawing.Point(412, 231);
 			this.DeleteParentParameterButton.Name = "DeleteParentParameterButton";
 			this.DeleteParentParameterButton.Size = new System.Drawing.Size(23, 23);
 			this.DeleteParentParameterButton.TabIndex = 4;
@@ -222,6 +222,7 @@
 			this.tableLayoutPanel3.Controls.Add(this.TableViewDetailGroup, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.OkButton, 2, 2);
 			this.tableLayoutPanel3.Controls.Add(this.CancelButton, 3, 2);
+			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 3;
@@ -229,7 +230,7 @@
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(445, 373);
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(450, 471);
 			this.tableLayoutPanel3.TabIndex = 5;
 			// 
 			// QueryGroupBox
@@ -241,7 +242,7 @@
 			this.QueryGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.QueryGroupBox.Location = new System.Drawing.Point(3, 109);
 			this.QueryGroupBox.Name = "QueryGroupBox";
-			this.QueryGroupBox.Size = new System.Drawing.Size(439, 232);
+			this.QueryGroupBox.Size = new System.Drawing.Size(444, 330);
 			this.QueryGroupBox.TabIndex = 1;
 			this.QueryGroupBox.TabStop = false;
 			this.QueryGroupBox.Text = "Query Details";
@@ -283,7 +284,7 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(433, 213);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(438, 311);
 			this.tableLayoutPanel1.TabIndex = 2;
 			// 
 			// QueryLabel
@@ -300,7 +301,7 @@
 			// 
 			this.ParametersLabel.AutoSize = true;
 			this.tableLayoutPanel1.SetColumnSpan(this.ParametersLabel, 5);
-			this.ParametersLabel.Location = new System.Drawing.Point(3, 71);
+			this.ParametersLabel.Location = new System.Drawing.Point(3, 120);
 			this.ParametersLabel.Name = "ParametersLabel";
 			this.ParametersLabel.Size = new System.Drawing.Size(60, 13);
 			this.ParametersLabel.TabIndex = 1;
@@ -312,7 +313,7 @@
 			this.QueryRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.QueryRichTextBox.Location = new System.Drawing.Point(3, 16);
 			this.QueryRichTextBox.Name = "QueryRichTextBox";
-			this.QueryRichTextBox.Size = new System.Drawing.Size(427, 52);
+			this.QueryRichTextBox.Size = new System.Drawing.Size(432, 101);
 			this.QueryRichTextBox.TabIndex = 3;
 			this.QueryRichTextBox.Text = "";
 			this.QueryRichTextBox.TextChanged += new System.EventHandler(this.QueryRichTextBox_TextChanged);
@@ -321,7 +322,7 @@
 			// 
 			this.ParentParameterUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up;
 			this.ParentParameterUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ParentParameterUpButton.Location = new System.Drawing.Point(3, 158);
+			this.ParentParameterUpButton.Location = new System.Drawing.Point(3, 231);
 			this.ParentParameterUpButton.Name = "ParentParameterUpButton";
 			this.ParentParameterUpButton.Size = new System.Drawing.Size(23, 23);
 			this.ParentParameterUpButton.TabIndex = 4;
@@ -332,7 +333,7 @@
 			// 
 			this.ParameterUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up;
 			this.ParameterUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ParameterUpButton.Location = new System.Drawing.Point(3, 87);
+			this.ParameterUpButton.Location = new System.Drawing.Point(3, 136);
 			this.ParameterUpButton.Name = "ParameterUpButton";
 			this.ParameterUpButton.Size = new System.Drawing.Size(23, 23);
 			this.ParameterUpButton.TabIndex = 4;
@@ -343,7 +344,7 @@
 			// 
 			this.ParameterDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down;
 			this.ParameterDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ParameterDownButton.Location = new System.Drawing.Point(3, 116);
+			this.ParameterDownButton.Location = new System.Drawing.Point(3, 165);
 			this.ParameterDownButton.Name = "ParameterDownButton";
 			this.ParameterDownButton.Size = new System.Drawing.Size(23, 23);
 			this.ParameterDownButton.TabIndex = 4;
@@ -354,7 +355,7 @@
 			// 
 			this.ParentParameterDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down;
 			this.ParentParameterDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.ParentParameterDownButton.Location = new System.Drawing.Point(3, 187);
+			this.ParentParameterDownButton.Location = new System.Drawing.Point(3, 260);
 			this.ParentParameterDownButton.Name = "ParentParameterDownButton";
 			this.ParentParameterDownButton.Size = new System.Drawing.Size(23, 23);
 			this.ParentParameterDownButton.TabIndex = 4;
@@ -370,7 +371,7 @@
 			this.TableViewDetailGroup.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.TableViewDetailGroup.Location = new System.Drawing.Point(3, 3);
 			this.TableViewDetailGroup.Name = "TableViewDetailGroup";
-			this.TableViewDetailGroup.Size = new System.Drawing.Size(439, 100);
+			this.TableViewDetailGroup.Size = new System.Drawing.Size(444, 100);
 			this.TableViewDetailGroup.TabIndex = 6;
 			this.TableViewDetailGroup.TabStop = false;
 			this.TableViewDetailGroup.Text = "Data Source Properties";
@@ -393,8 +394,18 @@
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel4.Size = new System.Drawing.Size(433, 81);
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(438, 81);
 			this.tableLayoutPanel4.TabIndex = 0;
+			// 
+			// DataSourceNameTextBox
+			// 
+			this.DataSourceNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+			this.DataSourceNameTextBox.Location = new System.Drawing.Point(3, 16);
+			this.DataSourceNameTextBox.Name = "DataSourceNameTextBox";
+			this.DataSourceNameTextBox.Size = new System.Drawing.Size(432, 22);
+			this.DataSourceNameTextBox.TabIndex = 7;
+			this.DataSourceNameTextBox.TooltipText = "Field should not be empty";
+			this.DataSourceNameTextBox.Valid = false;
 			// 
 			// ConnectionComboBox
 			// 
@@ -402,7 +413,7 @@
 			this.ConnectionComboBox.FormattingEnabled = true;
 			this.ConnectionComboBox.Location = new System.Drawing.Point(3, 57);
 			this.ConnectionComboBox.Name = "ConnectionComboBox";
-			this.ConnectionComboBox.Size = new System.Drawing.Size(427, 21);
+			this.ConnectionComboBox.Size = new System.Drawing.Size(432, 21);
 			this.ConnectionComboBox.TabIndex = 6;
 			this.ConnectionComboBox.SelectedIndexChanged += new System.EventHandler(this.ConnectionComboBox_SelectedIndexChanged);
 			// 
@@ -412,7 +423,7 @@
 			this.ConnectionLabel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.ConnectionLabel.Location = new System.Drawing.Point(3, 41);
 			this.ConnectionLabel.Name = "ConnectionLabel";
-			this.ConnectionLabel.Size = new System.Drawing.Size(427, 13);
+			this.ConnectionLabel.Size = new System.Drawing.Size(432, 13);
 			this.ConnectionLabel.TabIndex = 5;
 			this.ConnectionLabel.Text = "Connection";
 			// 
@@ -428,7 +439,7 @@
 			// OkButton
 			// 
 			this.OkButton.AutoSize = true;
-			this.OkButton.Location = new System.Drawing.Point(286, 347);
+			this.OkButton.Location = new System.Drawing.Point(291, 445);
 			this.OkButton.Name = "OkButton";
 			this.OkButton.Size = new System.Drawing.Size(75, 23);
 			this.OkButton.TabIndex = 5;
@@ -440,22 +451,12 @@
 			// 
 			this.CancelButton.AutoSize = true;
 			this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelButton.Location = new System.Drawing.Point(367, 347);
+			this.CancelButton.Location = new System.Drawing.Point(372, 445);
 			this.CancelButton.Name = "CancelButton";
 			this.CancelButton.Size = new System.Drawing.Size(75, 23);
 			this.CancelButton.TabIndex = 5;
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
-			// 
-			// DataSourceNameTextBox
-			// 
-			this.DataSourceNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-			this.DataSourceNameTextBox.Location = new System.Drawing.Point(3, 16);
-			this.DataSourceNameTextBox.Name = "DataSourceNameTextBox";
-			this.DataSourceNameTextBox.Size = new System.Drawing.Size(427, 22);
-			this.DataSourceNameTextBox.TabIndex = 7;
-			this.DataSourceNameTextBox.TooltipText = "Field should not be empty";
-			this.DataSourceNameTextBox.Valid = false;
 			// 
 			// DataSourceEditForm
 			// 
@@ -463,9 +464,10 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(450, 471);
 			this.Controls.Add(this.tableLayoutPanel3);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MinimumSize = new System.Drawing.Size(466, 510);
 			this.Name = "DataSourceEditForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Edit Data Source";

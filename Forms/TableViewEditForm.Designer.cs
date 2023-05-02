@@ -23,9 +23,9 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableViewEditForm));
 			this.DataSourceLabel = new System.Windows.Forms.Label();
 			this.DataSourceComboBox = new System.Windows.Forms.ComboBox();
@@ -77,7 +77,7 @@
 			this.DataSourceComboBox.FormattingEnabled = true;
 			this.DataSourceComboBox.Location = new System.Drawing.Point(3, 57);
 			this.DataSourceComboBox.Name = "DataSourceComboBox";
-			this.DataSourceComboBox.Size = new System.Drawing.Size(348, 21);
+			this.DataSourceComboBox.Size = new System.Drawing.Size(390, 21);
 			this.DataSourceComboBox.TabIndex = 2;
 			this.DataSourceComboBox.SelectedIndexChanged += new System.EventHandler(this.DataSourceComboBox_SelectedIndexChanged);
 			// 
@@ -114,7 +114,7 @@
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(354, 142);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(396, 213);
 			this.tableLayoutPanel2.TabIndex = 3;
 			// 
 			// ButtonListView
@@ -124,7 +124,7 @@
 			this.ButtonListView.Location = new System.Drawing.Point(32, 16);
 			this.ButtonListView.Name = "ButtonListView";
 			this.tableLayoutPanel2.SetRowSpan(this.ButtonListView, 2);
-			this.ButtonListView.Size = new System.Drawing.Size(232, 52);
+			this.ButtonListView.Size = new System.Drawing.Size(274, 87);
 			this.ButtonListView.TabIndex = 0;
 			this.ButtonListView.UseCompatibleStateImageBehavior = false;
 			this.ButtonListView.SelectedIndexChanged += new System.EventHandler(this.ButtonListView_SelectedIndexChanged);
@@ -136,7 +136,7 @@
 			this.ParametersLabel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.ParametersLabel.Location = new System.Drawing.Point(3, 0);
 			this.ParametersLabel.Name = "ParametersLabel";
-			this.ParametersLabel.Size = new System.Drawing.Size(348, 13);
+			this.ParametersLabel.Size = new System.Drawing.Size(390, 13);
 			this.ParametersLabel.TabIndex = 1;
 			this.ParametersLabel.Text = "Buttons";
 			// 
@@ -145,9 +145,9 @@
 			this.ParentParametersLabel.AutoSize = true;
 			this.tableLayoutPanel2.SetColumnSpan(this.ParentParametersLabel, 5);
 			this.ParentParametersLabel.Dock = System.Windows.Forms.DockStyle.Top;
-			this.ParentParametersLabel.Location = new System.Drawing.Point(3, 71);
+			this.ParentParametersLabel.Location = new System.Drawing.Point(3, 106);
 			this.ParentParametersLabel.Name = "ParentParametersLabel";
-			this.ParentParametersLabel.Size = new System.Drawing.Size(348, 13);
+			this.ParentParametersLabel.Size = new System.Drawing.Size(390, 13);
 			this.ParentParametersLabel.TabIndex = 2;
 			this.ParentParametersLabel.Text = "Table Views";
 			// 
@@ -158,21 +158,21 @@
             this.DataSourceColumn,
             this.SubTablesColumn});
 			this.TableViewListView.Dock = System.Windows.Forms.DockStyle.Fill;
-			listViewGroup10.Header = "ListViewGroup";
-			listViewGroup10.Name = "listViewGroup1";
-			listViewGroup11.Header = "ListViewGroup";
-			listViewGroup11.Name = "listViewGroup2";
-			listViewGroup12.Header = "ListViewGroup";
-			listViewGroup12.Name = "listViewGroup3";
+			listViewGroup1.Header = "ListViewGroup";
+			listViewGroup1.Name = "listViewGroup1";
+			listViewGroup2.Header = "ListViewGroup";
+			listViewGroup2.Name = "listViewGroup2";
+			listViewGroup3.Header = "ListViewGroup";
+			listViewGroup3.Name = "listViewGroup3";
 			this.TableViewListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup10,
-            listViewGroup11,
-            listViewGroup12});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3});
 			this.TableViewListView.HideSelection = false;
-			this.TableViewListView.Location = new System.Drawing.Point(32, 87);
+			this.TableViewListView.Location = new System.Drawing.Point(32, 122);
 			this.TableViewListView.Name = "TableViewListView";
 			this.tableLayoutPanel2.SetRowSpan(this.TableViewListView, 2);
-			this.TableViewListView.Size = new System.Drawing.Size(232, 52);
+			this.TableViewListView.Size = new System.Drawing.Size(274, 88);
 			this.TableViewListView.TabIndex = 3;
 			this.TableViewListView.UseCompatibleStateImageBehavior = false;
 			this.TableViewListView.View = System.Windows.Forms.View.Details;
@@ -197,7 +197,7 @@
 			this.DeleteButtonButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.delete_disabled;
 			this.DeleteButtonButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.DeleteButtonButton.Enabled = false;
-			this.DeleteButtonButton.Location = new System.Drawing.Point(328, 16);
+			this.DeleteButtonButton.Location = new System.Drawing.Point(370, 16);
 			this.DeleteButtonButton.Name = "DeleteButtonButton";
 			this.DeleteButtonButton.Size = new System.Drawing.Size(23, 23);
 			this.DeleteButtonButton.TabIndex = 4;
@@ -211,7 +211,7 @@
 			this.EditButtonButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.EditButtonButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.EditButtonButton.Enabled = false;
-			this.EditButtonButton.Location = new System.Drawing.Point(299, 16);
+			this.EditButtonButton.Location = new System.Drawing.Point(341, 16);
 			this.EditButtonButton.Name = "EditButtonButton";
 			this.EditButtonButton.Size = new System.Drawing.Size(23, 23);
 			this.EditButtonButton.TabIndex = 4;
@@ -224,7 +224,7 @@
 			this.NewButtonButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.add;
 			this.NewButtonButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.NewButtonButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.NewButtonButton.Location = new System.Drawing.Point(270, 16);
+			this.NewButtonButton.Location = new System.Drawing.Point(312, 16);
 			this.NewButtonButton.Name = "NewButtonButton";
 			this.NewButtonButton.Size = new System.Drawing.Size(23, 23);
 			this.NewButtonButton.TabIndex = 4;
@@ -235,7 +235,7 @@
 			// 
 			this.NewTableViewButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.add;
 			this.NewTableViewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.NewTableViewButton.Location = new System.Drawing.Point(270, 87);
+			this.NewTableViewButton.Location = new System.Drawing.Point(312, 122);
 			this.NewTableViewButton.Name = "NewTableViewButton";
 			this.NewTableViewButton.Size = new System.Drawing.Size(23, 23);
 			this.NewTableViewButton.TabIndex = 4;
@@ -247,7 +247,7 @@
 			this.EditTableViewButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.edit_disabled;
 			this.EditTableViewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.EditTableViewButton.Enabled = false;
-			this.EditTableViewButton.Location = new System.Drawing.Point(299, 87);
+			this.EditTableViewButton.Location = new System.Drawing.Point(341, 122);
 			this.EditTableViewButton.Name = "EditTableViewButton";
 			this.EditTableViewButton.Size = new System.Drawing.Size(23, 23);
 			this.EditTableViewButton.TabIndex = 4;
@@ -260,7 +260,7 @@
 			this.DeleteTableViewButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.delete_disabled;
 			this.DeleteTableViewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.DeleteTableViewButton.Enabled = false;
-			this.DeleteTableViewButton.Location = new System.Drawing.Point(328, 87);
+			this.DeleteTableViewButton.Location = new System.Drawing.Point(370, 122);
 			this.DeleteTableViewButton.Name = "DeleteTableViewButton";
 			this.DeleteTableViewButton.Size = new System.Drawing.Size(23, 23);
 			this.DeleteTableViewButton.TabIndex = 4;
@@ -294,7 +294,7 @@
 			// 
 			this.TableViewUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up;
 			this.TableViewUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.TableViewUpButton.Location = new System.Drawing.Point(3, 87);
+			this.TableViewUpButton.Location = new System.Drawing.Point(3, 122);
 			this.TableViewUpButton.Name = "TableViewUpButton";
 			this.TableViewUpButton.Size = new System.Drawing.Size(23, 23);
 			this.TableViewUpButton.TabIndex = 4;
@@ -305,7 +305,7 @@
 			// 
 			this.TableViewDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down;
 			this.TableViewDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.TableViewDownButton.Location = new System.Drawing.Point(3, 116);
+			this.TableViewDownButton.Location = new System.Drawing.Point(3, 151);
 			this.TableViewDownButton.Name = "TableViewDownButton";
 			this.TableViewDownButton.Size = new System.Drawing.Size(23, 23);
 			this.TableViewDownButton.TabIndex = 4;
@@ -321,14 +321,13 @@
 			this.ParametersGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ParametersGroupBox.Location = new System.Drawing.Point(3, 109);
 			this.ParametersGroupBox.Name = "ParametersGroupBox";
-			this.ParametersGroupBox.Size = new System.Drawing.Size(360, 161);
+			this.ParametersGroupBox.Size = new System.Drawing.Size(402, 232);
 			this.ParametersGroupBox.TabIndex = 4;
 			this.ParametersGroupBox.TabStop = false;
 			this.ParametersGroupBox.Text = "Details";
 			// 
 			// tableLayoutPanel3
 			// 
-			this.tableLayoutPanel3.AutoSize = true;
 			this.tableLayoutPanel3.ColumnCount = 4;
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -338,6 +337,7 @@
 			this.tableLayoutPanel3.Controls.Add(this.TableViewDetailGroup, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.OkButton, 2, 2);
 			this.tableLayoutPanel3.Controls.Add(this.CancelButton, 3, 2);
+			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 3;
@@ -345,7 +345,7 @@
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(366, 302);
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(408, 373);
 			this.tableLayoutPanel3.TabIndex = 5;
 			// 
 			// TableViewDetailGroup
@@ -357,7 +357,7 @@
 			this.TableViewDetailGroup.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.TableViewDetailGroup.Location = new System.Drawing.Point(3, 3);
 			this.TableViewDetailGroup.Name = "TableViewDetailGroup";
-			this.TableViewDetailGroup.Size = new System.Drawing.Size(360, 100);
+			this.TableViewDetailGroup.Size = new System.Drawing.Size(402, 100);
 			this.TableViewDetailGroup.TabIndex = 6;
 			this.TableViewDetailGroup.TabStop = false;
 			this.TableViewDetailGroup.Text = "Table View Properties";
@@ -380,7 +380,7 @@
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel4.Size = new System.Drawing.Size(354, 81);
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(396, 81);
 			this.tableLayoutPanel4.TabIndex = 0;
 			// 
 			// TableViewNameTextBox
@@ -388,7 +388,7 @@
 			this.TableViewNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
 			this.TableViewNameTextBox.Location = new System.Drawing.Point(3, 16);
 			this.TableViewNameTextBox.Name = "TableViewNameTextBox";
-			this.TableViewNameTextBox.Size = new System.Drawing.Size(348, 22);
+			this.TableViewNameTextBox.Size = new System.Drawing.Size(390, 22);
 			this.TableViewNameTextBox.TabIndex = 7;
 			this.TableViewNameTextBox.TooltipText = "Field should not be empty";
 			this.TableViewNameTextBox.Valid = false;
@@ -405,7 +405,7 @@
 			// OkButton
 			// 
 			this.OkButton.AutoSize = true;
-			this.OkButton.Location = new System.Drawing.Point(207, 276);
+			this.OkButton.Location = new System.Drawing.Point(249, 347);
 			this.OkButton.Name = "OkButton";
 			this.OkButton.Size = new System.Drawing.Size(75, 23);
 			this.OkButton.TabIndex = 5;
@@ -417,7 +417,7 @@
 			// 
 			this.CancelButton.AutoSize = true;
 			this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelButton.Location = new System.Drawing.Point(288, 276);
+			this.CancelButton.Location = new System.Drawing.Point(330, 347);
 			this.CancelButton.Name = "CancelButton";
 			this.CancelButton.Size = new System.Drawing.Size(75, 23);
 			this.CancelButton.TabIndex = 5;
@@ -429,10 +429,10 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
-			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(408, 373);
 			this.Controls.Add(this.tableLayoutPanel3);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MinimumSize = new System.Drawing.Size(424, 412);
 			this.Name = "TableViewEditForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Edit Table View";
@@ -447,7 +447,6 @@
 			this.tableLayoutPanel4.ResumeLayout(false);
 			this.tableLayoutPanel4.PerformLayout();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
