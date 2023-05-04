@@ -41,6 +41,10 @@ namespace QuickDBAccess {
 					false,
 					"-debug",
 					debug));
+			ArgUtils.AddHandle(
+				new ArgUtils.ArgHandler(
+					false,
+					setConfigPath));
 		}
 		private static void debugParameter(object sender, EventArgs e) {
 			ArgUtils.ArgHandlerParams p = (ArgUtils.ArgHandlerParams)e;
