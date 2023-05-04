@@ -101,7 +101,7 @@ namespace QuickDBAccess.Forms {
 			b.Click += new EventHandler(delegate (object o, EventArgs e) {
 				QueryForm f = new QueryForm(b.Text, ProgramData.Instance.DataSourceByName(q.DataSourceName), ContentDataGridView);
 				f.ShowDialog();
-				DataLoad();
+				RefreshData(this, null);
 			});
 		}
 		public void RefreshData(object sender, EventArgs args) {
@@ -136,6 +136,8 @@ namespace QuickDBAccess.Forms {
 				string connString = ProgramData.Instance.ConnectionByName(ds.ConnectionName).ConnectionString;
 				string query = ds.Query.Command;
 
+				datatable.Clear();
+
 				using (var con = new SqlConnection(connString))
 				using (var cmd = new SqlCommand(query, con)) {
 					try {
@@ -154,7 +156,6 @@ namespace QuickDBAccess.Forms {
 						// create data adapter
 						SqlDataAdapter da = new SqlDataAdapter(cmd);
 						// this will query your database and return the result to your datatable
-						datatable.Clear();
 						da.Fill(datatable);
 						ContentDataGridView.DataSource = datatable;
 						foreach(DataGridViewColumn col in ContentDataGridView.Columns) {
