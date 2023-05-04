@@ -121,6 +121,7 @@ namespace QuickDBAccess.Forms {
 			if (parameterEditForm.ShowDialog() == DialogResult.OK) {
 				SelectedButton = parameter;
 			}
+			this.DialogResult = DialogResult.None;
 		}
 
 		private void DeleteButtonButton_Click(object sender, EventArgs e) {

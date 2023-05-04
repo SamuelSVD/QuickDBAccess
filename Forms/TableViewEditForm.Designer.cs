@@ -55,6 +55,8 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.CancelButton = new System.Windows.Forms.Button();
+			this.TextColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.ButtonDataSourceColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.tableLayoutPanel2.SuspendLayout();
 			this.ParametersGroupBox.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
@@ -119,6 +121,9 @@
 			// 
 			// ButtonListView
 			// 
+			this.ButtonListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.TextColumn,
+            this.ButtonDataSourceColumn});
 			this.ButtonListView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ButtonListView.HideSelection = false;
 			this.ButtonListView.Location = new System.Drawing.Point(32, 16);
@@ -127,6 +132,7 @@
 			this.ButtonListView.Size = new System.Drawing.Size(274, 87);
 			this.ButtonListView.TabIndex = 0;
 			this.ButtonListView.UseCompatibleStateImageBehavior = false;
+			this.ButtonListView.View = System.Windows.Forms.View.Details;
 			this.ButtonListView.SelectedIndexChanged += new System.EventHandler(this.ButtonListView_SelectedIndexChanged);
 			// 
 			// ParametersLabel
@@ -424,6 +430,16 @@
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
 			// 
+			// TextColumn
+			// 
+			this.TextColumn.Text = "Text";
+			this.TextColumn.Width = 63;
+			// 
+			// ButtonDataSourceColumn
+			// 
+			this.ButtonDataSourceColumn.Text = "Data Source";
+			this.ButtonDataSourceColumn.Width = 88;
+			// 
 			// TableViewEditForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -479,5 +495,7 @@
 		private System.Windows.Forms.ColumnHeader TableViewNameColumn;
 		private System.Windows.Forms.ColumnHeader DataSourceColumn;
 		private System.Windows.Forms.ColumnHeader SubTablesColumn;
+		private System.Windows.Forms.ColumnHeader TextColumn;
+		private System.Windows.Forms.ColumnHeader ButtonDataSourceColumn;
 	}
 }

@@ -21,6 +21,7 @@ namespace QuickDBAccess.Forms {
 		}
 		private void InitializeModelView() {
 			ConnectionNameTextBox.Text = Model.Text;
+			DataSourceComboBox.Text = Model.DataSourceName;
 		}
 
 		private void ConnectionNameTextBox_TextChanged(object sender, System.EventArgs e) {

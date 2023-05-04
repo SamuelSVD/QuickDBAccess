@@ -80,7 +80,7 @@ namespace QuickDBAccess.Forms {
 			ListViewItem item = new ListViewItem(queryParameter.name);
 			item.SubItems.Add(queryParameter.type);
 			item.SubItems.Add(queryParameter.autoSourceColumnName);
-			ParameterListView.Items.Add(item);
+			ParentParameterListView.Items.Add(item);
 		}
 		public DialogResult ShowNewDialog() {
 			Text = "New Data Source";
