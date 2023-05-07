@@ -69,6 +69,7 @@ namespace QuickDBAccess.Forms
 			this.ContentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ContentDataGridView.Location = new System.Drawing.Point(3, 9);
 			this.ContentDataGridView.Name = "ContentDataGridView";
+			this.ContentDataGridView.ReadOnly = true;
 			this.ContentDataGridView.Size = new System.Drawing.Size(215, 57);
 			this.ContentDataGridView.TabIndex = 1;
 			this.ContentDataGridView.CellStateChanged += new System.Windows.Forms.DataGridViewCellStateChangedEventHandler(this.ContentDataGridView_CellStateChanged);
