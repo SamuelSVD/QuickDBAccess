@@ -4,12 +4,14 @@ using System.Windows.Forms;
 namespace QuickDBAccess.Forms {
 	public partial class ButtonEditForm : Form {
 		ButtonModel Model;
+		QuickAccessModel QdbaModel;
 
-		public ButtonEditForm(ButtonModel model) {
+		public ButtonEditForm(ButtonModel model, QuickAccessModel qdbaModel) {
 			Model = model;
+			QdbaModel = qdbaModel;
 			InitializeComponent();
 			ConnectionNameTextBox.TextChanged += ConnectionNameTextBox_TextChanged;
-			foreach (DataSourceModel dataSource in ProgramData.Instance.DataSources) {
+			foreach (DataSourceModel dataSource in QdbaModel.DataSources) {
 				DataSourceComboBox.Items.Add(dataSource.Name);
 			}
 			InitializeModelView();

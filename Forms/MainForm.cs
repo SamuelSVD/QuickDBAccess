@@ -39,7 +39,7 @@ namespace QuickDBAccess.Forms {
 			}
 		}
 		private void AddTableView(TableViewModel tv) {
-			TableViewForm tvf = new TableViewForm(tv);
+			TableViewForm tvf = new TableViewForm(tv, ProgramData.Instance);
 			TabPage tp = new TabPage();
 			tp.Text = tv.Name;
 			tp.Controls.Add(tvf.getControl());

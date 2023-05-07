@@ -11,6 +11,8 @@ namespace QuickDBAccess.Forms {
 		private DataTable datatable = new DataTable();
 		List<TableViewForm> ChildrenTabs = new List<TableViewForm>();
 		public TableViewForm ParentForm;
+		private QuickAccessModel QdbaModel;
+
 		public Control getControl() {
 			if (tableView.ChildTableViews.Count == 0) {
 				return ContentTableLayoutPanel;
@@ -19,12 +21,13 @@ namespace QuickDBAccess.Forms {
 			}
 		}
 		private Model.TableViewModel tableView;
-		public TableViewForm(Model.TableViewModel tv) : this(tv, null) { }
-		public TableViewForm(Model.TableViewModel tv, TableViewForm parent) {
+		public TableViewForm(Model.TableViewModel tv, QuickAccessModel qdbaModel) : this(tv, qdbaModel, null) { }
+		public TableViewForm(Model.TableViewModel tv, QuickAccessModel qdbaModel, TableViewForm parent) {
 			InitializeComponent();
 			ContentDataGridView.CellDoubleClick += dataGridView_CellDoubleClick;
 			tableView = tv;
 			ParentForm = parent;
+			QdbaModel = qdbaModel;
 			if (tv.Buttons.Count > 2) {
 				ButtonsTableLayoutPanel.ColumnCount = tv.Buttons.Count;
 			}
@@ -87,7 +90,7 @@ namespace QuickDBAccess.Forms {
 			}
 		}
 		private void AddChildTableView(TableViewModel tv) {
-			TableViewForm tvf = new TableViewForm(tv, this);
+			TableViewForm tvf = new TableViewForm(tv, QdbaModel, this);
 			TabPage tp = new TabPage();
 			tp.Text = tv.Name;
 			tp.Controls.Add(tvf.getControl());
@@ -99,7 +102,7 @@ namespace QuickDBAccess.Forms {
 		}
 		private void AddButtonEvent(Button b, ButtonModel q) {
 			b.Click += new EventHandler(delegate (object o, EventArgs e) {
-				QueryForm f = new QueryForm(b.Text, ProgramData.Instance.DataSourceByName(q.DataSourceName), ContentDataGridView);
+				QueryForm f = new QueryForm(b.Text, QdbaModel.DataSourceByName(q.DataSourceName), ContentDataGridView, QdbaModel);
 				f.ShowDialog();
 				RefreshData(this, null);
 			});
@@ -111,7 +114,7 @@ namespace QuickDBAccess.Forms {
 			}
 		}
 		public object GetValue(string Name) {
-			foreach (QueryParameterModel qp in ProgramData.Instance.DataSourceByName(tableView.ContentDataSourceName).Query.Parameters) {
+			foreach (QueryParameterModel qp in QdbaModel.DataSourceByName(tableView.ContentDataSourceName).Query.Parameters) {
 				if (qp.name == Name) {
 					return qp.getValue();
 				}
@@ -129,11 +132,11 @@ namespace QuickDBAccess.Forms {
 				if (string.IsNullOrEmpty(tableView.ContentDataSourceName)) {
 					throw new Exception("Content DataSource not assigned.");
 				}
-				DataSourceModel ds = ProgramData.Instance.DataSourceByName(tableView.ContentDataSourceName);
+				DataSourceModel ds = QdbaModel.DataSourceByName(tableView.ContentDataSourceName);
 				if (string.IsNullOrEmpty(ds.ConnectionName)) {
 					throw new Exception($"Connection name not assigned for data source {ds.Name}");
 				}
-				string connString = ProgramData.Instance.ConnectionByName(ds.ConnectionName).ConnectionString;
+				string connString = QdbaModel.ConnectionByName(ds.ConnectionName).ConnectionString;
 				string query = ds.Query.Command;
 
 				datatable.Clear();
@@ -185,7 +188,7 @@ namespace QuickDBAccess.Forms {
 		private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
 			try {
 				if (tableView.DoubleClickAction != null) {
-					QueryForm f = new QueryForm(tableView.DoubleClickAction.Text, ProgramData.Instance.DataSourceByName(tableView.DoubleClickAction.DataSourceName), ContentDataGridView);
+					QueryForm f = new QueryForm(tableView.DoubleClickAction.Text, QdbaModel.DataSourceByName(tableView.DoubleClickAction.DataSourceName), ContentDataGridView, QdbaModel);
 					f.ShowDialog();
 					DataLoad();
 				}

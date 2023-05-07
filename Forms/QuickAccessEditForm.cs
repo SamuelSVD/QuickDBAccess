@@ -174,7 +174,7 @@ namespace QuickDBAccess.Forms {
 
 		private void NewDataSourceButton_Click(object sender, EventArgs e) {
 			DataSourceModel dataSourceModel = new DataSourceModel();
-			DataSourceEditForm dataSourceEditForm = new DataSourceEditForm(dataSourceModel);
+			DataSourceEditForm dataSourceEditForm = new DataSourceEditForm(dataSourceModel, Model);
 			if (dataSourceEditForm.ShowNewDialog() == DialogResult.OK) {
 				Model.DataSources.Add(dataSourceModel);
 				AddDataSource(dataSourceModel);
@@ -184,7 +184,7 @@ namespace QuickDBAccess.Forms {
 
 		private void EditDataSourceButton_Click(object sender, EventArgs e) {
 			DataSourceModel dataSourceModel = new DataSourceModel(SelectedDataSource);
-			DataSourceEditForm dataSourceEditForm = new DataSourceEditForm(dataSourceModel);
+			DataSourceEditForm dataSourceEditForm = new DataSourceEditForm(dataSourceModel, Model);
 			if (dataSourceEditForm.ShowDialog() == DialogResult.OK) {
 				SelectedDataSource = dataSourceModel;
 			}
@@ -208,7 +208,7 @@ namespace QuickDBAccess.Forms {
 		}
 		private void NewTableViewButton_Click(object sender, EventArgs e) {
 			TableViewModel dataSourceModel = new TableViewModel();
-			TableViewEditForm dataSourceEditForm = new TableViewEditForm(dataSourceModel);
+			TableViewEditForm dataSourceEditForm = new TableViewEditForm(dataSourceModel, Model);
 			if (dataSourceEditForm.ShowNewDialog() == DialogResult.OK) {
 				Model.TableViews.Add(dataSourceModel);
 				AddTableView(dataSourceModel);
@@ -218,7 +218,7 @@ namespace QuickDBAccess.Forms {
 
 		private void EditTableViewButton_Click(object sender, EventArgs e) {
 			TableViewModel dataSourceModel = new TableViewModel(SelectedTableView);
-			TableViewEditForm dataSourceEditForm = new TableViewEditForm(dataSourceModel);
+			TableViewEditForm dataSourceEditForm = new TableViewEditForm(dataSourceModel, Model);
 			if (dataSourceEditForm.ShowDialog() == DialogResult.OK) {
 				SelectedTableView = dataSourceModel;
 			}

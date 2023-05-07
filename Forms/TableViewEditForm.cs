@@ -6,6 +6,7 @@ using System.Windows.Forms;
 namespace QuickDBAccess.Forms {
 	public partial class TableViewEditForm : Form {
 		TableViewModel Model;
+		public QuickAccessModel QdbaModel { get; private set; }
 
 		public ButtonModel SelectedButton {
 			get {
@@ -37,11 +38,12 @@ namespace QuickDBAccess.Forms {
 			}
 		}
 
-		public TableViewEditForm(TableViewModel Model) {
-			this.Model = Model;
+		public TableViewEditForm(TableViewModel model, QuickAccessModel qdbaModel) {
+			this.Model = model;
+			this.QdbaModel = qdbaModel;
 			InitializeComponent();
-			foreach (DataSourceModel model in ProgramData.Instance.DataSources) {
-				DataSourceComboBox.Items.Add(model.Name);
+			foreach (DataSourceModel dsModel in qdbaModel.DataSources) {
+				DataSourceComboBox.Items.Add(dsModel.Name);
 			}
 			TableViewNameTextBox.TextChanged += TableViewNameTextBox_TextChanged;
 			InitializeModelView();
@@ -108,7 +110,7 @@ namespace QuickDBAccess.Forms {
 
 		private void NewButtonButton_Click(object sender, EventArgs e) {
 			ButtonModel parameter = new ButtonModel();
-			ButtonEditForm parameterEditForm = new ButtonEditForm(parameter);
+			ButtonEditForm parameterEditForm = new ButtonEditForm(parameter, QdbaModel);
 			if (parameterEditForm.ShowNewDialog() == DialogResult.OK) {
 				Model.Buttons.Add(parameter);
 				AddButton(parameter);
@@ -117,7 +119,7 @@ namespace QuickDBAccess.Forms {
 
 		private void EditButtonButton_Click(object sender, EventArgs e) {
 			ButtonModel parameter = new ButtonModel(SelectedButton);
-			ButtonEditForm parameterEditForm = new ButtonEditForm(parameter);
+			ButtonEditForm parameterEditForm = new ButtonEditForm(parameter, QdbaModel);
 			if (parameterEditForm.ShowDialog() == DialogResult.OK) {
 				SelectedButton = parameter;
 			}
@@ -156,7 +158,7 @@ namespace QuickDBAccess.Forms {
 
 		private void NewTableViewButton_Click(object sender, EventArgs e) {
 			TableViewModel parameter = new TableViewModel();
-			TableViewEditForm parameterEditForm = new TableViewEditForm(parameter);
+			TableViewEditForm parameterEditForm = new TableViewEditForm(parameter, QdbaModel);
 			if (parameterEditForm.ShowNewDialog() == DialogResult.OK) {
 				Model.ChildTableViews.Add(parameter);
 				AddTableView(parameter);
@@ -165,7 +167,7 @@ namespace QuickDBAccess.Forms {
 
 		private void EditTableViewButton_Click(object sender, EventArgs e) {
 			TableViewModel parameter = new TableViewModel(SelectedTableView);
-			TableViewEditForm parameterEditForm = new TableViewEditForm(parameter);
+			TableViewEditForm parameterEditForm = new TableViewEditForm(parameter, QdbaModel);
 			if (parameterEditForm.ShowDialog() == DialogResult.OK) {
 				SelectedTableView = parameter;
 			}

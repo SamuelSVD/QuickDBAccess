@@ -9,11 +9,13 @@ namespace QuickDBAccess.Forms {
 	public partial class QueryForm : Form {
 		private DataSourceModel dataSource;
 		private DataGridView dgv;
-		public QueryForm(string text, DataSourceModel ds, DataGridView dgv) {
+		private QuickAccessModel QdbaModel;
+		public QueryForm(string text, DataSourceModel ds, DataGridView dgv, QuickAccessModel qdbaModel) {
 			InitializeComponent();
 			this.Text = text;
 			this.dataSource = ds;
 			this.dgv = dgv;
+			this.QdbaModel = qdbaModel;
 			CreateForm();
 			if (Program.DEBUG) itemsTableLayoutPanel.CellPaint += itemsTableLayoutPanel_CellPaint;
 		}
@@ -122,7 +124,7 @@ namespace QuickDBAccess.Forms {
 			return null;
 		}
 		private void okButton_Click(object sender, EventArgs e) {
-			string connString = ProgramData.Instance.ConnectionByName(dataSource.ConnectionName).ConnectionString;
+			string connString = QdbaModel.ConnectionByName(dataSource.ConnectionName).ConnectionString;
 			string query = this.dataSource.Query.Command;
 
 			using (var con = new SqlConnection(connString))

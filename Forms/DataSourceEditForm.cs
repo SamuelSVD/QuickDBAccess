@@ -6,6 +6,8 @@ using System.Windows.Forms;
 namespace QuickDBAccess.Forms {
 	public partial class DataSourceEditForm : Form {
 		DataSourceModel Model;
+		private QuickAccessModel QdbaModel;
+
 		public QueryParameterModel SelectedParameter {
 			get {
 				if (ParameterListView.SelectedIndices.Count <= 0) return null;
@@ -36,10 +38,11 @@ namespace QuickDBAccess.Forms {
 				item.SubItems[2].Text = value.autoSourceColumnName;
 			}
 		}
-		public DataSourceEditForm(DataSourceModel Model) {
+		public DataSourceEditForm(DataSourceModel Model, QuickAccessModel qdbaModel) {
 			this.Model = Model;
+			this.QdbaModel = qdbaModel;
 			InitializeComponent();
-			foreach (SQLConnectionModel model in ProgramData.Instance.Connections) {
+			foreach (SQLConnectionModel model in QdbaModel.Connections) {
 				ConnectionComboBox.Items.Add(model.Name);
 			}
 			DataSourceNameTextBox.TextChanged += DataSourceNameTextBox_TextChanged;
