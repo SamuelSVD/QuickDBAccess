@@ -56,3 +56,5 @@ Once it is all configured and the changes applied, the application will refresh 
 # Contributions
 
 I am open to receiving suggestions for improving Quick DB Access! Have an idea that you think would make this app even more useful for you, let me know by creating an issue!
+
+[Create New Issue](https://github.com/SamuelSVD/QuickDBAccess/issues/new)
