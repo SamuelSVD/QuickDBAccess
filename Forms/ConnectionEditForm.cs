@@ -27,6 +27,7 @@ namespace QuickDBAccess.Forms {
 			DatabaseTextBox.Text = Model.database;
 			UserTextBox.Text = Model.user;
 			PasswordTextBox.Text = Model.password;
+			IntegratedSecurityCheckBox.Checked = Model.useIntegratedSecurity;
 		}
 
 		private void ConnectionNameTextBox_TextChanged(object sender, System.EventArgs e) {
@@ -56,6 +57,19 @@ namespace QuickDBAccess.Forms {
 		private void OkButton_Click(object sender, System.EventArgs e) {
 			DialogResult = DialogResult.OK;
 			Close();
+		}
+
+		private void IntegratedSecurityCheckBox_CheckedChanged(object sender, System.EventArgs e) {
+			Model.useIntegratedSecurity = IntegratedSecurityCheckBox.Checked;
+			if (Model.useIntegratedSecurity) {
+				UserTextBox.Valid = true;
+				PasswordTextBox.Valid = true;
+			} else {
+				UserTextBox_TextChanged(sender, e);
+				PasswordTextBox_TextChanged(sender, e);
+			}
+			UserTextBox.Enabled = !Model.useIntegratedSecurity;
+			PasswordTextBox.Enabled = !Model.useIntegratedSecurity;
 		}
 	}
 }

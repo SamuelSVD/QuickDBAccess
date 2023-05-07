@@ -39,6 +39,7 @@
 			this.PasswordTextBox = new QuickDBAccess.ValidateTextBox();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.CancelButton = new System.Windows.Forms.Button();
+			this.IntegratedSecurityCheckBox = new System.Windows.Forms.CheckBox();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.TableViewDetailGroup.SuspendLayout();
 			this.tableLayoutPanel4.SuspendLayout();
@@ -61,7 +62,7 @@
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(306, 259);
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(306, 282);
 			this.tableLayoutPanel3.TabIndex = 5;
 			// 
 			// TableViewDetailGroup
@@ -73,7 +74,7 @@
 			this.TableViewDetailGroup.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.TableViewDetailGroup.Location = new System.Drawing.Point(3, 3);
 			this.TableViewDetailGroup.Name = "TableViewDetailGroup";
-			this.TableViewDetailGroup.Size = new System.Drawing.Size(300, 224);
+			this.TableViewDetailGroup.Size = new System.Drawing.Size(300, 247);
 			this.TableViewDetailGroup.TabIndex = 6;
 			this.TableViewDetailGroup.TabStop = false;
 			this.TableViewDetailGroup.Text = "Data Source Properties";
@@ -94,10 +95,11 @@
 			this.tableLayoutPanel4.Controls.Add(this.ConnectionLabel, 0, 2);
 			this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
 			this.tableLayoutPanel4.Controls.Add(this.PasswordTextBox, 0, 9);
+			this.tableLayoutPanel4.Controls.Add(this.IntegratedSecurityCheckBox, 0, 10);
 			this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 16);
 			this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-			this.tableLayoutPanel4.RowCount = 10;
+			this.tableLayoutPanel4.RowCount = 11;
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -108,7 +110,8 @@
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel4.Size = new System.Drawing.Size(294, 205);
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(294, 228);
 			this.tableLayoutPanel4.TabIndex = 0;
 			// 
 			// UserTextBox
@@ -208,7 +211,7 @@
 			// OkButton
 			// 
 			this.OkButton.AutoSize = true;
-			this.OkButton.Location = new System.Drawing.Point(147, 233);
+			this.OkButton.Location = new System.Drawing.Point(147, 256);
 			this.OkButton.Name = "OkButton";
 			this.OkButton.Size = new System.Drawing.Size(75, 23);
 			this.OkButton.TabIndex = 5;
@@ -220,12 +223,25 @@
 			// 
 			this.CancelButton.AutoSize = true;
 			this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelButton.Location = new System.Drawing.Point(228, 233);
+			this.CancelButton.Location = new System.Drawing.Point(228, 256);
 			this.CancelButton.Name = "CancelButton";
 			this.CancelButton.Size = new System.Drawing.Size(75, 23);
 			this.CancelButton.TabIndex = 5;
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
+			// 
+			// IntegratedSecurityCheckBox
+			// 
+			this.IntegratedSecurityCheckBox.AutoSize = true;
+			this.IntegratedSecurityCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.IntegratedSecurityCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
+			this.IntegratedSecurityCheckBox.Location = new System.Drawing.Point(3, 208);
+			this.IntegratedSecurityCheckBox.Name = "IntegratedSecurityCheckBox";
+			this.IntegratedSecurityCheckBox.Size = new System.Drawing.Size(288, 17);
+			this.IntegratedSecurityCheckBox.TabIndex = 13;
+			this.IntegratedSecurityCheckBox.Text = "Use Integrated Security";
+			this.IntegratedSecurityCheckBox.UseVisualStyleBackColor = true;
+			this.IntegratedSecurityCheckBox.CheckedChanged += new System.EventHandler(this.IntegratedSecurityCheckBox_CheckedChanged);
 			// 
 			// ConnectionEditForm
 			// 
@@ -266,5 +282,6 @@
 		private ValidateTextBox ServerTextBox;
 		private ValidateTextBox ConnectionNameTextBox;
 		private ValidateTextBox PasswordTextBox;
+		private System.Windows.Forms.CheckBox IntegratedSecurityCheckBox;
 	}
 }
