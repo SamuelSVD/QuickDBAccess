@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace QuickDBAccess.Utils {
 	class ArgUtils {
 		private static List<ArgHandler> handlers = new List<ArgHandler>();
+		private static List<ArgHandler> helpHandlers = new List<ArgHandler>();
+		
 		public class ArgHandler {
 			public string flag;
 			public string description;
@@ -35,6 +39,10 @@ namespace QuickDBAccess.Utils {
 		public static void AddHandle(ArgHandler handler) {
 			handlers.Add(handler);
 		}
+		public static void AddHelpHandle(ArgHandler handler) {
+			handlers.Add(handler);
+			helpHandlers.Add(handler);
+		}
 		public static bool Handle(string[] args) {
 			List<int> handledParams = new List<int>();
 			List<ArgHandler> handledHandlers = new List<ArgHandler>();
@@ -46,16 +54,23 @@ namespace QuickDBAccess.Utils {
 			}
 			foreach (ArgHandler handler in handlers) {
 				if ((handler.required && !handledHandlers.Contains(handler)) || handler.insufficientParameters) {
-					MessageBox.Show("Insufficient parameters provided!");
+					MessageBox.Show("Insufficient parameters provided!", "QuickDBAccess - Error");
+					if (helpHandlers.Count > 0) {
+						helpHandlers[0].eventHandler.Invoke(null, new ArgHandlerParams(new List<string>(), helpHandlers[0]));
+					}
 					return false;
 				}
 			}
 			for (int i = 0; i < args.Length; i++) {
 				if (!handledParams.Contains(i)) {
-					MessageBox.Show("Unrecognized parameter: " + args[i]);
+					MessageBox.Show("Unrecognized parameter: " + args[i], "QuickDBAccess - Error");
+					if (helpHandlers.Count > 0) {
+						helpHandlers[0].eventHandler.Invoke(null, new ArgHandlerParams(new List<string>(), helpHandlers[0]));
+					}
 					return false;
 				}
 			}
+			if (handledHandlers.Exists(e => helpHandlers.Contains(e))) return false;
 			return true;
 		}
 		private static bool HandleHandler(string[] args, List<int> handledParams, ArgHandler handler) {

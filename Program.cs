@@ -1,6 +1,7 @@
 ﻿using QuickDBAccess.Forms;
 using QuickDBAccess.Utils;
 using System;
+using System.Text;
 using System.Windows.Forms;
 
 namespace QuickDBAccess {
@@ -34,13 +35,26 @@ namespace QuickDBAccess {
 			ArgUtils.AddHandle(
 				new ArgUtils.ArgHandler(
 					false,
-					"-d",
-					saveDemo));
-			ArgUtils.AddHandle(
-				new ArgUtils.ArgHandler(
-					false,
 					"-debug",
 					debug));
+			ArgUtils.AddHelpHandle(
+				new ArgUtils.ArgHandler(
+					false,
+					"-h",
+					help
+					));
+			ArgUtils.AddHelpHandle(
+				new ArgUtils.ArgHandler(
+					false,
+					"--help",
+					help
+					));
+			ArgUtils.AddHelpHandle(
+				new ArgUtils.ArgHandler(
+					false,
+					"/?",
+					help
+					));
 			ArgUtils.AddHandle(
 				new ArgUtils.ArgHandler(
 					false,
@@ -59,12 +73,27 @@ namespace QuickDBAccess {
 				ProgramData.ShouldBeValidConfigLocation = true;
 			}
 		}
-		private static void saveDemo(object sender, EventArgs e) {
-			MessageBox.Show("Demo!");
-			Environment.Exit(0);
-		}
 		private static void debug(object sender, EventArgs e) {
 			Program.DEBUG = true;
+		}
+		private static void help(object sender, EventArgs e) {
+			StringBuilder sb = new StringBuilder();
+			sb.Append("QuickDBAccess is a tool that works as a front end application to a database. See below for valid commandline parameters");
+			sb.Append("\n");
+			sb.Append("\n");
+			sb.Append("QuickDBAccess.exe [<path>] [-c <path>] [-d] [-h | --help | /?]");
+			sb.Append("\n");
+			sb.Append("    ");
+			sb.Append("\n");
+			sb.Append("    <path> - path to .qdba file to open");
+			sb.Append("\n");
+			sb.Append("    -c     - set starting .qdba file to open as the input <path>");
+			sb.Append("\n");
+			sb.Append("    -d     - display debug information");
+			sb.Append("\n");
+			sb.Append("    -h | --help | /?    - display help");
+			sb.Append("\n");
+			MessageBox.Show(sb.ToString(), "QuickDBAccess - Help");
 		}
 	}
 }
