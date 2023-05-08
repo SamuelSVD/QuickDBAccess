@@ -6,7 +6,8 @@ using System.Windows.Forms;
 namespace QuickDBAccess.Forms {
 	public partial class DataSourceEditForm : Form {
 		DataSourceModel Model;
-		private QuickAccessModel QdbaModel;
+		DataSourceModel ReferenceModel;
+		QuickAccessModel QdbaModel;
 
 		public QueryParameterModel SelectedParameter {
 			get {
@@ -38,20 +39,30 @@ namespace QuickDBAccess.Forms {
 				item.SubItems[2].Text = value.autoSourceColumnName;
 			}
 		}
-		public DataSourceEditForm(DataSourceModel Model, QuickAccessModel qdbaModel) {
-			this.Model = Model;
+		public DataSourceEditForm(DataSourceModel model, DataSourceModel referenceModel, QuickAccessModel qdbaModel) {
+			this.Model = model;
+			this.ReferenceModel = referenceModel;
 			this.QdbaModel = qdbaModel;
 			InitializeComponent();
-			foreach (SQLConnectionModel model in QdbaModel.Connections) {
-				ConnectionComboBox.Items.Add(model.Name);
+			foreach (SQLConnectionModel connection in QdbaModel.Connections) {
+				ConnectionComboBox.Items.Add(connection.Name);
 			}
 			DataSourceNameTextBox.TextChanged += DataSourceNameTextBox_TextChanged;
+			DataSourceNameTextBox.TooltipText = "Data source name required";
 			InitializeModelView();
 		}
 
 		private void DataSourceNameTextBox_TextChanged(object sender, System.EventArgs e) {
 			Model.Name = DataSourceNameTextBox.Text;
-			DataSourceNameTextBox.Valid = !string.IsNullOrEmpty(Model.Name);
+			if (!string.IsNullOrEmpty(Model.Name)) {
+				DataSourceNameTextBox.Valid = !(QdbaModel.DataSources.Exists(ds => (ds != ReferenceModel) && ds.Name == Model.Name));
+				if (!DataSourceNameTextBox.Valid) {
+					DataSourceNameTextBox.TooltipText = "Another data source already exists with this name";
+				}
+			} else {
+				DataSourceNameTextBox.Valid = false;
+				DataSourceNameTextBox.TooltipText = "Data source name required";
+			}
 		}
 
 		private void InitializeModelView() {
@@ -90,8 +101,12 @@ namespace QuickDBAccess.Forms {
 			return ShowDialog();
 		}
 		private void OkButton_Click(object sender, System.EventArgs e) {
-			DialogResult = DialogResult.OK;
-			Close();
+			if (!DataSourceNameTextBox.Valid) {
+				MessageBox.Show(DataSourceNameTextBox.TooltipText, "Quick DB Access - Error");
+			} else {
+				DialogResult = DialogResult.OK;
+				Close();
+			}
 		}
 
 		private void QueryRichTextBox_TextChanged(object sender, System.EventArgs e) {

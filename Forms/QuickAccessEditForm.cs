@@ -139,7 +139,7 @@ namespace QuickDBAccess.Forms {
 
 		private void AddConnectionButton_Click(object sender, EventArgs e) {
 			SQLConnectionModel connectionModel = new SQLConnectionModel();
-			ConnectionEditForm connectionEditForm = new ConnectionEditForm(connectionModel);
+			ConnectionEditForm connectionEditForm = new ConnectionEditForm(connectionModel, null, Model);
 			if (connectionEditForm.ShowNewDialog() == DialogResult.OK) {
 				Model.Connections.Add(connectionModel);
 				AddConnection(connectionModel);
@@ -149,7 +149,7 @@ namespace QuickDBAccess.Forms {
 
 		private void EditConnectionButton_Click(object sender, EventArgs e) {
 			SQLConnectionModel connectionModel = new SQLConnectionModel(SelectedConnection);
-			ConnectionEditForm connectionEditForm = new ConnectionEditForm(connectionModel);
+			ConnectionEditForm connectionEditForm = new ConnectionEditForm(connectionModel, SelectedConnection, Model);
 			if (connectionEditForm.ShowDialog() == DialogResult.OK) {
 				SelectedConnection = connectionModel;
 			}
@@ -174,7 +174,7 @@ namespace QuickDBAccess.Forms {
 
 		private void NewDataSourceButton_Click(object sender, EventArgs e) {
 			DataSourceModel dataSourceModel = new DataSourceModel();
-			DataSourceEditForm dataSourceEditForm = new DataSourceEditForm(dataSourceModel, Model);
+			DataSourceEditForm dataSourceEditForm = new DataSourceEditForm(dataSourceModel, null, Model);
 			if (dataSourceEditForm.ShowNewDialog() == DialogResult.OK) {
 				Model.DataSources.Add(dataSourceModel);
 				AddDataSource(dataSourceModel);
@@ -184,7 +184,7 @@ namespace QuickDBAccess.Forms {
 
 		private void EditDataSourceButton_Click(object sender, EventArgs e) {
 			DataSourceModel dataSourceModel = new DataSourceModel(SelectedDataSource);
-			DataSourceEditForm dataSourceEditForm = new DataSourceEditForm(dataSourceModel, Model);
+			DataSourceEditForm dataSourceEditForm = new DataSourceEditForm(dataSourceModel, SelectedDataSource, Model);
 			if (dataSourceEditForm.ShowDialog() == DialogResult.OK) {
 				SelectedDataSource = dataSourceModel;
 			}

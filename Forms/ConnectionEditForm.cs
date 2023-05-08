@@ -4,15 +4,20 @@ using System.Windows.Forms;
 namespace QuickDBAccess.Forms {
 	public partial class ConnectionEditForm : Form {
 		SQLConnectionModel Model;
+		SQLConnectionModel ReferenceModel;
+		QuickAccessModel QdbaModel;
 
-		public ConnectionEditForm(SQLConnectionModel model) {
+		public ConnectionEditForm(SQLConnectionModel model, SQLConnectionModel referenceModel, QuickAccessModel qdbaModel) {
 			Model = model;
+			ReferenceModel = referenceModel;
+			QdbaModel = qdbaModel;
 			InitializeComponent();
 			ConnectionNameTextBox.TextChanged += ConnectionNameTextBox_TextChanged;
 			ServerTextBox.TextChanged += ServerTextBox_TextChanged;
 			DatabaseTextBox.TextChanged += DatabaseTextBox_TextChanged;
 			UserTextBox.TextChanged += UserTextBox_TextChanged;
 			PasswordTextBox.TextChanged += PasswordTextBox_TextChanged;
+			ConnectionNameTextBox.TooltipText = "Connection name required";
 			InitializeModelView();
 		}
 
@@ -32,7 +37,15 @@ namespace QuickDBAccess.Forms {
 
 		private void ConnectionNameTextBox_TextChanged(object sender, System.EventArgs e) {
 			Model.Name = ConnectionNameTextBox.Text;
-			ConnectionNameTextBox.Valid = !string.IsNullOrEmpty(Model.Name);
+			if (!string.IsNullOrEmpty(Model.Name)) {
+				ConnectionNameTextBox.Valid = !(QdbaModel.Connections.Exists(c => (c != ReferenceModel) && c.Name == Model.Name));
+				if (!ConnectionNameTextBox.Valid) {
+					ConnectionNameTextBox.TooltipText = "Another connection already exists with this name";
+				}
+			} else {
+				ConnectionNameTextBox.Valid = false;
+				ConnectionNameTextBox.TooltipText = "Connection name required";
+			}
 		}
 		private void ServerTextBox_TextChanged(object sender, System.EventArgs e) {
 			Model.server = ServerTextBox.Text;
@@ -55,8 +68,12 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void OkButton_Click(object sender, System.EventArgs e) {
-			DialogResult = DialogResult.OK;
-			Close();
+			if (!ConnectionNameTextBox.Valid) {
+				MessageBox.Show(ConnectionNameTextBox.TooltipText, "Quick DB Access - Error");
+			} else {
+				DialogResult = DialogResult.OK;
+				Close();
+			}
 		}
 
 		private void IntegratedSecurityCheckBox_CheckedChanged(object sender, System.EventArgs e) {
