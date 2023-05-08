@@ -172,6 +172,7 @@ namespace QuickDBAccess.Forms {
 					}
 					Model.Connections.Remove(SelectedConnection);
 					ConnectionsListView.Items.RemoveAt(ConnectionsListView.SelectedIndices[0]);
+					Changed = true;
 				}
 			}
 			catch (Exception ex) {
@@ -207,6 +208,7 @@ namespace QuickDBAccess.Forms {
 					}
 					Model.DataSources.Remove(SelectedDataSource);
 					DataSourcesListView.Items.RemoveAt(DataSourcesListView.SelectedIndices[0]);
+					Changed = true;
 				}
 			}
 			catch (Exception ex) {
@@ -236,6 +238,7 @@ namespace QuickDBAccess.Forms {
 				if (MessageBox.Show("Delete this table view?", "Delete Table View", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK) {
 					Model.TableViews.Remove(SelectedTableView);
 					TableViewsListView.Items.RemoveAt(TableViewsListView.SelectedIndices[0]);
+					Changed = true;
 				}
 			}
 			catch (Exception ex) {
