@@ -40,6 +40,7 @@
 			this.IntegratedSecurityCheckBox = new System.Windows.Forms.CheckBox();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.CancelButton = new System.Windows.Forms.Button();
+			this.TestConnectionButton = new System.Windows.Forms.Button();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.TableViewDetailGroup.SuspendLayout();
 			this.tableLayoutPanel4.SuspendLayout();
@@ -56,6 +57,7 @@
 			this.tableLayoutPanel3.Controls.Add(this.TableViewDetailGroup, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.OkButton, 2, 1);
 			this.tableLayoutPanel3.Controls.Add(this.CancelButton, 3, 1);
+			this.tableLayoutPanel3.Controls.Add(this.TestConnectionButton, 0, 1);
 			this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 2;
@@ -243,6 +245,17 @@
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
 			// 
+			// TestConnectionButton
+			// 
+			this.TestConnectionButton.AutoSize = true;
+			this.TestConnectionButton.Location = new System.Drawing.Point(3, 256);
+			this.TestConnectionButton.Name = "TestConnectionButton";
+			this.TestConnectionButton.Size = new System.Drawing.Size(95, 23);
+			this.TestConnectionButton.TabIndex = 3;
+			this.TestConnectionButton.Text = "Test Connection";
+			this.TestConnectionButton.UseVisualStyleBackColor = true;
+			this.TestConnectionButton.Click += new System.EventHandler(this.TestConnectionButton_Click);
+			// 
 			// ConnectionEditForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,5 +296,6 @@
 		private ValidateTextBox ConnectionNameTextBox;
 		private ValidateTextBox PasswordTextBox;
 		private System.Windows.Forms.CheckBox IntegratedSecurityCheckBox;
+		private System.Windows.Forms.Button TestConnectionButton;
 	}
 }

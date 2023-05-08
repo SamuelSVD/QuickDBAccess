@@ -1,4 +1,7 @@
 ﻿using QuickDBAccess.Model;
+using System;
+using System.Data.SqlClient;
+using System.Data;
 using System.Windows.Forms;
 
 namespace QuickDBAccess.Forms {
@@ -87,6 +90,18 @@ namespace QuickDBAccess.Forms {
 			}
 			UserTextBox.Enabled = !Model.useIntegratedSecurity;
 			PasswordTextBox.Enabled = !Model.useIntegratedSecurity;
+		}
+
+		private void TestConnectionButton_Click(object sender, System.EventArgs e) {
+			try {
+				string connString = Model.ConnectionString;
+				using (var con = new SqlConnection(connString)) {
+					con.Open();
+				}
+				MessageBox.Show("Success", "QuickDBAccess - Connection Success");
+			} catch (Exception ex){
+				MessageBox.Show(ex.Message, "Quick DB Access - Error");
+			}
 		}
 	}
 }
