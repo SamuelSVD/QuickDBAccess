@@ -37,7 +37,7 @@ namespace QuickDBAccess.Forms {
 		}
 		private void AutoSourceColumnTextBox_TextChanged(object sender, System.EventArgs e) {
 			Model.autoSourceColumnName = AutoSourceColumnTextBox.Text;
-			AutoSourceColumnTextBox.Valid = !string.IsNullOrEmpty(Model.autoSourceColumnName);
+			AutoSourceColumnTextBox.Valid = true;
 		}
 		private void OkButton_Click(object sender, System.EventArgs e) {
 			DialogResult = DialogResult.OK;

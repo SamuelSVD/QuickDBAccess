@@ -153,7 +153,7 @@
 			this.button3.Location = new System.Drawing.Point(3, 32);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(23, 23);
-			this.button3.TabIndex = 6;
+			this.button3.TabIndex = 2;
 			this.button3.UseVisualStyleBackColor = true;
 			// 
 			// button2
@@ -163,7 +163,7 @@
 			this.button2.Location = new System.Drawing.Point(3, 3);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(23, 23);
-			this.button2.TabIndex = 5;
+			this.button2.TabIndex = 1;
 			this.button2.UseVisualStyleBackColor = true;
 			// 
 			// DeleteConnectionButton
@@ -174,7 +174,7 @@
 			this.DeleteConnectionButton.Location = new System.Drawing.Point(452, 3);
 			this.DeleteConnectionButton.Name = "DeleteConnectionButton";
 			this.DeleteConnectionButton.Size = new System.Drawing.Size(23, 23);
-			this.DeleteConnectionButton.TabIndex = 9;
+			this.DeleteConnectionButton.TabIndex = 6;
 			this.DeleteConnectionButton.UseVisualStyleBackColor = true;
 			this.DeleteConnectionButton.EnabledChanged += new System.EventHandler(this.DeleteConnectionButton_EnabledChanged);
 			this.DeleteConnectionButton.Click += new System.EventHandler(this.DeleteConnectionButton_Click);
@@ -187,7 +187,7 @@
 			this.EditConnectionButton.Location = new System.Drawing.Point(423, 3);
 			this.EditConnectionButton.Name = "EditConnectionButton";
 			this.EditConnectionButton.Size = new System.Drawing.Size(23, 23);
-			this.EditConnectionButton.TabIndex = 8;
+			this.EditConnectionButton.TabIndex = 5;
 			this.EditConnectionButton.UseVisualStyleBackColor = true;
 			this.EditConnectionButton.EnabledChanged += new System.EventHandler(this.EditConnectionButton_EnabledChanged);
 			this.EditConnectionButton.Click += new System.EventHandler(this.EditConnectionButton_Click);
@@ -199,7 +199,7 @@
 			this.AddConnectionButton.Location = new System.Drawing.Point(394, 3);
 			this.AddConnectionButton.Name = "AddConnectionButton";
 			this.AddConnectionButton.Size = new System.Drawing.Size(23, 23);
-			this.AddConnectionButton.TabIndex = 7;
+			this.AddConnectionButton.TabIndex = 4;
 			this.AddConnectionButton.UseVisualStyleBackColor = true;
 			this.AddConnectionButton.Click += new System.EventHandler(this.AddConnectionButton_Click);
 			// 
@@ -216,7 +216,7 @@
 			this.ConnectionsListView.Name = "ConnectionsListView";
 			this.tableLayoutPanel2.SetRowSpan(this.ConnectionsListView, 2);
 			this.ConnectionsListView.Size = new System.Drawing.Size(356, 326);
-			this.ConnectionsListView.TabIndex = 10;
+			this.ConnectionsListView.TabIndex = 3;
 			this.ConnectionsListView.UseCompatibleStateImageBehavior = false;
 			this.ConnectionsListView.View = System.Windows.Forms.View.Details;
 			this.ConnectionsListView.SelectedIndexChanged += new System.EventHandler(this.ConnectionsListView_SelectedIndexChanged);
@@ -279,7 +279,7 @@
 			this.button4.Location = new System.Drawing.Point(3, 32);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(23, 23);
-			this.button4.TabIndex = 6;
+			this.button4.TabIndex = 2;
 			this.button4.UseVisualStyleBackColor = true;
 			// 
 			// button5
@@ -289,7 +289,7 @@
 			this.button5.Location = new System.Drawing.Point(3, 3);
 			this.button5.Name = "button5";
 			this.button5.Size = new System.Drawing.Size(23, 23);
-			this.button5.TabIndex = 5;
+			this.button5.TabIndex = 1;
 			this.button5.UseVisualStyleBackColor = true;
 			// 
 			// DeleteDataSourceButton
@@ -300,7 +300,7 @@
 			this.DeleteDataSourceButton.Location = new System.Drawing.Point(452, 3);
 			this.DeleteDataSourceButton.Name = "DeleteDataSourceButton";
 			this.DeleteDataSourceButton.Size = new System.Drawing.Size(23, 23);
-			this.DeleteDataSourceButton.TabIndex = 9;
+			this.DeleteDataSourceButton.TabIndex = 6;
 			this.DeleteDataSourceButton.UseVisualStyleBackColor = true;
 			this.DeleteDataSourceButton.EnabledChanged += new System.EventHandler(this.DeleteDataSourceButton_EnabledChanged);
 			this.DeleteDataSourceButton.Click += new System.EventHandler(this.DeleteDataSourceButton_Click);
@@ -313,7 +313,7 @@
 			this.EditDataSourceButton.Location = new System.Drawing.Point(423, 3);
 			this.EditDataSourceButton.Name = "EditDataSourceButton";
 			this.EditDataSourceButton.Size = new System.Drawing.Size(23, 23);
-			this.EditDataSourceButton.TabIndex = 8;
+			this.EditDataSourceButton.TabIndex = 5;
 			this.EditDataSourceButton.UseVisualStyleBackColor = true;
 			this.EditDataSourceButton.EnabledChanged += new System.EventHandler(this.EditDataSourceButton_EnabledChanged);
 			this.EditDataSourceButton.Click += new System.EventHandler(this.EditDataSourceButton_Click);
@@ -325,7 +325,7 @@
 			this.NewDataSourceButton.Location = new System.Drawing.Point(394, 3);
 			this.NewDataSourceButton.Name = "NewDataSourceButton";
 			this.NewDataSourceButton.Size = new System.Drawing.Size(23, 23);
-			this.NewDataSourceButton.TabIndex = 7;
+			this.NewDataSourceButton.TabIndex = 4;
 			this.NewDataSourceButton.UseVisualStyleBackColor = true;
 			this.NewDataSourceButton.Click += new System.EventHandler(this.NewDataSourceButton_Click);
 			// 
@@ -341,7 +341,7 @@
 			this.DataSourcesListView.Name = "DataSourcesListView";
 			this.tableLayoutPanel3.SetRowSpan(this.DataSourcesListView, 2);
 			this.DataSourcesListView.Size = new System.Drawing.Size(356, 326);
-			this.DataSourcesListView.TabIndex = 10;
+			this.DataSourcesListView.TabIndex = 3;
 			this.DataSourcesListView.UseCompatibleStateImageBehavior = false;
 			this.DataSourcesListView.View = System.Windows.Forms.View.Details;
 			this.DataSourcesListView.SelectedIndexChanged += new System.EventHandler(this.DataSourcesListView_SelectedIndexChanged);
@@ -402,7 +402,7 @@
 			this.button9.Location = new System.Drawing.Point(3, 32);
 			this.button9.Name = "button9";
 			this.button9.Size = new System.Drawing.Size(23, 23);
-			this.button9.TabIndex = 6;
+			this.button9.TabIndex = 2;
 			this.button9.UseVisualStyleBackColor = true;
 			// 
 			// button10
@@ -412,7 +412,7 @@
 			this.button10.Location = new System.Drawing.Point(3, 3);
 			this.button10.Name = "button10";
 			this.button10.Size = new System.Drawing.Size(23, 23);
-			this.button10.TabIndex = 5;
+			this.button10.TabIndex = 1;
 			this.button10.UseVisualStyleBackColor = true;
 			// 
 			// DeleteTableViewButton
@@ -423,7 +423,7 @@
 			this.DeleteTableViewButton.Location = new System.Drawing.Point(452, 3);
 			this.DeleteTableViewButton.Name = "DeleteTableViewButton";
 			this.DeleteTableViewButton.Size = new System.Drawing.Size(23, 23);
-			this.DeleteTableViewButton.TabIndex = 9;
+			this.DeleteTableViewButton.TabIndex = 6;
 			this.DeleteTableViewButton.UseVisualStyleBackColor = true;
 			this.DeleteTableViewButton.EnabledChanged += new System.EventHandler(this.DeleteTableViewButton_EnabledChanged);
 			this.DeleteTableViewButton.Click += new System.EventHandler(this.DeleteTableViewButton_Click);
@@ -436,7 +436,7 @@
 			this.EditTableViewButton.Location = new System.Drawing.Point(423, 3);
 			this.EditTableViewButton.Name = "EditTableViewButton";
 			this.EditTableViewButton.Size = new System.Drawing.Size(23, 23);
-			this.EditTableViewButton.TabIndex = 8;
+			this.EditTableViewButton.TabIndex = 5;
 			this.EditTableViewButton.UseVisualStyleBackColor = true;
 			this.EditTableViewButton.EnabledChanged += new System.EventHandler(this.EditTableViewButton_EnabledChanged);
 			this.EditTableViewButton.Click += new System.EventHandler(this.EditTableViewButton_Click);
@@ -448,7 +448,7 @@
 			this.NewTableViewButton.Location = new System.Drawing.Point(394, 3);
 			this.NewTableViewButton.Name = "NewTableViewButton";
 			this.NewTableViewButton.Size = new System.Drawing.Size(23, 23);
-			this.NewTableViewButton.TabIndex = 7;
+			this.NewTableViewButton.TabIndex = 4;
 			this.NewTableViewButton.UseVisualStyleBackColor = true;
 			this.NewTableViewButton.Click += new System.EventHandler(this.NewTableViewButton_Click);
 			// 
@@ -464,7 +464,7 @@
 			this.TableViewsListView.Name = "TableViewsListView";
 			this.tableLayoutPanel4.SetRowSpan(this.TableViewsListView, 2);
 			this.TableViewsListView.Size = new System.Drawing.Size(356, 326);
-			this.TableViewsListView.TabIndex = 10;
+			this.TableViewsListView.TabIndex = 3;
 			this.TableViewsListView.UseCompatibleStateImageBehavior = false;
 			this.TableViewsListView.View = System.Windows.Forms.View.Details;
 			this.TableViewsListView.SelectedIndexChanged += new System.EventHandler(this.TableViewsListView_SelectedIndexChanged);
@@ -552,7 +552,7 @@
 			this.OkButton.Location = new System.Drawing.Point(339, 373);
 			this.OkButton.Name = "OkButton";
 			this.OkButton.Size = new System.Drawing.Size(75, 23);
-			this.OkButton.TabIndex = 1;
+			this.OkButton.TabIndex = 8;
 			this.OkButton.Text = "OK";
 			this.OkButton.UseVisualStyleBackColor = true;
 			this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
@@ -563,7 +563,7 @@
 			this.CancelButton.Location = new System.Drawing.Point(420, 373);
 			this.CancelButton.Name = "CancelButton";
 			this.CancelButton.Size = new System.Drawing.Size(75, 23);
-			this.CancelButton.TabIndex = 2;
+			this.CancelButton.TabIndex = 9;
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
 			// 
@@ -571,7 +571,6 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.CancelButton = this.CancelButton;
 			this.ClientSize = new System.Drawing.Size(498, 399);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

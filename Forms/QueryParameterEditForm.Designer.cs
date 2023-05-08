@@ -70,7 +70,7 @@
 			this.TableViewDetailGroup.Location = new System.Drawing.Point(3, 3);
 			this.TableViewDetailGroup.Name = "TableViewDetailGroup";
 			this.TableViewDetailGroup.Size = new System.Drawing.Size(300, 141);
-			this.TableViewDetailGroup.TabIndex = 6;
+			this.TableViewDetailGroup.TabIndex = 0;
 			this.TableViewDetailGroup.TabStop = false;
 			this.TableViewDetailGroup.Text = "Parameter Properties";
 			// 
@@ -116,7 +116,7 @@
 			this.TypeComboBox.Location = new System.Drawing.Point(3, 57);
 			this.TypeComboBox.Name = "TypeComboBox";
 			this.TypeComboBox.Size = new System.Drawing.Size(288, 21);
-			this.TypeComboBox.TabIndex = 7;
+			this.TypeComboBox.TabIndex = 1;
 			this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
 			// 
 			// AutoSourceColumnTextBox
@@ -124,16 +124,16 @@
 			this.AutoSourceColumnTextBox.Location = new System.Drawing.Point(3, 97);
 			this.AutoSourceColumnTextBox.Name = "AutoSourceColumnTextBox";
 			this.AutoSourceColumnTextBox.Size = new System.Drawing.Size(288, 22);
-			this.AutoSourceColumnTextBox.TabIndex = 6;
-			this.AutoSourceColumnTextBox.TooltipText = "Field should not be empty";
-			this.AutoSourceColumnTextBox.Valid = false;
+			this.AutoSourceColumnTextBox.TabIndex = 2;
+			this.AutoSourceColumnTextBox.TooltipText = "";
+			this.AutoSourceColumnTextBox.Valid = true;
 			// 
 			// ParameterTextTextBox
 			// 
 			this.ParameterTextTextBox.Location = new System.Drawing.Point(3, 16);
 			this.ParameterTextTextBox.Name = "ParameterTextTextBox";
 			this.ParameterTextTextBox.Size = new System.Drawing.Size(288, 22);
-			this.ParameterTextTextBox.TabIndex = 6;
+			this.ParameterTextTextBox.TabIndex = 0;
 			this.ParameterTextTextBox.TooltipText = "Field should not be empty";
 			this.ParameterTextTextBox.Valid = false;
 			// 
@@ -162,7 +162,7 @@
 			this.OkButton.Location = new System.Drawing.Point(147, 150);
 			this.OkButton.Name = "OkButton";
 			this.OkButton.Size = new System.Drawing.Size(75, 23);
-			this.OkButton.TabIndex = 5;
+			this.OkButton.TabIndex = 1;
 			this.OkButton.Text = "OK";
 			this.OkButton.UseVisualStyleBackColor = true;
 			this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
@@ -174,7 +174,7 @@
 			this.CancelButton.Location = new System.Drawing.Point(228, 150);
 			this.CancelButton.Name = "CancelButton";
 			this.CancelButton.Size = new System.Drawing.Size(75, 23);
-			this.CancelButton.TabIndex = 5;
+			this.CancelButton.TabIndex = 2;
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
 			// 

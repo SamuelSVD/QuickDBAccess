@@ -25,13 +25,13 @@
 		private void InitializeComponent() {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataSourceEditForm));
 			this.ParameterListView = new System.Windows.Forms.ListView();
-			this.PTypeColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.PNameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.PTypeColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.PAutoSourceColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.ParentParametersLabel = new System.Windows.Forms.Label();
 			this.ParentParameterListView = new System.Windows.Forms.ListView();
-			this.PPTypeColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.PPNameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.PPTypeColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.PPAutoSourceColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.NewParameterButton = new System.Windows.Forms.Button();
 			this.EditParameterButton = new System.Windows.Forms.Button();
@@ -76,19 +76,19 @@
 			this.ParameterListView.Name = "ParameterListView";
 			this.tableLayoutPanel1.SetRowSpan(this.ParameterListView, 2);
 			this.ParameterListView.Size = new System.Drawing.Size(316, 76);
-			this.ParameterListView.TabIndex = 0;
+			this.ParameterListView.TabIndex = 5;
 			this.ParameterListView.UseCompatibleStateImageBehavior = false;
 			this.ParameterListView.View = System.Windows.Forms.View.Details;
 			this.ParameterListView.SelectedIndexChanged += new System.EventHandler(this.ParameterListView_SelectedIndexChanged);
-			// 
-			// PTypeColumn
-			// 
-			this.PTypeColumn.Text = "Type";
 			// 
 			// PNameColumn
 			// 
 			this.PNameColumn.Text = "Name";
 			this.PNameColumn.Width = 101;
+			// 
+			// PTypeColumn
+			// 
+			this.PTypeColumn.Text = "Type";
 			// 
 			// PAutoSourceColumn
 			// 
@@ -117,19 +117,19 @@
 			this.ParentParameterListView.Name = "ParentParameterListView";
 			this.tableLayoutPanel1.SetRowSpan(this.ParentParameterListView, 2);
 			this.ParentParameterListView.Size = new System.Drawing.Size(316, 77);
-			this.ParentParameterListView.TabIndex = 3;
+			this.ParentParameterListView.TabIndex = 11;
 			this.ParentParameterListView.UseCompatibleStateImageBehavior = false;
 			this.ParentParameterListView.View = System.Windows.Forms.View.Details;
 			this.ParentParameterListView.SelectedIndexChanged += new System.EventHandler(this.ParentParameterListView_SelectedIndexChanged);
-			// 
-			// PPTypeColumn
-			// 
-			this.PPTypeColumn.Text = "Type";
 			// 
 			// PPNameColumn
 			// 
 			this.PPNameColumn.Text = "Name";
 			this.PPNameColumn.Width = 100;
+			// 
+			// PPTypeColumn
+			// 
+			this.PPTypeColumn.Text = "Type";
 			// 
 			// PPAutoSourceColumn
 			// 
@@ -143,7 +143,7 @@
 			this.NewParameterButton.Location = new System.Drawing.Point(354, 136);
 			this.NewParameterButton.Name = "NewParameterButton";
 			this.NewParameterButton.Size = new System.Drawing.Size(23, 23);
-			this.NewParameterButton.TabIndex = 4;
+			this.NewParameterButton.TabIndex = 6;
 			this.NewParameterButton.UseVisualStyleBackColor = true;
 			this.NewParameterButton.Click += new System.EventHandler(this.AddParameterButton_Click);
 			// 
@@ -155,7 +155,7 @@
 			this.EditParameterButton.Location = new System.Drawing.Point(383, 136);
 			this.EditParameterButton.Name = "EditParameterButton";
 			this.EditParameterButton.Size = new System.Drawing.Size(23, 23);
-			this.EditParameterButton.TabIndex = 4;
+			this.EditParameterButton.TabIndex = 7;
 			this.EditParameterButton.UseVisualStyleBackColor = true;
 			this.EditParameterButton.EnabledChanged += new System.EventHandler(this.EditParameterButton_EnabledChanged);
 			this.EditParameterButton.Click += new System.EventHandler(this.EditParameterButton_Click);
@@ -168,7 +168,7 @@
 			this.DeleteParameterButton.Location = new System.Drawing.Point(412, 136);
 			this.DeleteParameterButton.Name = "DeleteParameterButton";
 			this.DeleteParameterButton.Size = new System.Drawing.Size(23, 23);
-			this.DeleteParameterButton.TabIndex = 4;
+			this.DeleteParameterButton.TabIndex = 8;
 			this.DeleteParameterButton.UseVisualStyleBackColor = true;
 			this.DeleteParameterButton.EnabledChanged += new System.EventHandler(this.DeleteParameterButton_EnabledChanged);
 			this.DeleteParameterButton.Click += new System.EventHandler(this.DeleteParameterButton_Click);
@@ -180,7 +180,7 @@
 			this.NewParentParameterButton.Location = new System.Drawing.Point(354, 231);
 			this.NewParentParameterButton.Name = "NewParentParameterButton";
 			this.NewParentParameterButton.Size = new System.Drawing.Size(23, 23);
-			this.NewParentParameterButton.TabIndex = 4;
+			this.NewParentParameterButton.TabIndex = 12;
 			this.NewParentParameterButton.UseVisualStyleBackColor = true;
 			this.NewParentParameterButton.Click += new System.EventHandler(this.AddParentParameterButton_Click);
 			// 
@@ -192,7 +192,7 @@
 			this.EditParentParameterButton.Location = new System.Drawing.Point(383, 231);
 			this.EditParentParameterButton.Name = "EditParentParameterButton";
 			this.EditParentParameterButton.Size = new System.Drawing.Size(23, 23);
-			this.EditParentParameterButton.TabIndex = 4;
+			this.EditParentParameterButton.TabIndex = 13;
 			this.EditParentParameterButton.UseVisualStyleBackColor = true;
 			this.EditParentParameterButton.EnabledChanged += new System.EventHandler(this.EditParentParameterButton_EnabledChanged);
 			this.EditParentParameterButton.Click += new System.EventHandler(this.EditParentParameterButton_Click);
@@ -205,7 +205,7 @@
 			this.DeleteParentParameterButton.Location = new System.Drawing.Point(412, 231);
 			this.DeleteParentParameterButton.Name = "DeleteParentParameterButton";
 			this.DeleteParentParameterButton.Size = new System.Drawing.Size(23, 23);
-			this.DeleteParentParameterButton.TabIndex = 4;
+			this.DeleteParentParameterButton.TabIndex = 14;
 			this.DeleteParentParameterButton.UseVisualStyleBackColor = true;
 			this.DeleteParentParameterButton.EnabledChanged += new System.EventHandler(this.DeleteParentParameterButton_EnabledChanged);
 			this.DeleteParentParameterButton.Click += new System.EventHandler(this.DeleteParentParameterButton_Click);
@@ -314,7 +314,7 @@
 			this.QueryRichTextBox.Location = new System.Drawing.Point(3, 16);
 			this.QueryRichTextBox.Name = "QueryRichTextBox";
 			this.QueryRichTextBox.Size = new System.Drawing.Size(432, 101);
-			this.QueryRichTextBox.TabIndex = 3;
+			this.QueryRichTextBox.TabIndex = 2;
 			this.QueryRichTextBox.Text = "";
 			this.QueryRichTextBox.TextChanged += new System.EventHandler(this.QueryRichTextBox_TextChanged);
 			// 
@@ -325,7 +325,7 @@
 			this.ParentParameterUpButton.Location = new System.Drawing.Point(3, 231);
 			this.ParentParameterUpButton.Name = "ParentParameterUpButton";
 			this.ParentParameterUpButton.Size = new System.Drawing.Size(23, 23);
-			this.ParentParameterUpButton.TabIndex = 4;
+			this.ParentParameterUpButton.TabIndex = 9;
 			this.ParentParameterUpButton.UseVisualStyleBackColor = true;
 			this.ParentParameterUpButton.Click += new System.EventHandler(this.ParentParameterUpButton_Click);
 			// 
@@ -336,7 +336,7 @@
 			this.ParameterUpButton.Location = new System.Drawing.Point(3, 136);
 			this.ParameterUpButton.Name = "ParameterUpButton";
 			this.ParameterUpButton.Size = new System.Drawing.Size(23, 23);
-			this.ParameterUpButton.TabIndex = 4;
+			this.ParameterUpButton.TabIndex = 3;
 			this.ParameterUpButton.UseVisualStyleBackColor = true;
 			this.ParameterUpButton.Click += new System.EventHandler(this.ParameterUpButton_Click);
 			// 
@@ -358,7 +358,7 @@
 			this.ParentParameterDownButton.Location = new System.Drawing.Point(3, 260);
 			this.ParentParameterDownButton.Name = "ParentParameterDownButton";
 			this.ParentParameterDownButton.Size = new System.Drawing.Size(23, 23);
-			this.ParentParameterDownButton.TabIndex = 4;
+			this.ParentParameterDownButton.TabIndex = 10;
 			this.ParentParameterDownButton.UseVisualStyleBackColor = true;
 			this.ParentParameterDownButton.Click += new System.EventHandler(this.ParentParameterDownButton_Click);
 			// 
@@ -372,7 +372,7 @@
 			this.TableViewDetailGroup.Location = new System.Drawing.Point(3, 3);
 			this.TableViewDetailGroup.Name = "TableViewDetailGroup";
 			this.TableViewDetailGroup.Size = new System.Drawing.Size(444, 100);
-			this.TableViewDetailGroup.TabIndex = 6;
+			this.TableViewDetailGroup.TabIndex = 0;
 			this.TableViewDetailGroup.TabStop = false;
 			this.TableViewDetailGroup.Text = "Data Source Properties";
 			// 
@@ -403,7 +403,7 @@
 			this.DataSourceNameTextBox.Location = new System.Drawing.Point(3, 16);
 			this.DataSourceNameTextBox.Name = "DataSourceNameTextBox";
 			this.DataSourceNameTextBox.Size = new System.Drawing.Size(432, 22);
-			this.DataSourceNameTextBox.TabIndex = 7;
+			this.DataSourceNameTextBox.TabIndex = 0;
 			this.DataSourceNameTextBox.TooltipText = "Field should not be empty";
 			this.DataSourceNameTextBox.Valid = false;
 			// 
@@ -414,7 +414,7 @@
 			this.ConnectionComboBox.Location = new System.Drawing.Point(3, 57);
 			this.ConnectionComboBox.Name = "ConnectionComboBox";
 			this.ConnectionComboBox.Size = new System.Drawing.Size(432, 21);
-			this.ConnectionComboBox.TabIndex = 6;
+			this.ConnectionComboBox.TabIndex = 1;
 			this.ConnectionComboBox.SelectedIndexChanged += new System.EventHandler(this.ConnectionComboBox_SelectedIndexChanged);
 			// 
 			// ConnectionLabel
@@ -442,7 +442,7 @@
 			this.OkButton.Location = new System.Drawing.Point(291, 445);
 			this.OkButton.Name = "OkButton";
 			this.OkButton.Size = new System.Drawing.Size(75, 23);
-			this.OkButton.TabIndex = 5;
+			this.OkButton.TabIndex = 2;
 			this.OkButton.Text = "OK";
 			this.OkButton.UseVisualStyleBackColor = true;
 			this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
@@ -454,7 +454,7 @@
 			this.CancelButton.Location = new System.Drawing.Point(372, 445);
 			this.CancelButton.Name = "CancelButton";
 			this.CancelButton.Size = new System.Drawing.Size(75, 23);
-			this.CancelButton.TabIndex = 5;
+			this.CancelButton.TabIndex = 3;
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
 			// 

@@ -37,9 +37,9 @@
 			this.ConnectionLabel = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.PasswordTextBox = new QuickDBAccess.ValidateTextBox();
+			this.IntegratedSecurityCheckBox = new System.Windows.Forms.CheckBox();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.CancelButton = new System.Windows.Forms.Button();
-			this.IntegratedSecurityCheckBox = new System.Windows.Forms.CheckBox();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.TableViewDetailGroup.SuspendLayout();
 			this.tableLayoutPanel4.SuspendLayout();
@@ -75,7 +75,7 @@
 			this.TableViewDetailGroup.Location = new System.Drawing.Point(3, 3);
 			this.TableViewDetailGroup.Name = "TableViewDetailGroup";
 			this.TableViewDetailGroup.Size = new System.Drawing.Size(300, 247);
-			this.TableViewDetailGroup.TabIndex = 6;
+			this.TableViewDetailGroup.TabIndex = 0;
 			this.TableViewDetailGroup.TabStop = false;
 			this.TableViewDetailGroup.Text = "Data Source Properties";
 			// 
@@ -119,7 +119,7 @@
 			this.UserTextBox.Location = new System.Drawing.Point(3, 139);
 			this.UserTextBox.Name = "UserTextBox";
 			this.UserTextBox.Size = new System.Drawing.Size(288, 22);
-			this.UserTextBox.TabIndex = 6;
+			this.UserTextBox.TabIndex = 3;
 			this.UserTextBox.TooltipText = "Field should not be empty";
 			this.UserTextBox.Valid = false;
 			// 
@@ -138,7 +138,7 @@
 			this.DatabaseTextBox.Location = new System.Drawing.Point(3, 98);
 			this.DatabaseTextBox.Name = "DatabaseTextBox";
 			this.DatabaseTextBox.Size = new System.Drawing.Size(288, 22);
-			this.DatabaseTextBox.TabIndex = 6;
+			this.DatabaseTextBox.TabIndex = 2;
 			this.DatabaseTextBox.TooltipText = "Field should not be empty";
 			this.DatabaseTextBox.Valid = false;
 			// 
@@ -157,7 +157,7 @@
 			this.ServerTextBox.Location = new System.Drawing.Point(3, 57);
 			this.ServerTextBox.Name = "ServerTextBox";
 			this.ServerTextBox.Size = new System.Drawing.Size(288, 22);
-			this.ServerTextBox.TabIndex = 6;
+			this.ServerTextBox.TabIndex = 1;
 			this.ServerTextBox.TooltipText = "Field should not be empty";
 			this.ServerTextBox.Valid = false;
 			// 
@@ -176,7 +176,7 @@
 			this.ConnectionNameTextBox.Location = new System.Drawing.Point(3, 16);
 			this.ConnectionNameTextBox.Name = "ConnectionNameTextBox";
 			this.ConnectionNameTextBox.Size = new System.Drawing.Size(288, 22);
-			this.ConnectionNameTextBox.TabIndex = 6;
+			this.ConnectionNameTextBox.TabIndex = 0;
 			this.ConnectionNameTextBox.TooltipText = "Field should not be empty";
 			this.ConnectionNameTextBox.Valid = false;
 			// 
@@ -204,9 +204,22 @@
 			this.PasswordTextBox.Location = new System.Drawing.Point(3, 180);
 			this.PasswordTextBox.Name = "PasswordTextBox";
 			this.PasswordTextBox.Size = new System.Drawing.Size(288, 22);
-			this.PasswordTextBox.TabIndex = 6;
+			this.PasswordTextBox.TabIndex = 4;
 			this.PasswordTextBox.TooltipText = "Field should not be empty";
 			this.PasswordTextBox.Valid = false;
+			// 
+			// IntegratedSecurityCheckBox
+			// 
+			this.IntegratedSecurityCheckBox.AutoSize = true;
+			this.IntegratedSecurityCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.IntegratedSecurityCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
+			this.IntegratedSecurityCheckBox.Location = new System.Drawing.Point(3, 208);
+			this.IntegratedSecurityCheckBox.Name = "IntegratedSecurityCheckBox";
+			this.IntegratedSecurityCheckBox.Size = new System.Drawing.Size(288, 17);
+			this.IntegratedSecurityCheckBox.TabIndex = 5;
+			this.IntegratedSecurityCheckBox.Text = "Use Integrated Security";
+			this.IntegratedSecurityCheckBox.UseVisualStyleBackColor = true;
+			this.IntegratedSecurityCheckBox.CheckedChanged += new System.EventHandler(this.IntegratedSecurityCheckBox_CheckedChanged);
 			// 
 			// OkButton
 			// 
@@ -214,7 +227,7 @@
 			this.OkButton.Location = new System.Drawing.Point(147, 256);
 			this.OkButton.Name = "OkButton";
 			this.OkButton.Size = new System.Drawing.Size(75, 23);
-			this.OkButton.TabIndex = 5;
+			this.OkButton.TabIndex = 1;
 			this.OkButton.Text = "OK";
 			this.OkButton.UseVisualStyleBackColor = true;
 			this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
@@ -226,22 +239,9 @@
 			this.CancelButton.Location = new System.Drawing.Point(228, 256);
 			this.CancelButton.Name = "CancelButton";
 			this.CancelButton.Size = new System.Drawing.Size(75, 23);
-			this.CancelButton.TabIndex = 5;
+			this.CancelButton.TabIndex = 2;
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
-			// 
-			// IntegratedSecurityCheckBox
-			// 
-			this.IntegratedSecurityCheckBox.AutoSize = true;
-			this.IntegratedSecurityCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.IntegratedSecurityCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
-			this.IntegratedSecurityCheckBox.Location = new System.Drawing.Point(3, 208);
-			this.IntegratedSecurityCheckBox.Name = "IntegratedSecurityCheckBox";
-			this.IntegratedSecurityCheckBox.Size = new System.Drawing.Size(288, 17);
-			this.IntegratedSecurityCheckBox.TabIndex = 13;
-			this.IntegratedSecurityCheckBox.Text = "Use Integrated Security";
-			this.IntegratedSecurityCheckBox.UseVisualStyleBackColor = true;
-			this.IntegratedSecurityCheckBox.CheckedChanged += new System.EventHandler(this.IntegratedSecurityCheckBox_CheckedChanged);
 			// 
 			// ConnectionEditForm
 			// 

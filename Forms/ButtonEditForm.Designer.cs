@@ -68,7 +68,7 @@
 			this.TableViewDetailGroup.Location = new System.Drawing.Point(3, 3);
 			this.TableViewDetailGroup.Name = "TableViewDetailGroup";
 			this.TableViewDetailGroup.Size = new System.Drawing.Size(300, 100);
-			this.TableViewDetailGroup.TabIndex = 6;
+			this.TableViewDetailGroup.TabIndex = 0;
 			this.TableViewDetailGroup.TabStop = false;
 			this.TableViewDetailGroup.Text = "Button Properties";
 			// 
@@ -100,7 +100,7 @@
 			this.DataSourceComboBox.Location = new System.Drawing.Point(3, 57);
 			this.DataSourceComboBox.Name = "DataSourceComboBox";
 			this.DataSourceComboBox.Size = new System.Drawing.Size(288, 21);
-			this.DataSourceComboBox.TabIndex = 6;
+			this.DataSourceComboBox.TabIndex = 1;
 			this.DataSourceComboBox.SelectedIndexChanged += new System.EventHandler(this.DataSourceComboBox_SelectedIndexChanged);
 			// 
 			// ConnectionNameTextBox
@@ -108,7 +108,7 @@
 			this.ConnectionNameTextBox.Location = new System.Drawing.Point(3, 16);
 			this.ConnectionNameTextBox.Name = "ConnectionNameTextBox";
 			this.ConnectionNameTextBox.Size = new System.Drawing.Size(288, 22);
-			this.ConnectionNameTextBox.TabIndex = 6;
+			this.ConnectionNameTextBox.TabIndex = 0;
 			this.ConnectionNameTextBox.TooltipText = "Field should not be empty";
 			this.ConnectionNameTextBox.Valid = false;
 			// 
@@ -137,7 +137,7 @@
 			this.OkButton.Location = new System.Drawing.Point(147, 109);
 			this.OkButton.Name = "OkButton";
 			this.OkButton.Size = new System.Drawing.Size(75, 23);
-			this.OkButton.TabIndex = 5;
+			this.OkButton.TabIndex = 1;
 			this.OkButton.Text = "OK";
 			this.OkButton.UseVisualStyleBackColor = true;
 			this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
@@ -149,7 +149,7 @@
 			this.CancelButton.Location = new System.Drawing.Point(228, 109);
 			this.CancelButton.Name = "CancelButton";
 			this.CancelButton.Size = new System.Drawing.Size(75, 23);
-			this.CancelButton.TabIndex = 5;
+			this.CancelButton.TabIndex = 2;
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
 			// 

@@ -31,6 +31,8 @@
 			this.DataSourceComboBox = new System.Windows.Forms.ComboBox();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.ButtonListView = new System.Windows.Forms.ListView();
+			this.TextColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.ButtonDataSourceColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.ParametersLabel = new System.Windows.Forms.Label();
 			this.ParentParametersLabel = new System.Windows.Forms.Label();
 			this.TableViewListView = new System.Windows.Forms.ListView();
@@ -55,8 +57,6 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.CancelButton = new System.Windows.Forms.Button();
-			this.TextColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.ButtonDataSourceColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.tableLayoutPanel2.SuspendLayout();
 			this.ParametersGroupBox.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
@@ -80,7 +80,7 @@
 			this.DataSourceComboBox.Location = new System.Drawing.Point(3, 57);
 			this.DataSourceComboBox.Name = "DataSourceComboBox";
 			this.DataSourceComboBox.Size = new System.Drawing.Size(390, 21);
-			this.DataSourceComboBox.TabIndex = 2;
+			this.DataSourceComboBox.TabIndex = 1;
 			this.DataSourceComboBox.SelectedIndexChanged += new System.EventHandler(this.DataSourceComboBox_SelectedIndexChanged);
 			// 
 			// tableLayoutPanel2
@@ -130,10 +130,20 @@
 			this.ButtonListView.Name = "ButtonListView";
 			this.tableLayoutPanel2.SetRowSpan(this.ButtonListView, 2);
 			this.ButtonListView.Size = new System.Drawing.Size(274, 87);
-			this.ButtonListView.TabIndex = 0;
+			this.ButtonListView.TabIndex = 2;
 			this.ButtonListView.UseCompatibleStateImageBehavior = false;
 			this.ButtonListView.View = System.Windows.Forms.View.Details;
 			this.ButtonListView.SelectedIndexChanged += new System.EventHandler(this.ButtonListView_SelectedIndexChanged);
+			// 
+			// TextColumn
+			// 
+			this.TextColumn.Text = "Text";
+			this.TextColumn.Width = 63;
+			// 
+			// ButtonDataSourceColumn
+			// 
+			this.ButtonDataSourceColumn.Text = "Data Source";
+			this.ButtonDataSourceColumn.Width = 88;
 			// 
 			// ParametersLabel
 			// 
@@ -179,7 +189,7 @@
 			this.TableViewListView.Name = "TableViewListView";
 			this.tableLayoutPanel2.SetRowSpan(this.TableViewListView, 2);
 			this.TableViewListView.Size = new System.Drawing.Size(274, 88);
-			this.TableViewListView.TabIndex = 3;
+			this.TableViewListView.TabIndex = 8;
 			this.TableViewListView.UseCompatibleStateImageBehavior = false;
 			this.TableViewListView.View = System.Windows.Forms.View.Details;
 			this.TableViewListView.SelectedIndexChanged += new System.EventHandler(this.TableViewListView_SelectedIndexChanged);
@@ -206,7 +216,7 @@
 			this.DeleteButtonButton.Location = new System.Drawing.Point(370, 16);
 			this.DeleteButtonButton.Name = "DeleteButtonButton";
 			this.DeleteButtonButton.Size = new System.Drawing.Size(23, 23);
-			this.DeleteButtonButton.TabIndex = 4;
+			this.DeleteButtonButton.TabIndex = 5;
 			this.DeleteButtonButton.UseVisualStyleBackColor = true;
 			this.DeleteButtonButton.EnabledChanged += new System.EventHandler(this.DeleteButtonButton_EnabledChanged);
 			this.DeleteButtonButton.Click += new System.EventHandler(this.DeleteButtonButton_Click);
@@ -233,7 +243,7 @@
 			this.NewButtonButton.Location = new System.Drawing.Point(312, 16);
 			this.NewButtonButton.Name = "NewButtonButton";
 			this.NewButtonButton.Size = new System.Drawing.Size(23, 23);
-			this.NewButtonButton.TabIndex = 4;
+			this.NewButtonButton.TabIndex = 3;
 			this.NewButtonButton.UseVisualStyleBackColor = true;
 			this.NewButtonButton.Click += new System.EventHandler(this.NewButtonButton_Click);
 			// 
@@ -244,7 +254,7 @@
 			this.NewTableViewButton.Location = new System.Drawing.Point(312, 122);
 			this.NewTableViewButton.Name = "NewTableViewButton";
 			this.NewTableViewButton.Size = new System.Drawing.Size(23, 23);
-			this.NewTableViewButton.TabIndex = 4;
+			this.NewTableViewButton.TabIndex = 9;
 			this.NewTableViewButton.UseVisualStyleBackColor = true;
 			this.NewTableViewButton.Click += new System.EventHandler(this.NewTableViewButton_Click);
 			// 
@@ -256,7 +266,7 @@
 			this.EditTableViewButton.Location = new System.Drawing.Point(341, 122);
 			this.EditTableViewButton.Name = "EditTableViewButton";
 			this.EditTableViewButton.Size = new System.Drawing.Size(23, 23);
-			this.EditTableViewButton.TabIndex = 4;
+			this.EditTableViewButton.TabIndex = 10;
 			this.EditTableViewButton.UseVisualStyleBackColor = true;
 			this.EditTableViewButton.EnabledChanged += new System.EventHandler(this.EditTableViewButton_EnabledChanged);
 			this.EditTableViewButton.Click += new System.EventHandler(this.EditTableViewButton_Click);
@@ -269,7 +279,7 @@
 			this.DeleteTableViewButton.Location = new System.Drawing.Point(370, 122);
 			this.DeleteTableViewButton.Name = "DeleteTableViewButton";
 			this.DeleteTableViewButton.Size = new System.Drawing.Size(23, 23);
-			this.DeleteTableViewButton.TabIndex = 4;
+			this.DeleteTableViewButton.TabIndex = 11;
 			this.DeleteTableViewButton.UseVisualStyleBackColor = true;
 			this.DeleteTableViewButton.EnabledChanged += new System.EventHandler(this.DeleteTableViewButton_EnabledChanged);
 			this.DeleteTableViewButton.Click += new System.EventHandler(this.DeleteTableViewButton_Click);
@@ -281,7 +291,7 @@
 			this.ButtonsUpButton.Location = new System.Drawing.Point(3, 16);
 			this.ButtonsUpButton.Name = "ButtonsUpButton";
 			this.ButtonsUpButton.Size = new System.Drawing.Size(23, 23);
-			this.ButtonsUpButton.TabIndex = 4;
+			this.ButtonsUpButton.TabIndex = 0;
 			this.ButtonsUpButton.UseVisualStyleBackColor = true;
 			this.ButtonsUpButton.Click += new System.EventHandler(this.ButtonsUpButton_Click);
 			// 
@@ -289,10 +299,11 @@
 			// 
 			this.ButtonsDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down;
 			this.ButtonsDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ButtonsDownButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.ButtonsDownButton.Location = new System.Drawing.Point(3, 45);
 			this.ButtonsDownButton.Name = "ButtonsDownButton";
 			this.ButtonsDownButton.Size = new System.Drawing.Size(23, 23);
-			this.ButtonsDownButton.TabIndex = 4;
+			this.ButtonsDownButton.TabIndex = 1;
 			this.ButtonsDownButton.UseVisualStyleBackColor = true;
 			this.ButtonsDownButton.Click += new System.EventHandler(this.ButtonsDownButton_Click);
 			// 
@@ -303,7 +314,7 @@
 			this.TableViewUpButton.Location = new System.Drawing.Point(3, 122);
 			this.TableViewUpButton.Name = "TableViewUpButton";
 			this.TableViewUpButton.Size = new System.Drawing.Size(23, 23);
-			this.TableViewUpButton.TabIndex = 4;
+			this.TableViewUpButton.TabIndex = 6;
 			this.TableViewUpButton.UseVisualStyleBackColor = true;
 			this.TableViewUpButton.Click += new System.EventHandler(this.TableViewUpButton_Click);
 			// 
@@ -314,7 +325,7 @@
 			this.TableViewDownButton.Location = new System.Drawing.Point(3, 151);
 			this.TableViewDownButton.Name = "TableViewDownButton";
 			this.TableViewDownButton.Size = new System.Drawing.Size(23, 23);
-			this.TableViewDownButton.TabIndex = 4;
+			this.TableViewDownButton.TabIndex = 7;
 			this.TableViewDownButton.UseVisualStyleBackColor = true;
 			this.TableViewDownButton.Click += new System.EventHandler(this.TableViewDownButton_Click);
 			// 
@@ -328,7 +339,7 @@
 			this.ParametersGroupBox.Location = new System.Drawing.Point(3, 109);
 			this.ParametersGroupBox.Name = "ParametersGroupBox";
 			this.ParametersGroupBox.Size = new System.Drawing.Size(402, 232);
-			this.ParametersGroupBox.TabIndex = 4;
+			this.ParametersGroupBox.TabIndex = 1;
 			this.ParametersGroupBox.TabStop = false;
 			this.ParametersGroupBox.Text = "Details";
 			// 
@@ -364,7 +375,7 @@
 			this.TableViewDetailGroup.Location = new System.Drawing.Point(3, 3);
 			this.TableViewDetailGroup.Name = "TableViewDetailGroup";
 			this.TableViewDetailGroup.Size = new System.Drawing.Size(402, 100);
-			this.TableViewDetailGroup.TabIndex = 6;
+			this.TableViewDetailGroup.TabIndex = 0;
 			this.TableViewDetailGroup.TabStop = false;
 			this.TableViewDetailGroup.Text = "Table View Properties";
 			// 
@@ -395,7 +406,7 @@
 			this.TableViewNameTextBox.Location = new System.Drawing.Point(3, 16);
 			this.TableViewNameTextBox.Name = "TableViewNameTextBox";
 			this.TableViewNameTextBox.Size = new System.Drawing.Size(390, 22);
-			this.TableViewNameTextBox.TabIndex = 7;
+			this.TableViewNameTextBox.TabIndex = 0;
 			this.TableViewNameTextBox.TooltipText = "Field should not be empty";
 			this.TableViewNameTextBox.Valid = false;
 			// 
@@ -414,7 +425,7 @@
 			this.OkButton.Location = new System.Drawing.Point(249, 347);
 			this.OkButton.Name = "OkButton";
 			this.OkButton.Size = new System.Drawing.Size(75, 23);
-			this.OkButton.TabIndex = 5;
+			this.OkButton.TabIndex = 2;
 			this.OkButton.Text = "OK";
 			this.OkButton.UseVisualStyleBackColor = true;
 			this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
@@ -426,19 +437,9 @@
 			this.CancelButton.Location = new System.Drawing.Point(330, 347);
 			this.CancelButton.Name = "CancelButton";
 			this.CancelButton.Size = new System.Drawing.Size(75, 23);
-			this.CancelButton.TabIndex = 5;
+			this.CancelButton.TabIndex = 3;
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
-			// 
-			// TextColumn
-			// 
-			this.TextColumn.Text = "Text";
-			this.TextColumn.Width = 63;
-			// 
-			// ButtonDataSourceColumn
-			// 
-			this.ButtonDataSourceColumn.Text = "Data Source";
-			this.ButtonDataSourceColumn.Width = 88;
 			// 
 			// TableViewEditForm
 			// 
