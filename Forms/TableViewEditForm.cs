@@ -117,6 +117,7 @@ namespace QuickDBAccess.Forms {
 				Model.Buttons.Add(parameter);
 				AddButton(parameter);
 			}
+			this.DialogResult = DialogResult.None;
 		}
 
 		private void EditButtonButton_Click(object sender, EventArgs e) {
@@ -202,9 +203,9 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void TableViewListView_SelectedIndexChanged(object sender, EventArgs e) {
-			NewButtonButton.Enabled = true;
-			EditButtonButton.Enabled = SelectedTableView != null;
-			DeleteButtonButton.Enabled = SelectedTableView != null;
+			NewTableViewButton.Enabled = true;
+			EditTableViewButton.Enabled = SelectedTableView != null;
+			DeleteTableViewButton.Enabled = SelectedTableView != null;
 			TableViewUpButton.Enabled = Model.ChildTableViews.Count > 1 && TableViewListView.SelectedIndices.Count > 0 && TableViewListView.SelectedIndices[0] > 0;
 			TableViewDownButton.Enabled = Model.ChildTableViews.Count > 1 && TableViewListView.SelectedIndices.Count > 0 && TableViewListView.SelectedIndices[0] < Model.ChildTableViews.Count - 1;
 		}
