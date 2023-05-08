@@ -1,4 +1,5 @@
 ﻿using QuickDBAccess.Model;
+using QuickDBAccess.Properties;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -123,18 +124,24 @@ namespace QuickDBAccess.Forms {
 			AddConnectionButton.Enabled = true;
 			EditConnectionButton.Enabled = SelectedConnection != null;
 			DeleteConnectionButton.Enabled = SelectedConnection != null;
+			ConnectionsUpButton.Enabled = Model.Connections.Count > 1 && ConnectionsListView.SelectedIndices.Count > 0 && ConnectionsListView.SelectedIndices[0] > 0;
+			ConnectionsDownButton.Enabled = Model.Connections.Count > 1 && ConnectionsListView.SelectedIndices.Count > 0 && ConnectionsListView.SelectedIndices[0] < Model.Connections.Count - 1;
 		}
 
 		private void DataSourcesListView_SelectedIndexChanged(object sender, EventArgs e) {
 			NewDataSourceButton.Enabled = true;
 			EditDataSourceButton.Enabled = SelectedDataSource != null;
 			DeleteDataSourceButton.Enabled = SelectedDataSource != null;
+			DataSourcesUpButton.Enabled = Model.DataSources.Count > 1 && DataSourcesListView.SelectedIndices.Count > 0 && DataSourcesListView.SelectedIndices[0] > 0;
+			DataSourcesDownButton.Enabled = Model.DataSources.Count > 1 && DataSourcesListView.SelectedIndices.Count > 0 && DataSourcesListView.SelectedIndices[0] < Model.DataSources.Count - 1;
 		}
 
 		private void TableViewsListView_SelectedIndexChanged(object sender, EventArgs e) {
 			NewTableViewButton.Enabled = true;
 			EditTableViewButton.Enabled = SelectedTableView != null;
 			DeleteTableViewButton.Enabled = SelectedTableView != null;
+			TableViewsUpButton.Enabled = Model.TableViews.Count > 1 && TableViewsListView.SelectedIndices.Count > 0 && TableViewsListView.SelectedIndices[0] > 0;
+			TableViewsDownButton.Enabled = Model.TableViews.Count > 1 && TableViewsListView.SelectedIndices.Count > 0 && TableViewsListView.SelectedIndices[0] < Model.TableViews.Count - 1;
 		}
 
 		private void AddConnectionButton_Click(object sender, EventArgs e) {
@@ -271,6 +278,94 @@ namespace QuickDBAccess.Forms {
 		private void OkButton_Click(object sender, EventArgs e) {
 			DialogResult = DialogResult.OK;
 			Close();
+		}
+
+		private void ConnectionsUpButton_Click(object sender, EventArgs e) {
+			SQLConnectionModel c = SelectedConnection;
+			int oldIndex = Model.Connections.IndexOf(c);
+			ListViewItem item = ConnectionsListView.Items[oldIndex];
+			Model.Connections.RemoveAt(oldIndex);
+			Model.Connections.Insert(oldIndex - 1, c);
+			ConnectionsListView.Items.RemoveAt(oldIndex);
+			ConnectionsListView.Items.Insert(oldIndex - 1, item);
+			Changed = true;
+		}
+
+		private void ConnectionsDownButton_Click(object sender, EventArgs e) {
+			SQLConnectionModel c = SelectedConnection;
+			int oldIndex = Model.Connections.IndexOf(c);
+			ListViewItem item = ConnectionsListView.Items[oldIndex];
+			Model.Connections.RemoveAt(oldIndex);
+			Model.Connections.Insert(oldIndex+1, c);
+			ConnectionsListView.Items.RemoveAt(oldIndex);
+			ConnectionsListView.Items.Insert(oldIndex+1, item);
+			Changed = true;
+		}
+
+		private void DataSourcesUpButton_Click(object sender, EventArgs e) {
+			DataSourceModel ds = SelectedDataSource;
+			int oldIndex = Model.DataSources.IndexOf(ds);
+			ListViewItem item = DataSourcesListView.Items[oldIndex];
+			Model.DataSources.RemoveAt(oldIndex);
+			Model.DataSources.Insert(oldIndex - 1, ds);
+			DataSourcesListView.Items.RemoveAt(oldIndex);
+			DataSourcesListView.Items.Insert(oldIndex - 1, item);
+			Changed = true;
+		}
+
+		private void DataSourcesDownButton_Click(object sender, EventArgs e) {
+			DataSourceModel ds = SelectedDataSource;
+			int oldIndex = Model.DataSources.IndexOf(ds);
+			ListViewItem item = DataSourcesListView.Items[oldIndex];
+			Model.DataSources.RemoveAt(oldIndex);
+			Model.DataSources.Insert(oldIndex + 1, ds);
+			DataSourcesListView.Items.RemoveAt(oldIndex);
+			DataSourcesListView.Items.Insert(oldIndex + 1, item);
+			Changed = true;
+		}
+
+		private void TableViewsUpButton_Click(object sender, EventArgs e) {
+			TableViewModel tvm = SelectedTableView;
+			int oldIndex = Model.TableViews.IndexOf(tvm);
+			ListViewItem item = TableViewsListView.Items[oldIndex];
+			Model.TableViews.RemoveAt(oldIndex);
+			Model.TableViews.Insert(oldIndex - 1, tvm);
+			TableViewsListView.Items.RemoveAt(oldIndex);
+			TableViewsListView.Items.Insert(oldIndex - 1, item);
+			Changed = true;
+		}
+
+		private void TableViewsDownButton_Click(object sender, EventArgs e) {
+			TableViewModel tvm = SelectedTableView;
+			int oldIndex = Model.TableViews.IndexOf(tvm);
+			ListViewItem item = TableViewsListView.Items[oldIndex];
+			Model.TableViews.RemoveAt(oldIndex);
+			Model.TableViews.Insert(oldIndex + 1, tvm);
+			TableViewsListView.Items.RemoveAt(oldIndex);
+			TableViewsListView.Items.Insert(oldIndex + 1, item);
+			Changed = true;
+		}
+
+		private void ConnectionsUpButton_EnabledChanged(object sender, EventArgs e) {
+			ChangeEnableDisable(ConnectionsUpButton, Properties.Resources.up, Properties.Resources.up_disabled);
+		}
+
+		private void ConnectionsDownButton_EnabledChanged(object sender, EventArgs e) {
+			ChangeEnableDisable(ConnectionsDownButton, Properties.Resources.down, Properties.Resources.down_disabled);
+		}
+
+		private void DataSourcesUpButton_EnabledChanged(object sender, EventArgs e) {
+			ChangeEnableDisable(DataSourcesUpButton, Properties.Resources.up, Properties.Resources.up_disabled);
+		}
+
+		private void DataSourcesDownButton_EnabledChanged(object sender, EventArgs e) {
+			ChangeEnableDisable(DataSourcesDownButton, Properties.Resources.down, Properties.Resources.down_disabled);
+		}
+		private void TableViewsUpButton_EnabledChanged(object sender, EventArgs e) {
+			ChangeEnableDisable(TableViewsUpButton, Properties.Resources.up, Properties.Resources.up_disabled);
+		}
+		private void TableViewsDownButton_EnabledChanged(object sender, EventArgs e) {
+			ChangeEnableDisable(TableViewsDownButton, Properties.Resources.down, Properties.Resources.down_disabled);
 		}
 	}
 }

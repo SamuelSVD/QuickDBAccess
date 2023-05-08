@@ -28,8 +28,8 @@
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.ConnectionsTabPage = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.button3 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+			this.ConnectionsDownButton = new System.Windows.Forms.Button();
+			this.ConnectionsUpButton = new System.Windows.Forms.Button();
 			this.DeleteConnectionButton = new System.Windows.Forms.Button();
 			this.EditConnectionButton = new System.Windows.Forms.Button();
 			this.AddConnectionButton = new System.Windows.Forms.Button();
@@ -40,8 +40,8 @@
 			this.ConnectionUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.DataSourcesTabPage = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-			this.button4 = new System.Windows.Forms.Button();
-			this.button5 = new System.Windows.Forms.Button();
+			this.DataSourcesDownButton = new System.Windows.Forms.Button();
+			this.DataSourcesUpButton = new System.Windows.Forms.Button();
 			this.DeleteDataSourceButton = new System.Windows.Forms.Button();
 			this.EditDataSourceButton = new System.Windows.Forms.Button();
 			this.NewDataSourceButton = new System.Windows.Forms.Button();
@@ -51,8 +51,8 @@
 			this.DataSourcesSQLCommand = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.TableViewTabPage = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-			this.button9 = new System.Windows.Forms.Button();
-			this.button10 = new System.Windows.Forms.Button();
+			this.TableViewsDownButton = new System.Windows.Forms.Button();
+			this.TableViewsUpButton = new System.Windows.Forms.Button();
 			this.DeleteTableViewButton = new System.Windows.Forms.Button();
 			this.EditTableViewButton = new System.Windows.Forms.Button();
 			this.NewTableViewButton = new System.Windows.Forms.Button();
@@ -63,10 +63,10 @@
 			this.ProjectPropertiesTabPage = new System.Windows.Forms.TabPage();
 			this.SettingsGroupBox = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-			this.ProjectNameTextBox = new QuickDBAccess.ValidateTextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.CancelButton = new System.Windows.Forms.Button();
+			this.ProjectNameTextBox = new QuickDBAccess.ValidateTextBox();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.ConnectionsTabPage.SuspendLayout();
@@ -131,8 +131,8 @@
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.Controls.Add(this.button3, 0, 1);
-			this.tableLayoutPanel2.Controls.Add(this.button2, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.ConnectionsDownButton, 0, 1);
+			this.tableLayoutPanel2.Controls.Add(this.ConnectionsUpButton, 0, 0);
 			this.tableLayoutPanel2.Controls.Add(this.DeleteConnectionButton, 4, 0);
 			this.tableLayoutPanel2.Controls.Add(this.EditConnectionButton, 3, 0);
 			this.tableLayoutPanel2.Controls.Add(this.AddConnectionButton, 2, 0);
@@ -146,25 +146,31 @@
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(478, 332);
 			this.tableLayoutPanel2.TabIndex = 0;
 			// 
-			// button3
+			// ConnectionsDownButton
 			// 
-			this.button3.BackgroundImage = global::QuickDBAccess.Properties.Resources.down;
-			this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button3.Location = new System.Drawing.Point(3, 32);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(23, 23);
-			this.button3.TabIndex = 2;
-			this.button3.UseVisualStyleBackColor = true;
+			this.ConnectionsDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down_disabled;
+			this.ConnectionsDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ConnectionsDownButton.Enabled = false;
+			this.ConnectionsDownButton.Location = new System.Drawing.Point(3, 32);
+			this.ConnectionsDownButton.Name = "ConnectionsDownButton";
+			this.ConnectionsDownButton.Size = new System.Drawing.Size(23, 23);
+			this.ConnectionsDownButton.TabIndex = 2;
+			this.ConnectionsDownButton.UseVisualStyleBackColor = true;
+			this.ConnectionsDownButton.EnabledChanged += new System.EventHandler(this.ConnectionsDownButton_EnabledChanged);
+			this.ConnectionsDownButton.Click += new System.EventHandler(this.ConnectionsDownButton_Click);
 			// 
-			// button2
+			// ConnectionsUpButton
 			// 
-			this.button2.BackgroundImage = global::QuickDBAccess.Properties.Resources.up;
-			this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button2.Location = new System.Drawing.Point(3, 3);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(23, 23);
-			this.button2.TabIndex = 1;
-			this.button2.UseVisualStyleBackColor = true;
+			this.ConnectionsUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up_disabled;
+			this.ConnectionsUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ConnectionsUpButton.Enabled = false;
+			this.ConnectionsUpButton.Location = new System.Drawing.Point(3, 3);
+			this.ConnectionsUpButton.Name = "ConnectionsUpButton";
+			this.ConnectionsUpButton.Size = new System.Drawing.Size(23, 23);
+			this.ConnectionsUpButton.TabIndex = 1;
+			this.ConnectionsUpButton.UseVisualStyleBackColor = true;
+			this.ConnectionsUpButton.EnabledChanged += new System.EventHandler(this.ConnectionsUpButton_EnabledChanged);
+			this.ConnectionsUpButton.Click += new System.EventHandler(this.ConnectionsUpButton_Click);
 			// 
 			// DeleteConnectionButton
 			// 
@@ -257,8 +263,8 @@
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel3.Controls.Add(this.button4, 0, 1);
-			this.tableLayoutPanel3.Controls.Add(this.button5, 0, 0);
+			this.tableLayoutPanel3.Controls.Add(this.DataSourcesDownButton, 0, 1);
+			this.tableLayoutPanel3.Controls.Add(this.DataSourcesUpButton, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.DeleteDataSourceButton, 4, 0);
 			this.tableLayoutPanel3.Controls.Add(this.EditDataSourceButton, 3, 0);
 			this.tableLayoutPanel3.Controls.Add(this.NewDataSourceButton, 2, 0);
@@ -272,25 +278,31 @@
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(478, 332);
 			this.tableLayoutPanel3.TabIndex = 1;
 			// 
-			// button4
+			// DataSourcesDownButton
 			// 
-			this.button4.BackgroundImage = global::QuickDBAccess.Properties.Resources.down;
-			this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button4.Location = new System.Drawing.Point(3, 32);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(23, 23);
-			this.button4.TabIndex = 2;
-			this.button4.UseVisualStyleBackColor = true;
+			this.DataSourcesDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down_disabled;
+			this.DataSourcesDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.DataSourcesDownButton.Enabled = false;
+			this.DataSourcesDownButton.Location = new System.Drawing.Point(3, 32);
+			this.DataSourcesDownButton.Name = "DataSourcesDownButton";
+			this.DataSourcesDownButton.Size = new System.Drawing.Size(23, 23);
+			this.DataSourcesDownButton.TabIndex = 2;
+			this.DataSourcesDownButton.UseVisualStyleBackColor = true;
+			this.DataSourcesDownButton.EnabledChanged += new System.EventHandler(this.DataSourcesDownButton_EnabledChanged);
+			this.DataSourcesDownButton.Click += new System.EventHandler(this.DataSourcesDownButton_Click);
 			// 
-			// button5
+			// DataSourcesUpButton
 			// 
-			this.button5.BackgroundImage = global::QuickDBAccess.Properties.Resources.up;
-			this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button5.Location = new System.Drawing.Point(3, 3);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(23, 23);
-			this.button5.TabIndex = 1;
-			this.button5.UseVisualStyleBackColor = true;
+			this.DataSourcesUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up_disabled;
+			this.DataSourcesUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.DataSourcesUpButton.Enabled = false;
+			this.DataSourcesUpButton.Location = new System.Drawing.Point(3, 3);
+			this.DataSourcesUpButton.Name = "DataSourcesUpButton";
+			this.DataSourcesUpButton.Size = new System.Drawing.Size(23, 23);
+			this.DataSourcesUpButton.TabIndex = 1;
+			this.DataSourcesUpButton.UseVisualStyleBackColor = true;
+			this.DataSourcesUpButton.EnabledChanged += new System.EventHandler(this.DataSourcesUpButton_EnabledChanged);
+			this.DataSourcesUpButton.Click += new System.EventHandler(this.DataSourcesUpButton_Click);
 			// 
 			// DeleteDataSourceButton
 			// 
@@ -380,8 +392,8 @@
 			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel4.Controls.Add(this.button9, 0, 1);
-			this.tableLayoutPanel4.Controls.Add(this.button10, 0, 0);
+			this.tableLayoutPanel4.Controls.Add(this.TableViewsDownButton, 0, 1);
+			this.tableLayoutPanel4.Controls.Add(this.TableViewsUpButton, 0, 0);
 			this.tableLayoutPanel4.Controls.Add(this.DeleteTableViewButton, 4, 0);
 			this.tableLayoutPanel4.Controls.Add(this.EditTableViewButton, 3, 0);
 			this.tableLayoutPanel4.Controls.Add(this.NewTableViewButton, 2, 0);
@@ -395,25 +407,31 @@
 			this.tableLayoutPanel4.Size = new System.Drawing.Size(478, 332);
 			this.tableLayoutPanel4.TabIndex = 1;
 			// 
-			// button9
+			// TableViewsDownButton
 			// 
-			this.button9.BackgroundImage = global::QuickDBAccess.Properties.Resources.down;
-			this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button9.Location = new System.Drawing.Point(3, 32);
-			this.button9.Name = "button9";
-			this.button9.Size = new System.Drawing.Size(23, 23);
-			this.button9.TabIndex = 2;
-			this.button9.UseVisualStyleBackColor = true;
+			this.TableViewsDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down_disabled;
+			this.TableViewsDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.TableViewsDownButton.Enabled = false;
+			this.TableViewsDownButton.Location = new System.Drawing.Point(3, 32);
+			this.TableViewsDownButton.Name = "TableViewsDownButton";
+			this.TableViewsDownButton.Size = new System.Drawing.Size(23, 23);
+			this.TableViewsDownButton.TabIndex = 2;
+			this.TableViewsDownButton.UseVisualStyleBackColor = true;
+			this.TableViewsDownButton.EnabledChanged += new System.EventHandler(this.TableViewsDownButton_EnabledChanged);
+			this.TableViewsDownButton.Click += new System.EventHandler(this.TableViewsDownButton_Click);
 			// 
-			// button10
+			// TableViewsUpButton
 			// 
-			this.button10.BackgroundImage = global::QuickDBAccess.Properties.Resources.up;
-			this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button10.Location = new System.Drawing.Point(3, 3);
-			this.button10.Name = "button10";
-			this.button10.Size = new System.Drawing.Size(23, 23);
-			this.button10.TabIndex = 1;
-			this.button10.UseVisualStyleBackColor = true;
+			this.TableViewsUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up_disabled;
+			this.TableViewsUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.TableViewsUpButton.Enabled = false;
+			this.TableViewsUpButton.Location = new System.Drawing.Point(3, 3);
+			this.TableViewsUpButton.Name = "TableViewsUpButton";
+			this.TableViewsUpButton.Size = new System.Drawing.Size(23, 23);
+			this.TableViewsUpButton.TabIndex = 1;
+			this.TableViewsUpButton.UseVisualStyleBackColor = true;
+			this.TableViewsUpButton.EnabledChanged += new System.EventHandler(this.TableViewsUpButton_EnabledChanged);
+			this.TableViewsUpButton.Click += new System.EventHandler(this.TableViewsUpButton_Click);
 			// 
 			// DeleteTableViewButton
 			// 
@@ -525,16 +543,6 @@
 			this.tableLayoutPanel5.Size = new System.Drawing.Size(472, 28);
 			this.tableLayoutPanel5.TabIndex = 0;
 			// 
-			// ProjectNameTextBox
-			// 
-			this.ProjectNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-			this.ProjectNameTextBox.Location = new System.Drawing.Point(80, 3);
-			this.ProjectNameTextBox.Name = "ProjectNameTextBox";
-			this.ProjectNameTextBox.Size = new System.Drawing.Size(389, 22);
-			this.ProjectNameTextBox.TabIndex = 1;
-			this.ProjectNameTextBox.TooltipText = null;
-			this.ProjectNameTextBox.Valid = true;
-			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
@@ -566,6 +574,16 @@
 			this.CancelButton.TabIndex = 9;
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
+			// 
+			// ProjectNameTextBox
+			// 
+			this.ProjectNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+			this.ProjectNameTextBox.Location = new System.Drawing.Point(80, 3);
+			this.ProjectNameTextBox.Name = "ProjectNameTextBox";
+			this.ProjectNameTextBox.Size = new System.Drawing.Size(389, 22);
+			this.ProjectNameTextBox.TabIndex = 1;
+			this.ProjectNameTextBox.TooltipText = null;
+			this.ProjectNameTextBox.Valid = true;
 			// 
 			// QuickAccessEditForm
 			// 
@@ -605,22 +623,22 @@
 		private System.Windows.Forms.TabPage TableViewTabPage;
 		private System.Windows.Forms.Button OkButton;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Button button3;
+		private System.Windows.Forms.Button ConnectionsUpButton;
+		private System.Windows.Forms.Button ConnectionsDownButton;
 		private System.Windows.Forms.Button AddConnectionButton;
 		private System.Windows.Forms.Button EditConnectionButton;
 		private System.Windows.Forms.Button DeleteConnectionButton;
 		private System.Windows.Forms.ListView ConnectionsListView;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-		private System.Windows.Forms.Button button4;
-		private System.Windows.Forms.Button button5;
+		private System.Windows.Forms.Button DataSourcesDownButton;
+		private System.Windows.Forms.Button DataSourcesUpButton;
 		private System.Windows.Forms.Button DeleteDataSourceButton;
 		private System.Windows.Forms.Button EditDataSourceButton;
 		private System.Windows.Forms.Button NewDataSourceButton;
 		private System.Windows.Forms.ListView DataSourcesListView;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-		private System.Windows.Forms.Button button9;
-		private System.Windows.Forms.Button button10;
+		private System.Windows.Forms.Button TableViewsDownButton;
+		private System.Windows.Forms.Button TableViewsUpButton;
 		private System.Windows.Forms.Button DeleteTableViewButton;
 		private System.Windows.Forms.Button EditTableViewButton;
 		private System.Windows.Forms.Button NewTableViewButton;

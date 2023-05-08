@@ -114,39 +114,43 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void ParameterUpButton_Click(object sender, System.EventArgs e) {
-			try {
-				throw new NotImplementedException();
-			}
-			catch (Exception ex) {
-				MessageBox.Show(ex.Message);
-			}
+			QueryParameterModel p = SelectedParameter;
+			int oldIndex = Model.Query.Parameters.IndexOf(p);
+			ListViewItem item = ParameterListView.Items[oldIndex];
+			Model.Query.Parameters.RemoveAt(oldIndex);
+			Model.Query.Parameters.Insert(oldIndex - 1, p);
+			ParameterListView.Items.RemoveAt(oldIndex);
+			ParameterListView.Items.Insert(oldIndex - 1, item);
 		}
 
 		private void ParameterDownButton_Click(object sender, EventArgs e) {
-			try {
-				throw new NotImplementedException();
-			}
-			catch (Exception ex) {
-				MessageBox.Show(ex.Message);
-			}
+			QueryParameterModel p = SelectedParameter;
+			int oldIndex = Model.Query.Parameters.IndexOf(p);
+			ListViewItem item = ParameterListView.Items[oldIndex];
+			Model.Query.Parameters.RemoveAt(oldIndex);
+			Model.Query.Parameters.Insert(oldIndex + 1, p);
+			ParameterListView.Items.RemoveAt(oldIndex);
+			ParameterListView.Items.Insert(oldIndex + 1, item);
 		}
 
 		private void ParentParameterUpButton_Click(object sender, EventArgs e) {
-			try {
-				throw new NotImplementedException();
-			}
-			catch (Exception ex) {
-				MessageBox.Show(ex.Message);
-			}
+			QueryParameterModel pp = SelectedParentParameter;
+			int oldIndex = Model.Query.ParentParameters.IndexOf(pp);
+			ListViewItem item = ParentParameterListView.Items[oldIndex];
+			Model.Query.ParentParameters.RemoveAt(oldIndex);
+			Model.Query.ParentParameters.Insert(oldIndex - 1, pp);
+			ParentParameterListView.Items.RemoveAt(oldIndex);
+			ParentParameterListView.Items.Insert(oldIndex - 1, item);
 		}
 
 		private void ParentParameterDownButton_Click(object sender, EventArgs e) {
-			try {
-				throw new NotImplementedException();
-			}
-			catch (Exception ex) {
-				MessageBox.Show(ex.Message);
-			}
+			QueryParameterModel pp = SelectedParentParameter;
+			int oldIndex = Model.Query.ParentParameters.IndexOf(pp);
+			ListViewItem item = ParentParameterListView.Items[oldIndex];
+			Model.Query.ParentParameters.RemoveAt(oldIndex);
+			Model.Query.ParentParameters.Insert(oldIndex + 1, pp);
+			ParentParameterListView.Items.RemoveAt(oldIndex);
+			ParentParameterListView.Items.Insert(oldIndex + 1, item);
 		}
 
 		private void AddParameterButton_Click(object sender, EventArgs e) {
@@ -215,12 +219,16 @@ namespace QuickDBAccess.Forms {
 			NewParameterButton.Enabled = true;
 			EditParameterButton.Enabled = SelectedParameter != null;
 			DeleteParameterButton.Enabled = SelectedParameter != null;
+			ParameterUpButton.Enabled = Model.Query.Parameters.Count > 1 && ParameterListView.SelectedIndices.Count > 0 && ParameterListView.SelectedIndices[0] > 0;
+			ParameterDownButton.Enabled = Model.Query.Parameters.Count > 1 && ParameterListView.SelectedIndices.Count > 0 && ParameterListView.SelectedIndices[0] < Model.Query.Parameters.Count - 1;
 		}
 
 		private void ParentParameterListView_SelectedIndexChanged(object sender, EventArgs e) {
 			NewParentParameterButton.Enabled = true;
 			EditParentParameterButton.Enabled = SelectedParentParameter != null;
 			DeleteParentParameterButton.Enabled = SelectedParentParameter != null;
+			ParentParameterUpButton.Enabled = Model.Query.ParentParameters.Count > 1 && ParentParameterListView.SelectedIndices.Count > 0 && ParentParameterListView.SelectedIndices[0] > 0;
+			ParentParameterDownButton.Enabled = Model.Query.ParentParameters.Count > 1 && ParentParameterListView.SelectedIndices.Count > 0 && ParentParameterListView.SelectedIndices[0] < Model.Query.ParentParameters.Count - 1;
 		}
 		private void ChangeEnableDisable(Button button, Bitmap enabledImage, Bitmap disabledImage) {
 			if (button.Enabled) {
@@ -240,6 +248,22 @@ namespace QuickDBAccess.Forms {
 		}
 		private void DeleteParentParameterButton_EnabledChanged(object sender, EventArgs e) {
 			ChangeEnableDisable(DeleteParentParameterButton, Properties.Resources.delete, Properties.Resources.delete_disabled);
+		}
+
+		private void ParameterUpButton_EnabledChanged(object sender, EventArgs e) {
+			ChangeEnableDisable(ParameterUpButton, Properties.Resources.up, Properties.Resources.up_disabled);
+		}
+
+		private void ParameterDownButton_EnabledChanged(object sender, EventArgs e) {
+			ChangeEnableDisable(ParameterDownButton, Properties.Resources.down, Properties.Resources.down_disabled);
+		}
+
+		private void ParentParameterUpButton_EnabledChanged(object sender, EventArgs e) {
+			ChangeEnableDisable(ParentParameterUpButton, Properties.Resources.up, Properties.Resources.up_disabled);
+		}
+
+		private void ParentParameterDownButton_EnabledChanged(object sender, EventArgs e) {
+			ChangeEnableDisable(ParentParameterDownButton, Properties.Resources.down, Properties.Resources.down_disabled);
 		}
 	}
 }

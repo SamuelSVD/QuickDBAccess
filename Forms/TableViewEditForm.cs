@@ -91,21 +91,23 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void ButtonsUpButton_Click(object sender, System.EventArgs e) {
-			try {
-				throw new NotImplementedException();
-			}
-			catch (Exception ex) {
-				MessageBox.Show(ex.Message);
-			}
+			ButtonModel p = SelectedButton;
+			int oldIndex = Model.Buttons.IndexOf(p);
+			ListViewItem item = ButtonListView.Items[oldIndex];
+			Model.Buttons.RemoveAt(oldIndex);
+			Model.Buttons.Insert(oldIndex - 1, p);
+			ButtonListView.Items.RemoveAt(oldIndex);
+			ButtonListView.Items.Insert(oldIndex - 1, item);
 		}
 
 		private void ButtonsDownButton_Click(object sender, EventArgs e) {
-			try {
-				throw new NotImplementedException();
-			}
-			catch (Exception ex) {
-				MessageBox.Show(ex.Message);
-			}
+			ButtonModel p = SelectedButton;
+			int oldIndex = Model.Buttons.IndexOf(p);
+			ListViewItem item = ButtonListView.Items[oldIndex];
+			Model.Buttons.RemoveAt(oldIndex);
+			Model.Buttons.Insert(oldIndex + 1, p);
+			ButtonListView.Items.RemoveAt(oldIndex);
+			ButtonListView.Items.Insert(oldIndex + 1, item);
 		}
 
 		private void NewButtonButton_Click(object sender, EventArgs e) {
@@ -139,21 +141,23 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void TableViewUpButton_Click(object sender, EventArgs e) {
-			try {
-				throw new NotImplementedException();
-			}
-			catch (Exception ex) {
-				MessageBox.Show(ex.Message);
-			}
+			TableViewModel tvm = SelectedTableView;
+			int oldIndex = Model.ChildTableViews.IndexOf(tvm);
+			ListViewItem item = TableViewListView.Items[oldIndex];
+			Model.ChildTableViews.RemoveAt(oldIndex);
+			Model.ChildTableViews.Insert(oldIndex - 1, tvm);
+			TableViewListView.Items.RemoveAt(oldIndex);
+			TableViewListView.Items.Insert(oldIndex - 1, item);
 		}
 
 		private void TableViewDownButton_Click(object sender, EventArgs e) {
-			try {
-				throw new NotImplementedException();
-			}
-			catch (Exception ex) {
-				MessageBox.Show(ex.Message);
-			}
+			TableViewModel tvm = SelectedTableView;
+			int oldIndex = Model.ChildTableViews.IndexOf(tvm);
+			ListViewItem item = TableViewListView.Items[oldIndex];
+			Model.ChildTableViews.RemoveAt(oldIndex);
+			Model.ChildTableViews.Insert(oldIndex + 1, tvm);
+			TableViewListView.Items.RemoveAt(oldIndex);
+			TableViewListView.Items.Insert(oldIndex + 1, item);
 		}
 
 		private void NewTableViewButton_Click(object sender, EventArgs e) {
@@ -193,12 +197,16 @@ namespace QuickDBAccess.Forms {
 			NewButtonButton.Enabled = true;
 			EditButtonButton.Enabled = SelectedButton != null;
 			DeleteButtonButton.Enabled = SelectedButton != null;
+			ButtonsUpButton.Enabled = Model.Buttons.Count > 1 && ButtonListView.SelectedIndices.Count > 0 && ButtonListView.SelectedIndices[0] > 0;
+			ButtonsDownButton.Enabled = Model.Buttons.Count > 1 && ButtonListView.SelectedIndices.Count > 0 && ButtonListView.SelectedIndices[0] < Model.Buttons.Count - 1;
 		}
 
 		private void TableViewListView_SelectedIndexChanged(object sender, EventArgs e) {
 			NewButtonButton.Enabled = true;
 			EditButtonButton.Enabled = SelectedTableView != null;
 			DeleteButtonButton.Enabled = SelectedTableView != null;
+			TableViewUpButton.Enabled = Model.ChildTableViews.Count > 1 && TableViewListView.SelectedIndices.Count > 0 && TableViewListView.SelectedIndices[0] > 0;
+			TableViewDownButton.Enabled = Model.ChildTableViews.Count > 1 && TableViewListView.SelectedIndices.Count > 0 && TableViewListView.SelectedIndices[0] < Model.ChildTableViews.Count - 1;
 		}
 		private void ChangeEnableDisable(Button button, Bitmap enabledImage, Bitmap disabledImage) {
 			if (button.Enabled) {
@@ -218,6 +226,22 @@ namespace QuickDBAccess.Forms {
 		}
 		private void DeleteTableViewButton_EnabledChanged(object sender, EventArgs e) {
 			ChangeEnableDisable(DeleteTableViewButton, Properties.Resources.delete, Properties.Resources.delete_disabled);
+		}
+
+		private void ButtonsUpButton_EnabledChanged(object sender, EventArgs e) {
+			ChangeEnableDisable(ButtonsUpButton, Properties.Resources.up, Properties.Resources.up_disabled);
+		}
+
+		private void ButtonsDownButton_EnabledChanged(object sender, EventArgs e) {
+			ChangeEnableDisable(ButtonsDownButton, Properties.Resources.down, Properties.Resources.down_disabled);
+		}
+
+		private void TableViewUpButton_EnabledChanged(object sender, EventArgs e) {
+			ChangeEnableDisable(TableViewUpButton, Properties.Resources.up, Properties.Resources.up_disabled);
+		}
+
+		private void TableViewDownButton_EnabledChanged(object sender, EventArgs e) {
+			ChangeEnableDisable(TableViewDownButton, Properties.Resources.down, Properties.Resources.down_disabled);
 		}
 	}
 }

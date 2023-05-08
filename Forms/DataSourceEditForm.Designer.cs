@@ -320,46 +320,54 @@
 			// 
 			// ParentParameterUpButton
 			// 
-			this.ParentParameterUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up;
+			this.ParentParameterUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up_disabled;
 			this.ParentParameterUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ParentParameterUpButton.Enabled = false;
 			this.ParentParameterUpButton.Location = new System.Drawing.Point(3, 231);
 			this.ParentParameterUpButton.Name = "ParentParameterUpButton";
 			this.ParentParameterUpButton.Size = new System.Drawing.Size(23, 23);
 			this.ParentParameterUpButton.TabIndex = 9;
 			this.ParentParameterUpButton.UseVisualStyleBackColor = true;
+			this.ParentParameterUpButton.EnabledChanged += new System.EventHandler(this.ParentParameterUpButton_EnabledChanged);
 			this.ParentParameterUpButton.Click += new System.EventHandler(this.ParentParameterUpButton_Click);
 			// 
 			// ParameterUpButton
 			// 
-			this.ParameterUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up;
+			this.ParameterUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up_disabled;
 			this.ParameterUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ParameterUpButton.Enabled = false;
 			this.ParameterUpButton.Location = new System.Drawing.Point(3, 136);
 			this.ParameterUpButton.Name = "ParameterUpButton";
 			this.ParameterUpButton.Size = new System.Drawing.Size(23, 23);
 			this.ParameterUpButton.TabIndex = 3;
 			this.ParameterUpButton.UseVisualStyleBackColor = true;
+			this.ParameterUpButton.EnabledChanged += new System.EventHandler(this.ParameterUpButton_EnabledChanged);
 			this.ParameterUpButton.Click += new System.EventHandler(this.ParameterUpButton_Click);
 			// 
 			// ParameterDownButton
 			// 
-			this.ParameterDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down;
+			this.ParameterDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down_disabled;
 			this.ParameterDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ParameterDownButton.Enabled = false;
 			this.ParameterDownButton.Location = new System.Drawing.Point(3, 165);
 			this.ParameterDownButton.Name = "ParameterDownButton";
 			this.ParameterDownButton.Size = new System.Drawing.Size(23, 23);
 			this.ParameterDownButton.TabIndex = 4;
 			this.ParameterDownButton.UseVisualStyleBackColor = true;
+			this.ParameterDownButton.EnabledChanged += new System.EventHandler(this.ParameterDownButton_EnabledChanged);
 			this.ParameterDownButton.Click += new System.EventHandler(this.ParameterDownButton_Click);
 			// 
 			// ParentParameterDownButton
 			// 
-			this.ParentParameterDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down;
+			this.ParentParameterDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down_disabled;
 			this.ParentParameterDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ParentParameterDownButton.Enabled = false;
 			this.ParentParameterDownButton.Location = new System.Drawing.Point(3, 260);
 			this.ParentParameterDownButton.Name = "ParentParameterDownButton";
 			this.ParentParameterDownButton.Size = new System.Drawing.Size(23, 23);
 			this.ParentParameterDownButton.TabIndex = 10;
 			this.ParentParameterDownButton.UseVisualStyleBackColor = true;
+			this.ParentParameterDownButton.EnabledChanged += new System.EventHandler(this.ParentParameterDownButton_EnabledChanged);
 			this.ParentParameterDownButton.Click += new System.EventHandler(this.ParentParameterDownButton_Click);
 			// 
 			// TableViewDetailGroup

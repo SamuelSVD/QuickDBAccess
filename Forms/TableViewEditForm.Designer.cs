@@ -23,9 +23,9 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableViewEditForm));
 			this.DataSourceLabel = new System.Windows.Forms.Label();
 			this.DataSourceComboBox = new System.Windows.Forms.ComboBox();
@@ -174,16 +174,16 @@
             this.DataSourceColumn,
             this.SubTablesColumn});
 			this.TableViewListView.Dock = System.Windows.Forms.DockStyle.Fill;
-			listViewGroup1.Header = "ListViewGroup";
-			listViewGroup1.Name = "listViewGroup1";
-			listViewGroup2.Header = "ListViewGroup";
-			listViewGroup2.Name = "listViewGroup2";
-			listViewGroup3.Header = "ListViewGroup";
-			listViewGroup3.Name = "listViewGroup3";
+			listViewGroup10.Header = "ListViewGroup";
+			listViewGroup10.Name = "listViewGroup1";
+			listViewGroup11.Header = "ListViewGroup";
+			listViewGroup11.Name = "listViewGroup2";
+			listViewGroup12.Header = "ListViewGroup";
+			listViewGroup12.Name = "listViewGroup3";
 			this.TableViewListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3});
+            listViewGroup10,
+            listViewGroup11,
+            listViewGroup12});
 			this.TableViewListView.HideSelection = false;
 			this.TableViewListView.Location = new System.Drawing.Point(32, 122);
 			this.TableViewListView.Name = "TableViewListView";
@@ -286,47 +286,55 @@
 			// 
 			// ButtonsUpButton
 			// 
-			this.ButtonsUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up;
+			this.ButtonsUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up_disabled;
 			this.ButtonsUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.ButtonsUpButton.Enabled = false;
 			this.ButtonsUpButton.Location = new System.Drawing.Point(3, 16);
 			this.ButtonsUpButton.Name = "ButtonsUpButton";
 			this.ButtonsUpButton.Size = new System.Drawing.Size(23, 23);
 			this.ButtonsUpButton.TabIndex = 0;
 			this.ButtonsUpButton.UseVisualStyleBackColor = true;
+			this.ButtonsUpButton.EnabledChanged += new System.EventHandler(this.ButtonsUpButton_EnabledChanged);
 			this.ButtonsUpButton.Click += new System.EventHandler(this.ButtonsUpButton_Click);
 			// 
 			// ButtonsDownButton
 			// 
-			this.ButtonsDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down;
+			this.ButtonsDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down_disabled;
 			this.ButtonsDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.ButtonsDownButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.ButtonsDownButton.Enabled = false;
 			this.ButtonsDownButton.Location = new System.Drawing.Point(3, 45);
 			this.ButtonsDownButton.Name = "ButtonsDownButton";
 			this.ButtonsDownButton.Size = new System.Drawing.Size(23, 23);
 			this.ButtonsDownButton.TabIndex = 1;
 			this.ButtonsDownButton.UseVisualStyleBackColor = true;
+			this.ButtonsDownButton.EnabledChanged += new System.EventHandler(this.ButtonsDownButton_EnabledChanged);
 			this.ButtonsDownButton.Click += new System.EventHandler(this.ButtonsDownButton_Click);
 			// 
 			// TableViewUpButton
 			// 
-			this.TableViewUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up;
+			this.TableViewUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up_disabled;
 			this.TableViewUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.TableViewUpButton.Enabled = false;
 			this.TableViewUpButton.Location = new System.Drawing.Point(3, 122);
 			this.TableViewUpButton.Name = "TableViewUpButton";
 			this.TableViewUpButton.Size = new System.Drawing.Size(23, 23);
 			this.TableViewUpButton.TabIndex = 6;
 			this.TableViewUpButton.UseVisualStyleBackColor = true;
+			this.TableViewUpButton.EnabledChanged += new System.EventHandler(this.TableViewUpButton_EnabledChanged);
 			this.TableViewUpButton.Click += new System.EventHandler(this.TableViewUpButton_Click);
 			// 
 			// TableViewDownButton
 			// 
-			this.TableViewDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down;
+			this.TableViewDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down_disabled;
 			this.TableViewDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.TableViewDownButton.Enabled = false;
 			this.TableViewDownButton.Location = new System.Drawing.Point(3, 151);
 			this.TableViewDownButton.Name = "TableViewDownButton";
 			this.TableViewDownButton.Size = new System.Drawing.Size(23, 23);
 			this.TableViewDownButton.TabIndex = 7;
 			this.TableViewDownButton.UseVisualStyleBackColor = true;
+			this.TableViewDownButton.EnabledChanged += new System.EventHandler(this.TableViewDownButton_EnabledChanged);
 			this.TableViewDownButton.Click += new System.EventHandler(this.TableViewDownButton_Click);
 			// 
 			// ParametersGroupBox

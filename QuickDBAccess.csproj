@@ -241,8 +241,10 @@
     <Content Include="database.ico" />
     <Content Include="Resources\add.png" />
     <Content Include="Resources\delete.png" />
+    <None Include="Resources\up_disabled.png" />
     <None Include="Resources\delete_disabled.png" />
     <Content Include="Resources\down.png" />
+    <None Include="Resources\down_disabled.png" />
     <Content Include="Resources\edit.png" />
     <None Include="Resources\error.png" />
     <None Include="Resources\edit_disabled.png" />
