@@ -67,6 +67,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.CancelButton = new System.Windows.Forms.Button();
+			this.ConnectionIntegratedSecurity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.ConnectionsTabPage.SuspendLayout();
@@ -215,7 +216,8 @@
             this.ConnectionName,
             this.ConnectionServer,
             this.ConnectionDatabase,
-            this.ConnectionUser});
+            this.ConnectionUser,
+            this.ConnectionIntegratedSecurity});
 			this.ConnectionsListView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ConnectionsListView.HideSelection = false;
 			this.ConnectionsListView.Location = new System.Drawing.Point(32, 3);
@@ -591,6 +593,10 @@
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
 			// 
+			// ConnectionIntegratedSecurity
+			// 
+			this.ConnectionIntegratedSecurity.Text = "Integrated Security";
+			// 
 			// QuickAccessEditForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -665,5 +671,6 @@
 		private ValidateTextBox ProjectNameTextBox;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button CancelButton;
+		private System.Windows.Forms.ColumnHeader ConnectionIntegratedSecurity;
 	}
 }

@@ -29,6 +29,7 @@ namespace QuickDBAccess.Forms {
 				item.SubItems[1].Text = value.server;
 				item.SubItems[2].Text = value.database;
 				item.SubItems[3].Text = value.user;
+				item.SubItems[4].Text = value.useIntegratedSecurity ? "Yes" : "No";
 				Changed = true;
 			}
 		}
@@ -96,6 +97,7 @@ namespace QuickDBAccess.Forms {
 			item.SubItems.Add(connection.server);
 			item.SubItems.Add(connection.database);
 			item.SubItems.Add(connection.user);
+			item.SubItems.Add(connection.useIntegratedSecurity ? "Yes" : "No");
 			ConnectionsListView.Items.Add(item);
 		}
 		private void RefreshDataSourcesList() {
