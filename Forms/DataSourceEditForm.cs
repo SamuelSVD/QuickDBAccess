@@ -44,6 +44,8 @@ namespace QuickDBAccess.Forms {
 			this.ReferenceModel = referenceModel;
 			this.QdbaModel = qdbaModel;
 			InitializeComponent();
+			ParameterListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+			ParentParameterListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 			foreach (SQLConnectionModel connection in QdbaModel.Connections) {
 				ConnectionComboBox.Items.Add(connection.Name);
 			}

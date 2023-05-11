@@ -68,6 +68,9 @@ namespace QuickDBAccess.Forms {
 			InitializeComponent();
 			ProjectNameTextBox.TextChanged += ProjectNameTextBox_TextChanged;
 			InitializeViewModel();
+			ConnectionsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+			DataSourcesListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+			TableViewsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 			ConnectionsListView.MultiSelect = false;
 			ProjectNameTextBox_TextChanged(null, null);
 		}

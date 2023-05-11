@@ -42,6 +42,8 @@ namespace QuickDBAccess.Forms {
 			this.Model = model;
 			this.QdbaModel = qdbaModel;
 			InitializeComponent();
+			ButtonListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+			TableViewListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 			foreach (DataSourceModel dsModel in qdbaModel.DataSources) {
 				DataSourceComboBox.Items.Add(dsModel.Name);
 			}
