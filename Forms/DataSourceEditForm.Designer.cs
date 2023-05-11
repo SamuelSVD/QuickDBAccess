@@ -81,6 +81,7 @@
 			this.ParameterListView.View = System.Windows.Forms.View.Details;
 			this.ParameterListView.SelectedIndexChanged += new System.EventHandler(this.ParameterListView_SelectedIndexChanged);
 			this.ParameterListView.DoubleClick += new System.EventHandler(this.ParameterListView_DoubleClick);
+			this.ParameterListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ParameterListView_KeyDown);
 			// 
 			// PNameColumn
 			// 
@@ -123,6 +124,7 @@
 			this.ParentParameterListView.View = System.Windows.Forms.View.Details;
 			this.ParentParameterListView.SelectedIndexChanged += new System.EventHandler(this.ParentParameterListView_SelectedIndexChanged);
 			this.ParentParameterListView.DoubleClick += new System.EventHandler(this.ParentParameterListView_DoubleClick);
+			this.ParentParameterListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ParentParameterListView_KeyDown);
 			// 
 			// PPNameColumn
 			// 

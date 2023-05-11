@@ -135,6 +135,7 @@
 			this.ButtonListView.View = System.Windows.Forms.View.Details;
 			this.ButtonListView.SelectedIndexChanged += new System.EventHandler(this.ButtonListView_SelectedIndexChanged);
 			this.ButtonListView.DoubleClick += new System.EventHandler(this.ButtonListView_DoubleClick);
+			this.ButtonListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ButtonListView_KeyDown);
 			// 
 			// TextColumn
 			// 
@@ -195,6 +196,7 @@
 			this.TableViewListView.View = System.Windows.Forms.View.Details;
 			this.TableViewListView.SelectedIndexChanged += new System.EventHandler(this.TableViewListView_SelectedIndexChanged);
 			this.TableViewListView.DoubleClick += new System.EventHandler(this.TableViewListView_DoubleClick);
+			this.TableViewListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TableViewListView_KeyDown);
 			// 
 			// TableViewNameColumn
 			// 

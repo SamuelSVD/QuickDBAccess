@@ -227,6 +227,7 @@
 			this.ConnectionsListView.View = System.Windows.Forms.View.Details;
 			this.ConnectionsListView.SelectedIndexChanged += new System.EventHandler(this.ConnectionsListView_SelectedIndexChanged);
 			this.ConnectionsListView.DoubleClick += new System.EventHandler(this.ConnectionsListView_DoubleClick);
+			this.ConnectionsListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ConnectionsListView_KeyDown);
 			// 
 			// ConnectionName
 			// 
@@ -359,6 +360,7 @@
 			this.DataSourcesListView.View = System.Windows.Forms.View.Details;
 			this.DataSourcesListView.SelectedIndexChanged += new System.EventHandler(this.DataSourcesListView_SelectedIndexChanged);
 			this.DataSourcesListView.DoubleClick += new System.EventHandler(this.DataSourcesListView_DoubleClick);
+			this.DataSourcesListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DataSourcesListView_KeyDown);
 			// 
 			// DataSourcesName
 			// 
@@ -489,6 +491,7 @@
 			this.TableViewsListView.View = System.Windows.Forms.View.Details;
 			this.TableViewsListView.SelectedIndexChanged += new System.EventHandler(this.TableViewsListView_SelectedIndexChanged);
 			this.TableViewsListView.DoubleClick += new System.EventHandler(this.TableViewsListView_DoubleClick);
+			this.TableViewsListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TableViewsListView_KeyDown);
 			// 
 			// TableViewsName
 			// 

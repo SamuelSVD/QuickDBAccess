@@ -277,5 +277,39 @@ namespace QuickDBAccess.Forms {
 				EditParentParameterButton_Click(sender, e);
 			}
 		}
+
+		private void ParameterListView_KeyDown(object sender, KeyEventArgs e) {
+			if (e.Control) {
+				switch (e.KeyCode) {
+					case Keys.Up:
+						if (ParameterUpButton.Enabled) {
+							ParameterUpButton_Click(sender, e);
+						}
+						break;
+					case Keys.Down:
+						if (ParameterDownButton.Enabled) {
+							ParameterDownButton_Click(sender, e);
+						}
+						break;
+				}
+			}
+		}
+
+		private void ParentParameterListView_KeyDown(object sender, KeyEventArgs e) {
+			if (e.Control) {
+				switch (e.KeyCode) {
+					case Keys.Up:
+						if (ParentParameterUpButton.Enabled) {
+							ParentParameterUpButton_Click(sender, e);
+						}
+						break;
+					case Keys.Down:
+						if (ParentParameterDownButton.Enabled) {
+							ParentParameterDownButton_Click(sender, e);
+						}
+						break;
+				}
+			}
+		}
 	}
 }

@@ -385,5 +385,55 @@ namespace QuickDBAccess.Forms {
 				EditTableViewButton_Click(sender, e);
 			}
 		}
+		private void ConnectionsListView_KeyDown(object sender, KeyEventArgs e) {
+			if (e.Control) {
+				switch (e.KeyCode) {
+					case Keys.Up:
+						if (ConnectionsUpButton.Enabled) {
+							ConnectionsUpButton_Click(sender, e);
+						}
+						break;
+					case Keys.Down:
+						if (ConnectionsDownButton.Enabled) {
+							ConnectionsDownButton_Click(sender, e);
+						}
+						break;
+				}
+			}
+		}
+
+		private void DataSourcesListView_KeyDown(object sender, KeyEventArgs e) {
+			if (e.Control) {
+				switch (e.KeyCode) {
+					case Keys.Up:
+						if (DataSourcesUpButton.Enabled) {
+							DataSourcesUpButton_Click(sender, e);
+						}
+						break;
+					case Keys.Down:
+						if (DataSourcesDownButton.Enabled) {
+							DataSourcesDownButton_Click(sender, e);
+						}
+						break;
+				}
+			}
+		}
+
+		private void TableViewsListView_KeyDown(object sender, KeyEventArgs e) {
+			if (e.Control) {
+				switch (e.KeyCode) {
+					case Keys.Up:
+						if (TableViewsUpButton.Enabled) {
+							TableViewsUpButton_Click(sender, e);
+						}
+						break;
+					case Keys.Down:
+						if (TableViewsDownButton.Enabled) {
+							TableViewsDownButton_Click(sender, e);
+						}
+						break;
+				}
+			}
+		}
 	}
 }
