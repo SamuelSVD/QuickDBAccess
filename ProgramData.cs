@@ -48,6 +48,7 @@ namespace QuickDBAccess {
 			d.InitialDirectory = AssemblyDirectory;
 			if (d.ShowDialog() == DialogResult.OK) {
 				Instance.SaveToFile(d.FileName);
+				CONFIG = d.FileName;
 				ValidConfigLocation = true;
 				Changed = false;
 				return true;
