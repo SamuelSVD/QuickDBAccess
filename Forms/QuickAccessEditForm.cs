@@ -370,5 +370,20 @@ namespace QuickDBAccess.Forms {
 		private void TableViewsDownButton_EnabledChanged(object sender, EventArgs e) {
 			ChangeEnableDisable(TableViewsDownButton, Properties.Resources.down, Properties.Resources.down_disabled);
 		}
+		private void ConnectionsListView_DoubleClick(object sender, EventArgs e) {
+			if (SelectedConnection != null) {
+				EditConnectionButton_Click(sender, e);
+			}
+		}
+		private void DataSourcesListView_DoubleClick(object sender, EventArgs e) {
+			if (SelectedDataSource != null) {
+				EditDataSourceButton_Click(sender, e);
+			}
+		}
+		private void TableViewsListView_DoubleClick(object sender, EventArgs e) {
+			if (SelectedTableView != null) {
+				EditTableViewButton_Click(sender, e);
+			}
+		}
 	}
 }

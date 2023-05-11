@@ -265,5 +265,17 @@ namespace QuickDBAccess.Forms {
 		private void ParentParameterDownButton_EnabledChanged(object sender, EventArgs e) {
 			ChangeEnableDisable(ParentParameterDownButton, Properties.Resources.down, Properties.Resources.down_disabled);
 		}
+
+		private void ParameterListView_DoubleClick(object sender, EventArgs e) {
+			if (SelectedParameter != null) {
+				EditParameterButton_Click(sender, e);
+			}
+		}
+
+		private void ParentParameterListView_DoubleClick(object sender, EventArgs e) {
+			if (SelectedParentParameter != null) {
+				EditParentParameterButton_Click(sender, e);
+			}
+		}
 	}
 }

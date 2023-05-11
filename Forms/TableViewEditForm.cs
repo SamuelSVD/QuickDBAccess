@@ -244,5 +244,17 @@ namespace QuickDBAccess.Forms {
 		private void TableViewDownButton_EnabledChanged(object sender, EventArgs e) {
 			ChangeEnableDisable(TableViewDownButton, Properties.Resources.down, Properties.Resources.down_disabled);
 		}
+
+		private void ButtonListView_DoubleClick(object sender, EventArgs e) {
+			if (SelectedButton != null) {
+				EditButtonButton_Click(sender, e);
+			}
+		}
+
+		private void TableViewListView_DoubleClick(object sender, EventArgs e) {
+			if (SelectedTableView != null) {
+				EditTableViewButton_Click(sender, e);
+			}
+		}
 	}
 }

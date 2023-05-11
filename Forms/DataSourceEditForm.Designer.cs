@@ -80,6 +80,7 @@
 			this.ParameterListView.UseCompatibleStateImageBehavior = false;
 			this.ParameterListView.View = System.Windows.Forms.View.Details;
 			this.ParameterListView.SelectedIndexChanged += new System.EventHandler(this.ParameterListView_SelectedIndexChanged);
+			this.ParameterListView.DoubleClick += new System.EventHandler(this.ParameterListView_DoubleClick);
 			// 
 			// PNameColumn
 			// 
@@ -121,6 +122,7 @@
 			this.ParentParameterListView.UseCompatibleStateImageBehavior = false;
 			this.ParentParameterListView.View = System.Windows.Forms.View.Details;
 			this.ParentParameterListView.SelectedIndexChanged += new System.EventHandler(this.ParentParameterListView_SelectedIndexChanged);
+			this.ParentParameterListView.DoubleClick += new System.EventHandler(this.ParentParameterListView_DoubleClick);
 			// 
 			// PPNameColumn
 			// 

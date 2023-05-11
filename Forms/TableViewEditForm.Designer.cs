@@ -23,9 +23,9 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableViewEditForm));
 			this.DataSourceLabel = new System.Windows.Forms.Label();
 			this.DataSourceComboBox = new System.Windows.Forms.ComboBox();
@@ -134,6 +134,7 @@
 			this.ButtonListView.UseCompatibleStateImageBehavior = false;
 			this.ButtonListView.View = System.Windows.Forms.View.Details;
 			this.ButtonListView.SelectedIndexChanged += new System.EventHandler(this.ButtonListView_SelectedIndexChanged);
+			this.ButtonListView.DoubleClick += new System.EventHandler(this.ButtonListView_DoubleClick);
 			// 
 			// TextColumn
 			// 
@@ -174,16 +175,16 @@
             this.DataSourceColumn,
             this.SubTablesColumn});
 			this.TableViewListView.Dock = System.Windows.Forms.DockStyle.Fill;
-			listViewGroup10.Header = "ListViewGroup";
-			listViewGroup10.Name = "listViewGroup1";
-			listViewGroup11.Header = "ListViewGroup";
-			listViewGroup11.Name = "listViewGroup2";
-			listViewGroup12.Header = "ListViewGroup";
-			listViewGroup12.Name = "listViewGroup3";
+			listViewGroup1.Header = "ListViewGroup";
+			listViewGroup1.Name = "listViewGroup1";
+			listViewGroup2.Header = "ListViewGroup";
+			listViewGroup2.Name = "listViewGroup2";
+			listViewGroup3.Header = "ListViewGroup";
+			listViewGroup3.Name = "listViewGroup3";
 			this.TableViewListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup10,
-            listViewGroup11,
-            listViewGroup12});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3});
 			this.TableViewListView.HideSelection = false;
 			this.TableViewListView.Location = new System.Drawing.Point(32, 122);
 			this.TableViewListView.Name = "TableViewListView";
@@ -193,6 +194,7 @@
 			this.TableViewListView.UseCompatibleStateImageBehavior = false;
 			this.TableViewListView.View = System.Windows.Forms.View.Details;
 			this.TableViewListView.SelectedIndexChanged += new System.EventHandler(this.TableViewListView_SelectedIndexChanged);
+			this.TableViewListView.DoubleClick += new System.EventHandler(this.TableViewListView_DoubleClick);
 			// 
 			// TableViewNameColumn
 			// 

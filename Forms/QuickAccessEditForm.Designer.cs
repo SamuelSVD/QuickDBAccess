@@ -63,10 +63,10 @@
 			this.ProjectPropertiesTabPage = new System.Windows.Forms.TabPage();
 			this.SettingsGroupBox = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+			this.ProjectNameTextBox = new QuickDBAccess.ValidateTextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.CancelButton = new System.Windows.Forms.Button();
-			this.ProjectNameTextBox = new QuickDBAccess.ValidateTextBox();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.ConnectionsTabPage.SuspendLayout();
@@ -226,6 +226,7 @@
 			this.ConnectionsListView.UseCompatibleStateImageBehavior = false;
 			this.ConnectionsListView.View = System.Windows.Forms.View.Details;
 			this.ConnectionsListView.SelectedIndexChanged += new System.EventHandler(this.ConnectionsListView_SelectedIndexChanged);
+			this.ConnectionsListView.DoubleClick += new System.EventHandler(this.ConnectionsListView_DoubleClick);
 			// 
 			// ConnectionName
 			// 
@@ -357,6 +358,7 @@
 			this.DataSourcesListView.UseCompatibleStateImageBehavior = false;
 			this.DataSourcesListView.View = System.Windows.Forms.View.Details;
 			this.DataSourcesListView.SelectedIndexChanged += new System.EventHandler(this.DataSourcesListView_SelectedIndexChanged);
+			this.DataSourcesListView.DoubleClick += new System.EventHandler(this.DataSourcesListView_DoubleClick);
 			// 
 			// DataSourcesName
 			// 
@@ -486,6 +488,7 @@
 			this.TableViewsListView.UseCompatibleStateImageBehavior = false;
 			this.TableViewsListView.View = System.Windows.Forms.View.Details;
 			this.TableViewsListView.SelectedIndexChanged += new System.EventHandler(this.TableViewsListView_SelectedIndexChanged);
+			this.TableViewsListView.DoubleClick += new System.EventHandler(this.TableViewsListView_DoubleClick);
 			// 
 			// TableViewsName
 			// 
@@ -543,6 +546,16 @@
 			this.tableLayoutPanel5.Size = new System.Drawing.Size(472, 28);
 			this.tableLayoutPanel5.TabIndex = 0;
 			// 
+			// ProjectNameTextBox
+			// 
+			this.ProjectNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+			this.ProjectNameTextBox.Location = new System.Drawing.Point(80, 3);
+			this.ProjectNameTextBox.Name = "ProjectNameTextBox";
+			this.ProjectNameTextBox.Size = new System.Drawing.Size(389, 22);
+			this.ProjectNameTextBox.TabIndex = 1;
+			this.ProjectNameTextBox.TooltipText = null;
+			this.ProjectNameTextBox.Valid = true;
+			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
@@ -574,16 +587,6 @@
 			this.CancelButton.TabIndex = 9;
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
-			// 
-			// ProjectNameTextBox
-			// 
-			this.ProjectNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-			this.ProjectNameTextBox.Location = new System.Drawing.Point(80, 3);
-			this.ProjectNameTextBox.Name = "ProjectNameTextBox";
-			this.ProjectNameTextBox.Size = new System.Drawing.Size(389, 22);
-			this.ProjectNameTextBox.TabIndex = 1;
-			this.ProjectNameTextBox.TooltipText = null;
-			this.ProjectNameTextBox.Valid = true;
 			// 
 			// QuickAccessEditForm
 			// 
