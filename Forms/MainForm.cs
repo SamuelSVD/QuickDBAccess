@@ -155,6 +155,7 @@ namespace QuickDBAccess.Forms {
 					UpdateFormText();
 				}
 			}
+			GC.Collect();
 		}
 
 		private void UpdateFormText() {

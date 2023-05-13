@@ -44,14 +44,14 @@ namespace QuickDBAccess.Forms {
 			this.ReferenceModel = referenceModel;
 			this.QdbaModel = qdbaModel;
 			InitializeComponent();
-			ParameterListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-			ParentParameterListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 			foreach (SQLConnectionModel connection in QdbaModel.Connections) {
 				ConnectionComboBox.Items.Add(connection.Name);
 			}
 			DataSourceNameTextBox.TextChanged += DataSourceNameTextBox_TextChanged;
 			DataSourceNameTextBox.TooltipText = "Data source name required";
 			InitializeModelView();
+			ParameterListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+			ParentParameterListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 		}
 
 		private void DataSourceNameTextBox_TextChanged(object sender, System.EventArgs e) {
@@ -85,6 +85,7 @@ namespace QuickDBAccess.Forms {
 			item.SubItems.Add(queryParameter.type);
 			item.SubItems.Add(queryParameter.autoSourceColumnName);
 			ParameterListView.Items.Add(item);
+			ParameterListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 		}
 		private void RefreshParentParameterList() {
 			ParentParameterListView.Items.Clear();
@@ -97,6 +98,7 @@ namespace QuickDBAccess.Forms {
 			item.SubItems.Add(queryParameter.type);
 			item.SubItems.Add(queryParameter.autoSourceColumnName);
 			ParentParameterListView.Items.Add(item);
+			ParentParameterListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 		}
 		public DialogResult ShowNewDialog() {
 			Text = "New Data Source";

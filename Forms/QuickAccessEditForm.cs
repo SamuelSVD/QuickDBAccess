@@ -102,6 +102,7 @@ namespace QuickDBAccess.Forms {
 			item.SubItems.Add(connection.user);
 			item.SubItems.Add(connection.useIntegratedSecurity ? "Yes" : "No");
 			ConnectionsListView.Items.Add(item);
+			ConnectionsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 		}
 		private void RefreshDataSourcesList() {
 			foreach (var dataSource in Model.DataSources) {
@@ -113,6 +114,7 @@ namespace QuickDBAccess.Forms {
 			item.SubItems.Add(dataSource.ConnectionName);
 			item.SubItems.Add(dataSource.Query.Command);
 			DataSourcesListView.Items.Add(item);
+			DataSourcesListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 		}
 		private void RefreshTableViewsList() {
 			foreach (var tableView in Model.TableViews) {
@@ -124,8 +126,9 @@ namespace QuickDBAccess.Forms {
 			item.SubItems.Add(tableView.ContentDataSourceName);
 			item.SubItems.Add(tableView.ChildTableViews.Count.ToString());
 			TableViewsListView.Items.Add(item);
+			TableViewsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 		}
-        private void ConnectionsListView_SelectedIndexChanged(object sender, EventArgs e) {
+		private void ConnectionsListView_SelectedIndexChanged(object sender, EventArgs e) {
 			AddConnectionButton.Enabled = true;
 			EditConnectionButton.Enabled = SelectedConnection != null;
 			DeleteConnectionButton.Enabled = SelectedConnection != null;

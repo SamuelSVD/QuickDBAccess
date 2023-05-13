@@ -23,9 +23,6 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableViewEditForm));
 			this.DataSourceLabel = new System.Windows.Forms.Label();
 			this.DataSourceComboBox = new System.Windows.Forms.ComboBox();
@@ -176,16 +173,6 @@
             this.DataSourceColumn,
             this.SubTablesColumn});
 			this.TableViewListView.Dock = System.Windows.Forms.DockStyle.Fill;
-			listViewGroup1.Header = "ListViewGroup";
-			listViewGroup1.Name = "listViewGroup1";
-			listViewGroup2.Header = "ListViewGroup";
-			listViewGroup2.Name = "listViewGroup2";
-			listViewGroup3.Header = "ListViewGroup";
-			listViewGroup3.Name = "listViewGroup3";
-			this.TableViewListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3});
 			this.TableViewListView.HideSelection = false;
 			this.TableViewListView.Location = new System.Drawing.Point(32, 122);
 			this.TableViewListView.Name = "TableViewListView";

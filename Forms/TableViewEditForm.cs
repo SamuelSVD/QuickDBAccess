@@ -42,13 +42,13 @@ namespace QuickDBAccess.Forms {
 			this.Model = model;
 			this.QdbaModel = qdbaModel;
 			InitializeComponent();
-			ButtonListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-			TableViewListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 			foreach (DataSourceModel dsModel in qdbaModel.DataSources) {
 				DataSourceComboBox.Items.Add(dsModel.Name);
 			}
 			TableViewNameTextBox.TextChanged += TableViewNameTextBox_TextChanged;
 			InitializeModelView();
+			ButtonListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+			TableViewListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 		}
 		private void InitializeModelView() {
 			TableViewNameTextBox.Text = Model.Name;
@@ -66,6 +66,7 @@ namespace QuickDBAccess.Forms {
 			ListViewItem item = new ListViewItem(queryParameter.Text);
 			item.SubItems.Add(queryParameter.DataSourceName);
 			ButtonListView.Items.Add(item);
+			ButtonListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 		}
 		private void RefreshTableViewList() {
 			TableViewListView.Items.Clear();
@@ -78,6 +79,7 @@ namespace QuickDBAccess.Forms {
 			item.SubItems.Add(queryParameter.ContentDataSourceName);
 			item.SubItems.Add(queryParameter.ChildTableViews.Count.ToString());
 			TableViewListView.Items.Add(item);
+			TableViewListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 		}
 		public DialogResult ShowNewDialog() {
 			Text = "New Table View";
