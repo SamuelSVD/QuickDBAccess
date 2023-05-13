@@ -407,6 +407,15 @@ namespace QuickDBAccess.Forms {
 						}
 						break;
 				}
+			} else {
+				switch (e.KeyCode) {
+					case Keys.Enter:
+					case Keys.F2:
+						if (EditConnectionButton.Enabled) {
+							EditConnectionButton_Click(sender, e);
+						}
+						break;
+				}
 			}
 		}
 
@@ -424,6 +433,15 @@ namespace QuickDBAccess.Forms {
 						}
 						break;
 				}
+			} else {
+				switch (e.KeyCode) {
+					case Keys.Enter:
+					case Keys.F2:
+						if (EditDataSourceButton.Enabled) {
+							EditDataSourceButton_Click(sender, e);
+						}
+						break;
+				}
 			}
 		}
 
@@ -438,6 +456,15 @@ namespace QuickDBAccess.Forms {
 					case Keys.Down:
 						if (TableViewsDownButton.Enabled) {
 							TableViewsDownButton_Click(sender, e);
+						}
+						break;
+				}
+			} else {
+				switch (e.KeyCode) {
+					case Keys.Enter:
+					case Keys.F2:
+						if (EditTableViewButton.Enabled) {
+							EditTableViewButton_Click(sender, e);
 						}
 						break;
 				}

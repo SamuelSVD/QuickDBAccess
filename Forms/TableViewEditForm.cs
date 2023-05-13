@@ -275,6 +275,15 @@ namespace QuickDBAccess.Forms {
 						}
 						break;
 				}
+			} else {
+				switch (e.KeyCode) {
+					case Keys.Enter:
+					case Keys.F2:
+						if (EditButtonButton.Enabled) {
+							EditButtonButton_Click(sender, e);
+						}
+						break;
+				}
 			}
 		}
 
@@ -289,6 +298,15 @@ namespace QuickDBAccess.Forms {
 					case Keys.Down:
 						if (TableViewDownButton.Enabled) {
 							TableViewDownButton_Click(sender, e);
+						}
+						break;
+				}
+			} else {
+				switch (e.KeyCode) {
+					case Keys.Enter:
+					case Keys.F2:
+						if (EditTableViewButton.Enabled) {
+							EditTableViewButton_Click(sender, e);
 						}
 						break;
 				}

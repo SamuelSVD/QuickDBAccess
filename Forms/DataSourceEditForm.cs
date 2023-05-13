@@ -296,6 +296,15 @@ namespace QuickDBAccess.Forms {
 						}
 						break;
 				}
+			} else {
+				switch (e.KeyCode) {
+					case Keys.Enter:
+					case Keys.F2:
+						if (EditParameterButton.Enabled) {
+							EditParameterButton_Click(sender, e);
+						}
+						break;
+				}
 			}
 		}
 
@@ -310,6 +319,15 @@ namespace QuickDBAccess.Forms {
 					case Keys.Down:
 						if (ParentParameterDownButton.Enabled) {
 							ParentParameterDownButton_Click(sender, e);
+						}
+						break;
+				}
+			} else {
+				switch (e.KeyCode) {
+					case Keys.Enter:
+					case Keys.F2:
+						if (EditParentParameterButton.Enabled) {
+							EditParentParameterButton_Click(sender, e);
 						}
 						break;
 				}
