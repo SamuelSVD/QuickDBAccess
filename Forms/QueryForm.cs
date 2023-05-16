@@ -95,6 +95,7 @@ namespace QuickDBAccess.Forms {
 					param.c = tbd;
 					break;
 			}
+			param.c.Dock = DockStyle.Top;
 			itemsTableLayoutPanel.Controls.Add(param.c, 1, i);
 			try {
 				var dataGridViewColumn = dgv.Columns[param.autoSourceColumnName];
