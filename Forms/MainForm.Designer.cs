@@ -143,8 +143,8 @@ namespace QuickDBAccess.Forms
             this.currentToolStripMenuItem,
             this.allToolStripMenuItem});
 			this.refreshAllToolStripMenuItem.Name = "refreshAllToolStripMenuItem";
-			this.refreshAllToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-			this.refreshAllToolStripMenuItem.Text = "Refresh All";
+			this.refreshAllToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+			this.refreshAllToolStripMenuItem.Text = "Refresh";
 			// 
 			// currentToolStripMenuItem
 			// 

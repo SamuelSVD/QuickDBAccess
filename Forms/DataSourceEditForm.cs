@@ -164,6 +164,7 @@ namespace QuickDBAccess.Forms {
 				Model.Query.Parameters.Add(parameter);
 				AddParameter(parameter);
 			}
+			parameterEditForm.Dispose();
 		}
 
 		private void EditParameterButton_Click(object sender, EventArgs e) {
@@ -172,6 +173,7 @@ namespace QuickDBAccess.Forms {
 			if (parameterEditForm.ShowDialog() == DialogResult.OK) {
 				SelectedParameter = parameter;
 			}
+			parameterEditForm.Dispose();
 		}
 
 		private void DeleteParameterButton_Click(object sender, EventArgs e) {
@@ -193,6 +195,7 @@ namespace QuickDBAccess.Forms {
 				Model.Query.ParentParameters.Add(parameter);
 				AddParentParameter(parameter);
 			}
+			parameterEditForm.Dispose();
 		}
 
 		private void EditParentParameterButton_Click(object sender, EventArgs e) {
@@ -201,6 +204,7 @@ namespace QuickDBAccess.Forms {
 			if (parameterEditForm.ShowDialog() == DialogResult.OK) {
 				SelectedParentParameter = parameter;
 			}
+			parameterEditForm.Dispose();
 		}
 
 		private void DeleteParentParameterButton_Click(object sender, EventArgs e) {

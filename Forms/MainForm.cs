@@ -65,6 +65,7 @@ namespace QuickDBAccess.Forms {
 		private void aboutToolStripMenuItem_Click(object sender, System.EventArgs e) {
 			AboutForm af = new AboutForm();
 			af.ShowDialog();
+			af.Dispose();
 		}
 
 		private bool _formShown = false;
@@ -170,6 +171,7 @@ namespace QuickDBAccess.Forms {
 					UpdateFormText();
 				}
 			}
+			editForm.Dispose();
 			GC.Collect();
 		}
 
@@ -217,6 +219,9 @@ namespace QuickDBAccess.Forms {
 			}
 			ProgramData.OpenConfig();
 			if (ProgramData.Instance == null) {
+				if (ProgramData.InvalidFile) {
+					MessageBox.Show($"Unable to open {ProgramData.CONFIG}. The file may be corrupted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 				ProgramData.Instance = new QuickAccessModel();
 			}
 			BuildTableViews();

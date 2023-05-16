@@ -104,6 +104,7 @@ namespace QuickDBAccess.Forms {
 			b.Click += new EventHandler(delegate (object o, EventArgs e) {
 				QueryForm f = new QueryForm(b.Text, QdbaModel.DataSourceByName(q.DataSourceName), ContentDataGridView, QdbaModel);
 				f.ShowDialog();
+				f.Dispose();
 				RefreshData(this, null);
 			});
 		}
@@ -190,6 +191,7 @@ namespace QuickDBAccess.Forms {
 				if (tableView.DoubleClickAction != null) {
 					QueryForm f = new QueryForm(tableView.DoubleClickAction.Text, QdbaModel.DataSourceByName(tableView.DoubleClickAction.DataSourceName), ContentDataGridView, QdbaModel);
 					f.ShowDialog();
+					f.Dispose();
 					DataLoad();
 				}
 			}

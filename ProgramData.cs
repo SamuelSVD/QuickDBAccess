@@ -11,6 +11,7 @@ namespace QuickDBAccess {
 		public static bool ValidConfigLocation = false;
 		public static bool ShouldBeValidConfigLocation = false;
 		public static bool Changed = false;
+		public static bool InvalidFile = false;
 
 		public static string AssemblyDirectory {
             get {
@@ -23,15 +24,22 @@ namespace QuickDBAccess {
 				ValidConfigLocation = true;
 			}
 		}
-		public static void OpenConfig() {
+		public static bool OpenConfig() {
 			OpenFileDialog ofd = new OpenFileDialog();
 			ofd.Filter = "Quick DB Access Program | *.qdba|XML File | *.xml";
 			ofd.InitialDirectory = AssemblyDirectory;
+			InvalidFile = false;
 			if (ofd.ShowDialog() == DialogResult.OK) {
 				CONFIG = ofd.FileName;
 				LoadConfig();
-				ValidConfigLocation = true;
+				if (Instance != null) {
+					ValidConfigLocation = true;
+					return true;
+				}
+				InvalidFile = true;
 			}
+			ofd.Dispose();
+			return false;
 		}
 		public static bool SaveConfig() {
 			if (ProgramData.Instance == null) return false;
@@ -55,6 +63,7 @@ namespace QuickDBAccess {
 				Changed = false;
 				return true;
 			}
+			d.Dispose();
 			return false;
 		}
 	}

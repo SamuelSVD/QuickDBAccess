@@ -115,12 +115,13 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void NewButtonButton_Click(object sender, EventArgs e) {
-			ButtonModel parameter = new ButtonModel();
-			ButtonEditForm parameterEditForm = new ButtonEditForm(parameter, QdbaModel);
-			if (parameterEditForm.ShowNewDialog() == DialogResult.OK) {
-				Model.Buttons.Add(parameter);
-				AddButton(parameter);
+			ButtonModel buttonModel = new ButtonModel();
+			ButtonEditForm buttonEditForm = new ButtonEditForm(buttonModel, QdbaModel);
+			if (buttonEditForm.ShowNewDialog() == DialogResult.OK) {
+				Model.Buttons.Add(buttonModel);
+				AddButton(buttonModel);
 			}
+			buttonEditForm.Dispose();
 			this.DialogResult = DialogResult.None;
 		}
 
@@ -130,6 +131,7 @@ namespace QuickDBAccess.Forms {
 			if (parameterEditForm.ShowDialog() == DialogResult.OK) {
 				SelectedButton = parameter;
 			}
+			parameterEditForm.Dispose();
 			this.DialogResult = DialogResult.None;
 		}
 
@@ -166,20 +168,22 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void NewTableViewButton_Click(object sender, EventArgs e) {
-			TableViewModel parameter = new TableViewModel();
-			TableViewEditForm parameterEditForm = new TableViewEditForm(parameter, QdbaModel);
-			if (parameterEditForm.ShowNewDialog() == DialogResult.OK) {
-				Model.ChildTableViews.Add(parameter);
-				AddTableView(parameter);
+			TableViewModel tableViewModel = new TableViewModel();
+			TableViewEditForm tableViewEditForm = new TableViewEditForm(tableViewModel, QdbaModel);
+			if (tableViewEditForm.ShowNewDialog() == DialogResult.OK) {
+				Model.ChildTableViews.Add(tableViewModel);
+				AddTableView(tableViewModel);
 			}
+			tableViewEditForm.Dispose();
 		}
 
 		private void EditTableViewButton_Click(object sender, EventArgs e) {
-			TableViewModel parameter = new TableViewModel(SelectedTableView);
-			TableViewEditForm parameterEditForm = new TableViewEditForm(parameter, QdbaModel);
-			if (parameterEditForm.ShowDialog() == DialogResult.OK) {
-				SelectedTableView = parameter;
+			TableViewModel tableViewModel = new TableViewModel(SelectedTableView);
+			TableViewEditForm tableViewEditForm = new TableViewEditForm(tableViewModel, QdbaModel);
+			if (tableViewEditForm.ShowDialog() == DialogResult.OK) {
+				SelectedTableView = tableViewModel;
 			}
+			tableViewEditForm.Dispose();
 		}
 
 		private void DeleteTableViewButton_Click(object sender, EventArgs e) {

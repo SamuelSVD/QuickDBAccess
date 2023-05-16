@@ -160,6 +160,7 @@ namespace QuickDBAccess.Forms {
 				AddConnection(connectionModel);
 				Changed = true;
 			}
+			connectionEditForm.Dispose();
 		}
 
 		private void EditConnectionButton_Click(object sender, EventArgs e) {
@@ -168,6 +169,7 @@ namespace QuickDBAccess.Forms {
 			if (connectionEditForm.ShowDialog() == DialogResult.OK) {
 				SelectedConnection = connectionModel;
 			}
+			connectionEditForm.Dispose();
 		}
 
 		private void DeleteConnectionButton_Click(object sender, EventArgs e) {
@@ -196,6 +198,7 @@ namespace QuickDBAccess.Forms {
 				AddDataSource(dataSourceModel);
 				Changed = true;
 			}
+			dataSourceEditForm.Dispose();
 		}
 
 		private void EditDataSourceButton_Click(object sender, EventArgs e) {
@@ -204,6 +207,7 @@ namespace QuickDBAccess.Forms {
 			if (dataSourceEditForm.ShowDialog() == DialogResult.OK) {
 				SelectedDataSource = dataSourceModel;
 			}
+			dataSourceEditForm.Dispose();
 		}
 
 		private void DeleteDataSourceButton_Click(object sender, EventArgs e) {
@@ -224,21 +228,23 @@ namespace QuickDBAccess.Forms {
 			}
 		}
 		private void NewTableViewButton_Click(object sender, EventArgs e) {
-			TableViewModel dataSourceModel = new TableViewModel();
-			TableViewEditForm dataSourceEditForm = new TableViewEditForm(dataSourceModel, Model);
-			if (dataSourceEditForm.ShowNewDialog() == DialogResult.OK) {
-				Model.TableViews.Add(dataSourceModel);
-				AddTableView(dataSourceModel);
+			TableViewModel tableViewModel = new TableViewModel();
+			TableViewEditForm tableViewEditForm = new TableViewEditForm(tableViewModel, Model);
+			if (tableViewEditForm.ShowNewDialog() == DialogResult.OK) {
+				Model.TableViews.Add(tableViewModel);
+				AddTableView(tableViewModel);
 				Changed = true;
 			}
+			tableViewEditForm.Dispose();
 		}
 
 		private void EditTableViewButton_Click(object sender, EventArgs e) {
-			TableViewModel dataSourceModel = new TableViewModel(SelectedTableView);
-			TableViewEditForm dataSourceEditForm = new TableViewEditForm(dataSourceModel, Model);
-			if (dataSourceEditForm.ShowDialog() == DialogResult.OK) {
-				SelectedTableView = dataSourceModel;
+			TableViewModel tableViewModel = new TableViewModel(SelectedTableView);
+			TableViewEditForm tableViewEditForm = new TableViewEditForm(tableViewModel, Model);
+			if (tableViewEditForm.ShowDialog() == DialogResult.OK) {
+				SelectedTableView = tableViewModel;
 			}
+			tableViewEditForm.Dispose();
 		}
 
 		private void DeleteTableViewButton_Click(object sender, EventArgs e) {
