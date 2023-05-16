@@ -1,8 +1,6 @@
 ﻿using QuickDBAccess.Model;
-using QuickDBAccess.Properties;
 using System;
 using System.Windows.Forms;
-using Utils;
 
 namespace QuickDBAccess.Forms {
 	public partial class MainForm : Form {
@@ -38,10 +36,9 @@ namespace QuickDBAccess.Forms {
 			if (ProgramData.Instance != null) {
 				foreach (TableViewModel tv in ProgramData.Instance.TableViews) {
 					try {
-						tv.View.DataLoad();
+						tv.View.RefreshData(this, null);
 					}
 					catch (Exception ex) {
-
 					}
 				}
 				editToolStripMenuItem.Enabled = true;
@@ -77,25 +74,21 @@ namespace QuickDBAccess.Forms {
 			}
 		}
 
-		private void refreshAllToolStripMenuItem_Click(object sender, System.EventArgs e) {
+		private void refreshAllToolStripMenuItem_Click(object sender, EventArgs e) {
 			if (ProgramData.Instance == null) return;
-			foreach (TableViewModel tv in ProgramData.Instance.TableViews) {
-				try {
-					tv.View.RefreshData(sender, e);
-				}
-				catch {
-
-				}
-			}
+			ProgramData.Instance.RevalidateConnections();
+			LoadTableViewsData();
 		}
 		private void refreshCurrentAllToolStripMenuItem_Click(object sender, EventArgs e) {
+			if (ProgramData.Instance == null) return;
+			ProgramData.Instance.RevalidateConnections();
 			if (CurrentTableView != null) {
 				CurrentTableView.View.RefreshData(sender, e);
 			}
 		}
 		private void MainForm_Load(object sender, System.EventArgs e) {
 			bool locationValid = false;
-			foreach(Screen screen in Screen.AllScreens) {
+			foreach (Screen screen in Screen.AllScreens) {
 				if (screen.WorkingArea.Contains(Properties.Settings.Default.Location)) {
 					locationValid = true;
 				}
@@ -125,7 +118,7 @@ namespace QuickDBAccess.Forms {
 
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
 			if (ProgramData.Changed) {
-				switch(MessageBox.Show("Unsaved changes. Would you like to save before exiting?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)) {
+				switch (MessageBox.Show("Unsaved changes. Would you like to save before exiting?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)) {
 					case DialogResult.Yes:
 						if (!ProgramData.SaveConfig()) {
 							e.Cancel = true;

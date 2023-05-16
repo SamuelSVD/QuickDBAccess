@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace QuickDBAccess.Model {
@@ -35,6 +36,12 @@ namespace QuickDBAccess.Model {
 		}
 		public DataSourceModel DataSourceByName(string DataSourceName) {
 			return DataSources.Find(t => t.Name == DataSourceName);
+		}
+
+		internal void RevalidateConnections() {
+			foreach (SQLConnectionModel connection in Connections) {
+				connection.Validate();
+			}
 		}
 	}
 }

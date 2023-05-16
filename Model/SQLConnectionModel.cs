@@ -2,7 +2,7 @@
 using System.Xml.Serialization;
 
 namespace QuickDBAccess.Model {
-	[XmlType(TypeName="SQLConnection")]
+	[XmlType(TypeName = "SQLConnection")]
 	public class SQLConnectionModel {
 		[XmlAttribute]
 		public string Name { get; set; } = "";
@@ -26,6 +26,8 @@ namespace QuickDBAccess.Model {
 				}
 			}
 		}
+		[XmlIgnore]
+		public bool ConnectionValid = true;
 		public SQLConnectionModel() {
 		}
 		public SQLConnectionModel(SQLConnectionModel model) {
@@ -38,6 +40,12 @@ namespace QuickDBAccess.Model {
 			this.user = model.user;
 			this.password = model.password;
 			this.useIntegratedSecurity = model.useIntegratedSecurity;
+		}
+		public void Invalidate() {
+			ConnectionValid = false;
+		}
+		public void Validate() {
+			ConnectionValid = true;
 		}
 	}
 }

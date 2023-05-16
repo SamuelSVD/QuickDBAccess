@@ -11,6 +11,7 @@ namespace QuickDBAccess.Forms {
 		private DataTable datatable = new DataTable();
 		List<TableViewForm> ChildrenTabs = new List<TableViewForm>();
 		public TableViewForm ParentForm;
+		public Button RefreshButton;
 		private QuickAccessModel QdbaModel;
 
 		public Control getControl() {
@@ -56,16 +57,16 @@ namespace QuickDBAccess.Forms {
 			if (ButtonsTableLayoutPanel.ColumnCount <= tv.Buttons.Count) {
 				ButtonsTableLayoutPanel.ColumnCount++;
 			}
-			b = new Button();
-			b.Text = "";
-			b.Width = b.Height;
-			b.MinimumSize = b.Size;
-			b.AutoSize = true;
-			b.Anchor = AnchorStyles.Right | AnchorStyles.Top;
-			b.Click += RefreshData;
-			b.BackgroundImageLayout = ImageLayout.Stretch;
-			b.BackgroundImage = Properties.Resources.refresh;
-			ButtonsTableLayoutPanel.Controls.Add(b, cnt, 0);
+			RefreshButton = new Button();
+			RefreshButton.Text = "";
+			RefreshButton.Width = RefreshButton.Height;
+			RefreshButton.MinimumSize = RefreshButton.Size;
+			RefreshButton.AutoSize = true;
+			RefreshButton.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+			RefreshButton.Click += RefreshData;
+			RefreshButton.BackgroundImageLayout = ImageLayout.Stretch;
+			RefreshButton.BackgroundImage = Properties.Resources.refresh;
+			ButtonsTableLayoutPanel.Controls.Add(RefreshButton, cnt, 0);
 
 			cs = new ColumnStyle();
 			cs.SizeType = SizeType.AutoSize;
@@ -109,6 +110,11 @@ namespace QuickDBAccess.Forms {
 			});
 		}
 		public void RefreshData(object sender, EventArgs args) {
+			if (sender == RefreshButton) {
+				if (ProgramData.Instance != null) {
+					ProgramData.Instance.RevalidateConnections();
+				}
+			}
 			DataLoad();
 			foreach (TableViewForm tvf in ChildrenTabs) {
 				tvf.RefreshData(sender, args);
@@ -131,13 +137,15 @@ namespace QuickDBAccess.Forms {
 		public void DataLoad() {
 			try {
 				if (string.IsNullOrEmpty(tableView.ContentDataSourceName)) {
-					throw new Exception("Content DataSource not assigned.");
+					throw new Exception($"Content DataSource not assigned for tabe view {tableView.Name}");
 				}
 				DataSourceModel ds = QdbaModel.DataSourceByName(tableView.ContentDataSourceName);
 				if (string.IsNullOrEmpty(ds.ConnectionName)) {
 					throw new Exception($"Connection name not assigned for data source {ds.Name}");
 				}
-				string connString = QdbaModel.ConnectionByName(ds.ConnectionName).ConnectionString;
+				SQLConnectionModel connection = QdbaModel.ConnectionByName(ds.ConnectionName);
+				if (!connection.ConnectionValid) return;
+				string connString = connection.ConnectionString;
 				string query = ds.Query.Command;
 
 				datatable.Clear();
@@ -172,9 +180,13 @@ namespace QuickDBAccess.Forms {
 						da.Dispose();
 					}
 					catch (Exception ex) {
-						if (ex.Message != "Operation cannot be performed in this event handler.") {
-							MessageBox.Show(ex.Message);
+						if (ex.Message.StartsWith("Login failed")) {
+							connection.Invalidate();
 						}
+						if (ex.Message.StartsWith("A network-related")) {
+							connection.Invalidate();
+						}
+						throw;
 					}
 				}
 			}
