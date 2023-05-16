@@ -62,11 +62,12 @@ namespace QuickDBAccess.Forms {
 				AddButton(parameter);
 			}
 		}
-		private void AddButton(ButtonModel queryParameter) {
+		private ListViewItem AddButton(ButtonModel queryParameter) {
 			ListViewItem item = new ListViewItem(queryParameter.Text);
 			item.SubItems.Add(queryParameter.DataSourceName);
 			ButtonListView.Items.Add(item);
 			ButtonListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+			return item;
 		}
 		private void RefreshTableViewList() {
 			TableViewListView.Items.Clear();
@@ -74,12 +75,13 @@ namespace QuickDBAccess.Forms {
 				AddTableView(parameter);
 			}
 		}
-		private void AddTableView(TableViewModel queryParameter) {
+		private ListViewItem AddTableView(TableViewModel queryParameter) {
 			ListViewItem item = new ListViewItem(queryParameter.Name);
 			item.SubItems.Add(queryParameter.ContentDataSourceName);
 			item.SubItems.Add(queryParameter.ChildTableViews.Count.ToString());
 			TableViewListView.Items.Add(item);
 			TableViewListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+			return item;
 		}
 		public DialogResult ShowNewDialog() {
 			Text = "New Table View";
@@ -313,6 +315,40 @@ namespace QuickDBAccess.Forms {
 							EditTableViewButton_Click(sender, e);
 						}
 						break;
+				}
+			}
+		}
+		private void DuplicateButtonToolStripMenuItem_Click(object sender, EventArgs e) {
+			ButtonModel buttonOriginal = SelectedButton;
+			ButtonModel buttonCopy = new ButtonModel(buttonOriginal);
+			int oldIndex = Model.Buttons.IndexOf(buttonOriginal);
+			Model.Buttons.Insert(oldIndex + 1, buttonCopy);
+			ListViewItem item = AddButton(buttonCopy);
+			ButtonListView.Items.Remove(item);
+			ButtonListView.Items.Insert(oldIndex + 1, item);
+		}
+		private void ButtonListView_MouseClick(object sender, MouseEventArgs e) {
+			if (e.Button == MouseButtons.Right) {
+				var focusedItem = ButtonListView.FocusedItem;
+				if (focusedItem != null && focusedItem.Bounds.Contains(e.Location)) {
+					ButtonsContextMenu.Show(Cursor.Position);
+				}
+			}
+		}
+		private void DuplicateTableViewToolStripMenuItem_Click(object sender, EventArgs e) {
+			TableViewModel tableViewOriginal = SelectedTableView;
+			TableViewModel tableViewCopy = new TableViewModel(tableViewOriginal);
+			int oldIndex = Model.ChildTableViews.IndexOf(tableViewOriginal);
+			Model.ChildTableViews.Insert(oldIndex + 1, tableViewCopy);
+			ListViewItem item = AddTableView(tableViewCopy);
+			TableViewListView.Items.Remove(item);
+			TableViewListView.Items.Insert(oldIndex + 1, item);
+		}
+		private void TableViewListView_MouseClick(object sender, MouseEventArgs e) {
+			if (e.Button == MouseButtons.Right) {
+				var focusedItem = TableViewListView.FocusedItem;
+				if (focusedItem != null && focusedItem.Bounds.Contains(e.Location)) {
+					TableViewsContextMenu.Show(Cursor.Position);
 				}
 			}
 		}

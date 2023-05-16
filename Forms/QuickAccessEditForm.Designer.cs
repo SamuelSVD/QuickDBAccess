@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuickAccessEditForm));
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -38,6 +39,7 @@
 			this.ConnectionServer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.ConnectionDatabase = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.ConnectionUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.ConnectionIntegratedSecurity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.DataSourcesTabPage = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.DataSourcesDownButton = new System.Windows.Forms.Button();
@@ -67,7 +69,12 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.CancelButton = new System.Windows.Forms.Button();
-			this.ConnectionIntegratedSecurity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.ConnectionsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.DuplicateConnectionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.DataSourcesContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.DuplicateDataSourcesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.TableViewsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.DuplicateTableViewsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.ConnectionsTabPage.SuspendLayout();
@@ -79,6 +86,9 @@
 			this.ProjectPropertiesTabPage.SuspendLayout();
 			this.SettingsGroupBox.SuspendLayout();
 			this.tableLayoutPanel5.SuspendLayout();
+			this.ConnectionsContextMenu.SuspendLayout();
+			this.DataSourcesContextMenu.SuspendLayout();
+			this.TableViewsContextMenu.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -230,6 +240,7 @@
 			this.ConnectionsListView.SelectedIndexChanged += new System.EventHandler(this.ConnectionsListView_SelectedIndexChanged);
 			this.ConnectionsListView.DoubleClick += new System.EventHandler(this.ConnectionsListView_DoubleClick);
 			this.ConnectionsListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ConnectionsListView_KeyDown);
+			this.ConnectionsListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ConnectionsListView_MouseClick);
 			// 
 			// ConnectionName
 			// 
@@ -247,6 +258,10 @@
 			// ConnectionUser
 			// 
 			this.ConnectionUser.Text = "User";
+			// 
+			// ConnectionIntegratedSecurity
+			// 
+			this.ConnectionIntegratedSecurity.Text = "Integrated Security";
 			// 
 			// DataSourcesTabPage
 			// 
@@ -363,6 +378,7 @@
 			this.DataSourcesListView.SelectedIndexChanged += new System.EventHandler(this.DataSourcesListView_SelectedIndexChanged);
 			this.DataSourcesListView.DoubleClick += new System.EventHandler(this.DataSourcesListView_DoubleClick);
 			this.DataSourcesListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DataSourcesListView_KeyDown);
+			this.DataSourcesListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DataSourcesListView_MouseClick);
 			// 
 			// DataSourcesName
 			// 
@@ -494,6 +510,7 @@
 			this.TableViewsListView.SelectedIndexChanged += new System.EventHandler(this.TableViewsListView_SelectedIndexChanged);
 			this.TableViewsListView.DoubleClick += new System.EventHandler(this.TableViewsListView_DoubleClick);
 			this.TableViewsListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TableViewsListView_KeyDown);
+			this.TableViewsListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TableViewsListView_MouseClick);
 			// 
 			// TableViewsName
 			// 
@@ -593,9 +610,47 @@
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
 			// 
-			// ConnectionIntegratedSecurity
+			// ConnectionsContextMenu
 			// 
-			this.ConnectionIntegratedSecurity.Text = "Integrated Security";
+			this.ConnectionsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DuplicateConnectionsMenuItem});
+			this.ConnectionsContextMenu.Name = "ConnectionsContextMenu";
+			this.ConnectionsContextMenu.Size = new System.Drawing.Size(125, 26);
+			// 
+			// DuplicateConnectionsMenuItem
+			// 
+			this.DuplicateConnectionsMenuItem.Name = "DuplicateConnectionsMenuItem";
+			this.DuplicateConnectionsMenuItem.Size = new System.Drawing.Size(124, 22);
+			this.DuplicateConnectionsMenuItem.Text = "Duplicate";
+			this.DuplicateConnectionsMenuItem.Click += new System.EventHandler(this.DuplicateConnectionToolStripMenuItem_Click);
+			// 
+			// DataSourcesContextMenu
+			// 
+			this.DataSourcesContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DuplicateDataSourcesMenuItem});
+			this.DataSourcesContextMenu.Name = "ConnectionsContextMenu";
+			this.DataSourcesContextMenu.Size = new System.Drawing.Size(125, 26);
+			// 
+			// DuplicateDataSourcesMenuItem
+			// 
+			this.DuplicateDataSourcesMenuItem.Name = "DuplicateDataSourcesMenuItem";
+			this.DuplicateDataSourcesMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.DuplicateDataSourcesMenuItem.Text = "Duplicate";
+			this.DuplicateDataSourcesMenuItem.Click += new System.EventHandler(this.DuplicateDataSourcesMenuItem_Click);
+			// 
+			// TableViewsContextMenu
+			// 
+			this.TableViewsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DuplicateTableViewsMenuItem});
+			this.TableViewsContextMenu.Name = "ConnectionsContextMenu";
+			this.TableViewsContextMenu.Size = new System.Drawing.Size(181, 48);
+			// 
+			// DuplicateTableViewsMenuItem
+			// 
+			this.DuplicateTableViewsMenuItem.Name = "DuplicateTableViewsMenuItem";
+			this.DuplicateTableViewsMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.DuplicateTableViewsMenuItem.Text = "Duplicate";
+			this.DuplicateTableViewsMenuItem.Click += new System.EventHandler(this.DuplicateTableViewsMenuItem_Click);
 			// 
 			// QuickAccessEditForm
 			// 
@@ -622,6 +677,9 @@
 			this.SettingsGroupBox.PerformLayout();
 			this.tableLayoutPanel5.ResumeLayout(false);
 			this.tableLayoutPanel5.PerformLayout();
+			this.ConnectionsContextMenu.ResumeLayout(false);
+			this.DataSourcesContextMenu.ResumeLayout(false);
+			this.TableViewsContextMenu.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -672,5 +730,11 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button CancelButton;
 		private System.Windows.Forms.ColumnHeader ConnectionIntegratedSecurity;
+		private System.Windows.Forms.ContextMenuStrip ConnectionsContextMenu;
+		private System.Windows.Forms.ToolStripMenuItem DuplicateConnectionsMenuItem;
+		private System.Windows.Forms.ContextMenuStrip DataSourcesContextMenu;
+		private System.Windows.Forms.ToolStripMenuItem DuplicateDataSourcesMenuItem;
+		private System.Windows.Forms.ContextMenuStrip TableViewsContextMenu;
+		private System.Windows.Forms.ToolStripMenuItem DuplicateTableViewsMenuItem;
 	}
 }

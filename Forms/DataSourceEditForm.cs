@@ -80,12 +80,13 @@ namespace QuickDBAccess.Forms {
 				AddParameter(parameter);
 			}
 		}
-		private void AddParameter(QueryParameterModel queryParameter) {
+		private ListViewItem AddParameter(QueryParameterModel queryParameter) {
 			ListViewItem item = new ListViewItem(queryParameter.name);
 			item.SubItems.Add(queryParameter.type);
 			item.SubItems.Add(queryParameter.autoSourceColumnName);
 			ParameterListView.Items.Add(item);
 			ParameterListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+			return item;
 		}
 		private void RefreshParentParameterList() {
 			ParentParameterListView.Items.Clear();
@@ -93,12 +94,13 @@ namespace QuickDBAccess.Forms {
 				AddParentParameter(parentParameter);
 			}
 		}
-		private void AddParentParameter(QueryParameterModel queryParameter) {
+		private ListViewItem AddParentParameter(QueryParameterModel queryParameter) {
 			ListViewItem item = new ListViewItem(queryParameter.name);
 			item.SubItems.Add(queryParameter.type);
 			item.SubItems.Add(queryParameter.autoSourceColumnName);
 			ParentParameterListView.Items.Add(item);
 			ParentParameterListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+			return item;
 		}
 		public DialogResult ShowNewDialog() {
 			Text = "New Data Source";
@@ -334,6 +336,44 @@ namespace QuickDBAccess.Forms {
 							EditParentParameterButton_Click(sender, e);
 						}
 						break;
+				}
+			}
+		}
+
+		private void ParameterDuplicateToolStripMenuItem_Click(object sender, EventArgs e) {
+			QueryParameterModel paramOriginal = SelectedParameter;
+			QueryParameterModel paramCopy = new QueryParameterModel(paramOriginal);
+			int oldIndex = Model.Query.Parameters.IndexOf(paramOriginal);
+			Model.Query.Parameters.Insert(oldIndex + 1, paramCopy);
+			ListViewItem item = AddParameter(paramCopy);
+			ParameterListView.Items.Remove(item);
+			ParameterListView.Items.Insert(oldIndex + 1, item);
+
+		}
+		private void ParameterListView_MouseClick(object sender, MouseEventArgs e) {
+			if (e.Button == MouseButtons.Right) {
+				var focusedItem = ParameterListView.FocusedItem;
+				if (focusedItem != null && focusedItem.Bounds.Contains(e.Location)) {
+					ParameterContextMenu.Show(Cursor.Position);
+				}
+			}
+		}
+
+		private void ParentParameterDuplicateStripMenuItem_Click(object sender, EventArgs e) {
+			QueryParameterModel paramOriginal = SelectedParentParameter;
+			QueryParameterModel paramCopy = new QueryParameterModel(paramOriginal);
+			int oldIndex = Model.Query.ParentParameters.IndexOf(paramOriginal);
+			Model.Query.ParentParameters.Insert(oldIndex + 1, paramCopy);
+			ListViewItem item = AddParentParameter(paramCopy);
+			ParentParameterListView.Items.Remove(item);
+			ParentParameterListView.Items.Insert(oldIndex + 1, item);
+		}
+
+		private void ParentParameterListView_MouseClick(object sender, MouseEventArgs e) {
+			if (e.Button == MouseButtons.Right) {
+				var focusedItem = ParameterListView.FocusedItem;
+				if (focusedItem != null && focusedItem.Bounds.Contains(e.Location)) {
+					ParentParameterContextMenu.Show(Cursor.Position);
 				}
 			}
 		}

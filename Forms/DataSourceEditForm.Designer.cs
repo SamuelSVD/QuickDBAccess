@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataSourceEditForm));
 			this.ParameterListView = new System.Windows.Forms.ListView();
 			this.PNameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -57,11 +58,17 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.CancelButton = new System.Windows.Forms.Button();
+			this.ParameterContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.ParameterDuplicateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.ParentParameterContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.ParentParameterDuplicateStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.QueryGroupBox.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.TableViewDetailGroup.SuspendLayout();
 			this.tableLayoutPanel4.SuspendLayout();
+			this.ParameterContextMenu.SuspendLayout();
+			this.ParentParameterContextMenu.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// ParameterListView
@@ -82,6 +89,7 @@
 			this.ParameterListView.SelectedIndexChanged += new System.EventHandler(this.ParameterListView_SelectedIndexChanged);
 			this.ParameterListView.DoubleClick += new System.EventHandler(this.ParameterListView_DoubleClick);
 			this.ParameterListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ParameterListView_KeyDown);
+			this.ParameterListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ParameterListView_MouseClick);
 			// 
 			// PNameColumn
 			// 
@@ -125,6 +133,7 @@
 			this.ParentParameterListView.SelectedIndexChanged += new System.EventHandler(this.ParentParameterListView_SelectedIndexChanged);
 			this.ParentParameterListView.DoubleClick += new System.EventHandler(this.ParentParameterListView_DoubleClick);
 			this.ParentParameterListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ParentParameterListView_KeyDown);
+			this.ParentParameterListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ParentParameterListView_MouseClick);
 			// 
 			// PPNameColumn
 			// 
@@ -470,11 +479,38 @@
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
 			// 
+			// ParameterContextMenu
+			// 
+			this.ParameterContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ParameterDuplicateToolStripMenuItem});
+			this.ParameterContextMenu.Name = "ParameterContextMenu";
+			this.ParameterContextMenu.Size = new System.Drawing.Size(125, 26);
+			// 
+			// ParameterDuplicateToolStripMenuItem
+			// 
+			this.ParameterDuplicateToolStripMenuItem.Name = "ParameterDuplicateToolStripMenuItem";
+			this.ParameterDuplicateToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+			this.ParameterDuplicateToolStripMenuItem.Text = "Duplicate";
+			this.ParameterDuplicateToolStripMenuItem.Click += new System.EventHandler(this.ParameterDuplicateToolStripMenuItem_Click);
+			// 
+			// ParentParameterContextMenu
+			// 
+			this.ParentParameterContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ParentParameterDuplicateStripMenuItem});
+			this.ParentParameterContextMenu.Name = "ParameterContextMenu";
+			this.ParentParameterContextMenu.Size = new System.Drawing.Size(125, 26);
+			// 
+			// ParentParameterDuplicateStripMenuItem
+			// 
+			this.ParentParameterDuplicateStripMenuItem.Name = "ParentParameterDuplicateStripMenuItem";
+			this.ParentParameterDuplicateStripMenuItem.Size = new System.Drawing.Size(124, 22);
+			this.ParentParameterDuplicateStripMenuItem.Text = "Duplicate";
+			this.ParentParameterDuplicateStripMenuItem.Click += new System.EventHandler(this.ParentParameterDuplicateStripMenuItem_Click);
+			// 
 			// DataSourceEditForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.AutoSize = true;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.ClientSize = new System.Drawing.Size(450, 471);
 			this.Controls.Add(this.tableLayoutPanel3);
@@ -493,6 +529,8 @@
 			this.TableViewDetailGroup.PerformLayout();
 			this.tableLayoutPanel4.ResumeLayout(false);
 			this.tableLayoutPanel4.PerformLayout();
+			this.ParameterContextMenu.ResumeLayout(false);
+			this.ParentParameterContextMenu.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -532,5 +570,9 @@
 		private System.Windows.Forms.ColumnHeader PPTypeColumn;
 		private System.Windows.Forms.ColumnHeader PPNameColumn;
 		private System.Windows.Forms.ColumnHeader PPAutoSourceColumn;
+		private System.Windows.Forms.ContextMenuStrip ParameterContextMenu;
+		private System.Windows.Forms.ToolStripMenuItem ParameterDuplicateToolStripMenuItem;
+		private System.Windows.Forms.ContextMenuStrip ParentParameterContextMenu;
+		private System.Windows.Forms.ToolStripMenuItem ParentParameterDuplicateStripMenuItem;
 	}
 }

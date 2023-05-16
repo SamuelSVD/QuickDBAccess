@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableViewEditForm));
 			this.DataSourceLabel = new System.Windows.Forms.Label();
 			this.DataSourceComboBox = new System.Windows.Forms.ComboBox();
@@ -54,11 +55,17 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.CancelButton = new System.Windows.Forms.Button();
+			this.ButtonsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.TableViewsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.DuplicateButtonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.DuplicateTableViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.ParametersGroupBox.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.TableViewDetailGroup.SuspendLayout();
 			this.tableLayoutPanel4.SuspendLayout();
+			this.ButtonsContextMenu.SuspendLayout();
+			this.TableViewsContextMenu.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// DataSourceLabel
@@ -133,6 +140,7 @@
 			this.ButtonListView.SelectedIndexChanged += new System.EventHandler(this.ButtonListView_SelectedIndexChanged);
 			this.ButtonListView.DoubleClick += new System.EventHandler(this.ButtonListView_DoubleClick);
 			this.ButtonListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ButtonListView_KeyDown);
+			this.ButtonListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ButtonListView_MouseClick);
 			// 
 			// TextColumn
 			// 
@@ -184,6 +192,7 @@
 			this.TableViewListView.SelectedIndexChanged += new System.EventHandler(this.TableViewListView_SelectedIndexChanged);
 			this.TableViewListView.DoubleClick += new System.EventHandler(this.TableViewListView_DoubleClick);
 			this.TableViewListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TableViewListView_KeyDown);
+			this.TableViewListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TableViewListView_MouseClick);
 			// 
 			// TableViewNameColumn
 			// 
@@ -440,6 +449,34 @@
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
 			// 
+			// ButtonsContextMenu
+			// 
+			this.ButtonsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DuplicateButtonToolStripMenuItem});
+			this.ButtonsContextMenu.Name = "ButtonsContextMenu";
+			this.ButtonsContextMenu.Size = new System.Drawing.Size(125, 26);
+			// 
+			// TableViewsContextMenu
+			// 
+			this.TableViewsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DuplicateTableViewToolStripMenuItem});
+			this.TableViewsContextMenu.Name = "contextMenuStrip1";
+			this.TableViewsContextMenu.Size = new System.Drawing.Size(181, 48);
+			// 
+			// DuplicateButtonToolStripMenuItem
+			// 
+			this.DuplicateButtonToolStripMenuItem.Name = "DuplicateButtonToolStripMenuItem";
+			this.DuplicateButtonToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+			this.DuplicateButtonToolStripMenuItem.Text = "Duplicate";
+			this.DuplicateButtonToolStripMenuItem.Click += new System.EventHandler(this.DuplicateButtonToolStripMenuItem_Click);
+			// 
+			// DuplicateTableViewToolStripMenuItem1
+			// 
+			this.DuplicateTableViewToolStripMenuItem.Name = "DuplicateTableViewToolStripMenuItem1";
+			this.DuplicateTableViewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.DuplicateTableViewToolStripMenuItem.Text = "Duplicate";
+			this.DuplicateTableViewToolStripMenuItem.Click += new System.EventHandler(this.DuplicateTableViewToolStripMenuItem_Click);
+			// 
 			// TableViewEditForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -462,6 +499,8 @@
 			this.TableViewDetailGroup.PerformLayout();
 			this.tableLayoutPanel4.ResumeLayout(false);
 			this.tableLayoutPanel4.PerformLayout();
+			this.ButtonsContextMenu.ResumeLayout(false);
+			this.TableViewsContextMenu.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -497,5 +536,9 @@
 		private System.Windows.Forms.ColumnHeader SubTablesColumn;
 		private System.Windows.Forms.ColumnHeader TextColumn;
 		private System.Windows.Forms.ColumnHeader ButtonDataSourceColumn;
+		private System.Windows.Forms.ContextMenuStrip ButtonsContextMenu;
+		private System.Windows.Forms.ContextMenuStrip TableViewsContextMenu;
+		private System.Windows.Forms.ToolStripMenuItem DuplicateButtonToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem DuplicateTableViewToolStripMenuItem;
 	}
 }

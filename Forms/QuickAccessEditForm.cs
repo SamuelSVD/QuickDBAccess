@@ -95,7 +95,7 @@ namespace QuickDBAccess.Forms {
 				AddConnection(connection);
 			}
 		}
-		private void AddConnection(SQLConnectionModel connection) {
+		private ListViewItem AddConnection(SQLConnectionModel connection) {
 			ListViewItem item = new ListViewItem(connection.Name);
 			item.SubItems.Add(connection.server);
 			item.SubItems.Add(connection.database);
@@ -103,30 +103,33 @@ namespace QuickDBAccess.Forms {
 			item.SubItems.Add(connection.useIntegratedSecurity ? "Yes" : "No");
 			ConnectionsListView.Items.Add(item);
 			ConnectionsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+			return item;
 		}
 		private void RefreshDataSourcesList() {
 			foreach (var dataSource in Model.DataSources) {
 				AddDataSource(dataSource);
 			}
 		}
-		private void AddDataSource(DataSourceModel dataSource) {
+		private ListViewItem AddDataSource(DataSourceModel dataSource) {
 			ListViewItem item = new ListViewItem(dataSource.Name);
 			item.SubItems.Add(dataSource.ConnectionName);
 			item.SubItems.Add(dataSource.Query.Command);
 			DataSourcesListView.Items.Add(item);
 			DataSourcesListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+			return item;
 		}
 		private void RefreshTableViewsList() {
 			foreach (var tableView in Model.TableViews) {
 				AddTableView(tableView);
 			}
 		}
-		private void AddTableView(TableViewModel tableView) {
+		private ListViewItem AddTableView(TableViewModel tableView) {
 			ListViewItem item = new ListViewItem(tableView.Name);
 			item.SubItems.Add(tableView.ContentDataSourceName);
 			item.SubItems.Add(tableView.ChildTableViews.Count.ToString());
 			TableViewsListView.Items.Add(item);
 			TableViewsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+			return item;
 		}
 		private void ConnectionsListView_SelectedIndexChanged(object sender, EventArgs e) {
 			AddConnectionButton.Enabled = true;
@@ -473,6 +476,79 @@ namespace QuickDBAccess.Forms {
 							EditTableViewButton_Click(sender, e);
 						}
 						break;
+				}
+			}
+		}
+
+		private void DuplicateConnectionToolStripMenuItem_Click(object sender, EventArgs e) {
+			SQLConnectionModel modelOriginal = SelectedConnection;
+			SQLConnectionModel modelNew = new SQLConnectionModel(modelOriginal);
+			int i = 1;
+			string name = modelNew.Name + "-" + i.ToString();
+			while (Model.Connections.Exists(c => c.Name == name)) {
+				i++;
+				name = modelNew.Name + "-" + i.ToString();
+			}
+			modelNew.Name = name;
+			int oldIndex = Model.Connections.IndexOf(modelOriginal);
+			Model.Connections.Insert(oldIndex + 1, modelNew);
+			ListViewItem item = AddConnection(modelNew);
+			ConnectionsListView.Items.Remove(item);
+			ConnectionsListView.Items.Insert(oldIndex + 1, item);
+		}
+		private void ConnectionsListView_MouseClick(object sender, MouseEventArgs e) {
+			if (e.Button == MouseButtons.Right) {
+				var focusedItem = ConnectionsListView.FocusedItem;
+				if (focusedItem != null && focusedItem.Bounds.Contains(e.Location)) {
+					ConnectionsContextMenu.Show(Cursor.Position);
+				}
+			}
+		}
+		private void DuplicateDataSourcesMenuItem_Click(object sender, EventArgs e) {
+			DataSourceModel modelOriginal = SelectedDataSource;
+			DataSourceModel modelNew = new DataSourceModel(modelOriginal);
+			int i = 1;
+			string name = modelNew.Name + "-" + i.ToString();
+			while (Model.DataSources.Exists(c => c.Name == name)) {
+				i++;
+				name = modelNew.Name + "-" + i.ToString();
+			}
+			modelNew.Name = name;
+			int oldIndex = Model.DataSources.IndexOf(modelOriginal);
+			Model.DataSources.Insert(oldIndex + 1, modelNew);
+			ListViewItem item = AddDataSource(modelNew);
+			DataSourcesListView.Items.Remove(item);
+			DataSourcesListView.Items.Insert(oldIndex + 1, item);
+		}
+		private void DataSourcesListView_MouseClick(object sender, MouseEventArgs e) {
+			if (e.Button == MouseButtons.Right) {
+				var focusedItem = DataSourcesListView.FocusedItem;
+				if (focusedItem != null && focusedItem.Bounds.Contains(e.Location)) {
+					DataSourcesContextMenu.Show(Cursor.Position);
+				}
+			}
+		}
+		private void DuplicateTableViewsMenuItem_Click(object sender, EventArgs e) {
+			TableViewModel modelOriginal = SelectedTableView;
+			TableViewModel modelNew = new TableViewModel(modelOriginal);
+			int i = 1;
+			string name = modelNew.Name + "-" + i.ToString();
+			while (Model.TableViews.Exists(c => c.Name == name)) {
+				i++;
+				name = modelNew.Name + "-" + i.ToString();
+			}
+			modelNew.Name = name;
+			int oldIndex = Model.TableViews.IndexOf(modelOriginal);
+			Model.TableViews.Insert(oldIndex + 1, modelNew);
+			ListViewItem item = AddTableView(modelNew);
+			TableViewsListView.Items.Remove(item);
+			TableViewsListView.Items.Insert(oldIndex + 1, item);
+		}
+		private void TableViewsListView_MouseClick(object sender, MouseEventArgs e) {
+			if (e.Button == MouseButtons.Right) {
+				var focusedItem = TableViewsListView.FocusedItem;
+				if (focusedItem != null && focusedItem.Bounds.Contains(e.Location)) {
+					TableViewsContextMenu.Show(Cursor.Position);
 				}
 			}
 		}
