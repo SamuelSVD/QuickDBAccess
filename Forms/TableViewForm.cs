@@ -13,7 +13,7 @@ namespace QuickDBAccess.Forms {
 		public TableViewForm ParentForm;
 		public Button RefreshButton;
 		private QuickAccessModel QdbaModel;
-
+		private Dictionary<QueryParameterModel, Control> paramControlMapping = new Dictionary<QueryParameterModel, Control>();
 		public Control getControl() {
 			if (tableView.ChildTableViews.Count == 0) {
 				return ContentTableLayoutPanel;
@@ -32,10 +32,24 @@ namespace QuickDBAccess.Forms {
 			if (tv.Buttons.Count > 2) {
 				ButtonsTableLayoutPanel.ColumnCount = tv.Buttons.Count;
 			}
+			BuildButtons();
+			BuildParameterFields();
+			//DataLoad();
+			if (Program.DEBUG) ContentTableLayoutPanel.CellPaint += tableLayoutPanel_CellPaint;
+			if (tableView.ChildTableViews.Count > 0) {
+				BuildChildrenViews();
+			} else {
+				ContentTableLayoutPanel.RowCount--;
+				ContentTableLayoutPanel.Controls.Remove(ChildrenTabControl);
+				ContentTableLayoutPanel.RowStyles[1].SizeType = SizeType.AutoSize;
+			}
+			_initialized = true;
+		}
+		private void BuildButtons() {
 			ColumnStyle cs;
 			Button b;
 			int cnt = 0;
-			for (int i = 0; i < tv.Buttons.Count; i++) {
+			for (int i = 0; i < tableView.Buttons.Count; i++) {
 				if (ButtonsTableLayoutPanel.ColumnCount <= i) {
 					ButtonsTableLayoutPanel.ColumnCount++;
 				}
@@ -47,14 +61,14 @@ namespace QuickDBAccess.Forms {
 				}
 				cs.SizeType = SizeType.AutoSize;
 				b = new Button();
-				b.Text = tv.Buttons[i].Text;
+				b.Text = tableView.Buttons[i].Text;
 				b.MinimumSize = b.Size;
 				b.AutoSize = true;
-				AddButtonEvent(b, tv.Buttons[i]);
+				AddButtonEvent(b, tableView.Buttons[i]);
 				ButtonsTableLayoutPanel.Controls.Add(b, i, 0);
 				cnt++;
 			}
-			if (ButtonsTableLayoutPanel.ColumnCount <= tv.Buttons.Count) {
+			if (ButtonsTableLayoutPanel.ColumnCount <= tableView.Buttons.Count) {
 				ButtonsTableLayoutPanel.ColumnCount++;
 			}
 			RefreshButton = new Button();
@@ -71,17 +85,100 @@ namespace QuickDBAccess.Forms {
 			cs = new ColumnStyle();
 			cs.SizeType = SizeType.AutoSize;
 			ButtonsTableLayoutPanel.ColumnStyles.Add(cs);
-
-			//DataLoad();
-			if (Program.DEBUG) ContentTableLayoutPanel.CellPaint += tableLayoutPanel_CellPaint;
-			if (tableView.ChildTableViews.Count > 0) {
-				BuildChildrenViews();
-			} else {
-				ContentTableLayoutPanel.RowCount--;
-				ContentTableLayoutPanel.Controls.Remove(ChildrenTabControl);
-				ContentTableLayoutPanel.RowStyles[1].SizeType = SizeType.AutoSize;
+		}
+		private void BuildParameterFields() {
+			DataSourceModel ds = QdbaModel.DataSourceByName(tableView.ContentDataSourceName);
+			ParametersTableLayoutPanel.Visible = (ds == null) || ds.Query.Parameters.Count > 0;
+			foreach(QueryParameterModel param in ds.Query.Parameters) {
+				AddParameter(ds, param);
 			}
-			_initialized = true;
+			ParametersTableLayoutPanel.ColumnStyles.Clear();
+			ParametersTableLayoutPanel.ColumnCount = ParametersTableLayoutPanel.Controls.Count + 1;
+			for (int i = 0; i < ParametersTableLayoutPanel.Controls.Count + 1; i++) {
+				ColumnStyle cs = new ColumnStyle();
+				if (i == ParametersTableLayoutPanel.Controls.Count) {
+					cs.SizeType = SizeType.Percent;
+					cs.Width = 100;
+				} else {
+					cs.SizeType = SizeType.AutoSize;
+				}
+				ParametersTableLayoutPanel.ColumnStyles.Add(cs);
+			}
+		}
+		private void AddParameter(DataSourceModel dataSource, QueryParameterModel param) {
+			int i = dataSource.Query.Parameters.IndexOf(param);
+			Label l = new Label();
+			l.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+			l.Text = param.name;
+			l.TextAlign = ContentAlignment.MiddleLeft;
+			l.MinimumSize = new Size(1, l.Height);
+			l.AutoSize = true;
+			ParametersTableLayoutPanel.Controls.Add(l, i, 0);
+			switch (param.getSqlDbType()) {
+				case SqlDbType.BigInt:
+					NumericUpDown nud2 = new NumericUpDown();
+					nud2.Minimum = long.MinValue;
+					nud2.Maximum = long.MaxValue;
+					param.c = nud2;
+					break;
+				case SqlDbType.Bit:
+					CheckBox cb = new CheckBox();
+					param.c = cb;
+					break;
+				case SqlDbType.Date:
+					DateTimePicker dtp = new DateTimePicker();
+					dtp.Format = DateTimePickerFormat.Short;
+					param.c = dtp;
+					break;
+				case SqlDbType.Time:
+					DateTimePicker dtp2 = new DateTimePicker();
+					dtp2.Format = DateTimePickerFormat.Time;
+					param.c = dtp2;
+					break;
+				case SqlDbType.DateTime:
+					DateTimePicker dtp3 = new DateTimePicker();
+					dtp3.Format = DateTimePickerFormat.Custom;
+					dtp3.CustomFormat = "dd-MMM-yyyy HH:mm:ss";
+					param.c = dtp3;
+					break;
+				case SqlDbType.Float:
+					TextBox tb = new TextBox();
+					tb.Text = "0.0";
+					param.c = tb;
+					break;
+				case SqlDbType.Int:
+					NumericUpDown nud = new NumericUpDown();
+					nud.Minimum = int.MinValue;
+					nud.Maximum = int.MaxValue;
+					param.c = nud;
+					break;
+				case SqlDbType.Real:
+					TextBox tb2 = new TextBox();
+					tb2.Text = "0.0";
+					param.c = tb2;
+					break;
+				case SqlDbType.SmallInt:
+					NumericUpDown nud3 = new NumericUpDown();
+					nud3.Minimum = short.MinValue;
+					nud3.Maximum = short.MaxValue;
+					param.c = nud3;
+					break;
+				case SqlDbType.TinyInt:
+					NumericUpDown nud4 = new NumericUpDown();
+					nud4.Minimum = byte.MinValue;
+					nud4.Maximum = byte.MaxValue;
+					param.c = nud4;
+					break;
+				default:
+					TextBox tbd = new TextBox();
+					param.c = tbd;
+					break;
+			}
+			param.c.Dock = DockStyle.Top;
+			Control c = param.c;
+			param.c = null;
+			ParametersTableLayoutPanel.Controls.Add(c, i+1, 0);
+			paramControlMapping.Add(param, c);
 		}
 		private void BuildChildrenViews() {
 			ContentTableLayoutPanel.AutoSize = true;
@@ -162,7 +259,9 @@ namespace QuickDBAccess.Forms {
 						for (int i = 0; i < ds.Query.Parameters.Count; i++) {
 							QueryParameterModel p = ds.Query.Parameters[i];
 							cmd.Parameters.Add("@" + p.name, p.getSqlDbType());
+							p.c = paramControlMapping[p];
 							cmd.Parameters["@" + p.name].Value = p.getValue();
+							p.c = null;
 						}
 						con.Open();
 						// create data adapter
@@ -245,6 +344,10 @@ namespace QuickDBAccess.Forms {
 
 		private void ContentDataGridView_ColumnAdded(object sender, DataGridViewColumnEventArgs e) {
 			e.Column.FillWeight = 10;
+		}
+
+		private void ContentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
 		}
 	}
 }
