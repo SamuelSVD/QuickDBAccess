@@ -34,6 +34,7 @@ namespace QuickDBAccess {
 			}
 		}
 		public static bool SaveConfig() {
+			if (ProgramData.Instance == null) return false;
 			if (!ValidConfigLocation) {
 				return SaveConfigAs();
 			} else {
@@ -43,6 +44,7 @@ namespace QuickDBAccess {
 			}
 		}
 		public static bool SaveConfigAs() {
+			if (ProgramData.Instance == null) return false;
 			SaveFileDialog d = new SaveFileDialog();
 			d.Filter = "Quick DB Access Program | *.qdba|XML File | *.xml";
 			d.InitialDirectory = AssemblyDirectory;

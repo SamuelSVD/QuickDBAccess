@@ -77,6 +77,7 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void refreshAllToolStripMenuItem_Click(object sender, System.EventArgs e) {
+			if (ProgramData.Instance == null) return;
 			foreach (TableViewModel tv in ProgramData.Instance.TableViews) {
 				try {
 					tv.View.RefreshData(sender, e);
@@ -157,6 +158,7 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void editToolStripMenuItem_Click(object sender, System.EventArgs e) {
+			if (ProgramData.Instance == null) return;
 			QuickAccessModel model = new QuickAccessModel(ProgramData.Instance);
 			QuickAccessEditForm editForm = new QuickAccessEditForm(model);
 			if (editForm.ShowDialog() == DialogResult.OK) {
@@ -173,7 +175,7 @@ namespace QuickDBAccess.Forms {
 
 		private void UpdateFormText() {
 			Text = "Quick DB Access - ";
-			Text += string.IsNullOrEmpty(ProgramData.Instance.ProjectName) ? "Untitled Project" : ProgramData.Instance.ProjectName;
+			Text += (ProgramData.Instance == null) || string.IsNullOrEmpty(ProgramData.Instance.ProjectName) ? "Untitled Project" : ProgramData.Instance.ProjectName;
 			Text += ProgramData.Changed ? "*" : string.Empty;
 		}
 
@@ -214,6 +216,9 @@ namespace QuickDBAccess.Forms {
 				}
 			}
 			ProgramData.OpenConfig();
+			if (ProgramData.Instance == null) {
+				ProgramData.Instance = new QuickAccessModel();
+			}
 			BuildTableViews();
 			LoadTableViewsData();
 			UpdateFormText();
