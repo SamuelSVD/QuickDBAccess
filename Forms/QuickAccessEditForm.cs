@@ -495,6 +495,7 @@ namespace QuickDBAccess.Forms {
 			ListViewItem item = AddConnection(modelNew);
 			ConnectionsListView.Items.Remove(item);
 			ConnectionsListView.Items.Insert(oldIndex + 1, item);
+			Changed = true;
 		}
 		private void ConnectionsListView_MouseClick(object sender, MouseEventArgs e) {
 			if (e.Button == MouseButtons.Right) {
@@ -519,6 +520,7 @@ namespace QuickDBAccess.Forms {
 			ListViewItem item = AddDataSource(modelNew);
 			DataSourcesListView.Items.Remove(item);
 			DataSourcesListView.Items.Insert(oldIndex + 1, item);
+			Changed = true;
 		}
 		private void DataSourcesListView_MouseClick(object sender, MouseEventArgs e) {
 			if (e.Button == MouseButtons.Right) {
@@ -543,6 +545,7 @@ namespace QuickDBAccess.Forms {
 			ListViewItem item = AddTableView(modelNew);
 			TableViewsListView.Items.Remove(item);
 			TableViewsListView.Items.Insert(oldIndex + 1, item);
+			Changed = true;
 		}
 		private void TableViewsListView_MouseClick(object sender, MouseEventArgs e) {
 			if (e.Button == MouseButtons.Right) {
