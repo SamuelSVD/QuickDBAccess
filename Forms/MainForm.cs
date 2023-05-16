@@ -6,6 +6,15 @@ using Utils;
 
 namespace QuickDBAccess.Forms {
 	public partial class MainForm : Form {
+		public TableViewModel CurrentTableView {
+			get {
+				int i = TableViewTabControl.SelectedIndex;
+				if ((i >= 0) && (ProgramData.Instance != null) && (i < ProgramData.Instance.TableViews.Count)) {
+					return ProgramData.Instance.TableViews[i];
+				}
+				return null;
+			}
+		}
 		public MainForm() {
 			InitializeComponent();
 			LoadConfig();
@@ -77,7 +86,11 @@ namespace QuickDBAccess.Forms {
 				}
 			}
 		}
-
+		private void refreshCurrentAllToolStripMenuItem_Click(object sender, EventArgs e) {
+			if (CurrentTableView != null) {
+				CurrentTableView.View.RefreshData(sender, e);
+			}
+		}
 		private void MainForm_Load(object sender, System.EventArgs e) {
 			bool locationValid = false;
 			foreach(Screen screen in Screen.AllScreens) {
