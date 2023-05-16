@@ -58,13 +58,14 @@
 			this.tableLayoutPanel3.Controls.Add(this.OkButton, 2, 1);
 			this.tableLayoutPanel3.Controls.Add(this.CancelButton, 3, 1);
 			this.tableLayoutPanel3.Controls.Add(this.TestConnectionButton, 0, 1);
+			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 2;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(306, 282);
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(320, 286);
 			this.tableLayoutPanel3.TabIndex = 5;
 			// 
 			// TableViewDetailGroup
@@ -76,7 +77,7 @@
 			this.TableViewDetailGroup.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.TableViewDetailGroup.Location = new System.Drawing.Point(3, 3);
 			this.TableViewDetailGroup.Name = "TableViewDetailGroup";
-			this.TableViewDetailGroup.Size = new System.Drawing.Size(300, 247);
+			this.TableViewDetailGroup.Size = new System.Drawing.Size(314, 247);
 			this.TableViewDetailGroup.TabIndex = 0;
 			this.TableViewDetailGroup.TabStop = false;
 			this.TableViewDetailGroup.Text = "Data Source Properties";
@@ -113,14 +114,15 @@
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel4.Size = new System.Drawing.Size(294, 228);
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(308, 228);
 			this.tableLayoutPanel4.TabIndex = 0;
 			// 
 			// UserTextBox
 			// 
+			this.UserTextBox.Dock = System.Windows.Forms.DockStyle.Top;
 			this.UserTextBox.Location = new System.Drawing.Point(3, 139);
 			this.UserTextBox.Name = "UserTextBox";
-			this.UserTextBox.Size = new System.Drawing.Size(288, 22);
+			this.UserTextBox.Size = new System.Drawing.Size(302, 22);
 			this.UserTextBox.TabIndex = 3;
 			this.UserTextBox.TooltipText = "Field should not be empty";
 			this.UserTextBox.Valid = false;
@@ -131,15 +133,16 @@
 			this.label4.Dock = System.Windows.Forms.DockStyle.Top;
 			this.label4.Location = new System.Drawing.Point(3, 164);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(288, 13);
+			this.label4.Size = new System.Drawing.Size(302, 13);
 			this.label4.TabIndex = 12;
 			this.label4.Text = "Password";
 			// 
 			// DatabaseTextBox
 			// 
+			this.DatabaseTextBox.Dock = System.Windows.Forms.DockStyle.Top;
 			this.DatabaseTextBox.Location = new System.Drawing.Point(3, 98);
 			this.DatabaseTextBox.Name = "DatabaseTextBox";
-			this.DatabaseTextBox.Size = new System.Drawing.Size(288, 22);
+			this.DatabaseTextBox.Size = new System.Drawing.Size(302, 22);
 			this.DatabaseTextBox.TabIndex = 2;
 			this.DatabaseTextBox.TooltipText = "Field should not be empty";
 			this.DatabaseTextBox.Valid = false;
@@ -150,15 +153,16 @@
 			this.label3.Dock = System.Windows.Forms.DockStyle.Top;
 			this.label3.Location = new System.Drawing.Point(3, 123);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(288, 13);
+			this.label3.Size = new System.Drawing.Size(302, 13);
 			this.label3.TabIndex = 11;
 			this.label3.Text = "User";
 			// 
 			// ServerTextBox
 			// 
+			this.ServerTextBox.Dock = System.Windows.Forms.DockStyle.Top;
 			this.ServerTextBox.Location = new System.Drawing.Point(3, 57);
 			this.ServerTextBox.Name = "ServerTextBox";
-			this.ServerTextBox.Size = new System.Drawing.Size(288, 22);
+			this.ServerTextBox.Size = new System.Drawing.Size(302, 22);
 			this.ServerTextBox.TabIndex = 1;
 			this.ServerTextBox.TooltipText = "Field should not be empty";
 			this.ServerTextBox.Valid = false;
@@ -169,15 +173,16 @@
 			this.label2.Dock = System.Windows.Forms.DockStyle.Top;
 			this.label2.Location = new System.Drawing.Point(3, 82);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(288, 13);
+			this.label2.Size = new System.Drawing.Size(302, 13);
 			this.label2.TabIndex = 10;
 			this.label2.Text = "Database";
 			// 
 			// ConnectionNameTextBox
 			// 
+			this.ConnectionNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
 			this.ConnectionNameTextBox.Location = new System.Drawing.Point(3, 16);
 			this.ConnectionNameTextBox.Name = "ConnectionNameTextBox";
-			this.ConnectionNameTextBox.Size = new System.Drawing.Size(288, 22);
+			this.ConnectionNameTextBox.Size = new System.Drawing.Size(302, 22);
 			this.ConnectionNameTextBox.TabIndex = 0;
 			this.ConnectionNameTextBox.TooltipText = "Field should not be empty";
 			this.ConnectionNameTextBox.Valid = false;
@@ -188,7 +193,7 @@
 			this.ConnectionLabel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.ConnectionLabel.Location = new System.Drawing.Point(3, 41);
 			this.ConnectionLabel.Name = "ConnectionLabel";
-			this.ConnectionLabel.Size = new System.Drawing.Size(288, 13);
+			this.ConnectionLabel.Size = new System.Drawing.Size(302, 13);
 			this.ConnectionLabel.TabIndex = 5;
 			this.ConnectionLabel.Text = "Server";
 			// 
@@ -203,9 +208,10 @@
 			// 
 			// PasswordTextBox
 			// 
+			this.PasswordTextBox.Dock = System.Windows.Forms.DockStyle.Top;
 			this.PasswordTextBox.Location = new System.Drawing.Point(3, 180);
 			this.PasswordTextBox.Name = "PasswordTextBox";
-			this.PasswordTextBox.Size = new System.Drawing.Size(288, 22);
+			this.PasswordTextBox.Size = new System.Drawing.Size(302, 22);
 			this.PasswordTextBox.TabIndex = 4;
 			this.PasswordTextBox.TooltipText = "Field should not be empty";
 			this.PasswordTextBox.Valid = false;
@@ -217,7 +223,7 @@
 			this.IntegratedSecurityCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
 			this.IntegratedSecurityCheckBox.Location = new System.Drawing.Point(3, 208);
 			this.IntegratedSecurityCheckBox.Name = "IntegratedSecurityCheckBox";
-			this.IntegratedSecurityCheckBox.Size = new System.Drawing.Size(288, 17);
+			this.IntegratedSecurityCheckBox.Size = new System.Drawing.Size(302, 17);
 			this.IntegratedSecurityCheckBox.TabIndex = 5;
 			this.IntegratedSecurityCheckBox.Text = "Use Integrated Security";
 			this.IntegratedSecurityCheckBox.UseVisualStyleBackColor = true;
@@ -226,7 +232,7 @@
 			// OkButton
 			// 
 			this.OkButton.AutoSize = true;
-			this.OkButton.Location = new System.Drawing.Point(147, 256);
+			this.OkButton.Location = new System.Drawing.Point(161, 256);
 			this.OkButton.Name = "OkButton";
 			this.OkButton.Size = new System.Drawing.Size(75, 23);
 			this.OkButton.TabIndex = 1;
@@ -238,7 +244,7 @@
 			// 
 			this.CancelButton.AutoSize = true;
 			this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelButton.Location = new System.Drawing.Point(228, 256);
+			this.CancelButton.Location = new System.Drawing.Point(242, 256);
 			this.CancelButton.Name = "CancelButton";
 			this.CancelButton.Size = new System.Drawing.Size(75, 23);
 			this.CancelButton.TabIndex = 2;
@@ -260,11 +266,11 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.AutoSize = true;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(320, 286);
 			this.Controls.Add(this.tableLayoutPanel3);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MinimumSize = new System.Drawing.Size(336, 325);
 			this.Name = "ConnectionEditForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Edit Connection";
