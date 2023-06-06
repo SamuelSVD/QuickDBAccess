@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Form.AddConnectionButton.Tooltip" xml:space="preserve">
+    <value>New Connection</value>
+  </data>
+  <data name="Form.ButtonsDownButton.Tooltip" xml:space="preserve">
+    <value>Move Button Down</value>
+  </data>
+  <data name="Form.ButtonsUpButton.Tooltip" xml:space="preserve">
+    <value>Move Button Up</value>
+  </data>
+  <data name="Form.ConnectionsDownButton.Tooltip" xml:space="preserve">
+    <value>Move Connection Down</value>
+  </data>
+  <data name="Form.ConnectionsUpButton.Tooltip" xml:space="preserve">
+    <value>Move Connection Up</value>
+  </data>
+  <data name="Form.DataSourcesDownButton.Tooltip" xml:space="preserve">
+    <value>Move Data Source Down</value>
+  </data>
+  <data name="Form.DataSourcesUpButton.Tooltip" xml:space="preserve">
+    <value>Move Data Source Up</value>
+  </data>
+  <data name="Form.DeleteButtonButton.Tooltip" xml:space="preserve">
+    <value>Delete Button</value>
+  </data>
+  <data name="Form.DeleteConnectionButton.Tooltip" xml:space="preserve">
+    <value>Delete Connection</value>
+  </data>
+  <data name="Form.DeleteDataSourceButton.Tooltip" xml:space="preserve">
+    <value>Delete Data Source</value>
+  </data>
+  <data name="Form.DeleteParameterButton.Tooltip" xml:space="preserve">
+    <value>Delete Parameter</value>
+  </data>
+  <data name="Form.DeleteParentParameterButton.Tooltip" xml:space="preserve">
+    <value>Delete Parent Paramerter</value>
+  </data>
+  <data name="Form.DeleteTableViewButton.Tooltip" xml:space="preserve">
+    <value>Delete Table View</value>
+  </data>
+  <data name="Form.EditButtonButton.Tooltip" xml:space="preserve">
+    <value>Edit Button</value>
+  </data>
+  <data name="Form.EditConnectionButton.Tooltip" xml:space="preserve">
+    <value>Edit Connection</value>
+  </data>
+  <data name="Form.EditDataSourceButton.Tooltip" xml:space="preserve">
+    <value>Edit Data Source</value>
+  </data>
+  <data name="Form.EditParameterButton.Tooltip" xml:space="preserve">
+    <value>Edit Parameter</value>
+  </data>
+  <data name="Form.EditParentParameterButton.Tooltip" xml:space="preserve">
+    <value>Edit Parent Parameter</value>
+  </data>
+  <data name="Form.EditTableViewButton.Tooltip" xml:space="preserve">
+    <value>Edit Table View</value>
+  </data>
+  <data name="Form.NewButtonButton.Tooltip" xml:space="preserve">
+    <value>New Button</value>
+  </data>
+  <data name="Form.NewDataSourceButton.Tooltip" xml:space="preserve">
+    <value>New Data Source</value>
+  </data>
+  <data name="Form.NewParameterButton.Tooltip" xml:space="preserve">
+    <value>New Parameter</value>
+  </data>
+  <data name="Form.NewParentParameterButton.Tooltip" xml:space="preserve">
+    <value>New Parent Parameter</value>
+  </data>
+  <data name="Form.NewTableViewButton.Tooltip" xml:space="preserve">
+    <value>New Table View</value>
+  </data>
+  <data name="Form.ParameterDownButton.Tooltip" xml:space="preserve">
+    <value>Move Parameter Down</value>
+  </data>
+  <data name="Form.ParameterUpButton.Tooltip" xml:space="preserve">
+    <value>Move Parameter Up</value>
+  </data>
+  <data name="Form.ParentParameterDownButton.Tooltip" xml:space="preserve">
+    <value>Move Parent Parameter Down</value>
+  </data>
+  <data name="Form.ParentParameterUpButton.Tooltip" xml:space="preserve">
+    <value>Move Parent Parameter Up</value>
+  </data>
+  <data name="Form.TableViewsDownButton.Tooltip" xml:space="preserve">
+    <value>Move Table View Down</value>
+  </data>
+  <data name="Form.TableViewsUpButton.Tooltip" xml:space="preserve">
+    <value>Move Table View Up</value>
+  </data>
+</root>

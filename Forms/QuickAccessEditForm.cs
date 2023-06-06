@@ -1,5 +1,6 @@
 ﻿using QuickDBAccess.Model;
 using QuickDBAccess.Properties;
+using QuickDBAccess.Utils;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -68,6 +69,7 @@ namespace QuickDBAccess.Forms {
 			InitializeComponent();
 			ProjectNameTextBox.TextChanged += ProjectNameTextBox_TextChanged;
 			InitializeViewModel();
+			InitializeLocalization();
 			ConnectionsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 			DataSourcesListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 			TableViewsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -81,6 +83,24 @@ namespace QuickDBAccess.Forms {
 			ProjectNameTextBox.Text = Model.ProjectName;
 		}
 
+		private void InitializeLocalization() {
+			ConnectionsUpButton.SetTooltip(Strings.Form_ConnectionsUpButton_Tooltip);
+			ConnectionsDownButton.SetTooltip(Strings.Form_ConnectionsDownButton_Tooltip);
+			AddConnectionButton.SetTooltip(Strings.Form_AddConnectionButton_Tooltip);
+			EditConnectionButton.SetTooltip(Strings.Form_EditConnectionButton_Tooltip);
+			DeleteConnectionButton.SetTooltip(Strings.Form_DeleteConnectionButton_Tooltip);
+			DataSourcesDownButton.SetTooltip(Strings.Form_DataSourcesDownButton_Tooltip);
+			DataSourcesUpButton.SetTooltip(Strings.Form_DataSourcesUpButton_Tooltip);
+			DeleteDataSourceButton.SetTooltip(Strings.Form_DeleteDataSourceButton_Tooltip);
+			EditDataSourceButton.SetTooltip(Strings.Form_EditDataSourceButton_Tooltip);
+			NewDataSourceButton.SetTooltip(Strings.Form_NewDataSourceButton_Tooltip);
+			TableViewsDownButton.SetTooltip(Strings.Form_TableViewsDownButton_Tooltip);
+			TableViewsUpButton.SetTooltip(Strings.Form_TableViewsUpButton_Tooltip);
+			DeleteTableViewButton.SetTooltip(Strings.Form_DeleteTableViewButton_Tooltip);
+			EditTableViewButton.SetTooltip(Strings.Form_EditTableViewButton_Tooltip);
+			NewTableViewButton.SetTooltip(Strings.Form_NewTableViewButton_Tooltip);
+		}
+		
 		private void ProjectNameTextBox_TextChanged(object sender, EventArgs e) {
 			if (Model.ProjectName != ProjectNameTextBox.Text) {
 				Changed = true;

@@ -45,8 +45,8 @@
 			this.DeleteTableViewButton = new System.Windows.Forms.Button();
 			this.ButtonsUpButton = new System.Windows.Forms.Button();
 			this.ButtonsDownButton = new System.Windows.Forms.Button();
-			this.TableViewUpButton = new System.Windows.Forms.Button();
-			this.TableViewDownButton = new System.Windows.Forms.Button();
+			this.TableViewsUpButton = new System.Windows.Forms.Button();
+			this.TableViewsDownButton = new System.Windows.Forms.Button();
 			this.ParametersGroupBox = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.TableViewDetailGroup = new System.Windows.Forms.GroupBox();
@@ -108,8 +108,8 @@
 			this.tableLayoutPanel2.Controls.Add(this.DeleteTableViewButton, 4, 4);
 			this.tableLayoutPanel2.Controls.Add(this.ButtonsUpButton, 0, 1);
 			this.tableLayoutPanel2.Controls.Add(this.ButtonsDownButton, 0, 2);
-			this.tableLayoutPanel2.Controls.Add(this.TableViewUpButton, 0, 4);
-			this.tableLayoutPanel2.Controls.Add(this.TableViewDownButton, 0, 5);
+			this.tableLayoutPanel2.Controls.Add(this.TableViewsUpButton, 0, 4);
+			this.tableLayoutPanel2.Controls.Add(this.TableViewsDownButton, 0, 5);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -313,29 +313,29 @@
 			// 
 			// TableViewUpButton
 			// 
-			this.TableViewUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up_disabled;
-			this.TableViewUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.TableViewUpButton.Enabled = false;
-			this.TableViewUpButton.Location = new System.Drawing.Point(3, 122);
-			this.TableViewUpButton.Name = "TableViewUpButton";
-			this.TableViewUpButton.Size = new System.Drawing.Size(23, 23);
-			this.TableViewUpButton.TabIndex = 6;
-			this.TableViewUpButton.UseVisualStyleBackColor = true;
-			this.TableViewUpButton.EnabledChanged += new System.EventHandler(this.TableViewUpButton_EnabledChanged);
-			this.TableViewUpButton.Click += new System.EventHandler(this.TableViewUpButton_Click);
+			this.TableViewsUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up_disabled;
+			this.TableViewsUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.TableViewsUpButton.Enabled = false;
+			this.TableViewsUpButton.Location = new System.Drawing.Point(3, 122);
+			this.TableViewsUpButton.Name = "TableViewUpButton";
+			this.TableViewsUpButton.Size = new System.Drawing.Size(23, 23);
+			this.TableViewsUpButton.TabIndex = 6;
+			this.TableViewsUpButton.UseVisualStyleBackColor = true;
+			this.TableViewsUpButton.EnabledChanged += new System.EventHandler(this.TableViewUpButton_EnabledChanged);
+			this.TableViewsUpButton.Click += new System.EventHandler(this.TableViewUpButton_Click);
 			// 
 			// TableViewDownButton
 			// 
-			this.TableViewDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down_disabled;
-			this.TableViewDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.TableViewDownButton.Enabled = false;
-			this.TableViewDownButton.Location = new System.Drawing.Point(3, 151);
-			this.TableViewDownButton.Name = "TableViewDownButton";
-			this.TableViewDownButton.Size = new System.Drawing.Size(23, 23);
-			this.TableViewDownButton.TabIndex = 7;
-			this.TableViewDownButton.UseVisualStyleBackColor = true;
-			this.TableViewDownButton.EnabledChanged += new System.EventHandler(this.TableViewDownButton_EnabledChanged);
-			this.TableViewDownButton.Click += new System.EventHandler(this.TableViewDownButton_Click);
+			this.TableViewsDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down_disabled;
+			this.TableViewsDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.TableViewsDownButton.Enabled = false;
+			this.TableViewsDownButton.Location = new System.Drawing.Point(3, 151);
+			this.TableViewsDownButton.Name = "TableViewDownButton";
+			this.TableViewsDownButton.Size = new System.Drawing.Size(23, 23);
+			this.TableViewsDownButton.TabIndex = 7;
+			this.TableViewsDownButton.UseVisualStyleBackColor = true;
+			this.TableViewsDownButton.EnabledChanged += new System.EventHandler(this.TableViewDownButton_EnabledChanged);
+			this.TableViewsDownButton.Click += new System.EventHandler(this.TableViewDownButton_Click);
 			// 
 			// ParametersGroupBox
 			// 
@@ -528,8 +528,8 @@
 		private System.Windows.Forms.ComboBox DataSourceComboBox;
 		private System.Windows.Forms.Button ButtonsUpButton;
 		private System.Windows.Forms.Button ButtonsDownButton;
-		private System.Windows.Forms.Button TableViewUpButton;
-		private System.Windows.Forms.Button TableViewDownButton;
+		private System.Windows.Forms.Button TableViewsUpButton;
+		private System.Windows.Forms.Button TableViewsDownButton;
 		private ValidateTextBox TableViewNameTextBox;
 		private System.Windows.Forms.ColumnHeader TableViewNameColumn;
 		private System.Windows.Forms.ColumnHeader DataSourceColumn;

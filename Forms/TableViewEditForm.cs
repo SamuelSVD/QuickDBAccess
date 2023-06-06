@@ -1,4 +1,6 @@
 ﻿using QuickDBAccess.Model;
+using QuickDBAccess.Properties;
+using QuickDBAccess.Utils;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -42,6 +44,7 @@ namespace QuickDBAccess.Forms {
 			this.Model = model;
 			this.QdbaModel = qdbaModel;
 			InitializeComponent();
+			InitializeLocalization();
 			foreach (DataSourceModel dsModel in qdbaModel.DataSources) {
 				DataSourceComboBox.Items.Add(dsModel.Name);
 			}
@@ -49,6 +52,18 @@ namespace QuickDBAccess.Forms {
 			InitializeModelView();
 			ButtonListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 			TableViewListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+		}
+		private void InitializeLocalization() {
+			TableViewsDownButton.SetTooltip(Strings.Form_TableViewsDownButton_Tooltip);
+			TableViewsUpButton.SetTooltip(Strings.Form_TableViewsUpButton_Tooltip);
+			DeleteTableViewButton.SetTooltip(Strings.Form_DeleteTableViewButton_Tooltip);
+			EditTableViewButton.SetTooltip(Strings.Form_EditTableViewButton_Tooltip);
+			NewTableViewButton.SetTooltip(Strings.Form_NewTableViewButton_Tooltip);
+			ButtonsDownButton.SetTooltip(Strings.Form_ButtonsDownButton_Tooltip);
+			ButtonsUpButton.SetTooltip(Strings.Form_ButtonsUpButton_Tooltip);
+			DeleteButtonButton.SetTooltip(Strings.Form_DeleteButtonButton_Tooltip);
+			EditButtonButton.SetTooltip(Strings.Form_EditButtonButton_Tooltip);
+			NewButtonButton.SetTooltip(Strings.Form_NewButtonButton_Tooltip);
 		}
 		private void InitializeModelView() {
 			TableViewNameTextBox.Text = Model.Name;
@@ -216,8 +231,8 @@ namespace QuickDBAccess.Forms {
 			NewTableViewButton.Enabled = true;
 			EditTableViewButton.Enabled = SelectedTableView != null;
 			DeleteTableViewButton.Enabled = SelectedTableView != null;
-			TableViewUpButton.Enabled = Model.ChildTableViews.Count > 1 && TableViewListView.SelectedIndices.Count > 0 && TableViewListView.SelectedIndices[0] > 0;
-			TableViewDownButton.Enabled = Model.ChildTableViews.Count > 1 && TableViewListView.SelectedIndices.Count > 0 && TableViewListView.SelectedIndices[0] < Model.ChildTableViews.Count - 1;
+			TableViewsUpButton.Enabled = Model.ChildTableViews.Count > 1 && TableViewListView.SelectedIndices.Count > 0 && TableViewListView.SelectedIndices[0] > 0;
+			TableViewsDownButton.Enabled = Model.ChildTableViews.Count > 1 && TableViewListView.SelectedIndices.Count > 0 && TableViewListView.SelectedIndices[0] < Model.ChildTableViews.Count - 1;
 		}
 		private void ChangeEnableDisable(Button button, Bitmap enabledImage, Bitmap disabledImage) {
 			if (button.Enabled) {
@@ -248,11 +263,11 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void TableViewUpButton_EnabledChanged(object sender, EventArgs e) {
-			ChangeEnableDisable(TableViewUpButton, Properties.Resources.up, Properties.Resources.up_disabled);
+			ChangeEnableDisable(TableViewsUpButton, Properties.Resources.up, Properties.Resources.up_disabled);
 		}
 
 		private void TableViewDownButton_EnabledChanged(object sender, EventArgs e) {
-			ChangeEnableDisable(TableViewDownButton, Properties.Resources.down, Properties.Resources.down_disabled);
+			ChangeEnableDisable(TableViewsDownButton, Properties.Resources.down, Properties.Resources.down_disabled);
 		}
 
 		private void ButtonListView_DoubleClick(object sender, EventArgs e) {
@@ -297,12 +312,12 @@ namespace QuickDBAccess.Forms {
 			if (e.Control) {
 				switch (e.KeyCode) {
 					case Keys.Up:
-						if (TableViewUpButton.Enabled) {
+						if (TableViewsUpButton.Enabled) {
 							TableViewUpButton_Click(sender, e);
 						}
 						break;
 					case Keys.Down:
-						if (TableViewDownButton.Enabled) {
+						if (TableViewsDownButton.Enabled) {
 							TableViewDownButton_Click(sender, e);
 						}
 						break;

@@ -1,4 +1,6 @@
 ﻿using QuickDBAccess.Model;
+using QuickDBAccess.Properties;
+using QuickDBAccess.Utils;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -44,6 +46,7 @@ namespace QuickDBAccess.Forms {
 			this.ReferenceModel = referenceModel;
 			this.QdbaModel = qdbaModel;
 			InitializeComponent();
+			InitializeLocalization();
 			foreach (SQLConnectionModel connection in QdbaModel.Connections) {
 				ConnectionComboBox.Items.Add(connection.Name);
 			}
@@ -53,7 +56,18 @@ namespace QuickDBAccess.Forms {
 			ParameterListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 			ParentParameterListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 		}
-
+		private void InitializeLocalization() {
+			NewParameterButton.SetTooltip(Strings.Form_NewParameterButton_Tooltip);
+			EditParameterButton.SetTooltip(Strings.Form_EditParameterButton_Tooltip);
+			DeleteParameterButton.SetTooltip(Strings.Form_DeleteParameterButton_Tooltip);
+			NewParentParameterButton.SetTooltip(Strings.Form_NewParentParameterButton_Tooltip);
+			EditParentParameterButton.SetTooltip(Strings.Form_EditParentParameterButton_Tooltip);
+			DeleteParentParameterButton.SetTooltip(Strings.Form_DeleteParentParameterButton_Tooltip);
+			ParentParameterUpButton.SetTooltip(Strings.Form_ParentParameterUpButton_Tooltip);
+			ParameterUpButton.SetTooltip(Strings.Form_ParameterUpButton_Tooltip);
+			ParameterDownButton.SetTooltip(Strings.Form_ParameterDownButton_Tooltip);
+			ParentParameterDownButton.SetTooltip(Strings.Form_ParentParameterDownButton_Tooltip);
+		}
 		private void DataSourceNameTextBox_TextChanged(object sender, System.EventArgs e) {
 			Model.Name = DataSourceNameTextBox.Text;
 			if (!string.IsNullOrEmpty(Model.Name)) {
