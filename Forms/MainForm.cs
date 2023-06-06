@@ -1,5 +1,7 @@
 ﻿using QuickDBAccess.Model;
+using QuickDBAccess.Properties;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace QuickDBAccess.Forms {
@@ -17,6 +19,59 @@ namespace QuickDBAccess.Forms {
 			InitializeComponent();
 			LoadConfig();
 			BuildTableViews();
+			UpdateRecentFiles();
+		}
+		public void UpdateRecentFiles() {
+			if (Settings.Default.RecentFiles == null) {
+				Settings.Default.RecentFiles = new List<string>();
+			}
+			if (ProgramData.InvalidFile) {
+				if (Settings.Default.RecentFiles.Contains(ProgramData.CONFIG)) {
+					Settings.Default.RecentFiles.RemoveAt(Settings.Default.RecentFiles.IndexOf(ProgramData.CONFIG));
+				}
+			} else if (ProgramData.ValidConfigLocation) {
+				if (Settings.Default.RecentFiles.Contains(ProgramData.CONFIG)) {
+					Settings.Default.RecentFiles.RemoveAt(Settings.Default.RecentFiles.IndexOf(ProgramData.CONFIG));
+				}
+				Settings.Default.RecentFiles.Insert(0, ProgramData.CONFIG);
+			}
+			while (Settings.Default.RecentFiles.Count > 10) {
+				Settings.Default.RecentFiles.RemoveAt(Settings.Default.RecentFiles.Count - 1);
+			}
+			OpenRecentToolStripMenuItem.Enabled = Settings.Default.RecentFiles.Count > 0;
+			OpenRecentToolStripMenuItem.DropDownItems.Clear();
+			foreach (string s in Settings.Default.RecentFiles) {
+				string s2 = s;
+				ToolStripMenuItem recentItem = new ToolStripMenuItem();
+				recentItem.Text = s2;
+				recentItem.Click += new EventHandler(delegate (object o, EventArgs e) {
+					if (ProgramData.Changed) {
+						DialogResult result = MessageBox.Show("Unsaved changes. Would you like to save before opening a different project?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+						if (result == DialogResult.Yes) {
+							ProgramData.SaveConfig();
+							if (ProgramData.Changed) {
+								return;
+							}
+						} else if (result == DialogResult.No) {
+						} else {
+							return;
+						}
+					}
+					ProgramData.OpenConfig(s2);
+					if (ProgramData.Instance == null) {
+						if (ProgramData.InvalidFile) {
+							MessageBox.Show($"Unable to open {ProgramData.CONFIG}. The file may be corrupted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						}
+						ProgramData.Instance = new QuickAccessModel();
+					}
+					BuildTableViews();
+					LoadTableViewsData();
+					UpdateFormText();
+					UpdateRecentFiles();
+				});
+				OpenRecentToolStripMenuItem.DropDownItems.Add(recentItem);
+			}
+			Settings.Default.Save();
 		}
 		public void LoadConfig() {
 			ProgramData.LoadConfig();
@@ -124,6 +179,7 @@ namespace QuickDBAccess.Forms {
 							e.Cancel = true;
 						}
 						UpdateFormText();
+						UpdateRecentFiles();
 						break;
 					case DialogResult.No:
 						break;
@@ -195,6 +251,7 @@ namespace QuickDBAccess.Forms {
 			BuildTableViews();
 			LoadTableViewsData();
 			UpdateFormText();
+			UpdateRecentFiles();
 		}
 
 		private void openToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -220,16 +277,19 @@ namespace QuickDBAccess.Forms {
 			BuildTableViews();
 			LoadTableViewsData();
 			UpdateFormText();
+			UpdateRecentFiles();
 		}
 
 		private void saveToolStripMenuItem_Click(object sender, EventArgs e) {
 			ProgramData.SaveConfig();
 			UpdateFormText();
+			UpdateRecentFiles();
 		}
 
 		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) {
 			ProgramData.SaveConfigAs();
 			UpdateFormText();
+			UpdateRecentFiles();
 		}
 	}
 }

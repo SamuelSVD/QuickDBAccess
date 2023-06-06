@@ -45,6 +45,8 @@ namespace QuickDBAccess.Forms
 			this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+			this.OpenRecentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -79,6 +81,8 @@ namespace QuickDBAccess.Forms
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
             this.toolStripMenuItem2,
+            this.OpenRecentToolStripMenuItem,
+            this.toolStripMenuItem3,
             this.exitToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -150,7 +154,7 @@ namespace QuickDBAccess.Forms
 			// 
 			this.currentToolStripMenuItem.Name = "currentToolStripMenuItem";
 			this.currentToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-			this.currentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.currentToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.currentToolStripMenuItem.Text = "Current";
 			this.currentToolStripMenuItem.Click += new System.EventHandler(this.refreshCurrentAllToolStripMenuItem_Click);
 			// 
@@ -158,7 +162,7 @@ namespace QuickDBAccess.Forms
 			// 
 			this.allToolStripMenuItem.Name = "allToolStripMenuItem";
 			this.allToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F5)));
-			this.allToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.allToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.allToolStripMenuItem.Text = "All";
 			this.allToolStripMenuItem.Click += new System.EventHandler(this.refreshAllToolStripMenuItem_Click);
 			// 
@@ -173,6 +177,17 @@ namespace QuickDBAccess.Forms
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
 			this.aboutToolStripMenuItem.Text = "About";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+			// 
+			// toolStripMenuItem3
+			// 
+			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+			this.toolStripMenuItem3.Size = new System.Drawing.Size(192, 6);
+			// 
+			// OpenRecentToolStripMenuItem
+			// 
+			this.OpenRecentToolStripMenuItem.Name = "OpenRecentToolStripMenuItem";
+			this.OpenRecentToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+			this.OpenRecentToolStripMenuItem.Text = "Open Recent...";
 			// 
 			// MainForm
 			// 
@@ -212,5 +227,7 @@ namespace QuickDBAccess.Forms
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
 		private System.Windows.Forms.ToolStripMenuItem currentToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem allToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem OpenRecentToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
 	}
 }

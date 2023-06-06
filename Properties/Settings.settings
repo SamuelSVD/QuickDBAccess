@@ -14,5 +14,8 @@
     <Setting Name="Minimised" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="RecentFiles" Type="System.Collections.Generic.List&lt;System.String&gt;" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

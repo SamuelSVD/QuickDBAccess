@@ -70,5 +70,16 @@ namespace QuickDBAccess.Properties {
                 this["Minimised"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<System.String> RecentFiles {
+            get {
+                return ((global::System.Collections.Generic.List<System.String>)(this["RecentFiles"]));
+            }
+            set {
+                this["RecentFiles"] = value;
+            }
+        }
     }
 }

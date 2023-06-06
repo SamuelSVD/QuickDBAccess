@@ -24,22 +24,32 @@ namespace QuickDBAccess {
 				ValidConfigLocation = true;
 			}
 		}
+		public static bool OpenConfig(string path) {
+			CONFIG = path;
+			InvalidFile = false;
+			LoadConfig();
+			if (Instance != null) {
+				ValidConfigLocation = true;
+				Changed = false;
+				return true;
+			}
+			Changed = false;
+			InvalidFile = true;
+			ValidConfigLocation = false;
+			ShouldBeValidConfigLocation = false;
+			return false;
+		}
 		public static bool OpenConfig() {
+			bool result = false;
 			OpenFileDialog ofd = new OpenFileDialog();
 			ofd.Filter = "Quick DB Access Program | *.qdba|XML File | *.xml";
 			ofd.InitialDirectory = AssemblyDirectory;
 			InvalidFile = false;
 			if (ofd.ShowDialog() == DialogResult.OK) {
-				CONFIG = ofd.FileName;
-				LoadConfig();
-				if (Instance != null) {
-					ValidConfigLocation = true;
-					return true;
-				}
-				InvalidFile = true;
+				result = OpenConfig(ofd.FileName);
 			}
 			ofd.Dispose();
-			return false;
+			return result;
 		}
 		public static bool SaveConfig() {
 			if (ProgramData.Instance == null) return false;
