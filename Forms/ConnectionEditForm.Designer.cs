@@ -122,7 +122,7 @@
 			this.UserTextBox.Dock = System.Windows.Forms.DockStyle.Top;
 			this.UserTextBox.Location = new System.Drawing.Point(3, 139);
 			this.UserTextBox.Name = "UserTextBox";
-			this.UserTextBox.Size = new System.Drawing.Size(302, 22);
+			this.UserTextBox.Size = new System.Drawing.Size(200, 22);
 			this.UserTextBox.TabIndex = 3;
 			this.UserTextBox.TooltipText = "Field should not be empty";
 			this.UserTextBox.Valid = false;
@@ -142,7 +142,7 @@
 			this.DatabaseTextBox.Dock = System.Windows.Forms.DockStyle.Top;
 			this.DatabaseTextBox.Location = new System.Drawing.Point(3, 98);
 			this.DatabaseTextBox.Name = "DatabaseTextBox";
-			this.DatabaseTextBox.Size = new System.Drawing.Size(302, 22);
+			this.DatabaseTextBox.Size = new System.Drawing.Size(200, 22);
 			this.DatabaseTextBox.TabIndex = 2;
 			this.DatabaseTextBox.TooltipText = "Field should not be empty";
 			this.DatabaseTextBox.Valid = false;
@@ -162,7 +162,7 @@
 			this.ServerTextBox.Dock = System.Windows.Forms.DockStyle.Top;
 			this.ServerTextBox.Location = new System.Drawing.Point(3, 57);
 			this.ServerTextBox.Name = "ServerTextBox";
-			this.ServerTextBox.Size = new System.Drawing.Size(302, 22);
+			this.ServerTextBox.Size = new System.Drawing.Size(200, 22);
 			this.ServerTextBox.TabIndex = 1;
 			this.ServerTextBox.TooltipText = "Field should not be empty";
 			this.ServerTextBox.Valid = false;
@@ -182,7 +182,7 @@
 			this.ConnectionNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
 			this.ConnectionNameTextBox.Location = new System.Drawing.Point(3, 16);
 			this.ConnectionNameTextBox.Name = "ConnectionNameTextBox";
-			this.ConnectionNameTextBox.Size = new System.Drawing.Size(302, 22);
+			this.ConnectionNameTextBox.Size = new System.Drawing.Size(200, 22);
 			this.ConnectionNameTextBox.TabIndex = 0;
 			this.ConnectionNameTextBox.TooltipText = "Field should not be empty";
 			this.ConnectionNameTextBox.Valid = false;
@@ -211,7 +211,7 @@
 			this.PasswordTextBox.Dock = System.Windows.Forms.DockStyle.Top;
 			this.PasswordTextBox.Location = new System.Drawing.Point(3, 180);
 			this.PasswordTextBox.Name = "PasswordTextBox";
-			this.PasswordTextBox.Size = new System.Drawing.Size(302, 22);
+			this.PasswordTextBox.Size = new System.Drawing.Size(200, 22);
 			this.PasswordTextBox.TabIndex = 4;
 			this.PasswordTextBox.TooltipText = "Field should not be empty";
 			this.PasswordTextBox.Valid = false;
@@ -231,7 +231,6 @@
 			// 
 			// OkButton
 			// 
-			this.OkButton.AutoSize = true;
 			this.OkButton.Location = new System.Drawing.Point(161, 256);
 			this.OkButton.Name = "OkButton";
 			this.OkButton.Size = new System.Drawing.Size(75, 23);
@@ -242,7 +241,6 @@
 			// 
 			// CancelButton
 			// 
-			this.CancelButton.AutoSize = true;
 			this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.CancelButton.Location = new System.Drawing.Point(242, 256);
 			this.CancelButton.Name = "CancelButton";
@@ -253,7 +251,6 @@
 			// 
 			// TestConnectionButton
 			// 
-			this.TestConnectionButton.AutoSize = true;
 			this.TestConnectionButton.Location = new System.Drawing.Point(3, 256);
 			this.TestConnectionButton.Name = "TestConnectionButton";
 			this.TestConnectionButton.Size = new System.Drawing.Size(95, 23);

@@ -72,19 +72,19 @@ namespace QuickDBAccess.Forms {
 				ButtonsTableLayoutPanel.ColumnCount++;
 			}
 			RefreshButton = new Button();
-			RefreshButton.Text = "";
+			cs = new ColumnStyle();
+			cs.SizeType = SizeType.AutoSize;
+			ButtonsTableLayoutPanel.ColumnStyles.Add(cs);
+			ButtonsTableLayoutPanel.Controls.Add(RefreshButton, cnt, 0);
+			RefreshButton.Text = "x";
+			RefreshButton.AutoSize = true;
 			RefreshButton.Width = RefreshButton.Height;
 			RefreshButton.MinimumSize = RefreshButton.Size;
-			RefreshButton.AutoSize = true;
+			RefreshButton.Text = ""; //Needed to make the sizing the same as other buttons
 			RefreshButton.Anchor = AnchorStyles.Right | AnchorStyles.Top;
 			RefreshButton.Click += RefreshData;
 			RefreshButton.BackgroundImageLayout = ImageLayout.Stretch;
 			RefreshButton.BackgroundImage = Properties.Resources.refresh;
-			ButtonsTableLayoutPanel.Controls.Add(RefreshButton, cnt, 0);
-
-			cs = new ColumnStyle();
-			cs.SizeType = SizeType.AutoSize;
-			ButtonsTableLayoutPanel.ColumnStyles.Add(cs);
 		}
 		private void BuildParameterFields() {
 			DataSourceModel ds = QdbaModel.DataSourceByName(tableView.ContentDataSourceName);
