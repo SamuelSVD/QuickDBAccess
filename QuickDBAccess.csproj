@@ -91,6 +91,12 @@
     <Compile Include="Forms\ButtonEditForm.Designer.cs">
       <DependentUpon>ButtonEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\HomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HomeForm.Designer.cs">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\QueryParameterEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ButtonEditForm.resx">
       <DependentUpon>ButtonEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HomeForm.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\QueryParameterEditForm.resx">
       <DependentUpon>QueryParameterEditForm.cs</DependentUpon>

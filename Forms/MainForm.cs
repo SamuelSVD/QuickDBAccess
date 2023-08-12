@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace QuickDBAccess.Forms {
 	public partial class MainForm : Form {
+		public static MainForm Form;
 		public TableViewModel CurrentTableView {
 			get {
 				int i = TableViewTabControl.SelectedIndex;
@@ -16,9 +17,35 @@ namespace QuickDBAccess.Forms {
 			}
 		}
 		public MainForm() {
+			Form = this;
 			InitializeComponent();
-			LoadConfig();
+			//LoadConfig();
 			BuildTableViews();
+			UpdateRecentFiles();
+		}
+		public void OpenRecentFile(string path) {
+			if (ProgramData.Changed) {
+				DialogResult result = MessageBox.Show("Unsaved changes. Would you like to save before opening a different project?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+				if (result == DialogResult.Yes) {
+					ProgramData.SaveConfig();
+					if (ProgramData.Changed) {
+						return;
+					}
+				} else if (result == DialogResult.No) {
+				} else {
+					return;
+				}
+			}
+			ProgramData.OpenConfig(path);
+			if (ProgramData.Instance == null) {
+				if (ProgramData.InvalidFile) {
+					MessageBox.Show($"Unable to open {ProgramData.CONFIG}. The file may be corrupted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+				ProgramData.Instance = new QuickAccessModel();
+			}
+			BuildTableViews();
+			LoadTableViewsData();
+			UpdateFormText();
 			UpdateRecentFiles();
 		}
 		public void UpdateRecentFiles() {
@@ -45,29 +72,7 @@ namespace QuickDBAccess.Forms {
 				ToolStripMenuItem recentItem = new ToolStripMenuItem();
 				recentItem.Text = s2;
 				recentItem.Click += new EventHandler(delegate (object o, EventArgs e) {
-					if (ProgramData.Changed) {
-						DialogResult result = MessageBox.Show("Unsaved changes. Would you like to save before opening a different project?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-						if (result == DialogResult.Yes) {
-							ProgramData.SaveConfig();
-							if (ProgramData.Changed) {
-								return;
-							}
-						} else if (result == DialogResult.No) {
-						} else {
-							return;
-						}
-					}
-					ProgramData.OpenConfig(s2);
-					if (ProgramData.Instance == null) {
-						if (ProgramData.InvalidFile) {
-							MessageBox.Show($"Unable to open {ProgramData.CONFIG}. The file may be corrupted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-						}
-						ProgramData.Instance = new QuickAccessModel();
-					}
-					BuildTableViews();
-					LoadTableViewsData();
-					UpdateFormText();
-					UpdateRecentFiles();
+					OpenRecentFile(s2);
 				});
 				OpenRecentToolStripMenuItem.DropDownItems.Add(recentItem);
 			}
@@ -85,6 +90,10 @@ namespace QuickDBAccess.Forms {
 				foreach (TableViewModel tv in ProgramData.Instance.TableViews) {
 					AddTableView(tv);
 				}
+			} else {
+				TabPage tp = new TabPage("Welcome");
+				tp.Controls.Add(new HomeForm().Content);
+				TableViewTabControl.TabPages.Add(tp);
 			}
 		}
 		public void LoadTableViewsData() {
@@ -225,12 +234,15 @@ namespace QuickDBAccess.Forms {
 		}
 
 		private void UpdateFormText() {
-			Text = "Quick DB Access - ";
-			Text += (ProgramData.Instance == null) || string.IsNullOrEmpty(ProgramData.Instance.ProjectName) ? "Untitled Project" : ProgramData.Instance.ProjectName;
+			Text = "Quick DB Access";
+			if (ProgramData.Instance != null) {
+				Text += " - ";
+				Text += string.IsNullOrEmpty(ProgramData.Instance.ProjectName) ? "Untitled Project" : ProgramData.Instance.ProjectName;
+			}
 			Text += ProgramData.Changed ? "*" : string.Empty;
 		}
 
-		private void newToolStripMenuItem_Click(object sender, EventArgs e) {
+		public void newToolStripMenuItem_Click(object sender, EventArgs e) {
 			if (ProgramData.Changed) {
 				switch (MessageBox.Show("Unsaved changes. Would you like to save before starting a new project?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)) {
 					case DialogResult.Yes:
@@ -254,7 +266,7 @@ namespace QuickDBAccess.Forms {
 			UpdateRecentFiles();
 		}
 
-		private void openToolStripMenuItem_Click(object sender, EventArgs e) {
+		public void openToolStripMenuItem_Click(object sender, EventArgs e) {
 			if (ProgramData.Changed) {
 				DialogResult result = MessageBox.Show("Unsaved changes. Would you like to save before opening a different project?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
 				if (result == DialogResult.Yes) {
@@ -272,7 +284,7 @@ namespace QuickDBAccess.Forms {
 				if (ProgramData.InvalidFile) {
 					MessageBox.Show($"Unable to open {ProgramData.CONFIG}. The file may be corrupted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
-				ProgramData.Instance = new QuickAccessModel();
+				ProgramData.Instance = null;
 			}
 			BuildTableViews();
 			LoadTableViewsData();

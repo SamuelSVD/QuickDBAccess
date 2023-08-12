@@ -38,6 +38,8 @@ namespace QuickDBAccess.Forms
 			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+			this.OpenRecentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.refreshAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,8 +47,6 @@ namespace QuickDBAccess.Forms
 			this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-			this.OpenRecentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -56,7 +56,7 @@ namespace QuickDBAccess.Forms
 			this.TableViewTabControl.Location = new System.Drawing.Point(0, 24);
 			this.TableViewTabControl.Name = "TableViewTabControl";
 			this.TableViewTabControl.SelectedIndex = 0;
-			this.TableViewTabControl.Size = new System.Drawing.Size(599, 338);
+			this.TableViewTabControl.Size = new System.Drawing.Size(801, 526);
 			this.TableViewTabControl.TabIndex = 0;
 			// 
 			// menuStrip1
@@ -69,7 +69,7 @@ namespace QuickDBAccess.Forms
             this.aboutToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(599, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(801, 24);
 			this.menuStrip1.TabIndex = 1;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -126,6 +126,17 @@ namespace QuickDBAccess.Forms
 			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
 			this.toolStripMenuItem2.Size = new System.Drawing.Size(192, 6);
 			// 
+			// OpenRecentToolStripMenuItem
+			// 
+			this.OpenRecentToolStripMenuItem.Name = "OpenRecentToolStripMenuItem";
+			this.OpenRecentToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+			this.OpenRecentToolStripMenuItem.Text = "Open Recent...";
+			// 
+			// toolStripMenuItem3
+			// 
+			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+			this.toolStripMenuItem3.Size = new System.Drawing.Size(192, 6);
+			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -178,22 +189,11 @@ namespace QuickDBAccess.Forms
 			this.aboutToolStripMenuItem.Text = "About";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
-			// toolStripMenuItem3
-			// 
-			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-			this.toolStripMenuItem3.Size = new System.Drawing.Size(192, 6);
-			// 
-			// OpenRecentToolStripMenuItem
-			// 
-			this.OpenRecentToolStripMenuItem.Name = "OpenRecentToolStripMenuItem";
-			this.OpenRecentToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-			this.OpenRecentToolStripMenuItem.Text = "Open Recent...";
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(599, 362);
+			this.ClientSize = new System.Drawing.Size(801, 550);
 			this.Controls.Add(this.TableViewTabControl);
 			this.Controls.Add(this.menuStrip1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
