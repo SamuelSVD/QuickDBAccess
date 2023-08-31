@@ -10,9 +10,12 @@ namespace QuickDBAccess.Forms {
 	public partial class TableViewForm : Form {
 		private DataTable datatable = new DataTable();
 		List<TableViewForm> ChildrenTabs = new List<TableViewForm>();
+		List<string> ColumnNames = new List<string>();
 		public TableViewForm ParentForm;
 		public Button RefreshButton;
+		public Button FilterButton;
 		private QuickAccessModel QdbaModel;
+		private DataFilterModel DataFilter = new DataFilterModel();
 		private Dictionary<QueryParameterModel, Control> paramControlMapping = new Dictionary<QueryParameterModel, Control>();
 		public Control getControl() {
 			if (tableView.ChildTableViews.Count == 0) {
@@ -49,6 +52,7 @@ namespace QuickDBAccess.Forms {
 			ColumnStyle cs;
 			Button b;
 			int cnt = 0;
+			ButtonsTableLayoutPanel.ColumnStyles.Clear();
 			for (int i = 0; i < tableView.Buttons.Count; i++) {
 				if (ButtonsTableLayoutPanel.ColumnCount <= i) {
 					ButtonsTableLayoutPanel.ColumnCount++;
@@ -71,11 +75,36 @@ namespace QuickDBAccess.Forms {
 			if (ButtonsTableLayoutPanel.ColumnCount <= tableView.Buttons.Count) {
 				ButtonsTableLayoutPanel.ColumnCount++;
 			}
+
+			cs = new ColumnStyle();
+			cs.SizeType = SizeType.Percent;
+			cs.Width = 100;
+			ButtonsTableLayoutPanel.ColumnStyles.Add(cs);
+
+			// Create Filter Button
+			FilterButton = new Button();
+			cs = new ColumnStyle();
+			cs.SizeType = SizeType.AutoSize;
+			ButtonsTableLayoutPanel.ColumnStyles.Add(cs);
+			ButtonsTableLayoutPanel.ColumnCount += 1;
+			ButtonsTableLayoutPanel.Controls.Add(FilterButton, cnt+1, 0);
+			FilterButton.Text = "x";
+			FilterButton.AutoSize = true;
+			FilterButton.Width = FilterButton.Height;
+			FilterButton.MinimumSize = FilterButton.Size;
+			FilterButton.Text = ""; //Needed to make the sizing the same as other buttons
+			FilterButton.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+			FilterButton.Click += FilterButtonPress;
+			FilterButton.BackgroundImageLayout = ImageLayout.Stretch;
+			FilterButton.BackgroundImage = Properties.Resources.filter;
+
+			// Create Refresh Button
 			RefreshButton = new Button();
 			cs = new ColumnStyle();
 			cs.SizeType = SizeType.AutoSize;
 			ButtonsTableLayoutPanel.ColumnStyles.Add(cs);
-			ButtonsTableLayoutPanel.Controls.Add(RefreshButton, cnt, 0);
+			ButtonsTableLayoutPanel.ColumnCount += 1;
+			ButtonsTableLayoutPanel.Controls.Add(RefreshButton, cnt + 2, 0);
 			RefreshButton.Text = "x";
 			RefreshButton.AutoSize = true;
 			RefreshButton.Width = RefreshButton.Height;
@@ -269,14 +298,17 @@ namespace QuickDBAccess.Forms {
 						// this will query your database and return the result to your datatable
 						da.Fill(datatable);
 						ContentDataGridView.DataSource = datatable;
+						ColumnNames.Clear();
 						foreach(DataGridViewColumn col in ContentDataGridView.Columns) {
 							ColumnDetailModel detail = tableView.ColumnDetails.Find(t => t.Name == col.HeaderText);
 							if (detail != null) {
 								col.Visible = !detail.hidden;
 							}
+							ColumnNames.Add(col.HeaderText);
 						}
 						con.Close();
 						da.Dispose();
+						FilterData();
 					}
 					catch (Exception ex) {
 						if (ex.Message.StartsWith("Login failed")) {
@@ -348,6 +380,39 @@ namespace QuickDBAccess.Forms {
 
 		private void ContentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
 
+		}
+		public void FilterButtonPress(object sender, EventArgs args) {
+			DataFilterForm f = new DataFilterForm(DataFilter, ColumnNames);
+			f.ShowDialog();
+			switch (f.DialogResult) {
+				case DialogResult.OK:
+					DataFilter = f.Model;
+					break;
+				case DialogResult.Cancel:
+					break;
+				case DialogResult.Abort:
+					DataFilter = new DataFilterModel();
+					break;
+			}
+			FilterData();
+		}
+		public void FilterData() {
+			if (DataFilter.ColumnIndex == -1) {
+				(ContentDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
+			} else {
+				string columnName = ColumnNames[DataFilter.ColumnIndex];
+				switch (DataFilter.Expression) {
+					case DataFilterModel.ComparisonExpression.Contains:
+						(ContentDataGridView.DataSource as DataTable).DefaultView.RowFilter = $"CONVERT({columnName},System.String) LIKE '*{DataFilter.Text}*'";
+						break;
+					case DataFilterModel.ComparisonExpression.Equals:
+						(ContentDataGridView.DataSource as DataTable).DefaultView.RowFilter = $"CONVERT({columnName},System.String) = '{DataFilter.Text}'";
+						break;
+					case DataFilterModel.ComparisonExpression.NotEquals:
+						(ContentDataGridView.DataSource as DataTable).DefaultView.RowFilter = $"CONVERT({columnName},System.String) <> '{DataFilter.Text}'";
+						break;
+				}
+			}
 		}
 	}
 }

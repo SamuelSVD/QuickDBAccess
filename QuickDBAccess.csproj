@@ -91,6 +91,12 @@
     <Compile Include="Forms\ButtonEditForm.Designer.cs">
       <DependentUpon>ButtonEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DataFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DataFilterForm.Designer.cs">
+      <DependentUpon>DataFilterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,7 @@
     </Compile>
     <Compile Include="Model\ButtonModel.cs" />
     <Compile Include="Model\ColumnDetailModel.cs" />
+    <Compile Include="Model\DataFilterModel.cs" />
     <Compile Include="Model\DataSourceModel.cs" />
     <Compile Include="Model\QuickAccessModel.cs" />
     <Compile Include="Model\SQLConnectionModel.cs" />
@@ -178,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ButtonEditForm.resx">
       <DependentUpon>ButtonEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DataFilterForm.resx">
+      <DependentUpon>DataFilterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
@@ -267,6 +277,7 @@
     <Content Include="Resources\edit.png" />
     <None Include="Resources\error.png" />
     <None Include="Resources\edit_disabled.png" />
+    <None Include="Resources\filter.png" />
     <Content Include="Resources\up.png" />
     <None Include="Resources\refresh.png" />
   </ItemGroup>
