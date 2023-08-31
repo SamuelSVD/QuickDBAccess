@@ -19,7 +19,7 @@ namespace QuickDBAccess.Forms {
 		public MainForm() {
 			Form = this;
 			InitializeComponent();
-			//LoadConfig();
+			if (ProgramData.ShouldBeValidConfigLocation) LoadConfig();
 			BuildTableViews();
 			UpdateRecentFiles();
 		}
