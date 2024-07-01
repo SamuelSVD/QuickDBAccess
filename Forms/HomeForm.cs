@@ -1,4 +1,5 @@
-﻿using QuickDBAccess.Properties;
+﻿using QuickDBAccess.Controls;
+using QuickDBAccess.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,14 +27,24 @@ namespace QuickDBAccess.Forms {
 				Settings.Default.RecentFiles = new List<string>();
 				RecentFilesGroupBox.Visible= false;
 			}
-			foreach (string recentFile in Settings.Default.RecentFiles) {
-				Button b = new Button();
-				b.Text = recentFile;
-				b.AutoSize = true;
-				b.Dock = DockStyle.Top;
+			for (int i = 0; i < Settings.Default.RecentFiles.Count(); i++) {
+				string recentFilePath = Settings.Default.RecentFiles[i];
+				string recentFileProjName = string.Empty;
+				if (Settings.Default.RecentFilesProjectName.Count() > i) {
+					recentFileProjName = Settings.Default.RecentFilesProjectName[i];
+				}
+				RecentFileUserControl b = new RecentFileUserControl();
+				b.ProjectName = recentFileProjName;
+				b.ProjectPath = recentFilePath;
+
+				b.HoverColor = SystemColors.ButtonHighlight;
+				//b.Text = recentFile;
+				//b.AutoSize = true;
+				//b.Dock = DockStyle.Top;
 				RecentFilesTableLayoutPanel.Controls.Add(b);
 				b.Click += new EventHandler(delegate (object o, EventArgs e) {
-					MainForm.Form.OpenRecentFile(b.Text);
+					string filePath = recentFilePath;
+					MainForm.Form.OpenRecentFile(filePath);
 				});
 			}
 		}

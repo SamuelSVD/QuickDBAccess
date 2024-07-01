@@ -2,6 +2,7 @@
 using QuickDBAccess.Properties;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace QuickDBAccess.Forms {
@@ -52,27 +53,47 @@ namespace QuickDBAccess.Forms {
 			if (Settings.Default.RecentFiles == null) {
 				Settings.Default.RecentFiles = new List<string>();
 			}
+			if (Settings.Default.RecentFilesProjectName == null) {
+				Settings.Default.RecentFilesProjectName = new List<string>();
+			}
+			int recentFilesCount = Settings.Default.RecentFiles.Count;
+			int recentFilesProjNameCount = Settings.Default.RecentFilesProjectName.Count;
+
+			while (recentFilesCount > recentFilesProjNameCount) {
+				Settings.Default.RecentFilesProjectName.Add(string.Empty);
+				recentFilesProjNameCount++;
+			}
 			if (ProgramData.InvalidFile) {
 				if (Settings.Default.RecentFiles.Contains(ProgramData.CONFIG)) {
-					Settings.Default.RecentFiles.RemoveAt(Settings.Default.RecentFiles.IndexOf(ProgramData.CONFIG));
+					int index = Settings.Default.RecentFiles.IndexOf(ProgramData.CONFIG);
+					Settings.Default.RecentFiles.RemoveAt(index);
+					Settings.Default.RecentFilesProjectName.RemoveAt(index);
 				}
 			} else if (ProgramData.ValidConfigLocation) {
 				if (Settings.Default.RecentFiles.Contains(ProgramData.CONFIG)) {
-					Settings.Default.RecentFiles.RemoveAt(Settings.Default.RecentFiles.IndexOf(ProgramData.CONFIG));
+					int index = Settings.Default.RecentFiles.IndexOf(ProgramData.CONFIG);
+					Settings.Default.RecentFiles.RemoveAt(index);
+					Settings.Default.RecentFilesProjectName.RemoveAt(index);
 				}
 				Settings.Default.RecentFiles.Insert(0, ProgramData.CONFIG);
+				Settings.Default.RecentFilesProjectName.Insert(0, ProgramData.Instance.ProjectName);
 			}
 			while (Settings.Default.RecentFiles.Count > 10) {
 				Settings.Default.RecentFiles.RemoveAt(Settings.Default.RecentFiles.Count - 1);
 			}
+			while (Settings.Default.RecentFilesProjectName.Count > 10) {
+				Settings.Default.RecentFilesProjectName.RemoveAt(Settings.Default.RecentFilesProjectName.Count - 1);
+			}
 			OpenRecentToolStripMenuItem.Enabled = Settings.Default.RecentFiles.Count > 0;
 			OpenRecentToolStripMenuItem.DropDownItems.Clear();
-			foreach (string s in Settings.Default.RecentFiles) {
-				string s2 = s;
+			for(int i = 0; i < Settings.Default.RecentFiles.Count; i++) {
+				string filePath = Settings.Default.RecentFiles[i];
+				string fileProjectName = Settings.Default.RecentFilesProjectName[i];
 				ToolStripMenuItem recentItem = new ToolStripMenuItem();
-				recentItem.Text = s2;
+				recentItem.Text = fileProjectName + " [" + filePath + "]";
 				recentItem.Click += new EventHandler(delegate (object o, EventArgs e) {
-					OpenRecentFile(s2);
+					string path = filePath;
+					OpenRecentFile(path);
 				});
 				OpenRecentToolStripMenuItem.DropDownItems.Add(recentItem);
 			}

@@ -73,6 +73,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\RecentFileUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RecentFileUserControl.Designer.cs">
+      <DependentUpon>RecentFileUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ValidateTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     <Compile Include="Utils\ArgUtils.cs" />
     <Compile Include="Utils\ControlUtils.cs" />
     <Compile Include="Utils\XMLUtils.cs" />
+    <EmbeddedResource Include="Controls\RecentFileUserControl.resx">
+      <DependentUpon>RecentFileUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ValidateTextBox.resx">
       <DependentUpon>ValidateTextBox.cs</DependentUpon>
     </EmbeddedResource>

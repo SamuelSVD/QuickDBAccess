@@ -12,7 +12,7 @@ namespace QuickDBAccess.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -79,6 +79,18 @@ namespace QuickDBAccess.Properties {
             }
             set {
                 this["RecentFiles"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public global::System.Collections.Generic.List<System.String> RecentFilesProjectName {
+            get {
+                return ((global::System.Collections.Generic.List<System.String>)(this["RecentFilesProjectName"]));
+			}
+            set {
+                this["RecentFilesProjectName"] = value;
             }
         }
     }
