@@ -127,6 +127,9 @@ namespace QuickDBAccess.Forms {
 					}
 				}
 				editToolStripMenuItem.Enabled = true;
+				saveToolStripMenuItem.Enabled = true;
+				saveAsToolStripMenuItem.Enabled = true;
+				closeToolStripMenuItem.Enabled = true;
 			}
 		}
 		private void AddTableView(TableViewModel tv) {
@@ -323,6 +326,33 @@ namespace QuickDBAccess.Forms {
 			ProgramData.SaveConfigAs();
 			UpdateFormText();
 			UpdateRecentFiles();
+		}
+
+		private void closeToolStripMenuItem_Click(object sender, EventArgs e) {
+			if (ProgramData.Changed) {
+				switch (MessageBox.Show("Unsaved changes. Would you like to save before closing?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)) {
+					case DialogResult.Yes:
+						saveToolStripMenuItem_Click(sender, e);
+						if (ProgramData.SaveAsCanceled) return;
+						UpdateRecentFiles();
+						break;
+					case DialogResult.No:
+						break;
+					default:
+						return;
+				}
+			}
+			ProgramData.ValidConfigLocation = false;
+			ProgramData.ShouldBeValidConfigLocation = false;
+			ProgramData.Changed = false;
+			ProgramData.Instance = null;
+			UpdateFormText();
+			BuildTableViews();
+			UpdateRecentFiles();
+			editToolStripMenuItem.Enabled = false;
+			saveToolStripMenuItem.Enabled = false;
+			saveAsToolStripMenuItem.Enabled = false;
+			closeToolStripMenuItem.Enabled = false;
 		}
 	}
 }

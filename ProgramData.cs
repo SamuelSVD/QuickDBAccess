@@ -12,6 +12,7 @@ namespace QuickDBAccess {
 		public static bool ShouldBeValidConfigLocation = false;
 		public static bool Changed = false;
 		public static bool InvalidFile = false;
+		public static bool SaveAsCanceled = true;
 
 		public static string AssemblyDirectory {
             get {
@@ -58,6 +59,7 @@ namespace QuickDBAccess {
 			} else {
 				Instance.SaveToFile(CONFIG);
 				Changed = false;
+				SaveAsCanceled = false;
 				return true;
 			}
 		}
@@ -71,7 +73,10 @@ namespace QuickDBAccess {
 				CONFIG = d.FileName;
 				ValidConfigLocation = true;
 				Changed = false;
+				SaveAsCanceled = false;
 				return true;
+			} else {
+				SaveAsCanceled = true;
 			}
 			d.Dispose();
 			return false;
