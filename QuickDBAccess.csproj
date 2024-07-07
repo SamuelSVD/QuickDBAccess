@@ -91,10 +91,10 @@
     <Compile Include="Forms\AboutForm.designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ButtonEditForm.cs">
+    <Compile Include="Forms\EditForms\ButtonEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ButtonEditForm.Designer.cs">
+    <Compile Include="Forms\EditForms\ButtonEditForm.Designer.cs">
       <DependentUpon>ButtonEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DataFilterForm.cs">
@@ -109,22 +109,22 @@
     <Compile Include="Forms\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\QueryParameterEditForm.cs">
+    <Compile Include="Forms\EditForms\QueryParameterEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\QueryParameterEditForm.Designer.cs">
+    <Compile Include="Forms\EditForms\QueryParameterEditForm.Designer.cs">
       <DependentUpon>QueryParameterEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ConnectionEditForm.cs">
+    <Compile Include="Forms\EditForms\ConnectionEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ConnectionEditForm.Designer.cs">
+    <Compile Include="Forms\EditForms\ConnectionEditForm.Designer.cs">
       <DependentUpon>ConnectionEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DataSourceEditForm.cs">
+    <Compile Include="Forms\EditForms\DataSourceEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DataSourceEditForm.Designer.cs">
+    <Compile Include="Forms\EditForms\DataSourceEditForm.Designer.cs">
       <DependentUpon>DataSourceEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\NewProjectForm.cs">
@@ -133,16 +133,16 @@
     <Compile Include="Forms\NewProjectForm.Designer.cs">
       <DependentUpon>NewProjectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\QuickAccessEditForm.cs">
+    <Compile Include="Forms\EditForms\QuickAccessEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\QuickAccessEditForm.Designer.cs">
+    <Compile Include="Forms\EditForms\QuickAccessEditForm.Designer.cs">
       <DependentUpon>QuickAccessEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TableViewEditForm.cs">
+    <Compile Include="Forms\EditForms\TableViewEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TableViewEditForm.Designer.cs">
+    <Compile Include="Forms\EditForms\TableViewEditForm.Designer.cs">
       <DependentUpon>TableViewEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
@@ -192,7 +192,7 @@
     <EmbeddedResource Include="Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ButtonEditForm.resx">
+    <EmbeddedResource Include="Forms\EditForms\ButtonEditForm.resx">
       <DependentUpon>ButtonEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DataFilterForm.resx">
@@ -201,10 +201,10 @@
     <EmbeddedResource Include="Forms\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\QueryParameterEditForm.resx">
+    <EmbeddedResource Include="Forms\EditForms\QueryParameterEditForm.resx">
       <DependentUpon>QueryParameterEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConnectionEditForm.resx">
+    <EmbeddedResource Include="Forms\EditForms\ConnectionEditForm.resx">
       <DependentUpon>ConnectionEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
@@ -213,16 +213,16 @@
     <EmbeddedResource Include="Forms\NewProjectForm.resx">
       <DependentUpon>NewProjectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\QuickAccessEditForm.resx">
+    <EmbeddedResource Include="Forms\EditForms\QuickAccessEditForm.resx">
       <DependentUpon>QuickAccessEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\QueryForm.resx">
       <DependentUpon>QueryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DataSourceEditForm.resx">
+    <EmbeddedResource Include="Forms\EditForms\DataSourceEditForm.resx">
       <DependentUpon>DataSourceEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TableViewEditForm.resx">
+    <EmbeddedResource Include="Forms\EditForms\TableViewEditForm.resx">
       <DependentUpon>TableViewEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TableViewForm.resx">
