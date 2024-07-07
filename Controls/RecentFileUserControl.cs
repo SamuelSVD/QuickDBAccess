@@ -33,11 +33,15 @@ namespace QuickDBAccess.Controls {
 
 		private void MousePosCheck() {
 			Point p = Control.MousePosition;
+			bool hover = false;
 			if (ProjectPathLabel.ClientRectangle.Contains(ProjectPathLabel.PointToClient(p))) {
-				tableLayoutPanel1.BackColor = HoverColor;
+				hover = true;
 			}else if (ProjectNameLabel.ClientRectangle.Contains(ProjectNameLabel.PointToClient(p))) {
-				tableLayoutPanel1.BackColor = HoverColor;
+				hover = true;
 			} else if (tableLayoutPanel1.ClientRectangle.Contains(tableLayoutPanel1.PointToClient(p))) {
+				hover = true;
+			}
+			if (hover) {
 				tableLayoutPanel1.BackColor = HoverColor;
 			} else {
 				tableLayoutPanel1.BackColor = BackColor;

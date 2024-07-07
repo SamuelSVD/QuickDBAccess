@@ -36,8 +36,8 @@ namespace QuickDBAccess.Forms {
 				RecentFileUserControl b = new RecentFileUserControl();
 				b.ProjectName = recentFileProjName;
 				b.ProjectPath = recentFilePath;
-
-				b.HoverColor = SystemColors.ButtonHighlight;
+				b.BackColor = Color.FromArgb(225, 225, 225);
+				b.HoverColor = Color.FromArgb(229, 241, 251);
 				//b.Text = recentFile;
 				//b.AutoSize = true;
 				//b.Dock = DockStyle.Top;
