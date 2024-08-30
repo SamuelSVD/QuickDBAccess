@@ -142,7 +142,7 @@ namespace QuickDBAccess.Forms {
 			l.TextAlign = ContentAlignment.MiddleLeft;
 			l.MinimumSize = new Size(1, l.Height);
 			l.AutoSize = true;
-			ParametersTableLayoutPanel.Controls.Add(l, i, 0);
+			ParametersTableLayoutPanel.Controls.Add(l, (i*2), 0);
 			switch (param.getSqlDbType()) {
 				case SqlDbType.BigInt:
 					NumericUpDown nud2 = new NumericUpDown();
@@ -206,7 +206,7 @@ namespace QuickDBAccess.Forms {
 			param.c.Dock = DockStyle.Top;
 			Control c = param.c;
 			param.c = null;
-			ParametersTableLayoutPanel.Controls.Add(c, i+1, 0);
+			ParametersTableLayoutPanel.Controls.Add(c, (i*2)+1, 0);
 			paramControlMapping.Add(param, c);
 		}
 		private void BuildChildrenViews() {
