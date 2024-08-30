@@ -40,6 +40,8 @@
 			this.ConnectionDatabase = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.ConnectionUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.ConnectionIntegratedSecurity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.ImportConnectionButton = new System.Windows.Forms.Button();
+			this.ExportConnectionButton = new System.Windows.Forms.Button();
 			this.DataSourcesTabPage = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.DataSourcesDownButton = new System.Windows.Forms.Button();
@@ -51,6 +53,8 @@
 			this.DataSourcesName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.DataSourcesConnection = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.DataSourcesSQLCommand = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.ImportDataSourceButton = new System.Windows.Forms.Button();
+			this.ExportDataSourceButton = new System.Windows.Forms.Button();
 			this.TableViewTabPage = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.TableViewsDownButton = new System.Windows.Forms.Button();
@@ -62,6 +66,8 @@
 			this.TableViewsName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.TableViewsDataSource = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.TableViewsChildrenCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.ImportTableViewButton = new System.Windows.Forms.Button();
+			this.ExportTableViewButton = new System.Windows.Forms.Button();
 			this.ProjectPropertiesTabPage = new System.Windows.Forms.TabPage();
 			this.SettingsGroupBox = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -102,11 +108,12 @@
 			this.tableLayoutPanel1.Controls.Add(this.CancelButton, 2, 1);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 2;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(498, 399);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(996, 767);
 			this.tableLayoutPanel1.TabIndex = 0;
 			// 
 			// tabControl1
@@ -117,19 +124,21 @@
 			this.tabControl1.Controls.Add(this.TableViewTabPage);
 			this.tabControl1.Controls.Add(this.ProjectPropertiesTabPage);
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabControl1.Location = new System.Drawing.Point(3, 3);
+			this.tabControl1.Location = new System.Drawing.Point(6, 6);
+			this.tabControl1.Margin = new System.Windows.Forms.Padding(6);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(492, 364);
+			this.tabControl1.Size = new System.Drawing.Size(984, 699);
 			this.tabControl1.TabIndex = 0;
 			// 
 			// ConnectionsTabPage
 			// 
 			this.ConnectionsTabPage.Controls.Add(this.tableLayoutPanel2);
-			this.ConnectionsTabPage.Location = new System.Drawing.Point(4, 22);
+			this.ConnectionsTabPage.Location = new System.Drawing.Point(8, 39);
+			this.ConnectionsTabPage.Margin = new System.Windows.Forms.Padding(6);
 			this.ConnectionsTabPage.Name = "ConnectionsTabPage";
-			this.ConnectionsTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.ConnectionsTabPage.Size = new System.Drawing.Size(484, 338);
+			this.ConnectionsTabPage.Padding = new System.Windows.Forms.Padding(6);
+			this.ConnectionsTabPage.Size = new System.Drawing.Size(968, 652);
 			this.ConnectionsTabPage.TabIndex = 0;
 			this.ConnectionsTabPage.Text = "Connections";
 			this.ConnectionsTabPage.UseVisualStyleBackColor = true;
@@ -148,13 +157,18 @@
 			this.tableLayoutPanel2.Controls.Add(this.EditConnectionButton, 3, 0);
 			this.tableLayoutPanel2.Controls.Add(this.AddConnectionButton, 2, 0);
 			this.tableLayoutPanel2.Controls.Add(this.ConnectionsListView, 1, 0);
+			this.tableLayoutPanel2.Controls.Add(this.ImportConnectionButton, 2, 2);
+			this.tableLayoutPanel2.Controls.Add(this.ExportConnectionButton, 2, 3);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 6);
+			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(6);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 2;
+			this.tableLayoutPanel2.RowCount = 4;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(478, 332);
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(956, 640);
 			this.tableLayoutPanel2.TabIndex = 0;
 			// 
 			// ConnectionsDownButton
@@ -162,9 +176,10 @@
 			this.ConnectionsDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down_disabled;
 			this.ConnectionsDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.ConnectionsDownButton.Enabled = false;
-			this.ConnectionsDownButton.Location = new System.Drawing.Point(3, 32);
+			this.ConnectionsDownButton.Location = new System.Drawing.Point(6, 62);
+			this.ConnectionsDownButton.Margin = new System.Windows.Forms.Padding(6);
 			this.ConnectionsDownButton.Name = "ConnectionsDownButton";
-			this.ConnectionsDownButton.Size = new System.Drawing.Size(23, 23);
+			this.ConnectionsDownButton.Size = new System.Drawing.Size(46, 44);
 			this.ConnectionsDownButton.TabIndex = 2;
 			this.ConnectionsDownButton.UseVisualStyleBackColor = true;
 			this.ConnectionsDownButton.EnabledChanged += new System.EventHandler(this.ConnectionsDownButton_EnabledChanged);
@@ -175,9 +190,10 @@
 			this.ConnectionsUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up_disabled;
 			this.ConnectionsUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.ConnectionsUpButton.Enabled = false;
-			this.ConnectionsUpButton.Location = new System.Drawing.Point(3, 3);
+			this.ConnectionsUpButton.Location = new System.Drawing.Point(6, 6);
+			this.ConnectionsUpButton.Margin = new System.Windows.Forms.Padding(6);
 			this.ConnectionsUpButton.Name = "ConnectionsUpButton";
-			this.ConnectionsUpButton.Size = new System.Drawing.Size(23, 23);
+			this.ConnectionsUpButton.Size = new System.Drawing.Size(46, 44);
 			this.ConnectionsUpButton.TabIndex = 1;
 			this.ConnectionsUpButton.UseVisualStyleBackColor = true;
 			this.ConnectionsUpButton.EnabledChanged += new System.EventHandler(this.ConnectionsUpButton_EnabledChanged);
@@ -188,9 +204,10 @@
 			this.DeleteConnectionButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.delete_disabled;
 			this.DeleteConnectionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.DeleteConnectionButton.Enabled = false;
-			this.DeleteConnectionButton.Location = new System.Drawing.Point(452, 3);
+			this.DeleteConnectionButton.Location = new System.Drawing.Point(904, 6);
+			this.DeleteConnectionButton.Margin = new System.Windows.Forms.Padding(6);
 			this.DeleteConnectionButton.Name = "DeleteConnectionButton";
-			this.DeleteConnectionButton.Size = new System.Drawing.Size(23, 23);
+			this.DeleteConnectionButton.Size = new System.Drawing.Size(46, 44);
 			this.DeleteConnectionButton.TabIndex = 6;
 			this.DeleteConnectionButton.UseVisualStyleBackColor = true;
 			this.DeleteConnectionButton.EnabledChanged += new System.EventHandler(this.DeleteConnectionButton_EnabledChanged);
@@ -201,9 +218,10 @@
 			this.EditConnectionButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.edit_disabled;
 			this.EditConnectionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.EditConnectionButton.Enabled = false;
-			this.EditConnectionButton.Location = new System.Drawing.Point(423, 3);
+			this.EditConnectionButton.Location = new System.Drawing.Point(846, 6);
+			this.EditConnectionButton.Margin = new System.Windows.Forms.Padding(6);
 			this.EditConnectionButton.Name = "EditConnectionButton";
-			this.EditConnectionButton.Size = new System.Drawing.Size(23, 23);
+			this.EditConnectionButton.Size = new System.Drawing.Size(46, 44);
 			this.EditConnectionButton.TabIndex = 5;
 			this.EditConnectionButton.UseVisualStyleBackColor = true;
 			this.EditConnectionButton.EnabledChanged += new System.EventHandler(this.EditConnectionButton_EnabledChanged);
@@ -213,9 +231,10 @@
 			// 
 			this.AddConnectionButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.add;
 			this.AddConnectionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.AddConnectionButton.Location = new System.Drawing.Point(394, 3);
+			this.AddConnectionButton.Location = new System.Drawing.Point(788, 6);
+			this.AddConnectionButton.Margin = new System.Windows.Forms.Padding(6);
 			this.AddConnectionButton.Name = "AddConnectionButton";
-			this.AddConnectionButton.Size = new System.Drawing.Size(23, 23);
+			this.AddConnectionButton.Size = new System.Drawing.Size(46, 44);
 			this.AddConnectionButton.TabIndex = 4;
 			this.AddConnectionButton.UseVisualStyleBackColor = true;
 			this.AddConnectionButton.Click += new System.EventHandler(this.AddConnectionButton_Click);
@@ -230,10 +249,11 @@
             this.ConnectionIntegratedSecurity});
 			this.ConnectionsListView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ConnectionsListView.HideSelection = false;
-			this.ConnectionsListView.Location = new System.Drawing.Point(32, 3);
+			this.ConnectionsListView.Location = new System.Drawing.Point(64, 6);
+			this.ConnectionsListView.Margin = new System.Windows.Forms.Padding(6);
 			this.ConnectionsListView.Name = "ConnectionsListView";
-			this.tableLayoutPanel2.SetRowSpan(this.ConnectionsListView, 2);
-			this.ConnectionsListView.Size = new System.Drawing.Size(356, 326);
+			this.tableLayoutPanel2.SetRowSpan(this.ConnectionsListView, 4);
+			this.ConnectionsListView.Size = new System.Drawing.Size(712, 628);
 			this.ConnectionsListView.TabIndex = 3;
 			this.ConnectionsListView.UseCompatibleStateImageBehavior = false;
 			this.ConnectionsListView.View = System.Windows.Forms.View.Details;
@@ -263,13 +283,40 @@
 			// 
 			this.ConnectionIntegratedSecurity.Text = "Integrated Security";
 			// 
+			// ImportConnectionButton
+			// 
+			this.ImportConnectionButton.AutoSize = true;
+			this.tableLayoutPanel2.SetColumnSpan(this.ImportConnectionButton, 3);
+			this.ImportConnectionButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.ImportConnectionButton.Location = new System.Drawing.Point(785, 561);
+			this.ImportConnectionButton.Name = "ImportConnectionButton";
+			this.ImportConnectionButton.Size = new System.Drawing.Size(168, 35);
+			this.ImportConnectionButton.TabIndex = 7;
+			this.ImportConnectionButton.Text = "Import";
+			this.ImportConnectionButton.UseVisualStyleBackColor = true;
+			this.ImportConnectionButton.Click += new System.EventHandler(this.ImportConnectionButton_Click);
+			// 
+			// ExportConnectionButton
+			// 
+			this.ExportConnectionButton.AutoSize = true;
+			this.tableLayoutPanel2.SetColumnSpan(this.ExportConnectionButton, 3);
+			this.ExportConnectionButton.Dock = System.Windows.Forms.DockStyle.Top;
+			this.ExportConnectionButton.Location = new System.Drawing.Point(785, 602);
+			this.ExportConnectionButton.Name = "ExportConnectionButton";
+			this.ExportConnectionButton.Size = new System.Drawing.Size(168, 35);
+			this.ExportConnectionButton.TabIndex = 0;
+			this.ExportConnectionButton.Text = "Export";
+			this.ExportConnectionButton.UseVisualStyleBackColor = true;
+			this.ExportConnectionButton.Click += new System.EventHandler(this.ExportConnectionButton_Click);
+			// 
 			// DataSourcesTabPage
 			// 
 			this.DataSourcesTabPage.Controls.Add(this.tableLayoutPanel3);
-			this.DataSourcesTabPage.Location = new System.Drawing.Point(4, 22);
+			this.DataSourcesTabPage.Location = new System.Drawing.Point(8, 39);
+			this.DataSourcesTabPage.Margin = new System.Windows.Forms.Padding(6);
 			this.DataSourcesTabPage.Name = "DataSourcesTabPage";
-			this.DataSourcesTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.DataSourcesTabPage.Size = new System.Drawing.Size(484, 338);
+			this.DataSourcesTabPage.Padding = new System.Windows.Forms.Padding(6);
+			this.DataSourcesTabPage.Size = new System.Drawing.Size(968, 652);
 			this.DataSourcesTabPage.TabIndex = 1;
 			this.DataSourcesTabPage.Text = "Data Sources";
 			this.DataSourcesTabPage.UseVisualStyleBackColor = true;
@@ -288,13 +335,18 @@
 			this.tableLayoutPanel3.Controls.Add(this.EditDataSourceButton, 3, 0);
 			this.tableLayoutPanel3.Controls.Add(this.NewDataSourceButton, 2, 0);
 			this.tableLayoutPanel3.Controls.Add(this.DataSourcesListView, 1, 0);
+			this.tableLayoutPanel3.Controls.Add(this.ImportDataSourceButton, 2, 2);
+			this.tableLayoutPanel3.Controls.Add(this.ExportDataSourceButton, 2, 3);
 			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 6);
+			this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(6);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-			this.tableLayoutPanel3.RowCount = 2;
+			this.tableLayoutPanel3.RowCount = 4;
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(478, 332);
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(956, 640);
 			this.tableLayoutPanel3.TabIndex = 1;
 			// 
 			// DataSourcesDownButton
@@ -302,9 +354,10 @@
 			this.DataSourcesDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down_disabled;
 			this.DataSourcesDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.DataSourcesDownButton.Enabled = false;
-			this.DataSourcesDownButton.Location = new System.Drawing.Point(3, 32);
+			this.DataSourcesDownButton.Location = new System.Drawing.Point(6, 62);
+			this.DataSourcesDownButton.Margin = new System.Windows.Forms.Padding(6);
 			this.DataSourcesDownButton.Name = "DataSourcesDownButton";
-			this.DataSourcesDownButton.Size = new System.Drawing.Size(23, 23);
+			this.DataSourcesDownButton.Size = new System.Drawing.Size(46, 44);
 			this.DataSourcesDownButton.TabIndex = 2;
 			this.DataSourcesDownButton.UseVisualStyleBackColor = true;
 			this.DataSourcesDownButton.EnabledChanged += new System.EventHandler(this.DataSourcesDownButton_EnabledChanged);
@@ -315,9 +368,10 @@
 			this.DataSourcesUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up_disabled;
 			this.DataSourcesUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.DataSourcesUpButton.Enabled = false;
-			this.DataSourcesUpButton.Location = new System.Drawing.Point(3, 3);
+			this.DataSourcesUpButton.Location = new System.Drawing.Point(6, 6);
+			this.DataSourcesUpButton.Margin = new System.Windows.Forms.Padding(6);
 			this.DataSourcesUpButton.Name = "DataSourcesUpButton";
-			this.DataSourcesUpButton.Size = new System.Drawing.Size(23, 23);
+			this.DataSourcesUpButton.Size = new System.Drawing.Size(46, 44);
 			this.DataSourcesUpButton.TabIndex = 1;
 			this.DataSourcesUpButton.UseVisualStyleBackColor = true;
 			this.DataSourcesUpButton.EnabledChanged += new System.EventHandler(this.DataSourcesUpButton_EnabledChanged);
@@ -328,9 +382,10 @@
 			this.DeleteDataSourceButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.delete_disabled;
 			this.DeleteDataSourceButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.DeleteDataSourceButton.Enabled = false;
-			this.DeleteDataSourceButton.Location = new System.Drawing.Point(452, 3);
+			this.DeleteDataSourceButton.Location = new System.Drawing.Point(904, 6);
+			this.DeleteDataSourceButton.Margin = new System.Windows.Forms.Padding(6);
 			this.DeleteDataSourceButton.Name = "DeleteDataSourceButton";
-			this.DeleteDataSourceButton.Size = new System.Drawing.Size(23, 23);
+			this.DeleteDataSourceButton.Size = new System.Drawing.Size(46, 44);
 			this.DeleteDataSourceButton.TabIndex = 6;
 			this.DeleteDataSourceButton.UseVisualStyleBackColor = true;
 			this.DeleteDataSourceButton.EnabledChanged += new System.EventHandler(this.DeleteDataSourceButton_EnabledChanged);
@@ -341,9 +396,10 @@
 			this.EditDataSourceButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.edit_disabled;
 			this.EditDataSourceButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.EditDataSourceButton.Enabled = false;
-			this.EditDataSourceButton.Location = new System.Drawing.Point(423, 3);
+			this.EditDataSourceButton.Location = new System.Drawing.Point(846, 6);
+			this.EditDataSourceButton.Margin = new System.Windows.Forms.Padding(6);
 			this.EditDataSourceButton.Name = "EditDataSourceButton";
-			this.EditDataSourceButton.Size = new System.Drawing.Size(23, 23);
+			this.EditDataSourceButton.Size = new System.Drawing.Size(46, 44);
 			this.EditDataSourceButton.TabIndex = 5;
 			this.EditDataSourceButton.UseVisualStyleBackColor = true;
 			this.EditDataSourceButton.EnabledChanged += new System.EventHandler(this.EditDataSourceButton_EnabledChanged);
@@ -353,9 +409,10 @@
 			// 
 			this.NewDataSourceButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.add;
 			this.NewDataSourceButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.NewDataSourceButton.Location = new System.Drawing.Point(394, 3);
+			this.NewDataSourceButton.Location = new System.Drawing.Point(788, 6);
+			this.NewDataSourceButton.Margin = new System.Windows.Forms.Padding(6);
 			this.NewDataSourceButton.Name = "NewDataSourceButton";
-			this.NewDataSourceButton.Size = new System.Drawing.Size(23, 23);
+			this.NewDataSourceButton.Size = new System.Drawing.Size(46, 44);
 			this.NewDataSourceButton.TabIndex = 4;
 			this.NewDataSourceButton.UseVisualStyleBackColor = true;
 			this.NewDataSourceButton.Click += new System.EventHandler(this.NewDataSourceButton_Click);
@@ -368,10 +425,11 @@
             this.DataSourcesSQLCommand});
 			this.DataSourcesListView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.DataSourcesListView.HideSelection = false;
-			this.DataSourcesListView.Location = new System.Drawing.Point(32, 3);
+			this.DataSourcesListView.Location = new System.Drawing.Point(64, 6);
+			this.DataSourcesListView.Margin = new System.Windows.Forms.Padding(6);
 			this.DataSourcesListView.Name = "DataSourcesListView";
-			this.tableLayoutPanel3.SetRowSpan(this.DataSourcesListView, 2);
-			this.DataSourcesListView.Size = new System.Drawing.Size(356, 326);
+			this.tableLayoutPanel3.SetRowSpan(this.DataSourcesListView, 4);
+			this.DataSourcesListView.Size = new System.Drawing.Size(712, 628);
 			this.DataSourcesListView.TabIndex = 3;
 			this.DataSourcesListView.UseCompatibleStateImageBehavior = false;
 			this.DataSourcesListView.View = System.Windows.Forms.View.Details;
@@ -395,13 +453,40 @@
 			this.DataSourcesSQLCommand.Text = "SQL Command";
 			this.DataSourcesSQLCommand.Width = 114;
 			// 
+			// ImportDataSourceButton
+			// 
+			this.ImportDataSourceButton.AutoSize = true;
+			this.tableLayoutPanel3.SetColumnSpan(this.ImportDataSourceButton, 3);
+			this.ImportDataSourceButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.ImportDataSourceButton.Location = new System.Drawing.Point(785, 561);
+			this.ImportDataSourceButton.Name = "ImportDataSourceButton";
+			this.ImportDataSourceButton.Size = new System.Drawing.Size(168, 35);
+			this.ImportDataSourceButton.TabIndex = 7;
+			this.ImportDataSourceButton.Text = "Import";
+			this.ImportDataSourceButton.UseVisualStyleBackColor = true;
+			this.ImportDataSourceButton.Click += new System.EventHandler(this.ImportDataSourceButton_Click);
+			// 
+			// ExportDataSourceButton
+			// 
+			this.ExportDataSourceButton.AutoSize = true;
+			this.tableLayoutPanel3.SetColumnSpan(this.ExportDataSourceButton, 3);
+			this.ExportDataSourceButton.Dock = System.Windows.Forms.DockStyle.Top;
+			this.ExportDataSourceButton.Location = new System.Drawing.Point(785, 602);
+			this.ExportDataSourceButton.Name = "ExportDataSourceButton";
+			this.ExportDataSourceButton.Size = new System.Drawing.Size(168, 35);
+			this.ExportDataSourceButton.TabIndex = 8;
+			this.ExportDataSourceButton.Text = "Export";
+			this.ExportDataSourceButton.UseVisualStyleBackColor = true;
+			this.ExportDataSourceButton.Click += new System.EventHandler(this.ExportDataSourceButton_Click);
+			// 
 			// TableViewTabPage
 			// 
 			this.TableViewTabPage.Controls.Add(this.tableLayoutPanel4);
-			this.TableViewTabPage.Location = new System.Drawing.Point(4, 22);
+			this.TableViewTabPage.Location = new System.Drawing.Point(8, 39);
+			this.TableViewTabPage.Margin = new System.Windows.Forms.Padding(6);
 			this.TableViewTabPage.Name = "TableViewTabPage";
-			this.TableViewTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.TableViewTabPage.Size = new System.Drawing.Size(484, 338);
+			this.TableViewTabPage.Padding = new System.Windows.Forms.Padding(6);
+			this.TableViewTabPage.Size = new System.Drawing.Size(968, 652);
 			this.TableViewTabPage.TabIndex = 2;
 			this.TableViewTabPage.Text = "Table Views";
 			this.TableViewTabPage.UseVisualStyleBackColor = true;
@@ -420,13 +505,18 @@
 			this.tableLayoutPanel4.Controls.Add(this.EditTableViewButton, 3, 0);
 			this.tableLayoutPanel4.Controls.Add(this.NewTableViewButton, 2, 0);
 			this.tableLayoutPanel4.Controls.Add(this.TableViewsListView, 1, 0);
+			this.tableLayoutPanel4.Controls.Add(this.ImportTableViewButton, 2, 2);
+			this.tableLayoutPanel4.Controls.Add(this.ExportTableViewButton, 2, 3);
 			this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel4.Location = new System.Drawing.Point(6, 6);
+			this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(6);
 			this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-			this.tableLayoutPanel4.RowCount = 2;
+			this.tableLayoutPanel4.RowCount = 4;
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel4.Size = new System.Drawing.Size(478, 332);
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(956, 640);
 			this.tableLayoutPanel4.TabIndex = 1;
 			// 
 			// TableViewsDownButton
@@ -434,9 +524,10 @@
 			this.TableViewsDownButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.down_disabled;
 			this.TableViewsDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.TableViewsDownButton.Enabled = false;
-			this.TableViewsDownButton.Location = new System.Drawing.Point(3, 32);
+			this.TableViewsDownButton.Location = new System.Drawing.Point(6, 62);
+			this.TableViewsDownButton.Margin = new System.Windows.Forms.Padding(6);
 			this.TableViewsDownButton.Name = "TableViewsDownButton";
-			this.TableViewsDownButton.Size = new System.Drawing.Size(23, 23);
+			this.TableViewsDownButton.Size = new System.Drawing.Size(46, 44);
 			this.TableViewsDownButton.TabIndex = 2;
 			this.TableViewsDownButton.UseVisualStyleBackColor = true;
 			this.TableViewsDownButton.EnabledChanged += new System.EventHandler(this.TableViewsDownButton_EnabledChanged);
@@ -447,9 +538,10 @@
 			this.TableViewsUpButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.up_disabled;
 			this.TableViewsUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.TableViewsUpButton.Enabled = false;
-			this.TableViewsUpButton.Location = new System.Drawing.Point(3, 3);
+			this.TableViewsUpButton.Location = new System.Drawing.Point(6, 6);
+			this.TableViewsUpButton.Margin = new System.Windows.Forms.Padding(6);
 			this.TableViewsUpButton.Name = "TableViewsUpButton";
-			this.TableViewsUpButton.Size = new System.Drawing.Size(23, 23);
+			this.TableViewsUpButton.Size = new System.Drawing.Size(46, 44);
 			this.TableViewsUpButton.TabIndex = 1;
 			this.TableViewsUpButton.UseVisualStyleBackColor = true;
 			this.TableViewsUpButton.EnabledChanged += new System.EventHandler(this.TableViewsUpButton_EnabledChanged);
@@ -460,9 +552,10 @@
 			this.DeleteTableViewButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.delete_disabled;
 			this.DeleteTableViewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.DeleteTableViewButton.Enabled = false;
-			this.DeleteTableViewButton.Location = new System.Drawing.Point(452, 3);
+			this.DeleteTableViewButton.Location = new System.Drawing.Point(904, 6);
+			this.DeleteTableViewButton.Margin = new System.Windows.Forms.Padding(6);
 			this.DeleteTableViewButton.Name = "DeleteTableViewButton";
-			this.DeleteTableViewButton.Size = new System.Drawing.Size(23, 23);
+			this.DeleteTableViewButton.Size = new System.Drawing.Size(46, 44);
 			this.DeleteTableViewButton.TabIndex = 6;
 			this.DeleteTableViewButton.UseVisualStyleBackColor = true;
 			this.DeleteTableViewButton.EnabledChanged += new System.EventHandler(this.DeleteTableViewButton_EnabledChanged);
@@ -473,9 +566,10 @@
 			this.EditTableViewButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.edit_disabled;
 			this.EditTableViewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.EditTableViewButton.Enabled = false;
-			this.EditTableViewButton.Location = new System.Drawing.Point(423, 3);
+			this.EditTableViewButton.Location = new System.Drawing.Point(846, 6);
+			this.EditTableViewButton.Margin = new System.Windows.Forms.Padding(6);
 			this.EditTableViewButton.Name = "EditTableViewButton";
-			this.EditTableViewButton.Size = new System.Drawing.Size(23, 23);
+			this.EditTableViewButton.Size = new System.Drawing.Size(46, 44);
 			this.EditTableViewButton.TabIndex = 5;
 			this.EditTableViewButton.UseVisualStyleBackColor = true;
 			this.EditTableViewButton.EnabledChanged += new System.EventHandler(this.EditTableViewButton_EnabledChanged);
@@ -485,9 +579,10 @@
 			// 
 			this.NewTableViewButton.BackgroundImage = global::QuickDBAccess.Properties.Resources.add;
 			this.NewTableViewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.NewTableViewButton.Location = new System.Drawing.Point(394, 3);
+			this.NewTableViewButton.Location = new System.Drawing.Point(788, 6);
+			this.NewTableViewButton.Margin = new System.Windows.Forms.Padding(6);
 			this.NewTableViewButton.Name = "NewTableViewButton";
-			this.NewTableViewButton.Size = new System.Drawing.Size(23, 23);
+			this.NewTableViewButton.Size = new System.Drawing.Size(46, 44);
 			this.NewTableViewButton.TabIndex = 4;
 			this.NewTableViewButton.UseVisualStyleBackColor = true;
 			this.NewTableViewButton.Click += new System.EventHandler(this.NewTableViewButton_Click);
@@ -500,10 +595,11 @@
             this.TableViewsChildrenCount});
 			this.TableViewsListView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.TableViewsListView.HideSelection = false;
-			this.TableViewsListView.Location = new System.Drawing.Point(32, 3);
+			this.TableViewsListView.Location = new System.Drawing.Point(64, 6);
+			this.TableViewsListView.Margin = new System.Windows.Forms.Padding(6);
 			this.TableViewsListView.Name = "TableViewsListView";
-			this.tableLayoutPanel4.SetRowSpan(this.TableViewsListView, 2);
-			this.TableViewsListView.Size = new System.Drawing.Size(356, 326);
+			this.tableLayoutPanel4.SetRowSpan(this.TableViewsListView, 4);
+			this.TableViewsListView.Size = new System.Drawing.Size(712, 628);
 			this.TableViewsListView.TabIndex = 3;
 			this.TableViewsListView.UseCompatibleStateImageBehavior = false;
 			this.TableViewsListView.View = System.Windows.Forms.View.Details;
@@ -527,13 +623,40 @@
 			this.TableViewsChildrenCount.Text = "Sub-tables";
 			this.TableViewsChildrenCount.Width = 92;
 			// 
+			// ImportTableViewButton
+			// 
+			this.ImportTableViewButton.AutoSize = true;
+			this.tableLayoutPanel4.SetColumnSpan(this.ImportTableViewButton, 3);
+			this.ImportTableViewButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.ImportTableViewButton.Location = new System.Drawing.Point(785, 561);
+			this.ImportTableViewButton.Name = "ImportTableViewButton";
+			this.ImportTableViewButton.Size = new System.Drawing.Size(168, 35);
+			this.ImportTableViewButton.TabIndex = 7;
+			this.ImportTableViewButton.Text = "Import";
+			this.ImportTableViewButton.UseVisualStyleBackColor = true;
+			this.ImportTableViewButton.Click += new System.EventHandler(this.ImportTableViewButton_Click);
+			// 
+			// ExportTableViewButton
+			// 
+			this.ExportTableViewButton.AutoSize = true;
+			this.tableLayoutPanel4.SetColumnSpan(this.ExportTableViewButton, 3);
+			this.ExportTableViewButton.Dock = System.Windows.Forms.DockStyle.Top;
+			this.ExportTableViewButton.Location = new System.Drawing.Point(785, 602);
+			this.ExportTableViewButton.Name = "ExportTableViewButton";
+			this.ExportTableViewButton.Size = new System.Drawing.Size(168, 35);
+			this.ExportTableViewButton.TabIndex = 8;
+			this.ExportTableViewButton.Text = "Export";
+			this.ExportTableViewButton.UseVisualStyleBackColor = true;
+			this.ExportTableViewButton.Click += new System.EventHandler(this.ExportTableViewButton_Click);
+			// 
 			// ProjectPropertiesTabPage
 			// 
 			this.ProjectPropertiesTabPage.Controls.Add(this.SettingsGroupBox);
-			this.ProjectPropertiesTabPage.Location = new System.Drawing.Point(4, 22);
+			this.ProjectPropertiesTabPage.Location = new System.Drawing.Point(8, 39);
+			this.ProjectPropertiesTabPage.Margin = new System.Windows.Forms.Padding(6);
 			this.ProjectPropertiesTabPage.Name = "ProjectPropertiesTabPage";
-			this.ProjectPropertiesTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.ProjectPropertiesTabPage.Size = new System.Drawing.Size(484, 338);
+			this.ProjectPropertiesTabPage.Padding = new System.Windows.Forms.Padding(6);
+			this.ProjectPropertiesTabPage.Size = new System.Drawing.Size(968, 652);
 			this.ProjectPropertiesTabPage.TabIndex = 3;
 			this.ProjectPropertiesTabPage.Text = "Properties";
 			this.ProjectPropertiesTabPage.UseVisualStyleBackColor = true;
@@ -544,9 +667,11 @@
 			this.SettingsGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.SettingsGroupBox.Controls.Add(this.tableLayoutPanel5);
 			this.SettingsGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
-			this.SettingsGroupBox.Location = new System.Drawing.Point(3, 3);
+			this.SettingsGroupBox.Location = new System.Drawing.Point(6, 6);
+			this.SettingsGroupBox.Margin = new System.Windows.Forms.Padding(6);
 			this.SettingsGroupBox.Name = "SettingsGroupBox";
-			this.SettingsGroupBox.Size = new System.Drawing.Size(478, 47);
+			this.SettingsGroupBox.Padding = new System.Windows.Forms.Padding(6);
+			this.SettingsGroupBox.Size = new System.Drawing.Size(956, 102);
 			this.SettingsGroupBox.TabIndex = 0;
 			this.SettingsGroupBox.TabStop = false;
 			this.SettingsGroupBox.Text = "Project Properties";
@@ -561,19 +686,21 @@
 			this.tableLayoutPanel5.Controls.Add(this.ProjectNameTextBox, 1, 0);
 			this.tableLayoutPanel5.Controls.Add(this.label1, 0, 0);
 			this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
-			this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 16);
+			this.tableLayoutPanel5.Location = new System.Drawing.Point(6, 30);
+			this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(6);
 			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
 			this.tableLayoutPanel5.RowCount = 1;
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel5.Size = new System.Drawing.Size(472, 28);
+			this.tableLayoutPanel5.Size = new System.Drawing.Size(944, 66);
 			this.tableLayoutPanel5.TabIndex = 0;
 			// 
 			// ProjectNameTextBox
 			// 
 			this.ProjectNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-			this.ProjectNameTextBox.Location = new System.Drawing.Point(80, 3);
+			this.ProjectNameTextBox.Location = new System.Drawing.Point(165, 12);
+			this.ProjectNameTextBox.Margin = new System.Windows.Forms.Padding(12);
 			this.ProjectNameTextBox.Name = "ProjectNameTextBox";
-			this.ProjectNameTextBox.Size = new System.Drawing.Size(389, 22);
+			this.ProjectNameTextBox.Size = new System.Drawing.Size(778, 42);
 			this.ProjectNameTextBox.TabIndex = 1;
 			this.ProjectNameTextBox.TooltipText = null;
 			this.ProjectNameTextBox.Valid = true;
@@ -582,18 +709,20 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-			this.label1.Location = new System.Drawing.Point(3, 0);
+			this.label1.Location = new System.Drawing.Point(6, 0);
+			this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(71, 28);
+			this.label1.Size = new System.Drawing.Size(141, 66);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Project Name";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// OkButton
 			// 
-			this.OkButton.Location = new System.Drawing.Point(339, 373);
+			this.OkButton.Location = new System.Drawing.Point(678, 717);
+			this.OkButton.Margin = new System.Windows.Forms.Padding(6);
 			this.OkButton.Name = "OkButton";
-			this.OkButton.Size = new System.Drawing.Size(75, 23);
+			this.OkButton.Size = new System.Drawing.Size(150, 44);
 			this.OkButton.TabIndex = 8;
 			this.OkButton.Text = "OK";
 			this.OkButton.UseVisualStyleBackColor = true;
@@ -602,63 +731,68 @@
 			// CancelButton
 			// 
 			this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelButton.Location = new System.Drawing.Point(420, 373);
+			this.CancelButton.Location = new System.Drawing.Point(840, 717);
+			this.CancelButton.Margin = new System.Windows.Forms.Padding(6);
 			this.CancelButton.Name = "CancelButton";
-			this.CancelButton.Size = new System.Drawing.Size(75, 23);
+			this.CancelButton.Size = new System.Drawing.Size(150, 44);
 			this.CancelButton.TabIndex = 9;
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
 			// 
 			// ConnectionsContextMenu
 			// 
+			this.ConnectionsContextMenu.ImageScalingSize = new System.Drawing.Size(32, 32);
 			this.ConnectionsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DuplicateConnectionsMenuItem});
 			this.ConnectionsContextMenu.Name = "ConnectionsContextMenu";
-			this.ConnectionsContextMenu.Size = new System.Drawing.Size(125, 26);
+			this.ConnectionsContextMenu.Size = new System.Drawing.Size(190, 42);
 			// 
 			// DuplicateConnectionsMenuItem
 			// 
 			this.DuplicateConnectionsMenuItem.Name = "DuplicateConnectionsMenuItem";
-			this.DuplicateConnectionsMenuItem.Size = new System.Drawing.Size(124, 22);
+			this.DuplicateConnectionsMenuItem.Size = new System.Drawing.Size(189, 38);
 			this.DuplicateConnectionsMenuItem.Text = "Duplicate";
 			this.DuplicateConnectionsMenuItem.Click += new System.EventHandler(this.DuplicateConnectionToolStripMenuItem_Click);
 			// 
 			// DataSourcesContextMenu
 			// 
+			this.DataSourcesContextMenu.ImageScalingSize = new System.Drawing.Size(32, 32);
 			this.DataSourcesContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DuplicateDataSourcesMenuItem});
 			this.DataSourcesContextMenu.Name = "ConnectionsContextMenu";
-			this.DataSourcesContextMenu.Size = new System.Drawing.Size(125, 26);
+			this.DataSourcesContextMenu.Size = new System.Drawing.Size(190, 42);
 			// 
 			// DuplicateDataSourcesMenuItem
 			// 
 			this.DuplicateDataSourcesMenuItem.Name = "DuplicateDataSourcesMenuItem";
-			this.DuplicateDataSourcesMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.DuplicateDataSourcesMenuItem.Size = new System.Drawing.Size(189, 38);
 			this.DuplicateDataSourcesMenuItem.Text = "Duplicate";
 			this.DuplicateDataSourcesMenuItem.Click += new System.EventHandler(this.DuplicateDataSourcesMenuItem_Click);
 			// 
 			// TableViewsContextMenu
 			// 
+			this.TableViewsContextMenu.ImageScalingSize = new System.Drawing.Size(32, 32);
 			this.TableViewsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DuplicateTableViewsMenuItem});
 			this.TableViewsContextMenu.Name = "ConnectionsContextMenu";
-			this.TableViewsContextMenu.Size = new System.Drawing.Size(181, 48);
+			this.TableViewsContextMenu.Size = new System.Drawing.Size(190, 42);
 			// 
 			// DuplicateTableViewsMenuItem
 			// 
 			this.DuplicateTableViewsMenuItem.Name = "DuplicateTableViewsMenuItem";
-			this.DuplicateTableViewsMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.DuplicateTableViewsMenuItem.Size = new System.Drawing.Size(189, 38);
 			this.DuplicateTableViewsMenuItem.Text = "Duplicate";
 			this.DuplicateTableViewsMenuItem.Click += new System.EventHandler(this.DuplicateTableViewsMenuItem_Click);
 			// 
 			// QuickAccessEditForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(498, 399);
+			this.ClientSize = new System.Drawing.Size(996, 767);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MinimumSize = new System.Drawing.Size(514, 438);
+			this.Margin = new System.Windows.Forms.Padding(6);
+			this.MinimumSize = new System.Drawing.Size(1002, 777);
 			this.Name = "QuickAccessEditForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Edit QDBA Program";
@@ -666,10 +800,13 @@
 			this.tabControl1.ResumeLayout(false);
 			this.ConnectionsTabPage.ResumeLayout(false);
 			this.tableLayoutPanel2.ResumeLayout(false);
+			this.tableLayoutPanel2.PerformLayout();
 			this.DataSourcesTabPage.ResumeLayout(false);
 			this.tableLayoutPanel3.ResumeLayout(false);
+			this.tableLayoutPanel3.PerformLayout();
 			this.TableViewTabPage.ResumeLayout(false);
 			this.tableLayoutPanel4.ResumeLayout(false);
+			this.tableLayoutPanel4.PerformLayout();
 			this.ProjectPropertiesTabPage.ResumeLayout(false);
 			this.ProjectPropertiesTabPage.PerformLayout();
 			this.SettingsGroupBox.ResumeLayout(false);
@@ -735,5 +872,11 @@
 		private System.Windows.Forms.ToolStripMenuItem DuplicateDataSourcesMenuItem;
 		private System.Windows.Forms.ContextMenuStrip TableViewsContextMenu;
 		private System.Windows.Forms.ToolStripMenuItem DuplicateTableViewsMenuItem;
+		private System.Windows.Forms.Button ImportConnectionButton;
+		private System.Windows.Forms.Button ExportConnectionButton;
+		private System.Windows.Forms.Button ImportDataSourceButton;
+		private System.Windows.Forms.Button ExportDataSourceButton;
+		private System.Windows.Forms.Button ImportTableViewButton;
+		private System.Windows.Forms.Button ExportTableViewButton;
 	}
 }

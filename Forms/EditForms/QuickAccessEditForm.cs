@@ -575,5 +575,35 @@ namespace QuickDBAccess.Forms {
 				}
 			}
 		}
+
+		private void ImportConnectionButton_Click(object sender, EventArgs e) {
+			MessageBox.Show("Import Connection");
+		}
+
+		private void ExportConnectionButton_Click(object sender, EventArgs e) {
+			if (!(SelectedConnection is null)) {
+				MessageBox.Show("Export Connection");
+			}
+		}
+
+		private void ImportDataSourceButton_Click(object sender, EventArgs e) {
+			MessageBox.Show("Import Data Source");
+		}
+
+		private void ExportDataSourceButton_Click(object sender, EventArgs e) {
+			if (!(SelectedDataSource is null)) {
+				MessageBox.Show("Export Data Source");
+			}
+		}
+
+		private void ImportTableViewButton_Click(object sender, EventArgs e) {
+			MessageBox.Show("Import Table View");
+		}
+
+		private void ExportTableViewButton_Click(object sender, EventArgs e) {
+			if (!(SelectedTableView is null)) {
+				MessageBox.Show("Export Table View");
+			}
+		}
 	}
 }
